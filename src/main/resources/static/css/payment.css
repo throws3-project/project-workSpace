@@ -1,0 +1,375 @@
+.payment {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-bottom: 164px;
+}
+
+.paymentTitle h2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentTitle h2 .smallTxt{
+    color: #ea6560;
+    font-size: .875rem;
+}
+.paymentTitle h2 .bigTxt{
+    color: #42495b;
+    font-size: 1.75rem;
+}
+
+.adWrap {
+    width: 100%;
+    height: 180px;
+    background-image: url(https://letspl.s3.ap-northeast-2.amazonaws.com/images/bg_payment.png);
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 4px;
+    position: relative;
+    background-repeat: no-repeat;
+    margin-bottom: 48px;
+}
+
+.adWrap:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+}
+
+
+.adWrap p, .payment .adWrap span {
+    color: #fff;
+    display: block;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+.payment .adWrap p {
+    box-sizing: border-box;
+    padding-top: 66px;
+    font-size: 1.5rem;
+}
+
+.payment .adWrap span {
+    font-size: .875rem;
+}
+
+.payment .paymentStep {
+    margin-bottom: 30px;
+}
+
+.payment .paymentStep .stepNumber {
+    font-size: 1.125rem;
+    color: #42495b;
+    margin-bottom: 15px;
+}
+
+.payment .paymentStep .stepNumber span {
+    font-weight: 700;
+    margin-right: 12px;
+}
+
+.payment .paymentStep .chargeTable {
+    width: 100%;
+}
+
+.payment .paymentStep .chargeTable table {
+    border-bottom: 2px solid #42495b;
+    border-top: 2px solid #42495b;
+    width: 100%;
+}
+
+.payment .paymentStep .chargeTable table tr th {
+    border-right: 1px solid #e5e5e5;
+}
+
+.payment .paymentStep .paymentMethod {
+    margin-bottom: 30px;
+}
+
+.payment .paymentStep .paymentMethod p {
+    font-size: .875rem;
+    color: #42495b;
+}
+
+.payment .paymentStep .paymentMethod div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.payment .paymentStep .normalPayment div button {
+    width: 240px;
+    height: 58px;
+    border: 1px solid #bababa;
+    background-color: #fff;
+    font-size: .875rem;
+    color: #42495b;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.payment .paymentStep .normalPayment div button:hover {
+    background-color: #f6f6f6;
+    color: #babac1;
+    border: 1px solid #f6f6f6;
+}
+
+.payment .paymentStep .easyPayment div button.kakao {
+    background-image: url(https://letspl.s3.ap-northeast-2.amazonaws.com/images/ic_pay_kakao.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #ffdf00;
+}
+
+.payment .paymentStep .easyPayment div button {
+    width: 240px;
+    height: 58px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p {
+    margin : 0;
+}
+
+
+
+input[type="checkbox"], input[type="radio"] {
+    -moz-appearance: none;
+    -webkit-appearance: auto;
+    -ms-appearance: none;
+    appearance: auto;
+    display: block;
+    float: left;
+    margin-right: -2em;
+    opacity: 1;
+    width: 1em;
+}
+input, select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: auto;
+    -ms-appearance: none;
+    appearance: auto;
+}
+
+/* Table */
+.table-wrapper {
+-webkit-overflow-scrolling: touch;
+overflow-x: auto;
+}
+
+table {
+margin: 0 0 2em 0;
+width: 100%;
+}
+
+table tbody tr {
+border: solid 1px;
+border-left: 0;
+border-right: 0;
+}
+
+table td {
+padding: 0.75em 0.75em;
+}
+
+table th {
+font-size: 0.9em;
+font-weight: 700;
+padding: 0 0.75em 0.75em 0.75em;
+text-align: left;
+}
+
+table thead {
+border-bottom: solid 2px;
+}
+
+table tfoot {
+border-top: solid 2px;
+}
+
+table.alt {
+border-collapse: separate;
+}
+
+table.alt tbody tr td {
+border: solid 1px;
+border-left-width: 0;
+border-top-width: 0;
+}
+
+table.alt tbody tr td:first-child {
+border-left-width: 1px;
+}
+
+table.alt tbody tr:first-child td {
+border-top-width: 1px;
+}
+
+table.alt thead {
+border-bottom: 0;
+}
+
+table.alt tfoot {
+border-top: 0;
+}
+
+table tbody tr {
+border-color: rgba(144, 144, 144, 0.3);
+}
+
+table th {
+color: #444;
+}
+
+table thead {
+border-bottom-color: rgba(144, 144, 144, 0.3);
+}
+
+table tfoot {
+border-top-color: rgba(144, 144, 144, 0.3);
+}
+
+table.alt tbody tr td {
+border-color: rgba(144, 144, 144, 0.3);
+}
+
+/* Button */
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+-moz-appearance: none;
+-webkit-appearance: none;
+-ms-appearance: none;
+appearance: none;
+-moz-transition: background-color 0.2s ease-in-out, color 0.2s
+ease-in-out;
+-webkit-transition: background-color 0.2s ease-in-out, color 0.2s
+ease-in-out;
+-ms-transition: background-color 0.2s ease-in-out, color 0.2s
+ease-in-out;
+transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+border-radius: 0;
+border-style: solid;
+border-width: 1px;
+cursor: pointer;
+display: inline-block;
+font-weight: 700;
+height: 3.25em;
+letter-spacing: 0.07em;
+line-height: 3.35em;
+overflow: hidden;
+padding: 0 1.75em;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+text-transform: uppercase;
+white-space: nowrap;
+}
+
+input[type="submit"].icon, input[type="reset"].icon, input[type="button"].icon,
+button.icon, .button.icon {
+padding-left: 1.35em;
+}
+
+input[type="submit"].icon:before, input[type="reset"].icon:before, input[type="button"].icon:before,
+button.icon:before, .button.icon:before {
+margin-right: 0.5em;
+}
+
+input[type="submit"].fit, input[type="reset"].fit, input[type="button"].fit,
+button.fit, .button.fit {
+width: 100%;
+}
+
+input[type="submit"].small, input[type="reset"].small, input[type="button"].small,
+button.small, .button.small {
+font-size: 0.8em;
+}
+
+input[type="submit"].large, input[type="reset"].large, input[type="button"].large,
+button.large, .button.large {
+font-size: 1.15em;
+padding: 0 3.5em;
+}
+
+input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"].disabled,
+input[type="reset"]:disabled, input[type="button"].disabled, input[type="button"]:disabled,
+button.disabled, button:disabled, .button.disabled, .button:disabled {
+pointer-events: none;
+opacity: 0.25;
+}
+
+@media screen and (max-width: 480px) {
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+padding: 0;
+}
+}
+
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+background-color: transparent;
+border-color: rgba(144, 144, 144, 0.3);
+color: #444;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover,
+button:hover, input[type="submit"]:active, input[type="reset"]:active,
+input[type="button"]:active, button:active, input[type="submit"].icon:before,
+input[type="reset"].icon:before, input[type="button"].icon:before,
+button.icon:before, .button.icon:before {
+color: #444;
+}
+
+input[type="submit"].primary, input[type="reset"].primary, input[type="button"].primary,
+button.primary, .button.primary {
+border: none;
+background-color: white;
+}
+
+input[type="submit"].primary.icon:before, input[type="reset"].primary.icon:before,
+input[type="button"].primary.icon:before, button.primary.icon:before,
+.button.primary.icon:before {
+color: #ffffff;
+}
