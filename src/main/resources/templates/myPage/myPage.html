@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyPage</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/myPage.css" type="text/css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <section id="fix">
+        <div id="title">
+            <p>LET'S see</p>
+            <h2>마이페이지</h2>
+        </div>
+        <ul id="nav" class="flex">
+            <li><a href="#" id="goInfo">정보</a></li>
+            <li><a href="#" id="goPro">프로젝트/스터디</a></li>
+            <li><a href="#" id="goStory">스토리</a></li>
+            <li><a href="#" id="goLike">찜목록</a></li>
+            <li><a href="#" id="goAlert">알림</a></li>
+            <li><a href="#" id="goPoint">포인트</a></li>
+            <li><a href="#"id="goScore">워크스코어</a></li>
+        </ul>
+    </section>
+    <section id="info">
+        <form>
+            <div id="infoWrap" class="flex">
+                <div id="top">
+                    <div id="profileImg">
+                        <img src="../../static/images/top-main-img-3.png" alt="">
+                        <input type="file" name="profileImg" id="">
+                    </div>
+                    <button id="profileChange"></button>
+                </div>
+                <div id="bottom">
+                    <div mailWrap>
+                        <label>이메일
+                            <input type="text" disabled value="tkdgur1996@gmail.com">
+                        </label>
+                    </div>
+                    <div id="nickWrap" class="marginBottom">
+                        <label>닉네임
+                            <input type="text" class="able" placeholder="3~10자리 이내로 적어주세요!" value="상냥이">
+                        </label>
+                    </div>
+                    <div id="phoneWrap" class="marginBottom">
+                        <label>휴대폰번호
+                            <input type="text" disabled value="01040625261">
+                        </label>
+                    </div>
+                    <div id="mainSkill" class="marginBottom">
+                        <p>메인 직무/ 상세 직무 / 능력치</p>
+                        <div class="flex">
+                            <select class="able first" name="mainSkill">
+                                <option value="1">사업</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                                <option value="4">프론트엔드개발</option>
+                                <option value="5">백엔드개발</option>
+                                <option value="6">기타</option>
+                            </select>
+                            <select class="able second" name="subSkill">
+                                <option value="11">사업기획</option>
+                                <option value="12">마케팅</option>
+                                <option value="13">재무/회계</option>
+                                <option value="14">영업</option>
+                                <option value="15">전략/컨설팅</option>
+                                <option value="16">투자/고문</option>
+                                <option value="17">(사업)그외</option>
+                            </select>
+                            <select class="able third" name="skillLevel">
+                                <option value="1">초심자</option>
+                                <option value="2">초보</option>
+                                <option value="3">중수</option>
+                                <option value="4">고수</option>
+                                <option value="5">해커</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="subSkill" class="marginBottom">
+                        <p>서브 직무/ 상세 직무 / 능력치</p>
+                        <div class="flex">
+                            <select class="able first" name="mainSkill">
+                                <option value="1">사업</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                                <option value="4">프론트엔드개발</option>
+                                <option value="5">백엔드개발</option>
+                                <option value="6">기타</option>
+                            </select>
+                            <select class="able second" name="subSkill">
+                                <option value="11">사업기획</option>
+                                <option value="12">마케팅</option>
+                                <option value="13">재무/회계</option>
+                                <option value="14">영업</option>
+                                <option value="15">전략/컨설팅</option>
+                                <option value="16">투자/고문</option>
+                                <option value="17">(사업)그외</option>
+                            </select>
+                            <select class="able third" name="skillLevel">
+                                <option value="1">초심자</option>
+                                <option value="2">초보</option>
+                                <option value="3">중수</option>
+                                <option value="4">고수</option>
+                                <option value="5">해커</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="price" class="marginBottom">
+                        <p>대화 포인트</p>
+                        <div class="flex">
+                            <select class="able first" name="price">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <select class="able second hidden">
+                                <option></option>
+                            </select>
+                            <select class="able third hidden">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="location" class="marginBottom">
+                        <p>지역 설정</p>
+                        <div class="flex">
+                            <select class="able first" name="price">
+                                <option value="1">온라인/오프라인 모두 가능</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                            </select>
+                            <select class="able second" name="price">
+                                <option value="1">상관없음</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                                <option value="4">프론트엔드개발</option>
+                                <option value="5">백엔드개발</option>
+                                <option value="6">기타</option>
+                            </select>
+                            <select class="able third hidden">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="time" class="marginBottom">
+                        <p>시간 설정</p>
+                        <div class="flex">
+                            <select class="able first" name="price">
+                                <option value="1">주중/주말 모두 가능</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                            </select>
+                            <select class="able second" name="price">
+                                <option value="1">상관없음</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                            </select>
+                            <select class="able third hidden">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="interesting" class="marginBottom">
+                        <p>관심분야</p>
+                        <select class="able first" name="price">
+                            <option value="1">O2O</option>
+                            <option value="2">기획</option>
+                            <option value="3">디자인</option>
+                        </select>
+                    </div>
+
+                    <div id="tag" class="marginBottom">
+                        <p>검색태그 (#)</p>
+                        <div>
+                            <input type="text" class="able" placeholder="태그는 최대 5개 가능합니다">
+                        </div>
+                    </div>
+
+                    <div id="content" class="marginBottom">
+                        <p>자세한 소개</p>
+                        <textarea name="content" rows="5" maxlength="200" placeholder="최대 200자 까지 작성 가능합니다."></textarea>
+                    </div>
+
+                    <div id="portfolio" class="marginBottom">
+                        <div id="url" class="flex a1">
+                            <input type="text" class="able" placeholder="URL을 입력해주세요">
+                            <input id="plusUrl" type="button" class="able" value="추가">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <button id="submmit">업데이트</button>
+        </form>
+    </section>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    let count=1
+    $("#goInfo").click(function () {
+        $("#goInfo").parent().css("border-bottom","1px solid lightgray");
+        $("#info").show();
+        $("#goInfo").parent().css("border-bottom","1px solid black");
+    })
+    $("#portfolio").on("click", "#plusUrl", function () {
+        let length=$("#portfolio").children().length;
+        if (length != 5) {
+            count++
+            console.log(length)
+            let input = $($(this).parent().children()[0]);
+            let str = "";
+            str += "<div id=\"url\" class=\"flex\">"
+            str += "<input type='text' class='able' placeholder='URL을 입력해주세요' value='" + input.val() + "'>";
+            str += "<input id='deleteUrl' type='button' class='able a" + count + "' value='삭제'>";
+            str += "</div>"
+            $("div#portfolio").append(str);
+            input.val("");
+            console.log(length)
+            if (length == 4) {
+                $(this).replaceWith("<input id='deleteUrl' type='button' class='able' value='삭제'>");
+            }
+        }
+    })
+
+        $("#portfolio").on("click", "#deleteUrl", function () {
+            $(this).parent().hide();
+            count--
+            if(count==0){
+                count++
+                let str = "";
+                str += "<div id=\"url\" class=\"flex\">"
+                str += "<input type='text' class='able' placeholder='URL을 입력해주세요' value=''>";
+                str += "<input id='plusUrl' type='button' class='able a" + count + "' value='추가'>";
+                str += "</div>"
+                $("div#portfolio").append(str);
+                count=1
+            }
+        })
+</script>
+</html>

@@ -1,0 +1,151 @@
+p {
+    margin: 0;
+    font-weight: bold;
+}
+
+section#fix {
+    margin-bottom: 40px;
+}
+
+section#info {
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+div#container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+div#title h2 {
+    font-size: 1.5rem;
+}
+
+ul#nav {
+    list-style: none;
+    width: 100%;
+}
+
+ul#nav li {
+    width: 14%;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+}
+
+ul#nav li a {
+    text-decoration: none;
+    color: black;
+}
+
+div#infoWrap {
+    flex-direction: column
+}
+
+div#top {
+    position: relative;
+}
+
+div#profileImg {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+button#profileChange {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background-image: url(../../static/images/profileChange.png);
+    background-size: cover;
+    border: none;
+    border-radius: 1rem;
+    right: 43%;
+    bottom: 0%;
+}
+
+div#bottom, label {
+    font-size: 14px;
+}
+
+input, select {
+    height: 44px !important;
+}
+
+textarea{
+    background: white;
+}
+
+input::placeholder, textarea::placeholder{
+    color: black !important;
+}
+
+select {
+    line-height: 44px;
+}
+
+input.able, select.able {
+    background: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.first, second, third {
+    padding-left: 10px;
+}
+
+.first {
+    margin-right: 5px;
+}
+
+.second {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.third {
+    margin-left: 5px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+.marginBottom{
+    margin-bottom: 32px;
+}
+
+textarea{
+    resize: none;
+}
+#content{
+    margin-top: 50px;
+}
+
+input[type='button'] {
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    margin-left: 12px;
+    width: 9%;
+}
+
+button#submmit{
+    margin: 0 auto;
+    display: block;
+    background-color: #ea6560;
+    color: wheat;
+    border: none;
+    width: 110px;
+    height: 40px;
+    border-radius: 8px;
+}
+div#url{
+    margin-bottom: 20px;
+}
