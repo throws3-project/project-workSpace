@@ -1,0 +1,316 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+}
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+h2{
+    display: flex;
+    flex-direction: column;
+}
+.banner {
+    padding: 40px 0 24px;
+}
+.banner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.banner h2 .bannerspan1{
+    color: #1187cf;
+    font-size: .875rem;
+}
+
+.banner h2 .bannerspan2{
+    color: #444;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.todayuser {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.todayuser .pick {
+    color: #444;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    margin-bottom: 20px;
+}
+.todayuser .todayuserWrap {
+    background-color: #f3f3f3;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    border-radius: 8px;
+    overflow: hidden;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: row;
+}
+.todayuserWrap .imgWrap img {
+    width: 393px;
+    height: 272px;
+    object-fit: contain;
+    /* border: 1.5px solid #fafafa; */
+}
+.todayuserWrap .txtWrap {
+    width: 100%;
+    padding-right: 64px;
+}
+.todayuserWrap .txtWrap .txttop {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: relative;
+    padding-right: 12px;
+    padding-top: 20px;
+}
+.todayuserWrap .txtWrap .txttop p {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+.todayuserWrap .txtWrap .txttop .best {
+    position: absolute;
+    width: 54px;
+    top: -6px;
+    right: -48px;
+}
+.icon{
+    width:28px;
+}
+.userId{
+    font-size: 15px;
+    color: #444;
+    margin-left: 8px;
+    font-weight: bold;
+}
+.todayuserWrap .txtWrap .txtrow .tagtxt {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: -4px;
+}
+
+.nowGroup{
+    margin-bottom: 2.5em;
+}
+.tagdiv {
+    padding: 3.8px 12.7px 6.2px 12.3px;
+    border-radius: 13px;
+    border: 1px solid #e8e8e8;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: 4px;
+    background-color: #fff;
+}
+.none{
+    margin: 0 0 0 0;
+}
+
+.tagname {
+    font-weight: 600;
+    font-size: 14px;
+    color: #444;
+    margin: 0 0 0 0;
+}
+
+.smtxt{
+    font-size: 18px;
+    font-weight: bold;
+    color: #1187cf;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.maintxt{
+    margin: 0 0 1em 0;
+    font-size: initial;
+}
+.userSearchOption .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.userSearchOption .searchOption {
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 22px;
+}
+.userSearchOption .searchOption .searchSelect {
+    max-width: 140px;
+    width: 100%;
+    border: 1px solid #bcbccb;
+    border-radius: 4px;
+    height: 40px;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #696980;
+    margin-right: 10px;
+    padding-left: 20px;
+    background-image: url(../../static/images/triangle.png);
+    background-position: 90%;
+    background-repeat: no-repeat;
+    appearance: none;
+}
+.userGrid {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.userGrid ul.userGridList {
+    width: 100%;
+    display: grid;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4,1fr);
+}
+.workpeople {
+    width: 285px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 20px 15px 10px 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.workpeople .newMark {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 37px;
+    height: 37px;
+}
+.workpeople .peopletop {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.workpeople .peopletop .profilePicWrap {
+    position: relative;
+}
+.workpeople .peopletop .profilePicWrap .profilePic {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #f3f3f4;
+    background-color: #efefef;
+    margin-right: 20px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+.workpeople .peopletop .profilePicWrap .profilePic img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+}
+.workpeople .peopletop .favorite {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: rgb(255, 255, 255);
+    background-image: url(../../static/images/grayheart.png);
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: 50%;
+    bottom: -6px;
+    right: 10px;
+    border-radius: 100px;
+    -webkit-box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+}
+.workpeople .peopletop .profileTxt .idWrap .userLv {
+    width: 28px;
+    height: 20px;
+    object-fit: cover;
+    margin-right: 8px;
+}
+.userCertIcon{
+    width: 18px;
+    line-height: 35px;
+    height: 18px;
+}
+.certiWrap{
+    line-height: 35px;
+}
+.userName{
+    height: 35px;
+    margin-bottom: 0;
+    margin-right: 0.2rem;
+    font-weight: bold;
+}
+.idWrap{
+    display: flex;
+}
+.bitAndHeart{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2px;
+    margin-left: 1px;
+}
+select:focus{
+    background-size: 18px;
+}
+ .bitheart{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 15px;
+} 
+.bnhimg {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.3rem;
+}
+.bnhspan{
+    font-size: 13px;
+    color: #333;
+}
+.userInfoTagWrap{
+    display: flex;
+}
+.profileTxt{
+    display: flex;
+    align-content: stretch;
+    align-items: flex-start;
+    flex-direction: column;
+}
