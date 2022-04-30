@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>workSpace-main</title>
+    <link rel="stylesheet" href="../../static/css/mainPage.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+<!--    <script src="../../static/js/mainPage.js"></script>-->
+</head>
+<body>
+    <section class="container">
+        <div class="arrow prev">&lt;</div>
+        <div class="banner">
+            <div class="img image1">
+                <img src="../../static/images/top-main-img-3.png">
+            </div>
+            <div class="img image2">
+                <img src="../../static/images/top-main-img-4.png">
+            </div>
+<!--            <div class="img">-->
+<!--                <img src="">-->
+<!--            </div>-->
+<!--            <div class="img">-->
+<!--                <img src="">-->
+<!--            </div>-->
+        </div>
+        <div class="arrow next">&gt;</div>
+        <div class="btns">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+        </div>
+    </section>
+</body>
+<script>
+    const btns = document.querySelectorAll("button.btn");
+    const banner = document.querySelector("div.banner");
+    const arrows = document.querySelectorAll("div.arrow");
+    var count = 0;
+
+    // btns.forEach(function(value, index, ar){
+    //     ar[index].addEventListener("click", function(){
+    //         banner.style.transform = "translate(-" + index * 100 + "vw)";
+    //     })
+    // });
+
+    btns.forEach(function(value, index, ar){
+        ar[index].addEventListener("click", function(){
+            count = index;
+            banner.style.transform = "translate(-" + count * 100 + "vw)";
+        })
+    });
+
+    arrows.forEach((arrow) => {
+        arrow.addEventListener("click", function () {
+            let arrowType = arrow.classList[1];
+            if(arrowType == 'prev' && count != 0){
+                count--;
+            }else if(arrowType == 'next' && count != btns.length -1){
+                count++;
+            }else{
+                if(count == btns.length -1){
+                    count = 0;
+                }else{
+                    count = btns.length -1;
+                }
+            }
+            banner.style.transform = "translate(-" + count * 100 + "vw)";
+        });
+    });
+
+    setInterval(function(){
+        count++;
+        count = count == 1 ? 0 : count;
+        banner.style.transform = "translate(-" + count * 100 + "vw)";
+    }, 3000);
+</script>
+</html>

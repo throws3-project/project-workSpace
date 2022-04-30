@@ -1,0 +1,54 @@
+div.img {
+    float: left;
+    width: 100vw;
+    text-align: center;
+}
+
+div.img img{
+    width: 1200px;
+    height: 460px;
+}
+
+div.image1{
+    background-color: #336d46;
+}
+
+div.image2{
+    background-color: #151515;
+}
+
+div.banner{
+    width: 200vw;
+    transition: transform 0.5s; /* transform 동작 시 애니메이션 효과 0.5초 */
+}
+
+section.container{
+    margin: 0;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+div.btns{
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+    /*right: 12px;*/
+    bottom: 0px; /* 5px */
+}
+
+div.arrow{
+    position: absolute;
+    width: 35px;
+    height: 100%;
+    line-height: 52.5vh;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    z-index: 1;
+    cursor: pointer;
+}
+
+div.next {
+    right: 0;
+}
