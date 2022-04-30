@@ -2,9 +2,451 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+    <style>
+        h2.startProject {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px 0px 25px;
+        }
+
+        div.projectView {
+            background-color: #fbfbfb;
+        }
+
+        div.projectView-wrap {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        p.recruitText {
+            font-size: 12px;
+            line-height: 16px;
+            color: #8a8a8a;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-align: left;
+            width: 100%;
+        }
+
+        div.projectView-leftWrap {
+            flex: 1 1;
+            margin-right: 20px;
+            padding: 25px 0;
+        }
+
+        div.projectView-leftWrap h3 {
+            margin-bottom: 20px;
+            font-size: 25px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        div.projectView-rightWrap h3 {
+            margin-bottom: 20px;
+            font-size: 25px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        div.projectView-rightWrap {
+            flex: 1 1;
+            padding: 25px 0;
+        }
+
+        div.newProject {
+            display: flex;
+        }
+
+        div.project-wrap {
+            width: 100%;
+        }
+
+        div.project-image {
+            width: 100%;
+        }
+
+        div.project-image img {
+            width: 100%;
+        }
+
+        div.textWrap {
+            width: 100%;
+        }
+
+        div.left {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: start;
+            flex-wrap: wrap;
+            padding: 12px;
+            width: 100%;
+        }
+
+        div.right {
+            width: 100%;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p.category {
+            font-size: 15px;
+            line-height: 20px;
+            text-align: left;
+            color: #b1b1b1;
+            letter-spacing: normal;
+        }
+
+        p.categoryText {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 25px;
+            margin-bottom: 10px;
+            letter-spacing: normal;
+        }
+
+        p.recruitText {
+            font-size: 15px;
+            line-height: 18px;
+            color: #8a8a8a;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-align: left;
+            width: 100%;
+            letter-spacing: normal;
+        }
+
+        div.projectTopWrap {
+            display: flex;
+            -webkit-flex-direction: column;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            width: 100%;
+        }
+
+        button.banner-button {
+            padding: 5px;
+        }
+
+        div.allProject {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+
+        div.selectOption {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .selectOption .smSelect {
+            max-width: 200px;
+            width: 100%;
+            background-image: url('https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg');
+            background-color: unset;
+            background-position: 90%;
+            color: #696980;
+            margin-right: 15px;
+            padding-left: 30px;
+            background-size: 20px 7px;
+            font-size: 13px;
+            height: 50px;
+            background-repeat: no-repeat;
+            border: 1px solid #bcbccb;
+        }
+
+        .selectOption .smSelect:focus {
+            background-image: url('https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg');
+            background-repeat: no-repeat;
+            background-size: 20px 7px;
+        }
+
+        div.allProject h3 {
+            font-size: 25px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        label.checkbox {
+            display: flex;
+            /*flex-direction: row-reverse;*/
+            align-items: center;
+            margin: 0;
+            font-size: 15px;
+            width: 100%;
+            max-width: 70px;
+        }
+
+        input[type='checkbox'] {
+            appearance: auto;
+            z-index: unset;
+            opacity: unset;
+            background-color: #ea6560;
+        }
+
+        div.projectMiddleInfo p.category {
+            margin-bottom: 15px;
+        }
+
+        div.projectGridView {
+            grid-template-columns: repeat(4, 1fr);
+            display: grid;
+            place-items: center;
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+        }
+
+    </style>
 </head>
 <body>
-$END$
+<section>
+    <div>
+        <h2 class="startProject">
+            <span>LET'S do</span>
+            <span>프로젝트 or 스터디</span>
+        </h2>
+    </div>
+    <div class="projectView">
+        <div class="projectView-wrap">
+            <div class="projectView-leftWrap">
+                <h3>신규 프로젝트</h3>
+                <div class="newProject">
+                    <button type="button" class="banner-button">&lt;</button>
+                    <div>
+                        <ul class="slider">
+                            <li>
+                                <div class="projectTopWrap">
+                                    <div class="project-wrap">
+                                        <div class="project-image">
+                                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png"
+                                                 alt="project_image">
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="textWrap">
+                                        <div class="left">
+                                            <p class="category">데이팅서비스</p>
+                                            <p class="categoryText">[서울] 소개팅앱</p>
+                                            <p class="recruitText">1. 프로젝트의 시작 동기
+
+                                                현 소개팅앱에는 이러한 문제들이 있습니다.-소개팅앱에 대한 안좋은 인식이 있음-실제로 신뢰불가하고 안좋음 (알바 고용해서
+                                                여자있는척, 혹은 봇을 돌려서 여자있는척)-안좋은 사람들이 많음.- 스펙 떨어지는 사람들은 매칭 안됨- 여자가 턱없이 부족함.이
+                                                모든 문제를 해결할수있는 아이디어가 있어 만들어서 서비스해보려고 합니다소개팅앱을 신뢰하지 않는 사용자를 포함한 소개팅을 하고
+                                                싶어하는 20대 30대 모든 남여를 대상으로 합니다
+
+                                                2. 회의 진행/모임 방식
+
+
+                                                - 1주일에 1회나 2주일에 1회 오프라인 회의를 지향하고 필요시 온라인 회의를 하려고합니다-온라인은 줌, 오프라인은 카페에서 할
+                                                예정입니다
+
+                                                3. 그외 자유기재
+
+                                                현재 개발자한분과 제가 팀을 이루고 있는데 개발자님이 한분더 구하는게 좋겠다고 하여 딱 한분만 더 구하게 되었습니다.실력도 좋지만
+                                                인성을 우선시합니다.성격 좋으신분만 지원 부탁드립니다</p>
+                                        </div>
+                                        <div class="right"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="banner-button">&gt;</button>
+                </div>
+            </div>
+            <div class="projectView-rightWrap">
+                <h3>주목할만한 프로젝트/스터디</h3>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="allProject">
+        <h3>전체 프로젝트/스터디</h3>
+        <div class="selectOption">
+            <select class="smSelect">
+                <option selected value="KR00">지역 미지정</option>
+                <option value="KR01">서울특별시</option>
+                <option value="KR02">경기도</option>
+                <option value="KR03">부산광역시</option>
+                <option value="KR04">인천광역시</option>
+                <option value="KR05">대구광역시</option>
+                <option value="KR06">경상남도</option>
+                <option value="KR07">경상북도</option>
+                <option value="KR08">대전광역시</option>
+                <option value="KR09">충청남도</option>
+                <option value="KR10">충청북도</option>
+                <option value="KR11">전라남도</option>
+                <option value="KR12">전라북도</option>
+                <option value="KR13">광주광역시</option>
+                <option value="KR14">강원도</option>
+                <option value="KR15">울산광역시</option>
+                <option value="KR16">제주특별자치도</option>
+                <option value="KR17">세종특별자치시</option>
+            </select>
+            <select name="" class="smSelect">
+                <option selected value="00">사이드/스터디 전체</option>
+                <option value="01">사이드프로젝트</option>
+                <option value="02">스터디</option>
+            </select>
+            <select name="" class="smSelect">
+                <option selected value="0000">모집분야</option>
+                <optgroup label="기획">
+                    <option value="0201">UI/UX기획</option>
+                    <option value="0202">게임기획</option>
+                    <option value="0203">프로젝트 매니저</option>
+                    <option value="0204">하드웨어(제품) 기획</option>
+                </optgroup>
+                <optgroup label="디자인">
+                    <option value="0301">그래픽디자인</option>
+                    <option value="0302">UI/UX디자인</option>
+                    <option value="0303">3D디자인</option>
+                    <option value="0304">하드웨어(제품) 디자인</option>
+                    <option value="0305">(디자인)기타</option>
+                </optgroup>
+                <optgroup label="프론트엔드 개발">
+                    <option value="0401">IOS</option>
+                    <option value="0402">안드로이드</option>
+                    <option value="0403">웹프론트엔드</option>
+                    <option value="0404">웹퍼블리셔</option>
+                    <option value="0405">크로스플랫폼</option>
+                </optgroup>
+                <optgroup label="백엔드 개발">
+                    <option value="0501">웹 서버</option>
+                    <option value="0504">블록체인</option>
+                    <option value="0505">AI</option>
+                    <option value="0503">DB/빅데이터/DS</option>
+                    <option value="0502">게임 서버</option>
+                </optgroup>
+                <optgroup label="사업">
+                    <option value="0101">사업기획</option>
+                    <option value="0102">마케팅</option>
+                    <option value="0103">재무/회계</option>
+                    <option value="0104">영업</option>
+                    <option value="0106">전략/컨설팅</option>
+                    <option value="0107">투자/고문</option>
+                    <option value="0105">(사업)그외</option>
+                </optgroup>
+                <optgroup label="기타">
+                    <option value="0606">작가/블로거</option>
+                    <option value="0607">인플루언서/스트리머</option>
+                    <option value="0601">작곡(사운드)</option>
+                    <option value="0602">영상</option>
+                    <option value="0603">운영</option>
+                    <option value="0604">QA</option>
+                    <option value="0605">기타</option>
+                </optgroup>
+            </select>
+            <label class="checkbox">
+                <input type="checkbox" class="check" checked>
+                <span class="text">모집중</span>
+                <span></span>
+            </label>
+        </div>
+        <div class="projectGridView">
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+            <div class="projectGridWrap">
+                <div></div>
+                <div class="projectMiddleInfo">
+                    <p class="category">소셜네트워크</p>
+                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
