@@ -3,14 +3,104 @@ p {
     font-weight: bold;
 }
 
+a, input,div#bottom, label,select,option{
+    font-size: 14px;
+}
+
+a{
+    text-decoration-line: none;
+    color: black;
+}
+
+a:active{
+    color: black;
+}
+
 section#fix {
     margin-bottom: 40px;
 }
 
 section#info {
-    max-width: 1080px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
+    display: none;
+}
+section#point {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#pointNav{
+    justify-content: space-around;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+#pointNav li{
+    width: 50%;
+    text-align: center;
+    border: solid 1px black;
+}
+
+#pointTable{
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-top: 3px solid black;
+    border-collapse: inherit;
+}
+
+thead{
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    font-size: 14px;
+}
+
+th.firstCell{
+    width: 200px;
+}
+th.secondCell{
+    width: 190px;
+}
+th.lastCell{
+    width: 174px;
+}
+
+#pointTable th{
+    border-bottom: 1px solid gray;
+}
+
+#pointTable th, #pointTable tr, #pointTable td{
+    border-right: 1px solid lightgray;
+    padding: 8px;
+}
+
+#pointTable th.lastCell, #pointTable tr.lastCell, #pointTable td.lastCell{
+    border-right: none;
+}
+
+#pointTable td{
+    border-bottom: 1px solid lightgray;
+}
+
+
+
+
+.point{
+    color: #ea6560;
+    font-size: 12px;
+}
+.alert{
+    color: #ea6560;
+    font-size: 12px;
+    text-align: right;
+}
+
+#thumbNail{
+    display: none;
 }
 
 div#container {
@@ -68,9 +158,6 @@ button#profileChange {
     bottom: 0%;
 }
 
-div#bottom, label {
-    font-size: 14px;
-}
 
 input, select {
     height: 44px !important;
@@ -136,16 +223,19 @@ input[type='button'] {
     width: 9%;
 }
 
-button#submmit{
+button#submit{
     margin: 0 auto;
     display: block;
+    color: #fff;
     background-color: #ea6560;
-    color: wheat;
-    border: none;
+    border: 1px solid #ea6560;
     width: 110px;
     height: 40px;
-    border-radius: 8px;
+    border-radius: 4px;
+    transition: all .2s;
+    cursor: pointer;
 }
 div#url{
     margin-bottom: 20px;
 }
+

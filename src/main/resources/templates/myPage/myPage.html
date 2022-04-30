@@ -5,9 +5,6 @@
     <title>MyPage</title>
     <link rel="stylesheet" href="../../static/css/main.css" type="text/css">
     <link rel="stylesheet" href="../../static/css/myPage.css" type="text/css">
-    <style>
-
-    </style>
 </head>
 <body>
 <div id="container">
@@ -23,18 +20,22 @@
             <li><a href="#" id="goLike">찜목록</a></li>
             <li><a href="#" id="goAlert">알림</a></li>
             <li><a href="#" id="goPoint">포인트</a></li>
-            <li><a href="#"id="goScore">워크스코어</a></li>
+            <li><a href="#" id="goScore">워크스코어</a></li>
         </ul>
     </section>
-    <section id="info">
+
+    <!----------------------------------------------------------------내 정보 수정--------------------------------------------------------------------->
+    <section id="info" class="pageNav">
         <form>
             <div id="infoWrap" class="flex">
                 <div id="top">
-                    <div id="profileImg">
-                        <img src="../../static/images/top-main-img-3.png" alt="">
-                        <input type="file" name="profileImg" id="">
-                    </div>
-                    <button id="profileChange"></button>
+                    <label for="thumbNail">
+                        <div id="profileImg">
+                            <img src="../../static/images/top-main-img-3.png" alt="">
+                        </div>
+                        <button id="profileChange"></button>
+                    </label>
+                    <input type="file" name="profileImg" id="thumbNail">
                 </div>
                 <div id="bottom">
                     <div mailWrap>
@@ -46,11 +47,13 @@
                         <label>닉네임
                             <input type="text" class="able" placeholder="3~10자리 이내로 적어주세요!" value="상냥이">
                         </label>
+                        <p class="alert">사용 가능합니다.</p>
                     </div>
                     <div id="phoneWrap" class="marginBottom">
                         <label>휴대폰번호
                             <input type="text" disabled value="01040625261">
                         </label>
+                        <p class="alert">인증완료</p>
                     </div>
                     <div id="mainSkill" class="marginBottom">
                         <p>메인 직무/ 상세 직무 / 능력치</p>
@@ -129,6 +132,7 @@
                                 <option></option>
                             </select>
                         </div>
+                        <p class="point">상대방이 나에게 대화를 요청할 때, 필요한 포인트입니다.</p>
                     </div>
 
                     <div id="location" class="marginBottom">
@@ -202,52 +206,59 @@
 
                 </div>
             </div>
-            <button id="submmit">업데이트</button>
+            <button id="submit">업데이트</button>
         </form>
     </section>
+
+    <!-----------------------------------------------------------------------포인트 !!-------------------------------------------------------------------->
+    <section id="point" class="pageNav">
+        <div>
+            <div>
+                <h3>포인트 내역</h3>
+            </div>
+            <div>
+                <ul class="flex" id="pointNav">
+                    <li><a href="#">충전 내역</a></li>
+                    <li><a href="#">사용 내역</a></li>
+                </ul>
+            </div>
+            <div>
+                <table id="pointTable">
+                    <thead>
+                        <tr>
+                            <th class="firstCell">날짜</th>
+                            <th class="secondCell">포인트</th>
+                            <th>상세</th>
+                            <th class="lastCell">비고</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">비고</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">비고</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">비고</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    let count=1
-    $("#goInfo").click(function () {
-        $("#goInfo").parent().css("border-bottom","1px solid lightgray");
-        $("#info").show();
-        $("#goInfo").parent().css("border-bottom","1px solid black");
-    })
-    $("#portfolio").on("click", "#plusUrl", function () {
-        let length=$("#portfolio").children().length;
-        if (length != 5) {
-            count++
-            console.log(length)
-            let input = $($(this).parent().children()[0]);
-            let str = "";
-            str += "<div id=\"url\" class=\"flex\">"
-            str += "<input type='text' class='able' placeholder='URL을 입력해주세요' value='" + input.val() + "'>";
-            str += "<input id='deleteUrl' type='button' class='able a" + count + "' value='삭제'>";
-            str += "</div>"
-            $("div#portfolio").append(str);
-            input.val("");
-            console.log(length)
-            if (length == 4) {
-                $(this).replaceWith("<input id='deleteUrl' type='button' class='able' value='삭제'>");
-            }
-        }
-    })
-
-        $("#portfolio").on("click", "#deleteUrl", function () {
-            $(this).parent().hide();
-            count--
-            if(count==0){
-                count++
-                let str = "";
-                str += "<div id=\"url\" class=\"flex\">"
-                str += "<input type='text' class='able' placeholder='URL을 입력해주세요' value=''>";
-                str += "<input id='plusUrl' type='button' class='able a" + count + "' value='추가'>";
-                str += "</div>"
-                $("div#portfolio").append(str);
-                count=1
-            }
-        })
-</script>
+<script src="../../static/js/myPage.js"></script>
 </html>
