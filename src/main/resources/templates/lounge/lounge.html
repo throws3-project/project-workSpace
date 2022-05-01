@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>lounge</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/lounge.css" type="text/css" />
+</head>
+<header id="header"></header>
+<body>
+<div class="lounge">
+    <section class="loungeSection">
+        <div class="loungeTop">
+            <div class="talkTit">
+            <span class="talkTit1">WORK'S TALK</span>
+            <span class="talkTit2">라운지</span>
+            </div>
+        </div>
+        <div class="loungeWrap">
+            <div class="loungeTool">
+                <div class="loungeInput">
+                    <div class="loungeInputWrap">
+                        <textarea placeholder="라운지에서 가볍게 이야기를 시작해보세요." maxlength="1000" rows="6" class="loungeTextArea">    
+                    </textarea>
+                    </div>
+                        <div class="loungeBtn">
+                           <button class="loungeBtn1">등록</button>
+                         </div>
+                </div>
+                <!--댓글 목록-->
+                <div class="replySection">
+                    <div class="replyWrap">
+                        <div class="replyTool">
+                            <div class="replyTop">
+                                <div class="replyLeft">
+                                    <a href="https://letspl.me/people/%EC%83%81%EC%95%84%EC%95%BC">
+                                        <div class="proWrap">
+                                            <img src="../../static/images/여.png">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="replyRight">
+                                    <p class="proNames">상아야
+                                    <!-- <div class="hover">
+                                        <ul class="hoverUl">
+                                            <li class="hoverLi">
+                                                <a href="/people/%EC%83%81%EC%95%84%EC%95%BC">프로필 상세</a>
+                                            </li>
+                                            <li class="hoverLi">
+                                                <a>1 : 1 대화</a>
+                                            </li>
+                                            <li class="hoverLi">
+                                                <a>모임초대</a>
+                                            </li>
+                                        </ul>
+                                    </div> -->
+                                    </p>
+                                    <span class="time">22.05.01 21:09</span>
+                                </div>
+                            </div>
+                            <div class="replyMiddle">
+                                <div class="replyLeft"></div>
+                                <div class="replyContents">
+                                    <textarea class="txtarea" rows="2" maxlength="1000" readonly>안녕하세용</textarea>
+                                    <div class="replyBtnWrap">
+                                        <button class="txtBtn">수정</button>
+                                        <div class="sell"></div>
+                                        <button class="txtBtn">삭제</button>
+                                    </div>
+                                </div>
+                                <div class="replyBottom">
+                                    <a class="replyOpen">댓글 열기</a>
+                                    <div class="replyBtmRight">
+                                        <span class="replyCount">0</span>
+                                        <span class="replyLike">0</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+
+            </div>
+            
+                <!--라운지 랭킹-->
+            <div class="loungeLankWrap">
+                <div class="loungeLank">
+                    <!--라운지 좋아요 랭킹-->
+                    <div class="loungeLikeLank">
+                        <p class="lankTit">라운지 랭킹</p>
+                        <span class="likeTit">좋아요를 많이 받은 워크피플</span>
+                        <ul class="likeList">
+                            <li class="likeListLi">
+                                <span class="number">1</span>
+                                <span class="upDown up"></span>
+                                <div class="profileWrap">
+                                    <img class="profileImg" src="../../static/images/여.png">
+                                </div>
+                                <a>
+                                    <p class="proName">상아바보</p>
+                                </a>
+                            </li>
+                            <li class="likeListLi">
+                                <span class="number">2</span>
+                                <span class="upDown up"></span>
+                                <div class="profileWrap">
+                                    <img class="profileImg" src="../../static/images/여.png">
+                                </div>
+                                <a>
+                                    <p class="proName">상아개굴</p>
+                                </a>
+                            </li>
+                            <li class="likeListLi">
+                                <span class="number">3</span>
+                                <span class="upDown up"></span>
+                                <div class="profileWrap">
+                                    <img class="profileImg" src="../../static/images/여.png">
+                                </div>
+                                <a>
+                                    <p class="proName">상아에요</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                      <!--라운지 댓글 랭킹-->
+                    <div class="loungeReplyLank">
+                        <span class="replyTit">댓글이 많이 달린 워크피플</span>
+                        <ul class="replyList">
+                            <li class="replyListLi">
+                                <span class="number">1</span>
+                                <span class="upDown up"></span>
+                                <div class="profileWrap">
+                                    <img class="profileImg" src="../../static/images/여.png">
+                                </div>
+                                <a>
+                                    <p class="proName">상아바보</p>
+                                </a>
+                            </li>
+
+                    </div>
+                    
+                    </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+    })
+</script>
+
+</html>
