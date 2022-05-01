@@ -173,144 +173,179 @@ h2{
     background-repeat: no-repeat;
     appearance: none;
 }
-.userGrid {
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 100%;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+select:focus{
+    background-size: 18px;
 }
-.userGrid ul.userGridList {
-    width: 100%;
-    display: grid;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(4,1fr);
-}
-.workpeople {
-    width: 285px;
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid #e5e5e5;
-    background-color: #fff;
-    padding: 20px 15px 10px 20px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+.newMark{
     position: relative;
-    overflow: hidden;
-    margin-bottom: 20px;
-    -webkit-transition: all .2s;
-    transition: all .2s;
 }
-.workpeople .newMark {
+.red {
     position: absolute;
     left: -1px;
     top: -1px;
     width: 37px;
     height: 37px;
 }
-.workpeople .peopletop {
-    display: -webkit-inline-flex;
-    display: inline-flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-align-items: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    margin-bottom: 10px;
-}
-.workpeople .peopletop .profilePicWrap {
-    position: relative;
-}
-.workpeople .peopletop .profilePicWrap .profilePic {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #f3f3f4;
-    background-color: #efefef;
-    margin-right: 20px;
-    -webkit-flex-shrink: 0;
-    flex-shrink: 0;
-}
-.workpeople .peopletop .profilePicWrap .profilePic img {
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-}
-.workpeople .peopletop .favorite {
+.like{
     position: absolute;
     width: 22px;
     height: 22px;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     background-image: url(../../static/images/grayheart.png);
     background-repeat: no-repeat;
     background-size: 14px;
     background-position: 50%;
-    bottom: -6px;
-    right: 10px;
+    bottom: -10px;
+    right: -7px;
     border-radius: 100px;
     -webkit-box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
     box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
 }
-.workpeople .peopletop .profileTxt .idWrap .userLv {
-    width: 28px;
-    height: 20px;
-    object-fit: cover;
-    margin-right: 8px;
+
+.userGrid{
+    border-radius: 20px;
+    position: relative;
+    width: 285px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 20px 15px 10px 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all .2s;
 }
-.userCertIcon{
-    width: 18px;
-    line-height: 35px;
-    height: 18px;
+
+.userGridtop{
+    display: flex;
 }
-.certiWrap{
-    line-height: 35px;
+.userIn{
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #f3f3f4;
+    background-color: #efefef;
+    margin-right: 20px;
+    flex-shrink: 0;
+    position: relative;
+    
 }
-.userName{
+
+.user1{
+    display: flex;
     height: 35px;
-    margin-bottom: 0;
-    margin-right: 0.2rem;
-    font-weight: bold;
+    line-height: 35px;
 }
-.idWrap{
+
+.boo{
+    margin-top: -0.6em;
+}
+
+.bitdiv{
     display: flex;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 6px;
 }
-.bitAndHeart{
+.bitimg{
+    margin-right: 5px;
+}
+
+.heartdiv{
     display: flex;
-    flex-direction: row;
-    margin-top: 2px;
-    margin-left: 1px;
+    height: 20px;
+    line-height: 20px;
 }
-select:focus{
-    background-size: 18px;
+.heartimg{
+    margin-right: 5px;
 }
- .bitheart{
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 15px;
-} 
-.bnhimg {
-    width: 24px;
-    height: 24px;
-    margin-right: 0.3rem;
+
+.bitptag {
+    margin: 0;
 }
-.bnhspan{
-    font-size: 13px;
+.heartptag {
+    margin: 0;
+}
+.info{
+    font-size: 14px;
     color: #333;
 }
-.userInfoTagWrap{
-    display: flex;
+.num{
+    font-size: 14px;
+    color: #999;
+    margin-left: 10px;
 }
-.profileTxt{
-    display: flex;
-    align-content: stretch;
-    align-items: flex-start;
-    flex-direction: column;
+
+.usertag{
+    margin:0 0 0.7rem 0;
+}
+
+.ulusertag li{
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    margin-right: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.userinfo{
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.btimg{
+    position: absolute;
+    width: 18px;
+    right: 173px;
+    bottom: 15px;
+}
+.btchat{
+    font-size:13px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+.btchat:hover {
+    background-color: #1187cf;
+    color: #fff;
+}
+
+.userGridTool {
+    margin: 0 auto;
+    width: 1200px;
+    padding: 0;
+    box-sizing: border-box;
+}
+.userGridList{
+    width: 100%;
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4,1fr);
+}
+.userLvIcon{
+    margin-right: 8px;
+}
+
+
+.more{
+    box-sizing: border-box;
+    border: 1px solid #81839c;
+    margin-top: 38px;
+    display: inline-block;
+    left: 50%;
+    position: relative;
+    margin-bottom: 28px;
+}
+.morebtn{
+    display: inline-block;
+    font-size: 1rem;
+    color: #81839c;
+    padding: 10px 76px;
+    font-weight: 600;
 }
