@@ -8,6 +8,7 @@
 <!--    <script src="../../static/js/mainPage.js"></script>-->
 </head>
 <body>
+<header id="header"></header>
     <section class="container">
         <div class="arrow prev">&lt;</div>
         <div class="banner">
@@ -30,7 +31,14 @@
             <button class="btn">2</button>
         </div>
     </section>
+
+    <section>
+        <div class="firstWrapper">
+        <h3><span class="bigTxt">새로운 프로젝트/스터디</span></h3>
+        </div>
+    </section>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     const btns = document.querySelectorAll("button.btn");
     const banner = document.querySelector("div.banner");
@@ -70,8 +78,12 @@
 
     setInterval(function(){
         count++;
-        count = count == 1 ? 0 : count;
+        count = count == 2 ? 0 : count;
         banner.style.transform = "translate(-" + count * 100 + "vw)";
     }, 3000);
+
+    $(document).ready(function(){
+        $("#header").load('../../templates/fix/header.html');
+    });
 </script>
 </html>

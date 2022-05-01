@@ -52,3 +52,10 @@ div.arrow{
 div.next {
     right: 0;
 }
+
+div.firstWrapper{
+    max-width: 1200px;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 40px;
+}

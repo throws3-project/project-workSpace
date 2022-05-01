@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>workSpace-join2</title>
+    <link rel="stylesheet" href="../../static/css/join2.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+</head>
+<body>
+<header id="header"></header>
+<section>
+    <div class="joinWrapper">
+        <h3>
+            <span class="smTxt">관심분야/장소/시간 설정</span>
+            <span class="bigTxt">지금 완료시, 렛플력 200을 획득합니다.</span>
+        </h3>
+        <div class="form">
+            <ul class="firstSignForm">
+                <li class="firstLi">
+                    <label>내 관심분야</label>
+                    <div class="settingWrapper2">
+                        <select class="oneSelect">
+                            <option value="01">O2O</option>
+                            <option value="02">공유서비스</option>
+                            <option value="03">데이팅서비스</option>
+                            <option value="04">여행</option>
+                            <option value="05">소셜네트워크</option>
+                            <option value="06">뷰티/패션</option>
+                            <option value="07">이커머스</option>
+                            <option value="08">엔터테인먼트</option>
+                            <option value="09">게임</option>
+                            <option value="10">헬스/스포츠</option>
+                            <option value="11">뉴스/정보</option>
+                            <option value="12">유틸</option>
+                            <option value="13">금융</option>
+                            <option value="14">부동산/인테리어</option>
+                            <option value="15">종교</option>
+                            <option value="15">우주/외계인</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="secondLi">
+                    <label>선호 장소</label>
+                    <div class="settingWrapper2">
+                        <select class="twoSelect">
+                            <option selected value="02">기획</option>
+                            <option value="03">디자인</option>
+                            <option value="04">프론트엔드개발</option>
+                            <option value="05">백엔드개발</option>
+                            <option value="01">사업</option>
+                            <option value="06">기타</option>
+                        </select>
+                        <select class="twoSelect">
+                            <option selected value="0201">UI/UX기획</option>
+                            <option value="0202">게임기획</option>
+                            <option value="0203">프로젝트 매니저</option>
+                            <option value="0204">하드웨어(제품) 기획</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="thirdLi">
+                    <label>선호 시간대</label>
+                    <div class="settingWrapper2">
+                        <select class="twoSelect">
+                            <option selected value="02">기획</option>
+                            <option value="03">디자인</option>
+                            <option value="04">프론트엔드개발</option>
+                            <option value="05">백엔드개발</option>
+                            <option value="01">사업</option>
+                            <option value="06">기타</option>
+                        </select>
+                        <select class="twoSelect">
+                            <option selected value="0201">UI/UX기획</option>
+                            <option value="0202">게임기획</option>
+                            <option value="0203">프로젝트 매니저</option>
+                            <option value="0204">하드웨어(제품) 기획</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+            <div class="joinCompleteWrapper">
+                <button class="joinComplete">나중에</button>
+                <button class="joinComplete">완료</button>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#header").load('../../templates/fix/header.html');
+    })
+</script>
+</html>
