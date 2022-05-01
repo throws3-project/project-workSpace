@@ -98,10 +98,7 @@
 
 .buildProjectContents .answer div.selectMotivation .ccheck input[type=radio] {
     display: block;
-    position: absolute;
     opacity: 0;
-    width: 100%;
-    height: 100%;
     z-index: 999;
 }
 
@@ -143,7 +140,7 @@
 
 .buildProjectContents .answer .noticeBox p {
     color: #fff;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 18px;
 }
 
@@ -159,10 +156,12 @@
     align-items: center;
     margin-bottom: 10px;
     padding: 8px 0;
-    height: 20px;
+    height: 40px;
     cursor: pointer;
 }
 
+
+/* 프로젝트 분야 */
 .checkBoxWrap {
     flex-direction: row;
     position: relative;
@@ -173,18 +172,19 @@
 }
 
 .checkBox .txt {
-    font-size: 1rem;
+    font-size: 16px;
     color: #696980;
     margin-left: 30px;
 }
 
-.checkBox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+.checkBox input:checked~.checkmark {
+    background-color: #ea6560;
+    border: none;
 }
 
 .checkmark {
+    top: 0;
+    background-color: #eee;
     border-radius: 4px;
     position: absolute;
     top: 8px;
@@ -193,7 +193,17 @@
     width: 20px;
     background-color: #fff;
     border: 1px solid #bcbccb;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.checkmark:hover{
+    background-color: #dddddd;
+}
+
+.checkBox input:checked~.checkmark:after {
+    display: block;
 }
 
 .checkBox .checkmark:after {
@@ -203,20 +213,249 @@
     height: 10px;
     border: solid #fff;
     border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
-input {
-    flex: 1 1;
-    border: none;
-    height: 46px;
-    font-size: 14px;
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
 }
 
-[type=checkbox], [type=radio] {
-    box-sizing: border-box;
-    padding: 0;
+/* 대표이미지 */
+.buildProjectContents .answer .thumbnailWrap {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
 }
+
+.buildProjectContents .answer .thumbnailWrap .thumbnailBox {
+    width: 385px;
+    height: 230px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    background-position: 50%;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-right: 27px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.buildProjectContents .answer .thumbnailWrap .thumbnailBox button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 99;
+}
+
+button, input[type=button], input[type=file], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    border-radius: 0;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.buildProjectContents .answer .thumbnailWrap .thumbnailBox img.thumbnailImage {
+    position: absolute;
+}
+
+.buildProjectContents .answer .thumbnailWrap .uploadBox {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+.buildProjectContents .answer .thumbnailWrap .uploadBox button {
+    border: 1px solid #9796a7;
+    color: #9796a7;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 12px;
+    padding: 0 20px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.buildProjectContents .answer .thumbnailWrap .uploadBox ul li {
+    font-size: 15px;
+    color: #42495b;
+    line-height: 18px;
+    margin-bottom: 7px;
+}
+
+.buildProjectContents .answer .thumbnailWrap .uploadBox ul li:before {
+    content: "*";
+    color: #ea6560;
+}
+
+
+/* 지역 */
+.selectBoxWrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.selectBox {
+    width: 43%;
+    max-width: 413px;
+    margin-right: 20px;
+}
+
+/* 모집인원 */
+button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.plusMinusBtnWrap {
+    margin-left: 10px;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.imageBtn {
+    width: 14px;
+    height: 14px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 14px;
+    border-radius: 4px;
+    border: none;
+}
+
+.imageBtn.minus {
+    background-image: url("https://letspl.me/_next/static/media/ic-minus.60a2563f3ba2754181f1a392fabd42db.svg");
+}
+
+.imageBtn.plus {
+    background-image: url("https://letspl.me/_next/static/media/ic-plus.7ee51a4c6669cd7927a2249d1071a3c3.svg");
+}
+
+.imageBtn.minus, .imageBtn.plus {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 14px 14px;
+}
+
+.countNumber {
+    margin: 0 20px;
+    color: #ea6560;
+}
+
+.addMemberBtnWrap {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.addMemberBtnWrap button:first-child {
+    margin-right: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    color: #222;
+}
+
+.addMemberBtnWrap button {
+    width: auto;
+    background-color: #fff;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 28px;
+    border: 1px solid #e2e2e2;
+    color: #42495b;
+    font-size: .825rem;
+    border-radius: 4px;
+}
+
+
+
+/* 저장, 작성완료 */
+.confirmBtnWrap {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.btnWrap {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btnWrap button {
+    width: auto!important;
+    width: 40%!important;
+    max-width: 140px!important;
+}
+
+.confirmBtnWrap .saveBtn {
+    width: auto!important;
+}
+
+.btnWrap button.grayBtn, .btnWrap button.pinkBtn {
+    color: #fff;
+    font-size: .75rem;
+    padding: 0 35px;
+    border-radius: 4px;
+    width: 240px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+}
+
+.confirmBtnWrap button:nth-child(2) {
+    margin: 0 6px;
+}
+
+.btnWrap button.grayBtn {
+    background-color: #9796a7;
+}
+
+.btnWrap button.pinkBtn {
+    background-color: #ea6560;
+}
+
 
 
 
@@ -254,6 +493,13 @@ p {
     margin : 0;
 }
 
+select {
+    background-color: unset;
+}
+
+input[type="text"], textarea {
+    background-color: #ffffff !important;
+}
 
 
 input[type="checkbox"], input[type="radio"] {
@@ -418,7 +664,6 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 input[type="reset"]:disabled, input[type="button"].disabled, input[type="button"]:disabled,
 button.disabled, button:disabled, .button.disabled, .button:disabled {
 pointer-events: none;
-opacity: 0.25;
 }
 
 @media screen and (max-width: 480px) {

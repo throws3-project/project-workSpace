@@ -5,10 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
-    <link rel="stylesheet" href="../../static/css/makeProject.css" type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/register/makeProject.css" type="text/css"/>
+
+    <!-- 썸머노트 -->
+    <!-- <link rel="stylesheet" href="../../static/css/summernote/summernote-lite.css">
+    <script src="../../static/js/summernote/summernote-lite.js"></script>
+    <script src="../../static/js/summernote/lang/summernote-ko-KR.js"></script>  -->
+
+  
+
     <title>프로젝트/스터디 생성하기</title>
 </head>
 <body>
+    <header id="header"></header>
+
+
+
+
+
     <section class="buildProject">
         <div class="buildProjectTitWrap">
             <div class="titContents">
@@ -24,21 +38,17 @@
                 <div class="answer">
                     <div class="selectMotivation">
                         <div class="ccheck">
-                            <input type="radio" name="type">
-                            <label for>
-                                <div class="chk_subject ideaCheck">
-                                    <div></div>
-                                    <span>사이드(토이) 프로젝트</span>
-                                </div>
+                            <label class="checkBox">
+                                <span class="txt">사이드(토이) 프로젝트</span>
+                                <input type="radio" name="type" value="project">
+                                <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="ccheck">
-                            <input type="radio" name="type">
-                            <label for>
-                                <div class="chk_subject">
-                                    <div></div>
-                                    <span>IT 스터디 & 네트워킹</span>
-                                </div>
+                            <label class="checkBox">
+                                <span class="txt">IT 스터디 & 네트워킹</span>
+                                <input type="radio" name="type" value="study">
+                                <span class="checkmark"></span>
                             </label>
                         </div>
                     </div>
@@ -176,13 +186,13 @@
                 </div>
 
                 <div class="answer">
-                    <div>
-                        <div>
+                    <div class="thumbnailWrap">
+                        <div class="thumbnailBox">
                             <button></button>
-                            <img class="thumbnailImage2" src="https://letspl.me/assets/images/ic-camera-alt-24-px.png" alt="project_thumb1">
-                            <input type="file">
+                            <img class="thumbnailImage2" src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
+                            <input type="file" style="display: none;">
                         </div>
-                        <div>
+                        <div class="uploadBox">
                             <button>이미지 업로드</button>
                             <ul>
                                 <li>
@@ -206,42 +216,38 @@
                 </div>
 
                 <div class="answer">
-                    <ul>
-                        <li>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div>온라인/오프라인 모두 가능</div>
-                                            <div>
-                                                <div>
-                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
-                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div></div>
-                                    </div>
-                                    <input type="hidden">
-                                </div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div>상관없음</div>                                    
-                                            <div>
-                                                <div>
-                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
-                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div></div>
-                                    </div>
-                                    <input type="hidden">
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="selectBoxWrap">
+                        <div class="selectBox">
+                            <select onchange="onOffChange(this)">
+                                <option value="both">온라인/오프라인 모두 가능</option>
+                                <option value="on">온라인만 가능</option>
+                                <option value="off">오프라인만 가능</option>
+                            </select>
+                        </div>       
+                        <div class="selectBox">
+                            <select id="onOffResult">
+                                <option>상관없음</option>
+                                <option>서울특별시</option>
+                                <option>경기도</option>
+                                <option>경기도</option>
+                                <option>부산광역시</option>
+                                <option>인천광역시</option>
+                                <option>대구광역시</option>
+                                <option>경상남도</option>
+                                <option>경상북도</option>
+                                <option>충청남도</option>
+                                <option>충청북도</option>
+                                <option>전라남도</option>
+                                <option>전라북도</option>
+                                <option>광주광역시</option>
+                                <option>강원도</option>
+                                <option>울산광역시</option>
+                                <option>제주특별자치도</option>
+                                <option>세종특별자치시</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
                 
                 <div class="question">
@@ -254,48 +260,32 @@
                 </div>
                 
                 <div class="answer">
-                    <ul>
-                        <li>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div>기획</div>
-                                            <div>
-                                                <div>
-                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
-                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div></div>
-                                    </div>
-                                    <input type="hidden">
-                                </div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div>UI/UX기획</div>
-                                            <div>
-                                                <div>                                                    
-                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
-                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div></div>
-                                    </div>
-                                    <input type="hidden">
-                                </div>
-                                <div>
-                                    <button></button>
-                                    <div>1</div>
-                                    <button></button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div>
+                    <div class="selectBoxWrap">
+                        <div class="selectBox">
+                            <select onchange="personChange(this)">
+                                <option value="a">기획</option>
+                                <option value="b">디자인</option>
+                                <option value="c">프론트엔드개발</option>
+                                <option value="d">백엔드개발</option>
+                                <option value="e">사업</option>
+                                <option value="f">기타</option>
+                            </select>
+                        </div>
+                        <div class="selectBox">   
+                            <select id="personResult">
+                                <option>UI/UX 기획</option>
+                                <option>게임 기획</option>
+                                <option>프로젝트 매니저</option>
+                                <option>하드웨어(제품) 기획</option>
+                            </select> 
+                        </div>
+                        <div class="plusMinusBtnWrap">
+                            <button class="imageBtn minus" disabled=""></button>
+                            <div class="countNumber">1</div>
+                            <button class="imageBtn plus"></button>
+                        </div>
+                    </div>
+                    <div class="addMemberBtnWrap">
                         <button value="삭제">삭제</button>
                         <button value="추가">추가</button>
                     </div>
@@ -311,24 +301,17 @@
                 </div>
 
                 <div class="answer">
-                    <ul>
-                        <li>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <div>출시 플랫폼을 하나 이상 선택해주세요</div>
-                                            <input readonly aria-autocomplete="list">
-                                        </div>
-                                        <div>
-                                            <input type="hidden">
-                                        </div>
-                                    </div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                    <div>
+                        <select>
+                            <option>출시 플랫폼을 하나 이상 선택해주세요</option>
+                            <option value="1">미정(논의 후 확정)</option>
+                            <option value="2">반응형 웹(PC/모바일)</option>
+                            <option value="3">안드로이드 앱</option>
+                            <option value="4">IOS 앱</option>
+                            <option value="5">PC(윈도우/맥) 프로그램</option>
+                            <option value="6">설치형/SASS 솔루션</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="question">
@@ -342,46 +325,11 @@
                 </div>
 
                 <div class="answer">
-                    <!-- 썸머노트 부분 -->
+                    <form method="post">
+                        <textarea id="summernote" name="editordata"></textarea>
+                    </form>
                 </div>
-
-                <div  class="answer">
-                    <textarea placeholder="●  스터디 목표 및 진행방식
-
-[목표] : ( 예: 제이쿼리를 마스터하고자 합니다) 
-
-[진행방식] : (예: 매주마다 다음주의 목표를 설정하고, 이에 대한 공부 후 실제 프로토타입)
-
-[장소/횟수] : (예: 정기적으로 오프라인 주말 1회 혹은 zoom 1회 토론 등)
-
-[기간] :  (예 : 3달 정도 진행하고자 합니다)
-
-
-●  참여 조건
-
-[지식수준] :  (예 :해당 언어에 대한 지식이 조금 있으셨으면 합니다. )
-
-[참여회비] (예 : 매 모임마다 1만원의 회비가 있습니다)
-
-[기타]  ( 예: 인천 거주하시는 분이시면 더욱 좋겠습니다)" maxlength="1000" style="width: 100%; height: 450px; font-size: 1rem; padding: 11px 16px; border-radius: 4px; margin-right: 14px; resize: none; border: 1px solid rgb(151, 150, 167);">●  스터디 목표 및 진행방식
-
-[목표] : ( 예: 제이쿼리를 마스터하고자 합니다) 
-
-[진행방식] : (예: 매주마다 다음주의 목표를 설정하고, 이에 대한 공부 후 실제 프로토타입)
-
-[장소/횟수] : (예: 정기적으로 오프라인 주말 1회 혹은 zoom 1회 토론 등)
-
-[기간] :  (예 : 3달 정도 진행하고자 합니다)
-
-
-●  참여 조건
-
-[지식수준] :  (예 :해당 언어에 대한 지식이 조금 있으셨으면 합니다. )
-
-[참여회비] (예 : 매 모임마다 1만원의 회비가 있습니다)
-
-[기타]  ( 예: 인천 거주하시는 분이시면 더욱 좋겠습니다)</textarea>
-                </div>
+                
 
                 <div class="question">
                     <p>
@@ -394,7 +342,7 @@
 
                 <div class="answer">
                     <div>
-                        <input placeholder="예) java, react, figma, photoshop">
+                        <input type="text" placeholder="예) java, react, figma, photoshop">
                     </div>
                 </div>
 
@@ -408,20 +356,18 @@
                 </div>
 
                 <div class="answer">
-                    <ul>
-                        <li>
-                            <div>
-                                <input placeholder="https://letspl.me" value="">
-                            </div>
-                        </li>
-                    </ul>
-                    <div>
-                        <button value="삭제" class="grayBtn">삭제</button>
-                        <button value="추가" class="pinkBtn">추가</button>
+                    <div class="answer">
+                        <div>
+                            <input type="text" placeholder="예) http://letspl.me">
+                        </div>
+                    </div>
+                    <div class="addMemberBtnWrap">
+                        <button value="삭제">삭제</button>
+                        <button value="추가">추가</button>
                     </div>
                 </div>
 
-                <div>
+                <div class="confirmBtnWrap btnWrap">
                     <button value="임시저장" class="grayBtn saveBtn">임시저장</button>
                     <button value="완료" class="pinkBtn confirmBtn">작성완료</button>
                 </div>
@@ -429,4 +375,76 @@
         </div>
     </section>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+    // 헤더 표시하기
+    $(document).ready(function(){
+        $("#header").load('../../templates/fix/header.html');
+    })
+    
+
+    // 모임지역 선택
+    function onOffChange(e) {
+	var onOff_both = ["상관없음", "서울특별시", "경기도", "부산광역시","인천광역시","대구광역시","경상남도","경상북도","충청남도","충청북도","전라남도","전라북도","광주광역시","강원도","울산광역시","제주특별자치도","세종특별자치시"];
+	var onOff_on = ["상관없음"];
+	var onOff_off = ["서울특별시", "경기도", "부산광역시","인천광역시","대구광역시","경상남도","경상북도","충청남도","충청북도","전라남도","전라북도","광주광역시","강원도","울산광역시","제주특별자치도","세종특별자치시"];
+	var target = document.getElementById("onOffResult");
+
+	if(e.value == "both") var d = onOff_both;
+	else if(e.value == "on") var d = onOff_on;
+	else if(e.value == "off") var d = onOff_off;
+
+	target.options.length = 0;
+
+	for (x in d) {
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
+	}	
+}
+
+    
+    //모집인원 선택
+    function personChange(e) {
+	var person_a = ["UI/UX기획","게임기획","프로젝트 매니저","하드웨어(제품) 기획"];
+	var person_b = ["그래픽디자인","UI/UX디자인","3D디자인","하드웨어(제품) 디자인","(디자인)기타"];
+	var person_c = ["IOS","안드로이드","웹프론트엔드","웹퍼블리셔","크로스플랫폼"];
+	var person_d = ["웹 서버","블록체인","AI","DB/빅데이터/DS","게임 서버"];
+	var person_e = ["사업기획","마케팅","영업","재무/회계","전략/컨설팅","투자/고문","(사업)그외"];
+	var person_f = ["작가/블로거","인플루언서/스트리머","작곡(사운드)","영상","운영","QA","기타"];
+	var target = document.getElementById("personResult");
+
+	if(e.value == "a") var d = person_a;
+	else if(e.value == "b") var d = person_b;
+	else if(e.value == "c") var d = person_c;
+	else if(e.value == "d") var d = person_d;
+	else if(e.value == "e") var d = person_e;
+	else if(e.value == "f") var d = person_f;
+
+	target.options.length = 0;
+
+	for (x in d) {
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
+	}
+}
+
+//써머노트 로딩
+$(document).ready(function() {
+	$('#summernote').summernote({
+		  height: 300,                 // 에디터 높이
+		  minHeight: null,             // 최소 높이
+		  maxHeight: null,             // 최대 높이
+		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+		  lang: "ko-KR",					// 한글 설정
+		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정          
+	});
+});
+
+</script>
 </html>
