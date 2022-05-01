@@ -76,6 +76,8 @@
     margin-right: 12px;
 }
 
+
+/* 테이블 */
 .payment .paymentStep .chargeTable {
     width: 100%;
 }
@@ -91,11 +93,27 @@
     border-bottom: 1px solid #e5e5e5;
     font-size: .875rem;
     color: #42495b;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 9px 40px;
+    position: relative;
 }
 
 .payment .paymentStep .chargeTable table tr th {
     border-right: 1px solid #e5e5e5;
+    text-align: center;
+
 }
+
+.payment .paymentStep .chargeTable table tr th:nth-child(3) {
+    border-right: none;
+}
+
+.payment .paymentStep .chargeTable table tr td:nth-child(3) {
+    border-right: none;
+}
+
 
 .payment .paymentStep .chargeTable table tr td:first-child label {
     position: relative;
@@ -105,27 +123,96 @@
     height: 20px;
 }
 
-.checkBox input[type="radio"]{
-    display:none;
-  }
-  
-  .checkBox input[type="radio"] {
-    display:inline-block;
-    background:none;
-    border:1px solid #dfdfdf;  
-    padding:0px 10px;
-    text-align:center;
-    height:35px;
-    line-height:33px;
-    font-weight:500;
-    cursor:pointer;
-  }
-  
-  .checkBox input[type="radio"]:checked {
-    border:1px solid #23a3a7;
-    background:#23a3a7;
-    color:#fff;
-  }
+.payment .paymentStep .chargeTable table tr td:first-child label {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+}
+
+.chargeTable table span:hover{
+    background-color: #dddddd;
+}
+
+.checkBox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkBox {
+    margin: 0 auto;
+}
+
+input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input {
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    border: none;
+    height: 46px;
+    font-size: 14px;
+    padding: 4px 0 0;
+}
+
+.payment .paymentStep .chargeTable table tr td:first-child label .checkmark {
+    top: 0;
+}
+
+.checkBox input:checked~.checkmark {
+    background-color: #ea6560;
+    border: none;
+}
+
+.checkmark {
+    top: 0;
+    background-color: #eee;
+    border-radius: 4px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #bcbccb;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.checkBox input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkBox .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 4px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+
+
+
 
 
 
@@ -212,46 +299,6 @@ p {
     margin : 0;
 }
 
-input[type="checkbox"], input[type="radio"] {
-    appearance: auto;
-    float: left;
-    margin-right: -2em;
-    opacity: 1;
-    width: 1em;
-    z-index: -1;
-}
-
-input[type="checkbox"]+label:before {
-	border-radius: 2px !important;
-}
-
-input[type="checkbox"]+label:before, input[type="radio"]+label:before {
-	background-color: white !important;
-	height: 20px !important;
-	width: 20px !important;
-	top: 3px !important;
-	left: 3px !important;
-}
-
-input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before {
-    background-color: #1187CF !important;
-    border-color: #1187CF !important;
-    color: #ffffff !important;
-}
-
-input[type="checkbox"]:focus+label:before, input[type="radio"]:focus+label:before
-	{
-	border-color: #e5e5e5 !important;
-	box-shadow: 0 0 0 1px #ffffff !important;
-}
-
-input[type="checkbox"]+label, input[type="radio"]+label {
-	font-size: 13px;
-}
-
-input:focus {
-	outline:none;
-}
 
 /* Table */
 .table-wrapper {
@@ -277,7 +324,7 @@ padding: 0.75em 0.75em;
 table th {
 font-size: 0.9em;
 font-weight: 700;
-padding: 0 0.75em 0.75em 0.75em;
+padding: 0.3em;
 text-align: left;
 }
 
