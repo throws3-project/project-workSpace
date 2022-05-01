@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/makeProject.css" type="text/css"/>
+    <title>프로젝트/스터디 생성하기</title>
+</head>
+<body>
+    <section class="buildProject">
+        <div class="buildProjectTitWrap">
+            <div class="titContents">
+                <h3>모임 생성</h3>
+                <p>만들고 싶은 프로젝트가 있다면 워크스페이스와 같이 하나씩 정리해봐요!</p>
+            </div>
+        </div>
+        <div class="buildProjectWrap">            
+            <div class="buildProjectContents">
+                <div class="question">
+                    <p>* 유형</p>
+                </div>
+                <div class="answer">
+                    <div class="selectMotivation">
+                        <div class="ccheck">
+                            <input type="radio" name="type">
+                            <label for>
+                                <div class="chk_subject ideaCheck">
+                                    <div></div>
+                                    <span>사이드(토이) 프로젝트</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="ccheck">
+                            <input type="radio" name="type">
+                            <label for>
+                                <div class="chk_subject">
+                                    <div></div>
+                                    <span>IT 스터디 & 네트워킹</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="noticBox">
+                        <p>아이디어를 기반으로 앱/웹 등 서비스를 만드는 유형입니다. 
+                            심사가 진행 ( 1영업일 이내 )되며, 
+                            승인시 렛플앱 푸시 및 이메일로 홍보됩니다</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>
+                        *
+                        프로젝트명
+                        <span>
+                            &nbsp;직관적인 프로젝트명을 사용하시면 클릭률이 올라갑니다.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <ul>
+                        <li>
+                            <div class="inputWrap">
+                                <input placeholder="3~20글자로 적어주세요 예)승차거부 신고앱" minlength="3" maxlength="20" autocomplete="off">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p>
+                        *
+                        프로젝트 분야
+                        <span>
+                            &nbsp;아래 분야 중에 한가지를 선택해주세요.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <ul>
+                        <li class="checkBoxWrap selectPurpose">
+                            <label class="checkBox">
+                                <span class="txt">O2O</span>
+                                <input type="radio" name="step2_radio" value="01">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">공유서비스</span>
+                                <input type="radio" name="step2_radio" value="02">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">데이팅서비스</span>
+                                <input type="radio" name="step2_radio" value="03">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">여행</span>
+                                <input type="radio" name="step2_radio" value="04">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">소셜네트워크</span>
+                                <input type="radio" name="step2_radio" value="05">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">뷰티/패션</span>
+                                <input type="radio" name="step2_radio" value="06">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">이커머스</span>
+                                <input type="radio" name="step2_radio" value="07">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">엔터테인먼트</span>
+                                <input type="radio" name="step2_radio" value="08">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">게임</span>
+                                <input type="radio" name="step2_radio" value="09">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">헬스/스포츠</span>
+                                <input type="radio" name="step2_radio" value="10">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">뉴스/정보</span>
+                                <input type="radio" name="step2_radio" value="11">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">유틸</span>
+                                <input type="radio" name="step2_radio" value="12">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">금융</span>
+                                <input type="radio" name="step2_radio" value="13">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">부동산/인테리어</span>
+                                <input type="radio" name="step2_radio" value="14">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">종교</span>
+                                <input type="radio" name="step2_radio" value="15">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkBox">
+                                <span class="txt">우주/외계인</span>
+                                <input type="radio" name="step2_radio" value="16">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p>
+                        * 대표 이미지
+                        <span>
+                            &nbsp;프로젝트 분야를 선택하거나 또는 업로드 해주세요.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <div>
+                        <div>
+                            <button></button>
+                            <img class="thumbnailImage2" src="https://letspl.me/assets/images/ic-camera-alt-24-px.png" alt="project_thumb1">
+                            <input type="file">
+                        </div>
+                        <div>
+                            <button>이미지 업로드</button>
+                            <ul>
+                                <li>
+                                    &nbsp;가로/세로의 비율이 2:1일 때 썸네일이 가장 예쁩니다.
+                                </li>
+                                <li>
+                                    &nbsp;저작권에 위배되지 않는 파일만 업로드해주세요.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>
+                        * 지역
+                        <span>
+                            &nbsp;온/오프라인 여부와 장소를 선택해주세요.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <ul>
+                        <li>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>온라인/오프라인 모두 가능</div>
+                                            <div>
+                                                <div>
+                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
+                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <input type="hidden">
+                                </div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>상관없음</div>                                    
+                                            <div>
+                                                <div>
+                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
+                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <input type="hidden">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="question">
+                    <p>
+                        * 모집인원
+                        <span>
+                            &nbsp;최대 9명까지 모집이 가능하며, 3~4명을 추천합니다.(나중에 변경/추가가 가능합니다.)
+                        </span>
+                    </p>
+                </div>
+                
+                <div class="answer">
+                    <ul>
+                        <li>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>기획</div>
+                                            <div>
+                                                <div>
+                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
+                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <input type="hidden">
+                                </div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>UI/UX기획</div>
+                                            <div>
+                                                <div>                                                    
+                                                    <input autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-2-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;">
+                                                    <div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: 'Noto Sans KR', Lato, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <input type="hidden">
+                                </div>
+                                <div>
+                                    <button></button>
+                                    <div>1</div>
+                                    <button></button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div>
+                        <button value="삭제">삭제</button>
+                        <button value="추가">추가</button>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>
+                        * 출시 플랫폼
+                        <span>
+                            출시 플랫폼은 중복 체크가 가능합니다.(예 IOS, MAC OS)
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <ul>
+                        <li>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>출시 플랫폼을 하나 이상 선택해주세요</div>
+                                            <input readonly aria-autocomplete="list">
+                                        </div>
+                                        <div>
+                                            <input type="hidden">
+                                        </div>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p>
+                        *
+                         프로젝트 설명
+                        <span>
+                            설명이 풍부한 프로젝트는 ,아닌 프로젝트에 비해 지원율이 50% 높습니다.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <!-- 썸머노트 부분 -->
+                </div>
+
+                <div  class="answer">
+                    <textarea placeholder="●  스터디 목표 및 진행방식
+
+[목표] : ( 예: 제이쿼리를 마스터하고자 합니다) 
+
+[진행방식] : (예: 매주마다 다음주의 목표를 설정하고, 이에 대한 공부 후 실제 프로토타입)
+
+[장소/횟수] : (예: 정기적으로 오프라인 주말 1회 혹은 zoom 1회 토론 등)
+
+[기간] :  (예 : 3달 정도 진행하고자 합니다)
+
+
+●  참여 조건
+
+[지식수준] :  (예 :해당 언어에 대한 지식이 조금 있으셨으면 합니다. )
+
+[참여회비] (예 : 매 모임마다 1만원의 회비가 있습니다)
+
+[기타]  ( 예: 인천 거주하시는 분이시면 더욱 좋겠습니다)" maxlength="1000" style="width: 100%; height: 450px; font-size: 1rem; padding: 11px 16px; border-radius: 4px; margin-right: 14px; resize: none; border: 1px solid rgb(151, 150, 167);">●  스터디 목표 및 진행방식
+
+[목표] : ( 예: 제이쿼리를 마스터하고자 합니다) 
+
+[진행방식] : (예: 매주마다 다음주의 목표를 설정하고, 이에 대한 공부 후 실제 프로토타입)
+
+[장소/횟수] : (예: 정기적으로 오프라인 주말 1회 혹은 zoom 1회 토론 등)
+
+[기간] :  (예 : 3달 정도 진행하고자 합니다)
+
+
+●  참여 조건
+
+[지식수준] :  (예 :해당 언어에 대한 지식이 조금 있으셨으면 합니다. )
+
+[참여회비] (예 : 매 모임마다 1만원의 회비가 있습니다)
+
+[기타]  ( 예: 인천 거주하시는 분이시면 더욱 좋겠습니다)</textarea>
+                </div>
+
+                <div class="question">
+                    <p>
+                        기술/언어 (최대 10개)
+                        <span>
+                            &nbsp; 프로젝트에 적용된/적용하고자 하는 기술/디자인 플랫폼을 적어주세요.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <div>
+                        <input placeholder="예) java, react, figma, photoshop">
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>
+                        참고 자료 (최대 5개)
+                        <span>
+                            &nbsp; 벤치마킹하는 서비스나, 프로젝트를 정리하신 자료의 웹주소를 등록해주세요.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="answer">
+                    <ul>
+                        <li>
+                            <div>
+                                <input placeholder="https://letspl.me" value="">
+                            </div>
+                        </li>
+                    </ul>
+                    <div>
+                        <button value="삭제" class="grayBtn">삭제</button>
+                        <button value="추가" class="pinkBtn">추가</button>
+                    </div>
+                </div>
+
+                <div>
+                    <button value="임시저장" class="grayBtn saveBtn">임시저장</button>
+                    <button value="완료" class="pinkBtn confirmBtn">작성완료</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,181 +1,223 @@
-.payment {
+.buildProjectTitWrap {
+    width: 100%;
+    max-width: 100%;
+    padding: 62px 20px 32px;
+    background-color: #ea6560;
+    box-sizing: border-box;
+}
+
+.buildProjectTitWrap .titContents {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    box-sizing: border-box;
-    padding-bottom: 164px;
 }
 
-.paymentTitle h2 {
-    display: flex;
-    flex-direction: column;
-}
-
-.paymentTitle h2 .smallTxt{
-    color: #ea6560;
-    font-size: .875rem;
-}
-.paymentTitle h2 .bigTxt{
-    color: #42495b;
+.buildProjectTitWrap .titContents h3 {
+    color: #fff;
     font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 3rem;
 }
 
-.adWrap {
+.buildProjectTitWrap .titContents p {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.buildProjectWrap {
+    max-width: 1200px;
     width: 100%;
-    height: 180px;
-    background-image: url(https://letspl.s3.ap-northeast-2.amazonaws.com/images/bg_payment.png);
-    background-position: 50%;
-    background-size: cover;
-    border-radius: 4px;
-    position: relative;
-    background-repeat: no-repeat;
-    margin-bottom: 48px;
+    margin: 26px auto 0;
+    box-shadow: 0 3px 28px 0 rgb(0 0 0 / 4%);
+    height: 100%;
 }
 
-.adWrap:after {
-    content: "";
+.buildProjectContents {
+    padding: 40px 120px;
+}
+
+.buildProjectContents .question, .buildProjectContents .question .stepWrap {
+    flex-direction: row;
+    align-items: center;
+}
+
+.buildProjectContents .answer {
+    margin-top: 16px;
+    margin-bottom: 28px;
+}
+
+.buildProjectContents .question {
+    position: relative;
+    display: flex;
+}
+
+.buildProjectContents .question p {
+    color: #000;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.buildProjectContents .question p span {
+    font-size: 13px;
+    color: #b1b1b1;
+    display: block;
+    line-height: 20px;
+    padding-top: 10px;
+}
+
+.buildProjectContents .question p span:before {
+    content: "❗";
+    color: #ea6560;
+}
+
+.buildProjectContents .answer ul li .inputWrap input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #bcbccb;
+    box-sizing: border-box;
+    height: auto!important;
+    color: #696980;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.buildProjectContents .answer .selectMotivation {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.buildProjectContents .answer div.selectMotivation .ccheck:first-child {
+    margin-right: 60px;
+}
+
+.buildProjectContents .answer div.selectMotivation .ccheck {
+    position: relative;
+}
+
+.buildProjectContents .answer div.selectMotivation .ccheck input[type=radio] {
+    display: block;
     position: absolute;
-    left: 0;
-    top: 0;
+    opacity: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.5);
+    z-index: 999;
 }
 
-
-.adWrap p, .payment .adWrap span {
-    color: #fff;
-    display: block;
-    text-align: center;
-    z-index: 10;
-    position: relative;
-}
-
-.payment .adWrap p {
-    box-sizing: border-box;
-    padding-top: 66px;
-    font-size: 1.5rem;
-}
-
-.payment .adWrap span {
-    font-size: .875rem;
-}
-
-.payment .paymentStep {
-    margin-bottom: 30px;
-}
-
-.payment .paymentStep .stepNumber {
-    font-size: 1.125rem;
-    color: #42495b;
-    margin-bottom: 15px;
-}
-
-.payment .paymentStep .stepNumber span {
-    font-weight: 700;
-    margin-right: 12px;
-}
-
-.payment .paymentStep .chargeTable {
+.buildProjectContents .answer div.selectMotivation .ccheck label {
     width: 100%;
 }
 
-.payment .paymentStep .chargeTable table {
-    border-bottom: 2px solid #42495b;
-    border-top: 2px solid #42495b;
-    width: 100%;
-}
-
-.payment .paymentStep .chargeTable table tr td {
-    border-right: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-    font-size: .875rem;
-    color: #42495b;
-}
-
-.payment .paymentStep .chargeTable table tr th {
-    border-right: 1px solid #e5e5e5;
-}
-
-.payment .paymentStep .chargeTable table tr td:first-child label {
+.buildProjectContents .answer div.selectMotivation .ccheck .chk_subject {
     position: relative;
-    display: flex;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-}
-
-.checkBox input[type="radio"]{
-    display:none;
-  }
-  
-  .checkBox input[type="radio"] {
-    display:inline-block;
-    background:none;
-    border:1px solid #dfdfdf;  
-    padding:0px 10px;
-    text-align:center;
-    height:35px;
-    line-height:33px;
-    font-weight:500;
-    cursor:pointer;
-  }
-  
-  .checkBox input[type="radio"]:checked {
-    border:1px solid #23a3a7;
-    background:#23a3a7;
-    color:#fff;
-  }
-
-
-
-.payment .paymentStep .paymentMethod {
-    margin-bottom: 30px;
-}
-
-.payment .paymentStep .paymentMethod p {
-    font-size: .875rem;
-    color: #42495b;
-}
-
-.payment .paymentStep .paymentMethod div {
-    margin-top: 10px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-.payment .paymentStep .normalPayment div button {
-    width: 240px;
-    height: 58px;
-    border: 1px solid #bababa;
+.buildProjectContents .answer div.selectMotivation .ccheck input[type=radio]+label .chk_subject .radio {
+    width: 18px;
+    height: 18px;
+    border-radius: 100px;
+    border: 1px solid #e3e3e3;
+    position: relative;
+    box-sizing: border-box;
+    margin-right: 8px;
+}
+
+.buildProjectContents .answer div.selectMotivation .ccheck .chk_subject span {
+    font-size: 16px;
+}
+
+
+.buildProjectContents .answer .noticeBox {
+    background-color: #646464;
+    display: inline-block;
+    width: auto;
+    box-sizing: border-box;
+    padding: 9px 20px;
+    margin-top: 20px;
+}
+
+.buildProjectContents .answer .noticeBox p {
+    color: #fff;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.buildProjectContents .answer ul li.checkBoxWrap.selectPurpose {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.buildProjectContents .answer ul li.checkBoxWrap label {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkBoxWrap {
+    flex-direction: row;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    margin-bottom: 0;
+}
+
+.checkBox .txt {
+    font-size: 1rem;
+    color: #696980;
+    margin-left: 30px;
+}
+
+.checkBox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    border-radius: 4px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 20px;
+    width: 20px;
     background-color: #fff;
-    font-size: .875rem;
-    color: #42495b;
-    margin-right: 10px;
+    border: 1px solid #bcbccb;
     box-sizing: border-box;
 }
 
-.payment .paymentStep .normalPayment div button:hover {
-    background-color: #f6f6f6;
-    color: #babac1;
-    border: 1px solid #f6f6f6;
+.checkBox .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 4px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 
-.payment .paymentStep .easyPayment div button.kakao {
-    background-image: url(https://letspl.s3.ap-northeast-2.amazonaws.com/images/ic_pay_kakao.png);
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-color: #ffdf00;
+input {
+    flex: 1 1;
+    border: none;
+    height: 46px;
+    font-size: 14px;
 }
 
-.payment .paymentStep .easyPayment div button {
-    width: 240px;
-    height: 58px;
+[type=checkbox], [type=radio] {
     box-sizing: border-box;
-    margin-right: 10px;
+    padding: 0;
 }
+
 
 
 
@@ -212,45 +254,24 @@ p {
     margin : 0;
 }
 
+
+
 input[type="checkbox"], input[type="radio"] {
-    appearance: auto;
+    -moz-appearance: none;
+    -webkit-appearance: auto;
+    -ms-appearance: none;
+    appearance: none;
+    display: block;
     float: left;
     margin-right: -2em;
     opacity: 1;
     width: 1em;
-    z-index: -1;
 }
-
-input[type="checkbox"]+label:before {
-	border-radius: 2px !important;
-}
-
-input[type="checkbox"]+label:before, input[type="radio"]+label:before {
-	background-color: white !important;
-	height: 20px !important;
-	width: 20px !important;
-	top: 3px !important;
-	left: 3px !important;
-}
-
-input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before {
-    background-color: #1187CF !important;
-    border-color: #1187CF !important;
-    color: #ffffff !important;
-}
-
-input[type="checkbox"]:focus+label:before, input[type="radio"]:focus+label:before
-	{
-	border-color: #e5e5e5 !important;
-	box-shadow: 0 0 0 1px #ffffff !important;
-}
-
-input[type="checkbox"]+label, input[type="radio"]+label {
-	font-size: 13px;
-}
-
-input:focus {
-	outline:none;
+input, select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: auto;
+    -ms-appearance: none;
+    appearance: auto;
 }
 
 /* Table */
