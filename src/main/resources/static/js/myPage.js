@@ -1,25 +1,34 @@
+/*네비게이션 이동*/
+$($(".navBorder").get(0)).css("border-bottom","1px solid black");
+    $(".nav").each(function (i,nav) {
+        $(nav).on("click",function (e) {
+            e.preventDefault();
+            $(".pageNav").hide();
+            $(".navBorder").css("border-bottom","1px solid lightgray");
+            $($(".pageNav").get(i)).show();
+            $($(".navBorder").get(i)).css("border-bottom","1px solid black");
+        })
+    })
 
-$("#goInfo").click(function () {
-    $(".pageNav").hide();
-    $("#goInfo").parent().css("border-bottom","1px solid lightgray");
-    $("#info").show();
-    $("#goInfo").parent().css("border-bottom","1px solid black");
+
+/*포인트 충전/사용 이동*/
+$($(".pointNav").get(0)).css("border","1px solid black");
+$(".pointNav").each(function (i,nav) {
+    $(nav).on("click",function () {
+        $(".pointTable").hide();
+        $(".pointNav").css("border","1px solid lightgray")
+        $($(".pointTable").get(i)).show();
+        $($(".pointNav").get(i)).css("border","1px solid black");
+    })
 })
-$("#goPoint").click(function () {
-    $(".pageNav").hide();
-    $("#goPoint").parent().css("border-bottom","1px solid lightgray");
-    $("#point").show();
-    $("#goPoint").parent().css("border-bottom","1px solid black");
-})
 
 
-/*정보페이지 - 포트폴리오 추가-삭제*/
+/*정보페이지 - 포트폴리오 추가*/
 let count=1
 $("#portfolio").on("click", "#plusUrl", function () {
     let length=$("#portfolio").children().length;
     if (length != 5) {
         count++
-        console.log(length)
         let input = $($(this).parent().children()[0]);
         let str = "";
         str += "<div id=\"url\" class=\"flex\">"
@@ -28,13 +37,13 @@ $("#portfolio").on("click", "#plusUrl", function () {
         str += "</div>"
         $("div#portfolio").append(str);
         input.val("");
-        console.log(length)
         if (length == 4) {
             $(this).replaceWith("<input id='deleteUrl' type='button' class='able' value='삭제'>");
         }
     }
 })
 
+/*정보페이지 - 포트폴리오 삭제*/
 $("#portfolio").on("click", "#deleteUrl", function () {
     $(this).parent().hide();
     count--

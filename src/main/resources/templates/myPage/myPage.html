@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>MyPage</title>
@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="../../static/css/myPage.css" type="text/css">
 </head>
 <body>
+<header id="header"></header>
 <div id="container">
     <section id="fix">
         <div id="title">
-            <p>LET'S see</p>
+            <p class="fontColor">LET'S see</p>
             <h2>마이페이지</h2>
         </div>
         <ul id="nav" class="flex">
-            <li><a href="#" id="goInfo">정보</a></li>
-            <li><a href="#" id="goPro">프로젝트/스터디</a></li>
-            <li><a href="#" id="goStory">스토리</a></li>
-            <li><a href="#" id="goLike">찜목록</a></li>
-            <li><a href="#" id="goAlert">알림</a></li>
-            <li><a href="#" id="goPoint">포인트</a></li>
-            <li><a href="#" id="goScore">워크스코어</a></li>
+            <li class="navBorder"><a href="0" id="goInfo" class="nav">정보</a></li>
+            <li class="navBorder"><a href="1" id="goPro" class="nav">프로젝트/스터디</a></li>
+            <li class="navBorder"><a href="2" id="goStory" class="nav">스토리</a></li>
+            <li class="navBorder"><a href="3" id="goLike" class="nav">찜목록</a></li>
+            <li class="navBorder"><a href="4" id="goAlert" class="nav">알림</a></li>
+            <li class="navBorder"><a href="5" id="goPoint" class="nav">포인트</a></li>
+            <li class="navBorder"><a href="6" id="goScore" class="nav">워크스코어</a></li>
         </ul>
     </section>
 
@@ -29,10 +30,13 @@
         <form>
             <div id="infoWrap" class="flex">
                 <div id="top">
-                    <label for="thumbNail">
-                        <div id="profileImg">
+
+                    <div id="profileImg">
+                        <label for="thumbNail">
                             <img src="../../static/images/top-main-img-3.png" alt="">
-                        </div>
+                        </label>
+                    </div>
+                    <label for="thumbNail">
                         <button id="profileChange"></button>
                     </label>
                     <input type="file" name="profileImg" id="thumbNail">
@@ -206,31 +210,195 @@
 
                 </div>
             </div>
-            <button id="submit">업데이트</button>
+            <button class="submit">업데이트</button>
         </form>
     </section>
 
+    <!-----------------------------------------------------------------------프로젝트 !!--------------------------------------------------------------------->
+    <section id="project" class="pageNav">
+        <div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">지원 현황</h3>
+                </div>
+                <div class="box">
+                    <div>
+                        <p>아직 작성하신 스토리가 없습니다.</p>
+                    </div>
+                    <div>
+                        <button class="submit">스토리 작성하러 가기</button>
+                    </div>
+                </div>
+                <!--                <div style="display: grid">-->
+                <!--                    <div class="projectGridView">-->
+                <!--                        <div class="projectGridWrap">-->
+                <!--                            <div class="projectTopInfo">-->
+                <!--                                <div class="topInfo">-->
+                <!--                                    <div class="box-wrap">-->
+                <!--                                        <div class="box red">-->
+                <!--                                            <span>NEW</span>-->
+                <!--                                        </div>-->
+                <!--                                        <div class="box black">-->
+                <!--                                            <span>사이드프로젝트</span>-->
+                <!--                                        </div>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="favorite"></div>-->
+                <!--                                </div>-->
+                <!--                                <div class="projectImg">-->
+                <!--                                    <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                            <div class="projectMiddleInfo">-->
+                <!--                                <p class="category">소셜네트워크</p>-->
+                <!--                                <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
+                <!--                            </div>-->
+                <!--                            <div class="projectBottomInfo">-->
+                <!--                                <div class="middleWrap">-->
+                <!--                                    <div class="left">-->
+                <!--                                        <div class="heart">-->
+                <!--                                            <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
+                <!--                                            <span class="heartCount">0</span>-->
+                <!--                                        </div>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="right">-->
+                <!--                                        <div>-->
+                <!--                                            <span>89</span>-->
+                <!--                                            <span> (-)</span>-->
+                <!--                                        </div>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                                <div class="bottomWrap">-->
+                <!--                                    <div class="recruit">-->
+                <!--                                        <div class="recruitStatus">-->
+                <!--                                            <span>모집완료</span>-->
+                <!--                                            <span>-->
+                <!--                                    0/1-->
+                <!--                                </span>-->
+                <!--                                            <div>-->
+                <!--                                                <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
+                <!--                                            </div>-->
+                <!--                                        </div>-->
+                <!--                                        <div class="recruitModel">-->
+                <!--                                            <ul>-->
+                <!--                                                <li>-->
+                <!--                                                    <span>UI/UX기획</span>-->
+                <!--                                                    <span>1명</span>-->
+                <!--                                                </li>-->
+                <!--                                                <li>-->
+                <!--                                                    <span>웹 프론트엔드</span>-->
+                <!--                                                    <span>2명</span>-->
+                <!--                                                </li>-->
+                <!--                                            </ul>-->
+                <!--                                        </div>-->
+                <!--                                    </div>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <div>
+                    <div>
+                        <h3 class="titleMsg">진행 현황</h3>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <p>아직 작성하신 스토리가 없습니다.</p>
+                        </div>
+                        <div>
+                            <button class="submit">스토리 작성하러 가기</button>
+                        </div>
+                </div>
+                <div>
+                    <div>
+                        <h3 class="titleMsg">완료 현황</h3>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <p>아직 작성하신 스토리가 없습니다.</p>
+                        </div>
+                        <div>
+                            <button class="submit">스토리 작성하러 가기</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-----------------------------------------------------------------------스토리 !!--------------------------------------------------------------------->
+    <section id="story" class="pageNav">
+        <div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">내 게시글</h3>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">내 시리즈</h3>
+                </div>
+                <div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-----------------------------------------------------------------------찜하기 !!--------------------------------------------------------------------->
+    <section id="like" class="pageNav">
+        <div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">찜한 프로젝트/스터디</h3>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">찜한 워크인</h3>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-----------------------------------------------------------------------알림 !!--------------------------------------------------------------------->
+    <section id="alert" class="pageNav">
+        <div>
+            <div>
+                <h3 class="titleMsg">알림 내역</h3>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </section>
     <!-----------------------------------------------------------------------포인트 !!-------------------------------------------------------------------->
     <section id="point" class="pageNav">
         <div>
             <div>
-                <h3>포인트 내역</h3>
+                <h3 class="titleMsg">포인트 내역</h3>
             </div>
             <div>
                 <ul class="flex" id="pointNav">
-                    <li><a href="#">충전 내역</a></li>
-                    <li><a href="#">사용 내역</a></li>
+                    <li class="pointNav">충전 내역</li>
+                    <li class="pointNav">사용 내역</li>
                 </ul>
             </div>
             <div>
-                <table id="pointTable">
+                <table id="pointTable" class="pointTable">
                     <thead>
-                        <tr>
-                            <th class="firstCell">날짜</th>
-                            <th class="secondCell">포인트</th>
-                            <th>상세</th>
-                            <th class="lastCell">비고</th>
-                        </tr>
+                    <tr>
+                        <th class="firstCell">날짜</th>
+                        <th class="secondCell">포인트</th>
+                        <th>상세</th>
+                        <th class="lastCell">비고</th>
+                    </tr>
                     </thead>
                     <tr>
                         <td>22.04.18</td>
@@ -252,7 +420,207 @@
                     </tr>
                 </table>
             </div>
+            <div>
+                <table id="useTable" class="pointTable">
+                    <thead>
+                    <tr>
+                        <th class="firstCell">날짜</th>
+                        <th class="secondCell">포인트</th>
+                        <th>상세</th>
+                        <th class="lastCell">비고</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                </table>
+            </div>
 
+        </div>
+    </section>
+
+    <!-----------------------------------------------------------------------점수 !!--------------------------------------------------------------------->
+    <section id="score" class="pageNav">
+        <div>
+            <div>
+                <h3 class="titleMsg">워크스코어 L6 (510) - 다음까지 291</h3>
+            </div>
+            <div>
+                <table id="scoreTable">
+                    <thead>
+                    <tr>
+                        <th class="firstCell">날짜</th>
+                        <th class="secondCell">포인트</th>
+                        <th class="lastCell">상세</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>22.05.01 13:27</td>
+                        <td>-100</td>
+                        <td class="lastCell">스토리 삭제</td>
+                    </tr>
+                    <tr>
+                        <td>22.05.01 13:26</td>
+                        <td>100</td>
+                        <td class="lastCell">스토리 작성</td>
+                    </tr>
+                    <tr>
+                        <td>22.05.01 13:26</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.30 15:50</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 참여 철회</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.30 15:49</td>
+                        <td>50</td>
+                        <td class="lastCell">프로젝트/스터디 참여 신청</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.30 15:48</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.29 10:11</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.28 09:38</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.27 15:21</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.26 14:06</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:19</td>
+                        <td>-50</td>
+                        <td class="lastCell">글 삭제</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:19</td>
+                        <td>50</td>
+                        <td class="lastCell">글 등록</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:12</td>
+                        <td>-100</td>
+                        <td class="lastCell">스토리 삭제</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:12</td>
+                        <td>100</td>
+                        <td class="lastCell">스토리 작성</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 11:26</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.21 15:50</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.21 14:33</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.20 15:14</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18 11:01</td>
+                        <td>100</td>
+                        <td class="lastCell">상대방의 리뷰완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18 11:00</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18 10:12</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.17 12:17</td>
+                        <td>200</td>
+                        <td class="lastCell">본 캐릭터 생성완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.17 12:17</td>
+                        <td>100</td>
+                        <td class="lastCell">회원가입 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.17 12:17</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -261,4 +629,9 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../../static/js/myPage.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+    })
+</script>
 </html>
