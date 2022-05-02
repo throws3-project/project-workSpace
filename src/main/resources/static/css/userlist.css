@@ -1,5 +1,5 @@
 a{
-    text-decoration: none;
+    text-decoration: none !important;
     color: black;
 }
 a:hover{
@@ -24,7 +24,7 @@ h2{
     margin: 0 auto;
 }
 .banner h2 .bannerspan1{
-    color: #1187cf;
+    color: #00704a;
     font-size: .875rem;
 }
 
@@ -135,7 +135,7 @@ h2{
 .smtxt{
     font-size: 18px;
     font-weight: bold;
-    color: #1187cf;
+    color: #00704a;
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -174,7 +174,7 @@ h2{
     appearance: none;
 }
 select:focus{
-    background-size: 18px;
+    background-size: 20px !important;
 }
 .newMark{
     position: relative;
@@ -370,13 +370,22 @@ select:focus{
 .more{
     box-sizing: border-box;
     border: 1px solid #81839c;
-    margin-top: 38px;
+    /* margin-top: 38px; */
     display: inline-block;
-    left: 50%;
+    margin: 0 auto;
+    text-align: center;
+    /* left: 50%; */
     position: relative;
-    margin-bottom: 28px;
+    left: 550px;
+    /* margin-bottom: 28px;*/
+    
 }
+.morebtn:hover{
+    color: #00704a;
+}
+
 .morebtn{
+    cursor: pointer;
     display: inline-block;
     font-size: 1rem;
     color: #81839c;
@@ -420,7 +429,7 @@ select:focus{
     background-color: #d0f5cbbb;
     left: 0;
     bottom: 0;
-    z-index: 0;
+   z-index: -1;
     position: absolute;
 }
 
