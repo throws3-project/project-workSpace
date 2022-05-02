@@ -1,0 +1,76 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+.storySection {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.commonContentViewHeader {
+    padding: 40px 10px 24px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.commonContentViewHeader h2 {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+.commonContentViewHeader h2 .smTxt {
+    color: #ea6560;
+    font-size: .875rem;
+}
+.commonContentViewHeader h2 .bgTxt {
+    color: #42495b;
+    font-size: 1.75rem;
+}
+
+.storySection .storyContentsWrap {
+    padding: 0;
+}
+
+.storySection .contents.highLanking {
+    margin-bottom: 30px;
+}
+.storySection .contents {
+    max-width: 1200px;
+    padding: 0;
+}
+.contents, .projectTabMenu {
+    width: 100%;
+    background-color: #fff;
+}
+.contents {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+.storySection .divider {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 30px 0;
+}
+
+.storySection h3 {
+    font-size: 22px;
+    color: #424521;
+    line-height: 23px;
+    margin-bottom: 23px;
+    font-weight: 700;
+}
+.storySection .divider {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 30px 0;
+}

@@ -332,7 +332,7 @@ select:focus{
     font-weight: 600;
 }
 .btchat:hover {
-    background-color: #1187cf;
+    background-color: #336d47;
     color: #fff;
 }
 
@@ -359,6 +359,11 @@ select:focus{
 .ugname{
    margin-bottom: 0;
    font-size: 15px;
+}
+
+.userGrid:hover{
+    transform: scale(1.05);
+    border: 1px solid #00704a;
 }
 
 
