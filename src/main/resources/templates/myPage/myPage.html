@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MyPage</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/myPage.css" type="text/css">
+</head>
+<body>
+<header id="header"></header>
+<div id="container">
+    <section id="fix">
+        <div id="title">
+            <p class="fontColor">LET'S see</p>
+            <h2>마이페이지</h2>
+        </div>
+        <ul id="nav" class="flex">
+            <li class="navBorder"><a href="0" id="goInfo" class="nav">정보</a></li>
+            <li class="navBorder"><a href="1" id="goPro" class="nav">프로젝트/스터디</a></li>
+            <li class="navBorder"><a href="2" id="goStory" class="nav">스토리</a></li>
+            <li class="navBorder"><a href="3" id="goLike" class="nav">찜목록</a></li>
+            <li class="navBorder"><a href="4" id="goAlert" class="nav">알림</a></li>
+            <li class="navBorder"><a href="5" id="goPoint" class="nav">포인트</a></li>
+            <li class="navBorder"><a href="6" id="goScore" class="nav">워크스코어</a></li>
+        </ul>
+    </section>
+
+    <!----------------------------------------------------------------내 정보 수정--------------------------------------------------------------------->
+    <section id="info" class="pageNav">
+        <form>
+            <div id="infoWrap" class="flex">
+                <div id="top">
+
+                    <div id="profileImg">
+                        <label for="thumbNail">
+                            <img src="../../static/images/top-main-img-3.png" alt="">
+                        </label>
+                    </div>
+                    <label for="thumbNail">
+                        <button id="profileChange"></button>
+                    </label>
+                    <input type="file" name="profileImg" id="thumbNail">
+                </div>
+                <div id="bottom">
+                    <div mailWrap>
+                        <label>이메일
+                            <input type="text" disabled value="tkdgur1996@gmail.com">
+                        </label>
+                    </div>
+                    <div id="nickWrap" class="marginBottom">
+                        <label>닉네임
+                            <input type="text" class="able" placeholder="3~10자리 이내로 적어주세요!" value="상냥이">
+                        </label>
+                        <p class="alert">사용 가능합니다.</p>
+                    </div>
+                    <div id="phoneWrap" class="marginBottom">
+                        <label>휴대폰번호
+                            <input type="text" disabled value="01040625261">
+                        </label>
+                        <p class="alert">인증완료</p>
+                    </div>
+                    <div id="mainSkill" class="marginBottom">
+                        <p>메인 직무/ 상세 직무 / 능력치</p>
+                        <div class="flex">
+                            <select class="able first" name="mainSkill">
+                                <option value="1">사업</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                                <option value="4">프론트엔드개발</option>
+                                <option value="5">백엔드개발</option>
+                                <option value="6">기타</option>
+                            </select>
+                            <select class="able second" name="subSkill">
+                                <option value="11">사업기획</option>
+                                <option value="12">마케팅</option>
+                                <option value="13">재무/회계</option>
+                                <option value="14">영업</option>
+                                <option value="15">전략/컨설팅</option>
+                                <option value="16">투자/고문</option>
+                                <option value="17">(사업)그외</option>
+                            </select>
+                            <select class="able third" name="skillLevel">
+                                <option value="1">초심자</option>
+                                <option value="2">초보</option>
+                                <option value="3">중수</option>
+                                <option value="4">고수</option>
+                                <option value="5">해커</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="subSkill" class="marginBottom">
+                        <p>서브 직무/ 상세 직무 / 능력치</p>
+                        <div class="flex">
+                            <select class="able first" name="mainSkill">
+                                <option value="1">사업</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                                <option value="4">프론트엔드개발</option>
+                                <option value="5">백엔드개발</option>
+                                <option value="6">기타</option>
+                            </select>
+                            <select class="able second" name="subSkill">
+                                <option value="11">사업기획</option>
+                                <option value="12">마케팅</option>
+                                <option value="13">재무/회계</option>
+                                <option value="14">영업</option>
+                                <option value="15">전략/컨설팅</option>
+                                <option value="16">투자/고문</option>
+                                <option value="17">(사업)그외</option>
+                            </select>
+                            <select class="able third" name="skillLevel">
+                                <option value="1">초심자</option>
+                                <option value="2">초보</option>
+                                <option value="3">중수</option>
+                                <option value="4">고수</option>
+                                <option value="5">해커</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="price" class="marginBottom">
+                        <p>대화 포인트</p>
+                        <div class="flex">
+                            <select class="able first" name="price">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <select class="able second hidden">
+                                <option></option>
+                            </select>
+                            <select class="able third hidden">
+                                <option></option>
+                            </select>
+                        </div>
+                        <p class="point">상대방이 나에게 대화를 요청할 때, 필요한 포인트입니다.</p>
+                    </div>
+
+                    <div id="location" class="marginBottom">
+                        <p>지역 설정</p>
+                        <div class="flex">
+                            <select class="able first" name="price">
+                                <option value="1">온라인/오프라인 모두 가능</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                            </select>
+                            <select class="able second" name="price">
+                                <option value="1">상관없음</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                                <option value="4">프론트엔드개발</option>
+                                <option value="5">백엔드개발</option>
+                                <option value="6">기타</option>
+                            </select>
+                            <select class="able third hidden">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="time" class="marginBottom">
+                        <p>시간 설정</p>
+                        <div class="flex">
+                            <select class="able first" name="price">
+                                <option value="1">주중/주말 모두 가능</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                            </select>
+                            <select class="able second" name="price">
+                                <option value="1">상관없음</option>
+                                <option value="2">기획</option>
+                                <option value="3">디자인</option>
+                            </select>
+                            <select class="able third hidden">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="interesting" class="marginBottom">
+                        <p>관심분야</p>
+                        <select class="able first" name="price">
+                            <option value="1">O2O</option>
+                            <option value="2">기획</option>
+                            <option value="3">디자인</option>
+                        </select>
+                    </div>
+
+                    <div id="tag" class="marginBottom">
+                        <p>검색태그 (#)</p>
+                        <div>
+                            <input type="text" class="able" placeholder="태그는 최대 5개 가능합니다">
+                        </div>
+                    </div>
+
+                    <div id="content" class="marginBottom">
+                        <p>자세한 소개</p>
+                        <textarea name="content" class="able" rows="5" maxlength="200" placeholder="최대 200자 까지 작성 가능합니다."></textarea>
+                    </div>
+
+                    <div id="portfolio" class="marginBottom">
+                        <div id="url" class="flex a1">
+                            <input type="text" class="able" placeholder="URL을 입력해주세요">
+                            <input id="plusUrl" type="button" class="able" value="추가">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <button class="submit">업데이트</button>
+        </form>
+    </section>
+
+    <!-----------------------------------------------------------------------프로젝트 !!--------------------------------------------------------------------->
+    <section id="project" class="pageNav">
+        <div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">지원 현황</h3>
+                </div>
+<!--                <div class="projectGridView">-->
+<!--                    <div class="projectGridWrap">-->
+<!--                        <div class="projectTopInfo">-->
+<!--                            <div class="topInfo">-->
+<!--                                <div class="box-wrap">-->
+<!--                                    <div class="box red">-->
+<!--                                        <span>NEW</span>-->
+<!--                                    </div>-->
+<!--                                    <div class="box black">-->
+<!--                                        <span>사이드프로젝트</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="favorite"></div>-->
+<!--                            </div>-->
+<!--                            <div class="projectImg">-->
+<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="projectMiddleInfo">-->
+<!--                            <p class="category">소셜네트워크</p>-->
+<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
+<!--                        </div>-->
+<!--                        <div class="projectBottomInfo">-->
+<!--                            <div class="middleWrap">-->
+<!--                                <div class="left">-->
+<!--                                    <div class="heart">-->
+<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
+<!--                                        <span class="heartCount">0</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="right">-->
+<!--                                    <div>-->
+<!--                                        <span>89</span>-->
+<!--                                        <span> (-)</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="bottomWrap">-->
+<!--                                <div class="recruit">-->
+<!--                                    <div class="recruitStatus">-->
+<!--                                        <span>모집완료</span>-->
+<!--                                        <span>-->
+<!--                                    0/1-->
+<!--                                </span>-->
+<!--                                        <div>-->
+<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="recruitModel">-->
+<!--                                        <ul>-->
+<!--                                            <li>-->
+<!--                                                <span>UI/UX기획</span>-->
+<!--                                                <span>1명</span>-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <span>웹 프론트엔드</span>-->
+<!--                                                <span>2명</span>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="projectGridWrap">-->
+<!--                        <div class="projectTopInfo">-->
+<!--                            <div class="topInfo">-->
+<!--                                <div class="box-wrap">-->
+<!--                                    <div class="box red">-->
+<!--                                        <span>NEW</span>-->
+<!--                                    </div>-->
+<!--                                    <div class="box black">-->
+<!--                                        <span>사이드프로젝트</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="favorite"></div>-->
+<!--                            </div>-->
+<!--                            <div class="projectImg">-->
+<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="projectMiddleInfo">-->
+<!--                            <p class="category">소셜네트워크</p>-->
+<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
+<!--                        </div>-->
+<!--                        <div class="projectBottomInfo">-->
+<!--                            <div class="middleWrap">-->
+<!--                                <div class="left">-->
+<!--                                    <div class="heart">-->
+<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
+<!--                                        <span class="heartCount">0</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="right">-->
+<!--                                    <div>-->
+<!--                                        <span>89</span>-->
+<!--                                        <span> (-)</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="bottomWrap">-->
+<!--                                <div class="recruit">-->
+<!--                                    <div class="recruitStatus">-->
+<!--                                        <span>모집완료</span>-->
+<!--                                        <span>-->
+<!--                                    0/1-->
+<!--                                </span>-->
+<!--                                        <div>-->
+<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="recruitModel">-->
+<!--                                        <ul>-->
+<!--                                            <li>-->
+<!--                                                <span>UI/UX기획</span>-->
+<!--                                                <span>1명</span>-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <span>웹 프론트엔드</span>-->
+<!--                                                <span>2명</span>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="projectGridWrap">-->
+<!--                        <div class="projectTopInfo">-->
+<!--                            <div class="topInfo">-->
+<!--                                <div class="box-wrap">-->
+<!--                                    <div class="box red">-->
+<!--                                        <span>NEW</span>-->
+<!--                                    </div>-->
+<!--                                    <div class="box black">-->
+<!--                                        <span>사이드프로젝트</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="favorite"></div>-->
+<!--                            </div>-->
+<!--                            <div class="projectImg">-->
+<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="projectMiddleInfo">-->
+<!--                            <p class="category">소셜네트워크</p>-->
+<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
+<!--                        </div>-->
+<!--                        <div class="projectBottomInfo">-->
+<!--                            <div class="middleWrap">-->
+<!--                                <div class="left">-->
+<!--                                    <div class="heart">-->
+<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
+<!--                                        <span class="heartCount">0</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="right">-->
+<!--                                    <div>-->
+<!--                                        <span>89</span>-->
+<!--                                        <span> (-)</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="bottomWrap">-->
+<!--                                <div class="recruit">-->
+<!--                                    <div class="recruitStatus">-->
+<!--                                        <span>모집완료</span>-->
+<!--                                        <span>-->
+<!--                                    0/1-->
+<!--                                </span>-->
+<!--                                        <div>-->
+<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="recruitModel">-->
+<!--                                        <ul>-->
+<!--                                            <li>-->
+<!--                                                <span>UI/UX기획</span>-->
+<!--                                                <span>1명</span>-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <span>웹 프론트엔드</span>-->
+<!--                                                <span>2명</span>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="projectGridWrap">-->
+<!--                        <div class="projectTopInfo">-->
+<!--                            <div class="topInfo">-->
+<!--                                <div class="box-wrap">-->
+<!--                                    <div class="box red">-->
+<!--                                        <span>NEW</span>-->
+<!--                                    </div>-->
+<!--                                    <div class="box black">-->
+<!--                                        <span>사이드프로젝트</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="favorite"></div>-->
+<!--                            </div>-->
+<!--                            <div class="projectImg">-->
+<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="projectMiddleInfo">-->
+<!--                            <p class="category">소셜네트워크</p>-->
+<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
+<!--                        </div>-->
+<!--                        <div class="projectBottomInfo">-->
+<!--                            <div class="middleWrap">-->
+<!--                                <div class="left">-->
+<!--                                    <div class="heart">-->
+<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
+<!--                                        <span class="heartCount">0</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="right">-->
+<!--                                    <div>-->
+<!--                                        <span>89</span>-->
+<!--                                        <span> (-)</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="bottomWrap">-->
+<!--                                <div class="recruit">-->
+<!--                                    <div class="recruitStatus">-->
+<!--                                        <span>모집완료</span>-->
+<!--                                        <span>-->
+<!--                                    0/1-->
+<!--                                </span>-->
+<!--                                        <div>-->
+<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="recruitModel">-->
+<!--                                        <ul>-->
+<!--                                            <li>-->
+<!--                                                <span>UI/UX기획</span>-->
+<!--                                                <span>1명</span>-->
+<!--                                            </li>-->
+<!--                                            <li>-->
+<!--                                                <span>웹 프론트엔드</span>-->
+<!--                                                <span>2명</span>-->
+<!--                                            </li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <div>-->
+<!--                        <p>아직 지원중인 프로젝트/스터디가 없습니다.</p>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <button class="submit">프로젝트/스터디 지원하기</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="box">
+                    <div>
+                        <p>아직 완료된 프로젝트/스터디가 없습니다.</p>
+                    </div>
+                    <div>
+                        <button class="submit">프로젝트/스터디 지원하기</button>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h3 class="titleMsg">진행 현황</h3>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <p>아직 진행중인 프로젝트/스터디가 없습니다.</p>
+                        </div>
+                        <div>
+                            <button class="submit">프로젝트/스터디 지원하기</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3 class="titleMsg">완료 현황</h3>
+                        </div>
+                        <div class="box">
+                            <div>
+                                <p>아직 완료된 프로젝트/스터디가 없습니다.</p>
+                            </div>
+                            <div>
+                                <button class="submit">프로젝트/스터디 지원하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-----------------------------------------------------------------------스토리 !!--------------------------------------------------------------------->
+    <section id="story" class="pageNav">
+        <div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">내 게시글</h3>
+                </div>
+                <div class="box">
+                    <div>
+                        <p>아직 작성하신 게시글 없습니다.</p>
+                    </div>
+                    <div>
+                        <button class="submit">게시글 작성하러 가기</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">내 시리즈</h3>
+                </div>
+                <div class="box">
+                    <div>
+                        <p>아직 추가한 시리즈가 없습니다.</p>
+                    </div>
+                    <div>
+                        <button class="submit">시리즈 추가하기</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-----------------------------------------------------------------------찜하기 !!--------------------------------------------------------------------->
+    <section id="like" class="pageNav">
+        <div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">찜한 프로젝트/스터디</h3>
+                </div>
+                <div class="box">
+                    <div>
+                        <p>아직 찜한 프로젝트/스터디가 없습니다.</p>
+                    </div>
+                    <div>
+                        <button class="submit">프로젝트/스터디 찜하기</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h3 class="titleMsg">찜한 워크인</h3>
+                </div>
+                <div class="box">
+                    <div>
+                        <p>아직 찜한 워크인이 없습니다.</p>
+                    </div>
+                    <div>
+                        <button class="submit">워크인 찜하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-----------------------------------------------------------------------알림 !!--------------------------------------------------------------------->
+    <section id="alert" class="pageNav">
+        <div>
+            <div>
+                <h3 class="titleMsg">알림 내역</h3>
+            </div>
+            <div class="alertWrap">
+                <div class="alertList">
+                    <div class="alertDay">
+                        <p>22.05.02</p>
+                    </div>
+                    <div class="alertSide">
+                        <div class="alertBox flex">
+                            <div>
+                                <div>
+                                    <span class="alertTitle">[프로젝트/스터디]</span>
+                                    <span class="alertDate">22.05.01</span>
+                                </div>
+                                <div>
+                                    <span class="alertContent">프로젝트 ddddd가 [안녕하세요 렛플입니다. 테스트용으로 작성된것으로 보입니다. 임시저장상태로 다시 변경했습니다.] 사유로 반려되었습니다</span>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#">프로젝트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alertSide">
+                        <div class="alertBox flex">
+                            <div>
+                                <div>
+                                    <span class="alertTitle">[프로젝트/스터디]</span>
+                                    <span class="alertDate">22.05.01</span>
+                                </div>
+                                <div>
+                                    <span class="alertContent">프로젝트 ddddd가 [안녕하세요 렛플입니다. 테스트용으로 작성된것으로 보입니다. 임시저장상태로 다시 변경했습니다.] 사유로 반려되었습니다</span>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#">프로젝트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alertWrap">
+                <div>
+                    <div class="alertDay">
+                        <p>22.05.01</p>
+                    </div>
+                    <div class="alertSide">
+                        <div class="alertBox flex">
+                            <div>
+                                <div>
+                                    <span class="alertTitle">[프로젝트/스터디]</span>
+                                    <span class="alertDate">22.05.01</span>
+                                </div>
+                                <div>
+                                    <span class="alertContent">프로젝트 ddddd가 [안녕하세요 렛플입니다. 테스트용으로 작성된것으로 보입니다. 임시저장상태로 다시 변경했습니다.] 사유로 반려되었습니다</span>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#">프로젝트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-----------------------------------------------------------------------포인트 !!-------------------------------------------------------------------->
+    <section id="point" class="pageNav">
+        <div>
+            <div>
+                <h3 class="titleMsg">포인트 내역</h3>
+            </div>
+            <div>
+                <ul class="flex" id="pointNav">
+                    <li class="pointNav">충전 내역</li>
+                    <li class="pointNav">사용 내역</li>
+                </ul>
+            </div>
+            <div>
+                <table id="pointTable" class="pointTable">
+                    <thead>
+                    <tr>
+                        <th class="firstCell">날짜</th>
+                        <th class="secondCell">포인트</th>
+                        <th>상세</th>
+                        <th class="lastCell">비고</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">비고</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">비고</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">비고</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table id="useTable" class="pointTable">
+                    <thead>
+                    <tr>
+                        <th class="firstCell">날짜</th>
+                        <th class="secondCell">포인트</th>
+                        <th>상세</th>
+                        <th class="lastCell">비고</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18</td>
+                        <td>10</td>
+                        <td>[이벤트] 본인인증 완료</td>
+                        <td class="lastCell">사용</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <!-----------------------------------------------------------------------점수 !!--------------------------------------------------------------------->
+    <section id="score" class="pageNav">
+        <div>
+            <div>
+                <h3 class="titleMsg">워크스코어 L6 (510) - 다음까지 291</h3>
+            </div>
+            <div>
+                <table id="scoreTable">
+                    <thead>
+                    <tr>
+                        <th class="firstCell">날짜</th>
+                        <th class="secondCell">포인트</th>
+                        <th class="lastCell">상세</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td>22.05.01 13:27</td>
+                        <td>-100</td>
+                        <td class="lastCell">스토리 삭제</td>
+                    </tr>
+                    <tr>
+                        <td>22.05.01 13:26</td>
+                        <td>100</td>
+                        <td class="lastCell">스토리 작성</td>
+                    </tr>
+                    <tr>
+                        <td>22.05.01 13:26</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.30 15:50</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 참여 철회</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.30 15:49</td>
+                        <td>50</td>
+                        <td class="lastCell">프로젝트/스터디 참여 신청</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.30 15:48</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.29 10:11</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.28 09:38</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.27 15:21</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.26 14:06</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>-50</td>
+                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 15:03</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:19</td>
+                        <td>-50</td>
+                        <td class="lastCell">글 삭제</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:19</td>
+                        <td>50</td>
+                        <td class="lastCell">글 등록</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:12</td>
+                        <td>-100</td>
+                        <td class="lastCell">스토리 삭제</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 13:12</td>
+                        <td>100</td>
+                        <td class="lastCell">스토리 작성</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.22 11:26</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.21 15:50</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.21 14:33</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.20 15:14</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18 11:01</td>
+                        <td>100</td>
+                        <td class="lastCell">상대방의 리뷰완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18 11:00</td>
+                        <td>30</td>
+                        <td class="lastCell">워크인 좋아요</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.18 10:12</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.17 12:17</td>
+                        <td>200</td>
+                        <td class="lastCell">본 캐릭터 생성완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.17 12:17</td>
+                        <td>100</td>
+                        <td class="lastCell">회원가입 완료</td>
+                    </tr>
+                    <tr>
+                        <td>22.04.17 12:17</td>
+                        <td>10</td>
+                        <td class="lastCell">일일 로그인 완료</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+</div>
+<footer id="fooot"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../static/js/myPage.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+        $("#fooot").load('../../templates/fix/footer.html');
+    })
+</script>
+</html>
