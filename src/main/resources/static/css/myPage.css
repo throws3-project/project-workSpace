@@ -14,7 +14,7 @@ ul#nav li a{
 }
 
 ul#nav li:hover{
-    border-bottom: 1px solid black !important;
+    border-bottom: 1px solid #00704a !important;
 }
 
 a{
@@ -24,6 +24,10 @@ a{
 
 a:active{
     color: black;
+}
+
+a:hover{
+   color: #00704a !important;
 }
 
 textarea{
@@ -58,7 +62,7 @@ div#container {
 }
 
 .fontColor{
-    color: #ea6560;
+    color: #00704a;
 }
 
 .flex {
@@ -66,6 +70,7 @@ div#container {
 }
 input, select {
     height: 44px !important;
+    line-height: 44px !important;
 }
 
 textarea{
@@ -80,7 +85,7 @@ select {
     line-height: 44px;
 }
 
-input.able, select.able {
+input.able, select.able, textarea.able, input[type='text'].able {
     background: white;
 }
 .first, second, third {
@@ -147,8 +152,8 @@ button.submit{
     margin: 0 auto;
     display: block;
     color: #fff;
-    background-color: #ea6560;
-    border: 1px solid #ea6560;
+    background-color: #336d47;
+    border: 1px solid #336d47;
     width: 110px;
     height: 40px;
     border-radius: 4px;
@@ -159,11 +164,11 @@ section#info div#url{
     margin-bottom: 20px;
 }
 section#info .point{
-    color: #ea6560;
+    color: #00704a;
     font-size: 12px;
 }
 section#info .alert{
-    color: #ea6560;
+    color: #00704a;
     font-size: 12px;
     text-align: right;
 }
@@ -312,7 +317,8 @@ div.bottomWrap div.recruitModel {
 }
 
 div.projectGridWrap {
-    width: 100%;
+    width: 285px;
+    /*height: 290px;*/
     position: relative;
     border-radius: 8px;
     border: 1px solid #ebebeb;
@@ -330,7 +336,7 @@ div.box {
 }
 
 div.red {
-    background-color: #ea6560;
+    background-color: #336d47;
 }
 
 div.black {
@@ -339,7 +345,8 @@ div.black {
 
 div.box-wrap div.box span {
     color: #fff;
-    font-weight: 600;
+    font-size: 12px;
+    line-height: 19px;
 }
 
 div.topInfo {
@@ -375,18 +382,22 @@ div.projectImg img {
 
 div.projectMiddleInfo {
     box-sizing: border-box;
-    padding: 14px;
+    /*padding: 14px;*/
+    padding-left: 14px;
 }
 
 div.projectBottomInfo {
-    padding: 14px;
+    /*padding: 14px;*/
+    padding-left: 14px;
+    padding-right: 14px;
 }
+
 
 div.middleWrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    /*margin-bottom: 16px;*/
 }
 
 div.right span {
@@ -396,11 +407,31 @@ div.right span {
 
 div.bottomWrap div.recruit {
     border-top: 1px solid #f6f6f6;
-    padding-top: 14px;
+    padding-top: 4px;
 }
 
 div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
-    color: #ea6560;
+    color: #00704a;
+}
+
+div.projectGridView {
+    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    place-items: center;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+p{
+    margin: 0 !important;
+}
+
+p.category{
+    height: 40px;
+}
+
+p.categoryText{
+    height: 40px;
 }
 
 
@@ -430,9 +461,9 @@ section#story div.box p{
 
 /*-----------------찜하기---------------------*/
 section#like button.submit{
-    width: 170px;
-    height: 40px;
-}
+        width: 170px;
+        height: 40px;
+    }
 
 section#like div.box{
     height: 130px;
