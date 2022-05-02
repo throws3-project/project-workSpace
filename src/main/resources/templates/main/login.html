@@ -8,27 +8,54 @@
 </head>
 <body>
 <header id="header"></header>
-    <button id="show">팝업열기</button>
+<!--    <button id="show">팝업열기</button>-->
 
-    <div class="background">
-        <div class="window">
-            <div class="popup">
-                <button id="close">팝업닫기</button>
-            </div>
-        </div>
+<!--    <div class="background">-->
+<!--        <div class="window">-->
+<!--            <div class="popup">-->
+<!--                <button id="close">팝업닫기</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<button type='button' id="modal_btn">모달창아 나와랏</button>
+<div class="black_bg">
+<div class="modal_wrap">
+    <div class="modal_close"><a href="#">close</a></div>
+    <div>
+        모달창 내용
     </div>
+    </div>
+</div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        function show(){
-            document.querySelector(".background").className = "background show";
+<!--    <script>-->
+<!--        function show(){-->
+<!--            document.querySelector(".background").className = "background show";-->
+<!--        }-->
+
+<!--        function close(){-->
+<!--            document.querySelector(".background").className = "background";-->
+<!--        }-->
+
+<!--        document.querySelector("#show").addEventListener("click", show);-->
+<!--        document.querySelector("#close").addEventListener("click", close);-->
+<!--    </script>-->
+<script>
+    window.onload = function() {
+
+        function onClick() {
+            document.querySelector('.modal_wrap').style.display ='block';
+            document.querySelector('.black_bg').style.display ='block';
+        }
+        function offClick() {
+            document.querySelector('.modal_wrap').style.display ='none';
+            document.querySelector('.black_bg').style.display ='none';
         }
 
-        function close(){
-            document.querySelector(".background").className = "background";
-        }
+        document.getElementById('modal_btn').addEventListener('click', onClick);
+        document.querySelector('.modal_close').addEventListener('click', offClick);
 
-        document.querySelector("#show").addEventListener("click", show);
-        document.querySelector("#close").addEventListener("click", close);
-    </script>
+    };
+</script>
 </body>
 </html>

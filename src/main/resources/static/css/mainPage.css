@@ -4,32 +4,32 @@ div.img {
     text-align: center;
 }
 
-div.img img{
+div.img img {
     width: 1200px;
     height: 460px;
 }
 
-div.image1{
+div.image1 {
     background-color: #336d46;
 }
 
-div.image2{
+div.image2 {
     background-color: #151515;
 }
 
-div.banner{
+div.banner {
     width: 200vw;
     transition: transform 0.5s; /* transform 동작 시 애니메이션 효과 0.5초 */
 }
 
-section.container{
+section.container {
     margin: 0;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
 
-div.btns{
+div.btns {
     position: absolute;
     width: 100vw;
     text-align: center;
@@ -37,7 +37,7 @@ div.btns{
     bottom: 0px; /* 5px */
 }
 
-div.arrow{
+div.arrow {
     position: absolute;
     width: 35px;
     height: 100%;
@@ -53,9 +53,487 @@ div.next {
     right: 0;
 }
 
-div.firstWrapper{
+div.firstWrapper, div.secondWrapper {
     max-width: 1200px;
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 40px;
+}
+
+div.thirdWrapper{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+div.heart {
+    display: inline-flex;
+    align-items: center;
+}
+
+div.heart img {
+    width: 20px;
+    height: auto;
+}
+
+span.heartCount {
+    margin-left: 5px;
+    font-size: 16px;
+    height: 30px;
+    font-weight: 600;
+    color: #888;
+}
+
+li.slide {
+    position: relative;
+}
+
+div.bottom div.recruitModel {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgba(51, 51, 51, .2);
+    border-radius: 2px;
+    right: 17px;
+    bottom: -18px;
+}
+
+div.recruitModel ul {
+    width: 300px;
+    padding: 10px;
+}
+
+div.recruitModel ul li {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.recruitModel ul li span {
+    font-weight: 700;
+}
+
+div.recruitModel ul li span:last-child {
+    color: #314e92;
+}
+
+div.recruitStatus {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+div.recruitStatus span {
+    color: #666;
+    font-weight: 600;
+}
+
+div.recruitStatus span:first-child {
+    margin-right: 8px;
+}
+
+div.recruitStatus div {
+    margin-left: 8px;
+}
+
+div.recruitStatus div img {
+    width: 13px;
+    height: 11px;
+}
+
+div.bottomWrap div.recruitModel {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgba(51, 51, 51, .2);
+    border-radius: 2px;
+    right: 0px;
+    bottom: 0px;
+}
+
+div.projectGridWrap {
+    width: 285px;
+    /*height: 290px;*/
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+div.box {
+    box-sizing: border-box;
+    padding: 2px 10px;
+    margin-right: 5px;
+}
+
+div.red {
+    background-color: #ea6560;
+}
+
+div.black {
+    background-color: #000;
+}
+
+div.box-wrap div.box span {
+    color: #fff;
+    font-size: 12px;
+    line-height: 19px;
+}
+
+div.topInfo {
+    display: flex;
+    align-items: center;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 12px;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+div.box-wrap {
+    display: flex;
+    align-items: center;
+}
+
+div.projectImg {
+    background: transparent;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    max-height: 120px;
+    height: 100%;
+}
+
+div.projectImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+div.projectMiddleInfo {
+    box-sizing: border-box;
+    /*padding: 14px;*/
+    padding-left: 14px;
+}
+
+div.projectBottomInfo {
+    /*padding: 14px;*/
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+
+div.middleWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*margin-bottom: 16px;*/
+}
+
+div.right span {
+    color: #888;
+    font-weight: 600;
+}
+
+div.bottomWrap div.recruit {
+    border-top: 1px solid #f6f6f6;
+    padding-top: 4px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
+    color: #ea6560;
+}
+
+div.projectGridView {
+    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    place-items: center;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+p{
+    margin: 0 !important;
+}
+
+p.category{
+    height: 40px;
+}
+
+p.categoryText{
+    height: 40px;
+}
+
+div.image3{
+    width: 100%;
+    background-image: url("../../static/images/bg_openkakao.png");
+    text-align: center;
+    margin: 20px auto 0;
+    padding: 30px 0 25px;
+    background-size: cover;
+    background-position: 50%;
+}
+
+img.spaceRocket{
+    width: 100%;
+}
+
+p.igTxt{
+    font-size: 30px;
+    color: #ffffff;
+    height: 45px;
+}
+
+p.smTxt{
+    font-size: 1rem;
+    color: white;
+}
+
+button.storyGo{
+    margin-top: 15px;
+    background-color: #fff;
+    border: none;
+    width: 150px;
+    height: 35px;
+    font-size: 16px;
+}
+
+.userId{
+    font-size: 15px;
+    color: #444;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.userSearchOption .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.userSearchOption .searchOption {
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 22px;
+}
+.userSearchOption .searchOption .searchSelect {
+    max-width: 140px;
+    width: 100%;
+    border: 1px solid #bcbccb;
+    border-radius: 4px;
+    height: 40px;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #696980;
+    margin-right: 10px;
+    padding-left: 20px;
+    background-image: url(../../static/images/triangle.png);
+    background-position: 90%;
+    background-repeat: no-repeat;
+    appearance: none;
+}.newMark{
+     position: relative;
+ }
+.red2 {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 37px;
+    height: 37px;
+}
+.like{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    background-image: url(../../static/images/grayheart.png);
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: 50%;
+    bottom: -10px;
+    right: -7px;
+    border-radius: 100px;
+    -webkit-box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+}
+
+.userGrid{
+    border-radius: 20px;
+    position: relative;
+    width: 285px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 20px 15px 10px 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all .2s;
+}
+
+.userGrid:hover{
+    transform: scale(1.05);
+    border: 1px solid #00704a;
+}
+
+.userGridtop{
+    display: flex;
+}
+.userIn{
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #f3f3f4;
+    background-color: #efefef;
+    margin-right: 20px;
+    flex-shrink: 0;
+    position: relative;
+
+}
+
+.user1{
+    display: flex;
+    height: 35px;
+    line-height: 35px;
+}
+.checkIcon{
+    vertical-align: middle;
+    width:18px;
+}
+.lvIcon{
+    width: 28px;
+    height: 20px
+}
+.bitIcon{
+    width: 17px;
+    line-height: 20px;
+}
+.heartIcon{
+    width: 17px;
+    line-height: 20px;
+}
+.boo{
+    margin-top: -0.6em;
+}
+
+.bitdiv{
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 6px;
+}
+.bitimg{
+    margin-right: 5px;
+}
+
+.heartdiv{
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+}
+.heartimg{
+    margin-right: 5px;
+}
+
+.bitptag {
+    margin: 0;
+    font-size: 13px;
+}
+.heartptag {
+    margin: 0;
+    font-size: 13px;
+}
+.info{
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+}
+.num{
+    font-size: 13px;
+    color: #999;
+    margin-left: 10px;
+}
+
+.usertag{
+    margin:0 0 0.7rem 0;
+}
+.ulusertag{
+    display: flex;
+}
+
+.ulusertag li{
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    margin-right: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.userinfo{
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.btimg{
+    position: absolute;
+    width: 18px;
+    right: 173px;
+    bottom: 15px;
+}
+.btchat{
+    font-size:13px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+.btchat:hover {
+    background-color: #336d47;
+    color: #fff;
+}
+
+.userGridTool {
+    margin: 0 auto;
+    width: 1200px;
+    padding: 0;
+    box-sizing: border-box;
+}
+.userGridList{
+    width: 100%;
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4,1fr);
+}
+.userLvIcon{
+    margin-right: 8px;
+}
+
+.userGridName{
+    margin-right: 5px;
+}
+.ugname{
+    margin-bottom: 0;
+    font-size: 15px;
+}
+.join{
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.bitandheart{
+    display: flex;
 }

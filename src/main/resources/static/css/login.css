@@ -1,40 +1,77 @@
-div.background{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+/*div.background{*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    background-color: rgba(0, 0, 0, 0.3);*/
+/*    z-index: 1000;*/
 
-    /* 숨기기 */
-    z-index: -1;
-    opacity: 0;
-}
+/*    !* 숨기기 *!*/
+/*    z-index: -1;*/
+/*    opacity: 0;*/
+/*}*/
 
-div.window{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
+/*div.window{*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
 
-div.popup{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ffffff;
-    box-shadow: 0 2px 7px rgba(0,0,0,0.3);
+/*div.popup{*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    background-color: #ffffff;*/
+/*    box-shadow: 0 2px 7px rgba(0,0,0,0.3);*/
 
-    /* 임시 지정 */
+/*    !* 임시 지정 *!*/
+/*    width: 500px;*/
+/*    height: 500px;*/
+
+/*    !*  초기에 약간 아래에 배치  *!*/
+/*    transform: translate(-50%, -40%);*/
+/*}*/
+
+/*.show, .popup{*/
+/*    transform: translate(-50%, -50%);*/
+/*    transition: all 0.5s;*/
+/*}*/
+
+.modal_wrap{
+    display: none;
     width: 500px;
     height: 500px;
-
-    /*  초기에 약간 아래에 배치  */
-    transform: translate(-50%, -40%);
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin: -250px 0 0 -250px;
+    background:#eee;
+    z-index: 2;
 }
-
-.show, .popup{
-    transform: translate(-50%, -50%);
-    transition: all 0.5s;
+.black_bg{
+    display: none;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0,0, 0.5);
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+.modal_close{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+.modal_close> a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background:url(https://img.icons8.com/metro/26/000000/close-window.png);
+    text-indent: -9999px;
 }
