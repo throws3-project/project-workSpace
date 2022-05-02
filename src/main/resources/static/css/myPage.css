@@ -404,6 +404,102 @@ div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
 }
 
 
+/*--------------------스토리-----------------*/
+section#story button.submit{
+    width: 170px;
+    height: 40px;
+}
+
+section#story div.box{
+    height: 130px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section#story div.box p{
+    font-size: 14px;
+    color: #a9a9b9;
+    word-wrap: break-word;
+    margin: auto auto 28px;
+}
+
+
+
+/*-----------------찜하기---------------------*/
+section#like button.submit{
+    width: 170px;
+    height: 40px;
+}
+
+section#like div.box{
+    height: 130px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section#like div.box p{
+    font-size: 14px;
+    color: #a9a9b9;
+    word-wrap: break-word;
+    margin: auto auto 28px;
+}
+
+
+
+/*-------------------알림----------------------*/
+section#alert span.alertTitle{
+    font-weight: 700;
+}
+section#alert span.alertDate{
+    font-size: 14px;
+    color: #8e8ea2;
+
+}
+section#alert div.alertWrap{
+    margin-top: 30px;
+}
+section#alert span.alertContent{
+    font-size: 14px;
+}
+section#alert div.alertDay{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+section#alert div.alertBox a{
+    padding: 5px 18px 5px 18px;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+}
+section#alert div.alertBox {
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 15px 25px;
+    border-radius: 4px;
+    border: 1px solid #ebebeb;
+    margin-bottom: 12px;
+    align-items: center;
+    max-width: 1172px;
+    width: 100%;
+    margin-left: 10px;
+}
+section#alert div.alertSide{
+    border-left: 2px dashed #ebebeb;
+}
+section#alert div.alertList{
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
 
 /*--------------------포인트--------------------*/
 section#point #pointNav{
