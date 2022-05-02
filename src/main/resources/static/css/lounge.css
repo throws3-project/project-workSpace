@@ -2,17 +2,20 @@ a{
     text-decoration: none;
     color:black;
 }
-
+textarea {
+    padding: 0;
+}
 /* 총 section */
 .loungeSection{
    width: 1200px;
     margin: 0 auto;
+    /* transform: scale(0.9); */
 }
-.loungeWrap{
+/* .loungeWrap{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
+} */
 .loungeTool{
     width:100%;
 }
@@ -26,7 +29,7 @@ a{
 }
 .talkTit1{
     font-weight: bold;
-    color: #1187cf;
+    color: #00704a;
     font-size: .875rem;
 }
 .talkTit2{
@@ -62,10 +65,10 @@ a{
     resize: none;
 }
 .loungeBtn1{
-    background-color: #42495b;
+    background-color: #336d47;
     color: #fff;
     width: 80px;
-    border: 1px solid #42495b;
+    border: 1px solid #336d47;
     float: right;
     border-radius: 4px;
     font-size: 12px;
@@ -73,12 +76,31 @@ a{
     height: 40px;
 }
 /* 라운지 랭킹부분 */
-.loungeLankWrap {
+/* .loungeWrap .loungeLankWrap{
+    position: absolute;   
+
+} */
+/* .loungeLankWrap {
+    position: fixed;
    max-width: 200px;
    width: 100%;
    margin-left: 4em;
-}
+} */
 .loungeLank{
+    max-width: 200px;
+    width: 100%;
+    right: 111px;
+    top: 203px;
+    position: fixed;
+}
+.loungeLikeLank{
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 18px 16px 25px;
+    box-shadow: 0 3px 12px 0 rgb(0 0 0 / 6%);
+    margin-bottom: 12px;
+}
+.loungeReplyLank{
     background-color: #fff;
     box-sizing: border-box;
     padding: 18px 16px 25px;
@@ -88,7 +110,7 @@ a{
 .lankTit{
     font-size: 1rem;
     font-weight: 700;
-    color: #ea6560;
+    color: #00704a;
     margin-bottom: 12px;
 }
 .likeTit{
@@ -222,7 +244,7 @@ a{
 }
 
  .txtarea{
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: #222;
     margin-bottom: 10px;
     width: 100%;
@@ -233,6 +255,13 @@ a{
     resize: none;
     height: auto;
 } 
+
+.sell{
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    color: #eeee;
+    
+}
 
 .replyBottom{
     display: inline-flex;
@@ -273,7 +302,174 @@ a{
 }
 
 .replyBtmRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.txtBtn{
+    background-color: #fff;
+    /* border: 1px solid #eeee; */
+    border: none;
+    font-size: 14px;
+   
+}
+.modify{
+    cursor: pointer;
+}
+.remove{
+    cursor: pointer;
+}
+
+.replyCount{
+    font-size: .75rem;
+    color: #42495b;
+    align-items: center;
+}
+
+
+.replyLike{
+    font-size: .75rem;
+    color: #42495b;
+    cursor: pointer;
+    align-items: center;
+}
+
+.rpyImg{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.rpyCountDiv{
+    margin-right: 1em;
+}
+
+/* 댓글의 댓글 */
+.rpyAtiveWrap{
+    background-color: #f7f7f7;
+    padding: 24px 24px 10px 80px;
+    box-sizing: border-box;
+
+}
+.activeWrap{
+    box-sizing: border-box;
+}
+  
+ .activeTop{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+} 
+.activeLeft{
+    margin-right: 16px;
+}
+.activeLeftPro{
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+.activeLeftPro img{
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+}
+
+.activeRight{
+    width: 100%;
+}
+.activeProfile{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.avtiveProName{
+    font-size: 1rem;
+    color: #42495b;
+    cursor: pointer;
+    position: relative;
+}
+
+.activeDate{
+    font-size: .75rem;
+    color: #c9c9d9;
+    margin-right: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+.activeTextArea{
+    font-size : 1rem;
+    resize: none;
+    border: none;
+    background-color: #f7f7f7;
+}
+/* 댓글의 댓글입력창 */
+.activeInput{
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    /* display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    background-color: #f7f7f7;
+    padding: 24px 24px 10px 80px;
+    box-sizing: border-box; */
+    /* display: none; */
+}
+.activeInputPro{
+    width: 44px;
+    height: 44px;
+    margin-right: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.activInputImg{
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-right: 16px;
+}
+.activeInputTxt{
+    flex: 1 1;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+}
+
+.activeInputTextArea{
+    flex: 1 1;
+    font-size: .875rem;
+    box-sizing: border-box;
+    padding: 11px 16px;
+    border-radius: 4px;
+    margin-right: 14px;
+    resize: none;
+    border: none;
+    background-color: #fff;
+}
+.activeInputBtn{
+    background-color: #336d47;
+    color: #fff;
+    border: 1px solid #336d47;
+    width: auto;
+    padding: 8px 29px!important;
+    transition: all .2s;
+    font-size: .75rem;
+    border-radius: 4px;
 }
