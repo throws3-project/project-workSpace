@@ -22,9 +22,10 @@
         h2.startProject {
             display: flex;
             flex-direction: column;
-            width: 80%;
+            width: 100%;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 40px 0px 25px;
+            padding: 40px 0px 30px;
         }
 
         span.start {
@@ -41,12 +42,14 @@
 
         div.projectView {
             background-color: #fbfbfb;
+            padding-top: 20px;
         }
 
         div.projectView-wrap {
             display: flex;
             flex-direction: row;
-            width: 80%;
+            width: 100%;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -96,8 +99,19 @@
             width: 95%;
         }
 
+        div.newProject {
+            overflow: hidden;
+            overflow: hidden;
+            position: relative;
+        }
+
         div.project-wrap {
-            width: 92%;
+            width: 85%;
+            position: relative;
+        }
+
+        div.textWrap {
+            width: 85%;
             position: relative;
         }
 
@@ -107,10 +121,6 @@
 
         div.project-image img {
             width: 100%;
-        }
-
-        div.textWrap {
-            width: 92%;
         }
 
         div.bottomText {
@@ -163,14 +173,55 @@
 
         button.banner-button {
             padding: 5px;
+            border: none;
+            background: none;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0px;
+            width: 35px;
+            z-index: 1;
+        }
+
+        button.prev-arrow {
+            left: 0px;
+        }
+
+        button.next-arrow {
+            right: 0px;
+        }
+
+
+        button.banner-button:hover {
+            background: rgba(0, 0, 0, .2);
+            transition: all .25s ease-in;
+        }
+
+        button.banner-button:before {
+            margin: 0 5px;
+            display: inline-block;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            content: "";
+        }
+
+        button.prev-arrow:before {
+            border-right: 8px solid #fff;
+        }
+
+        button.next-arrow:before {
+            border-left: 8px solid #fff;
         }
 
         /* section three */
 
         div.allProject {
-            width: 80%;
+            width: 100%;
+            max-width: 1600px;
             margin: 0 auto;
-            padding-top: 40px;
+            padding-top: 60px;
+            padding-bottom: 30px;
         }
 
         div.selectOption {
@@ -203,8 +254,10 @@
         }
 
         div.allProject h3 {
-            font-size: 25px;
+            margin-bottom: 20px;
+            font-size: 27px;
             color: #333;
+            letter-spacing: normal;
             font-weight: bold;
         }
 
@@ -323,6 +376,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0px 12px;
         }
 
         div.heart {
@@ -351,13 +405,8 @@
         }
 
         li.slide {
-            position: relative;
-            display: none;
+            display: block;
             min-width: 100%;
-        }
-
-        li.selected {
-            display:block;
         }
 
         div.bottom div.recruitModel {
@@ -366,8 +415,8 @@
             background-color: #fff;
             border: 1px solid rgba(51, 51, 51, .2);
             border-radius: 2px;
-            right: 17px;
-            bottom: -18px;
+            right: 0;
+            bottom: 0;
         }
 
         div.recruitModel ul {
@@ -513,6 +562,144 @@
         div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
             color: #ea6560;
         }
+
+        /* section four */
+        div.projectNews {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
+
+        div.projectNews h3{
+            margin-bottom: 20px;
+            font-size: 27px;
+            color: #333;
+            letter-spacing: normal;
+            font-weight: bold;
+        }
+
+        li.projectNewsWrap {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        li.projectNewsWrap:before {
+            content: "";
+            width: 4px;
+            position: absolute;
+            background-image: url("https://letspl.me/_next/static/media/gray-dot.3e028117a79512444d91c3bc68be5f84.svg");
+            background-repeat: repeat-y;
+            height: 100%;
+            top: 6px;
+            left: auto;
+        }
+
+        div.date {
+            position: relative;
+            padding: 12px 12px;
+            margin-bottom: 20px;
+            display: inline-block;
+            color: #000;
+            font-size: 14px;
+            background-color: #fff;
+            right: 16px;
+        }
+
+        div.date span{
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        ul.newsContentWrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        li.newsContents {
+            display: flex;
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: 1px solid #ebebeb;
+            align-items: center;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        li.newsContents:before {
+            content: "";
+            position: absolute;
+            left: -26px;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #ea6560;
+            background-color: #fff;
+            border-radius: 100px;
+            top: 47%;
+            transform: translateY(-50%);
+        }
+
+        div.newsImg {
+            height: 62px;
+            width: 120px;
+            overflow: hidden;
+            display: inline-block;
+            margin-right: 16px;
+        }
+
+        div.newsImg img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        div.newsButton {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        div.newsButton p.categoryText{
+            margin: 0;
+            padding-top: 8px;
+        }
+
+        div.newsButton p.categoryText span:first-child{
+            font-size: 14px;
+            color: #b1b1b1;
+        }
+
+        div.newsButton p.categoryText span:last-child{
+            color: #000;
+            margin-left: 20px;
+        }
+
+        div.newsButton p.newsText{
+            color: #8a8a8a;
+            font-size: 17px;
+            font-weight: bold;
+         }
+
+        div.newsButtonWrap button{
+            border-radius: 100px;
+            padding: 14px 28px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            margin-right: 8px;
+        }
+
+        /* section five */
+        div.sideProject {
+            background-color: #f8f8f8;
+        }
+
+
     </style>
 </head>
 <body>
@@ -529,7 +716,7 @@
             <div class="projectView-leftWrap">
                 <h3>신규 프로젝트</h3>
                 <div class="newProject">
-                    <button type="button" class="banner-button">▷</button>
+                    <button type="button" class="banner-button prev-arrow"></button>
                     <div>
                         <ul class="slider">
                             <li class="slide selected">
@@ -794,7 +981,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button type="button" class="banner-button">&gt;</button>
+                    <button type="button" class="banner-button next-arrow"></button>
                 </div>
             </div>
             <div class="projectView-rightWrap">
@@ -1583,13 +1770,212 @@
             </div>
         </div>
     </div>
+    <div class="projectNews">
+        <h3>프로젝트/스터디 소식</h3>
+        <ul>
+            <li class="projectNewsWrap">
+                <div class="date">
+                    <span>22.05.02</span>
+                </div>
+                <ul class="newsContentWrap">
+                    <li class="newsContents">
+                    <div class="newsImg">
+                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png">
+                    </div>
+                    <div class="newsButton">
+                        <div class="textWrap">
+                            <p class="categoryText">
+                                <span>01:38 PM</span>
+                                <span>AI 기반 '보험을 부탁해'</span>
+                            </p>
+                            <p class="newsText">[시스템] 프로젝트에 신규질문이 등록되었습니다</p>
+                        </div>
+                        <div class="newsButtonWrap">
+                        <button>바로가기</button>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="newsContents">
+                        <div class="newsImg">
+                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png">
+                        </div>
+                        <div class="newsButton">
+                            <div class="textWrap">
+                                <p class="categoryText">
+                                    <span>01:38 PM</span>
+                                    <span>AI 기반 '보험을 부탁해'</span>
+                                </p>
+                                <p class="newsText">[시스템] 프로젝트에 신규질문이 등록되었습니다</p>
+                            </div>
+                            <div class="newsButtonWrap">
+                                <button>바로가기</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="newsContents">
+                        <div class="newsImg">
+                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png">
+                        </div>
+                        <div class="newsButton">
+                            <div class="textWrap">
+                                <p class="categoryText">
+                                    <span>01:38 PM</span>
+                                    <span>AI 기반 '보험을 부탁해'</span>
+                                </p>
+                                <p class="newsText">[시스템] 프로젝트에 신규질문이 등록되었습니다</p>
+                            </div>
+                            <div class="newsButtonWrap">
+                                <button>바로가기</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="newsContents">
+                        <div class="newsImg">
+                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png">
+                        </div>
+                        <div class="newsButton">
+                            <div class="textWrap">
+                                <p class="categoryText">
+                                    <span>01:38 PM</span>
+                                    <span>AI 기반 '보험을 부탁해'</span>
+                                </p>
+                                <p class="newsText">[시스템] 프로젝트에 신규질문이 등록되었습니다</p>
+                            </div>
+                            <div class="newsButtonWrap">
+                                <button>바로가기</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="newsContents">
+                        <div class="newsImg">
+                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png">
+                        </div>
+                        <div class="newsButton">
+                            <div class="textWrap">
+                                <p class="categoryText">
+                                    <span>01:38 PM</span>
+                                    <span>AI 기반 '보험을 부탁해'</span>
+                                </p>
+                                <p class="newsText">[시스템] 프로젝트에 신규질문이 등록되었습니다</p>
+                            </div>
+                            <div class="newsButtonWrap">
+                                <button>바로가기</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="newsContents">
+                        <div class="newsImg">
+                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png">
+                        </div>
+                        <div class="newsButton">
+                            <div class="textWrap">
+                                <p class="categoryText">
+                                    <span>01:38 PM</span>
+                                    <span>AI 기반 '보험을 부탁해'</span>
+                                </p>
+                                <p class="newsText">[시스템] 프로젝트에 신규질문이 등록되었습니다</p>
+                            </div>
+                            <div class="newsButtonWrap">
+                                <button>바로가기</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="newsContents">
+                        <div class="newsImg">
+                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/projectThumb_6.png">
+                        </div>
+                        <div class="newsButton">
+                            <div class="textWrap">
+                                <p class="categoryText">
+                                    <span>01:38 PM</span>
+                                    <span>AI 기반 '보험을 부탁해'</span>
+                                </p>
+                                <p class="newsText">[시스템] 프로젝트에 신규질문이 등록되었습니다</p>
+                            </div>
+                            <div class="newsButtonWrap">
+                                <button>바로가기</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="sideProject">
+        <div class="sideList">
+            <h3>사이드프로젝트로 만들었어요</h3>
+            <div class="sideCollect">
+                <div class="sideCollectList">
+                    <div class="sideImg">
+                        <img src="https://play-lh.googleusercontent.com/_Wxku_SzqStzMyU_Qpa34jbDORAxYh4TWj00s7ki36c0-P4hGrROFCbFrLUYH6CNPHY=w240-h480-rw">
+                    </div>
+                    <div class="textWrap">
+                        <div class="hot">
+                            <span>🔥 HOT</span>
+                        </div>
+                        <p class="text">코콘</p>
+                        <p class="sideText">당신만의 AI 스타일리스트, cocon 🛍, 50,000명이 만족한 AI 퍼스널컬러 진단을 무료로 만나보세요.🎨 베스트 컬러를 찾아 패션과 쇼핑몰을 추천합니다! 당신에게 꼭 맞는 컬러와 인생템을 발견 하러 가볼까요?</p>
+                        <div class="sideApps">
+                            <div class="sideApp">
+                                <img src="https://letspl.me/assets/icon/ic-web-black.png">
+                            </div>
+                            <div class="sideApp">
+                                <img src="https://letspl.me/assets/icon/ic-playstore-black.png">
+                            </div>
+                            <div class="sideApp">
+                                <img src="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sideCollectList"></div>
+                <div class="sideCollectList"></div>
+                <div class="sideCollectList"></div>
+                <div class="sideCollectList"></div>
+                <div class="sideCollectList"></div>
+            </div>
+        </div>
+    </div>
 </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $("#header").load('../../templates/fix/header.html');
-    })
+    });
+    // banner-button
+    let arrows = document.querySelectorAll("button.banner-button");
+    let li = document.querySelectorAll("li.slide");
+    let banner = document.querySelector("ul.slider");
+    let count = 0;
+
+    // banner
+    arrows.forEach((arrow) => {
+        arrow.addEventListener("click", function () {
+            let arrowType = arrow.classList[1];
+            if (arrowType === 'prev-arrow' && count !== 0) {
+                count--;
+                $(".slide").removeClass("selected");
+                li[count].classList.add("selected");
+            } else if (arrowType === 'next-arrow' && count !== li.length - 1) {
+                count++;
+                $(".slide").removeClass("selected");
+                li[count].classList.add("selected");
+            } else {
+                if (count === li.length - 1) {
+                    count = 0;
+                    $(".slide").removeClass("selected");
+                    li[count].classList.add("selected");
+                } else {
+                    count = li.length - 1;
+                    $(".slide").removeClass("selected");
+                    li[count].classList.add("selected");
+                }
+            }
+
+            banner.style.transform = "translate3d(-" + count * 100 + "%, 0px, 0px)";
+        });
+    });
 
     // recruitModel display
     $("div.recruitStatus").on("mouseover", function () {
@@ -1607,5 +1993,6 @@
     $("div.recruitModel").on("mouseout", function () {
         $(this).css("display", "none");
     })
+
 </script>
 </html>
