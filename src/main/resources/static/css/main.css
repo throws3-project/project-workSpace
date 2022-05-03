@@ -83,9 +83,7 @@ strong, b {
     font-weight: 700;
 }
 
-p {
-    margin: 0 0 2em 0;
-}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
@@ -202,16 +200,11 @@ a {
     text-decoration: underline;
 }
 
-/* Form */
-form {
-    margin: 0 0 2em 0;
-}
 
 label {
     display: block;
     font-size: 0.9em;
     font-weight: 700;
-    margin: 0 0 1em 0;
 }
 
 input[type="text"], input[type="password"], input[type="email"], select,
