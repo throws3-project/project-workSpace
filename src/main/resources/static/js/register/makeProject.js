@@ -14,6 +14,13 @@ $(".choice").each(function (i,radio) {
 })
 
 
+//대표이미지 업로드 클릭
+$("#imgUploadBtn").on("click", function () {
+    let input = $("#imgUpload");
+    input.click();
+});
+
+
 // 모임지역 선택
 function onOffChange(e) {
     var onOff_both = ["상관없음", "서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
@@ -65,6 +72,9 @@ function personChange(e) {
 
 //모집인원 추가
 let count = 1;
+
+
+
 $("#personAddBtn").click(function () {
     let length = $("#personWrap").children().length;
 
@@ -91,7 +101,7 @@ $("#personAddBtn").click(function () {
         str += "</select>";
         str += "</div>";
         str += "<div class='plusMinusBtnWrap'>";
-        str += "<button type='button' class='imageBtn minus' disabled></button>";
+        str += "<button type='button' class='imageBtn minus'></button>";
         str += "<div class='countNumber'>1</div>";
         str += "<button type='button' class='imageBtn plus'></button>";
         str += "</div>";
@@ -103,10 +113,76 @@ $("#personAddBtn").click(function () {
 
 //모집인원 삭제
 $("#personDeleteBtn").click(function(){
-   let div = $("#personWrap").children().last();
-   div.remove();
+    if($("#personWrap").children().length != 1){
+        let div = $("#personWrap").children().last();
+        div.remove();
+    }
 
 });
+
+//모집인원 분야별 인원설정
+const number = $(".countNumber");
+const plus = $(".plus");
+const minus = $(".minus");
+
+// console.log(number.text());
+
+$("div#personWrap").on("click", "button.plus", function (e) {
+    e.preventDefault();
+    let current = $(this).prev().text();
+    if(current < 9){
+        $(this).prev().html(parseInt(current) + 1) ;
+    }
+})
+
+$("div#personWrap").on("click", "button.minus", function (e) {
+    e.preventDefault();
+    let current = $(this).next().text();
+    if(current > 1){
+        $(this).next().text(parseInt(current) - 1) ;
+    }
+})
+
+
+
+// const number = document.getElementById("countNumber");
+// const plus = document.getElementById("plus");
+// const minus = document.getElementById("minus");
+//
+// // console.log(number.innerText);
+// // console.log(plus);
+// // console.log(minus);
+//
+// plus.onclick = () => {
+//     let current = parseInt(number.innerText, 10);
+//     if(parseInt(number.innerText) <= 8){
+//         number.innerText = current + 1;
+//     }
+// };
+//
+// minus.onclick = () => {
+//     let current = parseInt(number.innerText, 10);
+//     if(parseInt(number.innerText) > 1){
+//         number.innerText = current - 1;
+//     }
+// }
+
+// $("div#personWrap").on("click", "button.plus", function (e) {
+//     console.log("들어옴")
+//     e.preventDefault();
+//     let current = parseInt(number.innerText, 10);
+//     if(parseInt(number.innerText) <= 8){
+//         number.innerText = current + 1;
+//     }
+// });
+//
+// $("div#personWrap").on("click", "button.minus", function (e) {
+//     e.preventDefault();
+//     let current = parseInt(number.innerText, 10);
+//     if(parseInt(number.innerText) > 1){
+//         number.innerText = current - 1;
+//     }
+// });
 
 
 //참고자료 추가
@@ -131,12 +207,56 @@ $("#deleteReferenceBtn").click(function(){
 
 });
 
+//출시 플랫폼 추가
+$("#platformResult").change(function () {
+    let state = $("#platformResult option:selected").val();
+    if( state == '1'){
+        $(".platformResult1").show();
+    }
+    if( state == '2'){
+        $(".platformResult2").show();
+    }
+    if( state == '3'){
+        $(".platformResult3").show();
+    }
+    if( state == '4'){
+        $(".platformResult4").show();
+    }
+    if( state == '5'){
+        $(".platformResult5").show();
+    }
+    if( state == '6'){
+        $(".platformResult6").show();
+    }
+})
+
+
+//출시 플랫폼 삭제
+$(".platformResult1").click(function () {
+    $(this).hide();
+})
+$(".platformResult2").click(function () {
+    $(this).hide();
+})
+$(".platformResult3").click(function () {
+    $(this).hide();
+})
+$(".platformResult4").click(function () {
+    $(this).hide();
+})
+$(".platformResult5").click(function () {
+    $(this).hide();
+})
+$(".platformResult6").click(function () {
+    $(this).hide();
+})
+
 
 //토스트 에디터
 const editor = new toastui.Editor({
     el: document.querySelector('#editor'),
     height: '600px',
-    initialEditType: 'wysiwyg',
+    initialEditType: 'markdown',
     previewStyle: 'vertical',
     initialValue: '1. 프로젝트의 시작 동기\n   ' +
         ' - 왜 이 서비스를 만드시고 싶은지 적어주세요 \n' +
@@ -159,19 +279,3 @@ const editor = new toastui.Editor({
 
 
 
-
-
-
-
-
-//써머노트 로딩
-$(document).ready(function () {
-    $('#summernote').summernote({
-        height: 300,                 // 에디터 높이
-        minHeight: null,             // 최소 높이
-        maxHeight: null,             // 최대 높이
-        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-        lang: "ko-KR",					// 한글 설정
-        placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
-    });
-});

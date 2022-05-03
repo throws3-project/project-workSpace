@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
     <link rel="stylesheet" href="../../static/css/register/makeProject.css" type="text/css"/>
 
-    <!-- 썸머노트 -->
-<!--    <link rel="stylesheet" href="../../static/css/summernote/summernote-lite.css">-->
-<!--    <script src="../../static/js/summernote/summernote-lite.js"></script>-->
-<!--    <script src="../../static/js/summernote/lang/summernote-ko-KR.js"></script>-->
-
-<!--    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>-->
-
-
     <!-- Toast UI Editor -->
     <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"/>
 
 
-    <title>프로젝트/스터디 생성하기</title>
+<title>프로젝트/스터디 생성하기</title>
+<style>
+    .platformResult a {
+        text-decoration: none;
+        display: none;
+        cursor: pointer;
+        background-color: #336d47;
+        padding: 4px;
+        border-radius: 4px;
+        color: #fff;
+        margin-left: 2px;
+        font-size: 13px;
+    }
+
+
+</style>
 </head>
 <body>
 <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
@@ -61,7 +67,7 @@
                     </div>
                 </div>
                 <div class="noticBox">
-                    <p>아이디어를 기반으로 앱/웹 등 서비스를 만드는 유형입니다.
+                    <p style="font-size: 15px;">아이디어를 기반으로 앱/웹 등 서비스를 만드는 유형입니다.
                         심사가 진행 ( 1영업일 이내 )되며,
                         승인시 렛플앱 푸시 및 이메일로 홍보됩니다</p>
                 </div>
@@ -192,14 +198,16 @@
                     <div class="answer">
                         <div class="thumbnailWrap">
                             <div class="thumbnailBox">
-                                <button></button>
+                                <button type="button" id="imgUploadBtn"></button>
                                 <img class="thumbnailImage2"
                                      src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
-                                <input type="file" style="display: none;">
+                                <input type="file" style="display: none;" id="imgUpload" name="imgUpload">
                             </div>
                             <div class="uploadBox">
-                                <button>이미지 업로드</button>
-                                <ul>
+                                <div>
+                                    <label for="imgUpload">이미지 업로드</label>
+                                </div>
+                                 <ul>
                                     <li>&nbsp;가로/세로의 비율이 2:1일 때 썸네일이 가장 예쁩니다.
                                     </li>
                                     <li>&nbsp;저작권에 위배되지 않는 파일만 업로드해주세요.
@@ -254,10 +262,11 @@
                     <div class="question">
                         <p>
                             * 모집인원
-                            <span>&nbsp;최대 9명까지 모집이 가능하며, 3~4명을 추천합니다.(나중에 변경/추가가 가능합니다.)
+                            <span>&nbsp;최대 9명까지 모집이 가능하며, 3~4명을 추천합니다.(추후에 변경/추가가 가능합니다.)
                                 </span>
                         </p>
                     </div>
+
 
                     <div class="answer" id="personWrap">
                         <div class="selectBoxWrap">
@@ -280,9 +289,9 @@
                                 </select>
                             </div>
                             <div class="plusMinusBtnWrap">
-                                <button type="button" class="imageBtn minus" disabled></button>
-                                <div class="countNumber">1</div>
-                                <button type="button" class="imageBtn plus"></button>
+                                <button type="button" id="minus" class="imageBtn minus" ></button>
+                                <div class="countNumber" id="countNumber">1</div>
+                                <button type="button" id="plus" class="imageBtn plus"></button>
                             </div>
                         </div>
                     </div>
@@ -301,7 +310,7 @@
 
                     <div class="answer">
                         <div>
-                            <select>
+                            <select id="platformResult">
                                 <option>출시 플랫폼을 하나 이상 선택해주세요</option>
                                 <option value="1">미정(논의 후 확정)</option>
                                 <option value="2">반응형 웹(PC/모바일)</option>
@@ -310,6 +319,14 @@
                                 <option value="5">PC(윈도우/맥) 프로그램</option>
                                 <option value="6">설치형/SASS 솔루션</option>
                             </select>
+                        </div>
+                        <div class="platformResult">
+                            <a class="platformResult1">미정(논의 후 확정) X </a>
+                            <a class="platformResult2">반응형 웹(PC/모바일) X </a>
+                            <a class="platformResult3">안드로이드 앱 X </a>
+                            <a class="platformResult4">IOS 앱 X </a>
+                            <a class="platformResult5">PC(윈도우/맥) 프로그램 X </a>
+                            <a class="platformResult6">설치형/SASS 솔루션 X </a>
                         </div>
                     </div>
 
@@ -323,7 +340,7 @@
 
                     <div class="answer">
                         <form method="post">
-<!--                            <textarea id="summernote" name="editordata"></textarea>-->
+                            <!--                            <textarea id="summernote" name="editordata"></textarea>-->
                             <div id="editor"></div>
                         </form>
                     </div>
@@ -461,7 +478,7 @@
                     <div class="question">
                         <p>
                             * 모집인원
-                            <span>&nbsp;최대 9명까지 모집이 가능하며, 3~4명을 추천합니다.(나중에 변경/추가가 가능합니다.)
+                            <span>&nbsp;최대 9명까지 모집이 가능하며, 3~4명을 추천합니다.(추후에 변경/추가가 가능합니다.)
                                 </span>
                         </p>
                     </div>
