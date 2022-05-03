@@ -8,6 +8,21 @@
 </head>
 <body>
 <header id="header"></header>
+
+<!-- 모달 -->
+<div class="modalWindow">
+    <div id="my_modal">
+        <div class="divImage">
+            <img src="../../static/images/pokjuk.png" class="pokjukPng">
+            <img src="../../static/images/pokjuk2.png" class="pokjukPng2">
+        </div>
+        <p class="snsLoginP">회원가입이 완료되었습니다.</p>
+        <div class="turnJoinWrap">
+            <button class="modal_close_btn">확인</button>
+        </div>
+    </div>
+</div>
+
 <section>
     <div class="joinWrapper">
         <h3>
@@ -95,6 +110,16 @@
 
     $(document).ready(function(){
         $("#footer").load('../../templates/fix/footer.html');
+    });
+
+    $(document).ready(function(){
+        $(".modalWindow").show();
+    });
+
+    $('.modal_close_btn').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).hide();
+        });
     });
 </script>
 </html>

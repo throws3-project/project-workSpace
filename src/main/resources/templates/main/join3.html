@@ -8,11 +8,23 @@
 </head>
 <body>
 <header id="header"></header>
+
+<div class="modalWindow">
+    <div id="my_modal">
+        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
+        <div class="letter">
+            <p class="completeP">성공적으로 설정되었습니다.</p>
+            <p class="get200PointP">워크스코어 200을 획득하셨습니다.</p>
+            <button class="complete">확인</button>
+        </div>
+    </div>
+</div>
+
 <section>
     <div class="joinWrapper">
         <h3>
             <span class="smTxt">부 캐릭터 생성 및 추가답변</span>
-            <span class="bigTxt">완료시,추가 렛플력 200을 획득합니다.</span>
+            <span class="bigTxt">완료시,추가 워크스코어 200을 획득합니다.</span>
         </h3>
         <div class="form">
             <ul class="firstSignForm">
@@ -42,7 +54,7 @@
                     </div>
                 </li>
                 <li class="secondLi">
-                    <label>커피 포인트 설정</label>
+                    <label>비트 포인트 설정</label>
                     <div class="settingWrapper2">
                         <select class="twoSelect">
                             <option value="0401">1</option>
@@ -90,6 +102,22 @@
 
     $(document).ready(function(){
         $("#footer").load('../../templates/fix/footer.html');
+    });
+
+    $(document).ready(function(){
+        $(".modalWindow").show();
+    });
+
+    $('.modal_close_btn').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).hide();
+        });
+    });
+
+    $('.complete').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).hide();
+        });
     });
 </script>
 </html>
