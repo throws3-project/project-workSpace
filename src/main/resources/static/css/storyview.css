@@ -1,0 +1,125 @@
+.storyViewBanner{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #222;
+    top: 51px;
+    overflow: hidden;
+}
+
+.storyViewBannerImgWrap{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+.bannerImg{
+    opacity: .4;
+    left: 0;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.storyBannerTxtWrap{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    height: 360px;
+    box-sizing: border-box;
+    padding-bottom: 70px;
+    position: relative;
+}
+.storyBannerTagWrap{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 35px;
+}
+.storyBannerTxtWrap h2 {
+    color: #fff;
+    max-width: 600px;
+    min-width: 320px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 28px;
+    line-height: 38px;
+}
+
+.storyBannerTag{
+    box-sizing: border-box;
+    padding: 8px 28px;
+    color: #fff;
+    border-radius: 4px;
+    margin-right: 6px;
+    font-size: 12px;
+}
+.pink{
+    background-color: pink;
+}
+.blue{
+    background-color: blue;
+}
+
+.storyBannerHashTag{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 0;
+    flex-wrap: wrap;
+    max-width: 600px;
+}
+
+.storyBannerHashTag span{
+    font-size: 14px;
+    color: #fff;
+    line-height: 14px;
+    margin-right: 6px;
+}
+.storyBannerBottomWrap{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+}
+.bannerDateTxt{
+    color: #fff;
+    font-size: 13px;
+    width: 100%;
+}
+.bannerStatusWrap{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 0;
+    justify-content: flex-end;
+    color: #fff;
+}
+.bannerStatusWrap p{
+    margin-bottom: 0;
+}
+.bannerStatusImg{
+    width: 16px;
+    margin-right: 2px !important;
+    /* line-height: 14px; */
+    vertical-align: middle;
+    filter: invert(100%)
+}

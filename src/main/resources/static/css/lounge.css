@@ -75,6 +75,9 @@ textarea {
     padding: 5px 5px 5px 5px;
     height: 40px;
 }
+.txtBtnImg{
+    width: 20px;
+}
 /* 라운지 랭킹부분 */
 /* .loungeWrap .loungeLankWrap{
     position: absolute;   
@@ -312,6 +315,7 @@ textarea {
     /* border: 1px solid #eeee; */
     border: none;
     font-size: 14px;
+    margin-bottom: 0 !important;
    
 }
 .modify{
