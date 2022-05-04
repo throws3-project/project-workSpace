@@ -6,8 +6,8 @@ $(document).ready(function () {
 
 
 // 프로젝트/스터디 양식 선택
-$(".choice").each(function (i,radio) {
-    $(radio).on("click",function (e) {
+$(".choice").each(function (i, radio) {
+    $(radio).on("click", function (e) {
         $(".make").hide();
         $($(".make").get(i)).show();
     })
@@ -74,11 +74,10 @@ function personChange(e) {
 let count = 1;
 
 
-
 $("#personAddBtn").click(function () {
     let length = $("#personWrap").children().length;
 
-    if(length != 9) {
+    if (length != 9) {
         let str = "";
 
         str += "<div class='selectBoxWrap'>";
@@ -112,8 +111,8 @@ $("#personAddBtn").click(function () {
 });
 
 //모집인원 삭제
-$("#personDeleteBtn").click(function(){
-    if($("#personWrap").children().length != 1){
+$("#personDeleteBtn").click(function () {
+    if ($("#personWrap").children().length != 1) {
         let div = $("#personWrap").children().last();
         div.remove();
     }
@@ -130,19 +129,18 @@ const minus = $(".minus");
 $("div#personWrap").on("click", "button.plus", function (e) {
     e.preventDefault();
     let current = $(this).prev().text();
-    if(current < 9){
-        $(this).prev().html(parseInt(current) + 1) ;
+    if (current < 9) {
+        $(this).prev().html(parseInt(current) + 1);
     }
 })
 
 $("div#personWrap").on("click", "button.minus", function (e) {
     e.preventDefault();
     let current = $(this).next().text();
-    if(current > 1){
-        $(this).next().text(parseInt(current) - 1) ;
+    if (current > 1) {
+        $(this).next().text(parseInt(current) - 1);
     }
 })
-
 
 
 // const number = document.getElementById("countNumber");
@@ -189,7 +187,7 @@ $("div#personWrap").on("click", "button.minus", function (e) {
 $("#addReferenceBtn").click(function () {
     let length = $("#referenceWrap").children().length;
 
-    if(length != 5) {
+    if (length != 5) {
         let str = "";
 
         str += "<div>";
@@ -201,7 +199,7 @@ $("#addReferenceBtn").click(function () {
 });
 
 //모집인원 삭제
-$("#deleteReferenceBtn").click(function(){
+$("#deleteReferenceBtn").click(function () {
     let div = $("#referenceWrap").children().last();
     div.remove();
 
@@ -210,45 +208,15 @@ $("#deleteReferenceBtn").click(function(){
 //출시 플랫폼 추가
 $("#platformResult").change(function () {
     let state = $("#platformResult option:selected").val();
-    if( state == '1'){
-        $(".platformResult1").show();
-    }
-    if( state == '2'){
-        $(".platformResult2").show();
-    }
-    if( state == '3'){
-        $(".platformResult3").show();
-    }
-    if( state == '4'){
-        $(".platformResult4").show();
-    }
-    if( state == '5'){
-        $(".platformResult5").show();
-    }
-    if( state == '6'){
-        $(".platformResult6").show();
-    }
+    $($(".results").get(state)).show();
 })
 
 
 //출시 플랫폼 삭제
-$(".platformResult1").click(function () {
-    $(this).hide();
-})
-$(".platformResult2").click(function () {
-    $(this).hide();
-})
-$(".platformResult3").click(function () {
-    $(this).hide();
-})
-$(".platformResult4").click(function () {
-    $(this).hide();
-})
-$(".platformResult5").click(function () {
-    $(this).hide();
-})
-$(".platformResult6").click(function () {
-    $(this).hide();
+$("a.results").each(function (i, result) {
+    $(result).on("click", function () {
+        $(result).hide();
+    })
 })
 
 
@@ -276,6 +244,70 @@ const editor = new toastui.Editor({
         '   (그외의 내용은 자유롭게 기입해주세요(영상/이미지 포함) \n' +
         '-  상세 검수가이드라인은 공지사항을 참고해주세요. https://letspl.me/notice/80'
 });
+
+
+//스터디 분야 선택
+let input = $("#keyword");
+
+$("#skill").on("keydown", input, function (e) {
+    let check = false;
+
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        $(".skillTag").each(function (i, tag) {
+            console.log(input.val());
+            console.log($(tag).text());
+            if (input.val().toLowerCase() === $(tag).text()) {
+                alert("이미 등록한 키워드입니다.");
+                check = true;
+            }
+        })
+        let str = "";
+        str += "<a class='skillTag'>" + input.val().toLowerCase() + "</a>";
+
+        if (check == false) {
+            $(".skillResult").append(str);
+        }
+        input.val("");
+    }
+})
+
+//스터디 분야 삭제
+$("div.skillResult").on("click", "a.skillTag", function () {
+        $(this).remove();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
