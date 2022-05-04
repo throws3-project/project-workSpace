@@ -199,7 +199,6 @@ a{
     height: 152px;
     margin-right: 12px;
     flex-shrink: 0;
-    display: -webkit-inline-flex;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -211,7 +210,6 @@ a{
 .seriesLi a{
     width: 100%;
     height: 100%;
-    display: -webkit-inline-flex;
     display: inline-flex;
     position: relative;
     background-color: #000;
