@@ -45,7 +45,7 @@ $("#portfolio").on("click", "#plusUrl", function () {
 
 /*정보페이지 - 포트폴리오 삭제*/
 $("#portfolio").on("click", "#deleteUrl", function () {
-    $(this).parent().hide();
+    $(this).parent().remove();
     count--
     if(count==0){
         count++
