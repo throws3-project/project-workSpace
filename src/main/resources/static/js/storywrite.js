@@ -6,12 +6,12 @@ $(document).ready(function () {
 
 
 // 프로젝트/스터디 양식 선택
-$(".choice").each(function (i, radio) {
-    $(radio).on("click", function (e) {
-        $(".make").hide();
-        $($(".make").get(i)).show();
-    })
-})
+// $(".choice").each(function (i, radio) {
+//     $(radio).on("click", function (e) {
+//         $(".make").hide();
+//         $($(".make").get(i)).show();
+//     })
+// })
 
 
 //대표이미지 업로드 클릭
@@ -276,6 +276,11 @@ $("#skill").on("keydown", input, function (e) {
 $("div.skillResult").on("click", "a.skillTag", function () {
         $(this).hide();
 })
+
+// 셀렉트 비활성화
+
+$(".searchSelect").attr("disabled","disabled") ;
+
 
 
 

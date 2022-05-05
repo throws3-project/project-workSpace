@@ -338,6 +338,7 @@ div.noticeBox p {
     height: 100%;
     position: absolute;
     z-index: 99;
+    border: none;
 }
 
 button {
@@ -362,12 +363,20 @@ button {
 }
 
 .uploadBox div label {
-    font-size: 13px;
+    /* font-size: 13px;
     cursor: pointer;
     padding: 10px 15px;
     margin: 15px 0;
     border: 1px solid #b5b9c3;
+    border-radius: 4px; */
+    border: 1px solid #9796a7;
+    color: #9796a7;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 12px;
+    padding: 7px 20px;
     border-radius: 4px;
+    margin-bottom: 16px;
 }
 
 .buildProjectContents .answer .thumbnailWrap .uploadBox ul li {
@@ -551,10 +560,54 @@ div#referenceWrap div{
 /*    text-transform: lowercase;*/
 /*}*/
 
+/* 이미지 미리보기 */
+.uploadImgViewWrap{
+    margin-top: 28px;
+}
+.uploadImgUl{
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.uploadImgLi{
+    width: 153px;
+    height: 96px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #ddd;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+.uploadImgLi img{
+    height: 100%;
+}
+.uploadImgPtag{
+    font-size: 1rem;
+    color: #42495b;
+    line-height: 20px;
+    margin-bottom: 18px !important;
+    font-weight: 600;
+}
 
 
+.uploadImgLi:hover{
+    /* transform: scale(1.02); */
+    border: 1px solid #00704a;
+}
 
-
+/* 검색태그 */
+.srhTag{
+    width: 600px !important;
+    max-width: 100%  !important;
+    border: 1px solid #bcbccb  !important;
+    border-radius: 4px  !important;
+    height: auto;
+    padding: 10.5px  !important;
+    font-size: 14px;
+}
 
 
 
