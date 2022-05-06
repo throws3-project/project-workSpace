@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>workSpace</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/header.css" type="text/css"/>
+    <link rel="stylesheet" href="../../static/css/footer.css" type="text/css"/>
+    <style>
+        div.section {
+            margin-bottom: 30px;
+        }
+
+        /* section one*/
+
+        div.projectHeaderWrap {
+            padding: 45px 0 45px;
+            text-align: center;
+        }
+
+        div.projectHeader {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        div.projectHeaderText {
+            background-color: #000;
+            display: inline-block;
+            padding: 4px 29px;
+        }
+
+        div.projectHeaderText span {
+            font-size: 13px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        div.projectHeaderContent {
+            max-width: 1040px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h3.projectText {
+            font-size: 32px;
+            color: #222;
+            height: 44px;
+            margin-bottom: 1px;
+        }
+
+        li.projectLeaderWrap {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        div.userWrap {
+            cursor: pointer;
+            align-items: center;
+            display: inline-flex;
+        }
+
+        div.userWrap div.leaderImg {
+            display: inline-flex;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        div.userWrap div.leaderImg a{
+            width: 35px;
+            height: 35px;
+        }
+
+        div.userWrap div.leaderImg a img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+        }
+
+        span.leaderText {
+            letter-spacing: 0;
+        }
+
+        span.userId {
+            color: #666;
+            font-weight: 700;
+            margin-left: 10.5px;
+            margin-right: 4.5px;
+            font-size: 14px;
+        }
+
+        span.confirmPhone {
+            font-size: 15px;
+            color: #ea6560;
+        }
+
+        span.lastLogin {
+            font-size: 15px;
+            color: #b7b7c7;
+        }
+
+        span.status {
+            padding: 7px 11px;
+            color: #333;
+            border-radius: 100px;
+            margin-right: 5px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        span.gray {
+            background-color: #f2f2f2;
+        }
+
+        span.white {
+            background-color: #fff;
+            border: 1px solid #e8e8e8;
+        }
+
+        div.idMenu {
+            display: none;
+            position: absolute;
+            text-align: left;
+            width: 130px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            z-index: 555;
+            box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 20%);
+        }
+
+        div.idMenu ul li {
+            width: 100%;
+        }
+
+        div.idMenu ul li a {
+            display: block;
+            padding: 10px 15px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #333;
+            width: 100%;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        div.idMenu ul li a:hover {
+            background-color: rgba(234, 101, 95, .5);
+        }
+
+        /* section two */
+
+        div.projectPageWrap {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        div.projectDetailContents {
+            padding: 0 0 40px;
+            position: relative;
+            margin: 0;
+            max-width: 840px;
+        }
+
+        div.projectTabMenu {
+            margin-bottom: 20px;
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 500;
+        }
+
+        div.projectTabMenu ul {
+            display: flex;
+        }
+
+        div.projectTabMenu ul li {
+            font-size: 14px;
+            color: #42495b;
+            flex: 1 1;
+            font-weight: 700;
+        }
+
+        div.projectTabMenu ul li a {
+            padding: 11.5px 0;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #e6e6e6;
+            border-right: 1px solid #e6e6e6;
+            border-bottom: 1px solid #000;
+            color: #8e8ea2;
+            cursor: pointer;
+            background-color: #fcfcfc;
+            text-decoration: none;
+        }
+
+        div.projectTabMenu ul li a.active, .projectTabMenu>ul li a:hover {
+            color: #42495b;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-bottom: none;
+            padding: 12px 0;
+        }
+
+        .projectTabMenu ul li a.disabled:hover {
+            color: #8e8ea2;
+            padding: 11.5px 0;
+            background-color: #fbfbfb;
+            border: 1px solid #e6e6e6;
+            border-bottom-color: #000;
+            border-left: none;
+        }
+
+        .projectTabMenu ul li a.disabled {
+            cursor: not-allowed;
+        }
+
+        .projectTabMenu ul li a.disabled:after {
+            content: "";
+            background-image: url("https://letspl.me/_next/static/media/ic_lock.b284a07036757b388f197a7b1b93524b.svg");
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            display: inline-block;
+            background-size: contain;
+            margin-left: 10px;
+        }
+
+        h3.detailTab {
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        div.status ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        span.position {
+            font-size: 14px;
+            color: #424251;
+            margin-right: 0px;
+            font-weight: 700;
+            width: 300px;
+        }
+
+        span.applyNumber {
+            font-size: 14px;
+            color: #00704a;
+            margin-right: 50px;
+            font-weight: 700;
+        }
+
+        a.applyButton {
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            color: #81839c;
+            padding: 2px 45px;
+            border: 1px solid #81839c;
+            border-radius: 2px;
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        a.applyButton:hover {
+            background-color: #42495b;
+            border: 1px solid #42495b;
+            color: #fff;
+        }
+
+        div.projectDetailWrap {
+            padding: 0 20px;
+        }
+
+        div.projectInfo {
+            display: none;
+        }
+
+        div.active {
+            display: block;
+        }
+
+        div.status {
+            border-bottom: 1px solid #e6e6e6;
+            padding: 5px 15px 15px 0;
+        }
+
+        div.status ul {
+            margin-top: 15px;
+        }
+
+        /* section three*/
+        div.platformIconsWrap {
+            display: flex;
+        }
+
+        div.iconImg {
+            margin-right: 8px;
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+        }
+
+        div.iconImg img {
+            width: 38px;
+            height: 38px;
+            object-fit: cover;
+        }
+
+        /* section five */
+        div.moreProject {
+            width: 100%;
+            margin: 0 auto 40px;
+            box-sizing: border-box;
+            border-top: 1px solid #e6e6e6;
+        }
+
+        div.moreProject h3.detailTab {
+            padding: 45px 15px 20px 0;
+        }
+
+
+        /**/
+
+        .userId {
+            font-size: 15px;
+            color: #444;
+            margin-left: 8px;
+            font-weight: bold;
+        }
+
+        .like {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background-color: #fff;
+            background-image: url(../../static/images/image/grayheart.png);
+            background-repeat: no-repeat;
+            background-size: 14px;
+            background-position: 50%;
+            bottom: -10px;
+            right: -7px;
+            border-radius: 100px;
+            -webkit-box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+            box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+        }
+
+        .userGrid {
+            border-radius: 20px;
+            position: relative;
+            width: 285px;
+            border-radius: 10px;
+            border: 1px solid #e5e5e5;
+            background-color: #fff;
+            padding: 20px 15px 10px 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all .2s;
+        }
+
+        .userGridtop {
+            display: flex;
+        }
+
+        .userIn {
+            display: flex;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            border: 1px solid #f3f3f4;
+            background-color: #efefef;
+            margin-right: 20px;
+            flex-shrink: 0;
+            position: relative;
+
+        }
+
+        .user1 {
+            display: flex;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .checkIcon {
+            vertical-align: middle;
+            width: 18px;
+        }
+
+        .lvIcon {
+            width: 28px;
+            height: 20px
+        }
+
+        .bitIcon {
+            width: 17px;
+            line-height: 20px;
+        }
+
+        .heartIcon {
+            width: 17px;
+            line-height: 20px;
+        }
+
+        .boo {
+            margin-top: -0.6em;
+        }
+
+        .bitdiv {
+            display: flex;
+            height: 20px;
+            line-height: 20px;
+            margin-right: 6px;
+        }
+
+        .bitimg {
+            margin-right: 5px;
+        }
+
+        .heartdiv {
+            display: flex;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .heartimg {
+            margin-right: 5px;
+        }
+
+        .bitptag {
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .heartptag {
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .info {
+            font-size: 13px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .num {
+            font-size: 13px;
+            color: #999;
+            margin-left: 10px;
+        }
+
+        .usertag {
+            margin: 0 0 0.7rem 0;
+        }
+
+        .ulusertag {
+            display: flex;
+        }
+
+        .ulusertag li {
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            box-sizing: border-box;
+            margin-right: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .userinfo {
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+
+        .btimg {
+            position: absolute;
+            width: 18px;
+            right: 173px;
+            bottom: 15px;
+        }
+
+        .btchat {
+            font-size: 13px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 0;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            font-weight: 600;
+        }
+
+        .btchat:hover {
+            background-color: #1187cf;
+            color: #fff;
+        }
+
+        .userGridTool {
+            margin: 0 auto;
+            width: 1200px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .userGridList {
+            width: 100%;
+            display: grid;
+            flex-direction: row;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .userLvIcon {
+            margin-right: 8px;
+        }
+
+        .userGridName {
+            margin-right: 5px;
+        }
+
+        .ugname {
+            margin-bottom: 0;
+            font-size: 15px;
+        }
+
+        .join {
+            font-size: 13px;
+            color: #666;
+            font-weight: 700;
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        .bitandheart {
+            display: flex;
+        }
+
+        img.red2 {
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            width: 37px;
+            height: 37px;
+        }
+
+        /* section modal */
+
+        div.projectNavContent {
+            max-width: 300px;
+            width: 100%;
+        }
+
+        div.projectNavInfoWrap {
+            width: 100%;
+            padding: 20px;
+            display: inline-flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            position: sticky;
+            top: 50px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        div.projectNavContent div.leaderInfo {
+            padding-top: 0;
+        }
+
+        div.infoWrap {
+            border-bottom: 1px solid #e6e6e6;
+            padding: 20px 0;
+        }
+
+        div.infoWrap h3.projectTab {
+            display: inline-flex;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: normal;
+            color: #000;
+        }
+
+        div.userIdWrap {
+            display: inline-flex;
+        }
+
+        div.userIdWrap div.leaderImg {
+            width: 54px;
+            height: 54px;
+            margin-right: 18px;
+            display: inline-flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+        }
+
+        div.userIdWrap a.leaderImgWrap {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 8px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        div.userIdWrap a.leaderImgWrap img {
+            width: 54px;
+            height: 54px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        div.userWrapper {
+            display: inline-flex;
+            flex-direction: column;
+        }
+
+        div.userWrapper span.userId {
+            margin: 0;
+            font-size: 13px;
+            letter-spacing: 0;
+            color: #000;
+            width: auto;
+            position: relative;
+            cursor: pointer;
+        }
+
+         div.userWrapper span.confirmPhone {
+            font-size: 11px;
+            line-height: 11px;
+            color: #8e8ea2;
+        }
+
+        span.reactionRateWrap {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 15px;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        span.leftText {
+            display: inline;
+            font-size: 13px;
+            line-height: 14px;
+            color: #424251;
+        }
+
+        span.rightText {
+            display: inline;
+            font-size: 13px;
+            line-height: 14px;
+            color: #424251;
+        }
+
+        div.heartAndShareWrap {
+            display: inline-flex;
+        }
+
+        a.heartWrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 8px;
+        }
+
+        a.heartWrap span {
+            font-size: 11px;
+            padding-top: 3px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        a.heartWrap svg {
+            width: 14px;
+            margin-right: 4px;
+        }
+
+        a.shareWrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        a.heartWrap div.favorite {
+            width: 16px;
+            height: 13px;
+            cursor: pointer;
+            background-image: url("https://letspl.me/_next/static/media/ic-favorite-empty-white.b1db0e3e169a5cf61afa41daf5bfdc15.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        a.heartWrap div.favorite:hover {
+            background-image: url("https://letspl.me/_next/static/media/ic-favorite-empty-hover.03f7a2966e132a098a985cdc42f83b46.svg");
+        }
+
+        a.shareWrap img {
+            width: 16px;
+            height: auto;
+        }
+
+        a.shareWrap span {
+            font-size: 11px;
+            padding-top: 3px;
+            font-weight: 700;
+        }
+
+        /* nav section two */
+
+        div.projectDate h3.projectTab {
+            margin-bottom: 8px;
+        }
+
+        p.projectText {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        p.projectText span {
+            margin-left: 12px;
+        }
+
+        /* nav section four */
+        div.subscriber ul{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 0px 10px 1px;
+        }
+
+        div.subscriber ul li:first-child {
+            margin-left: 0;
+            margin-right: 0;
+            left: 0;
+            right: 0;
+            display: inline-block;
+        }
+
+        div.subscriber ul li:nth-child(2){
+            margin-left: -15px;
+        }
+
+        div.subscriber ul li {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 0;
+            margin-right: -15px;
+        }
+
+        div.imgWrap {
+            max-width: 60px;
+            width: 60px;
+            height: 60px;
+            border-radius: 100px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div.imgWrap img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        div.subHover {
+            width: 103px;
+            height: 26px;
+            background-color: rgba(0,0,0,.8);
+            position: absolute;
+            top: -20px;
+            right: -51px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            display: none;
+        }
+
+        div.subHover p{
+            width: 100%;
+            text-align: center;
+            line-height: 1;
+            position: relative;
+            top: 3px;
+            margin: 0;
+        }
+
+        div.subHover p span:first-child{
+            font-size: 12px;
+            color: #00704a;
+            margin-right: 4px;
+            font-weight: 700;
+        }
+
+        div.subHover p span:last-child {
+            font-size: 12px;
+            color: #fff;
+        }
+
+        div.subscriber ul li:first-child div.subHover:after {
+            margin-left: -35px;
+            left: 50%;
+        }
+
+        div.subHover:after {
+            top: 100%;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border: 5px solid rgba(136,183,213,0);
+            border-top-color: rgba(0,0,0,.8);
+            margin-left: 14px;
+        }
+
+        div.subHover:after {
+            top: 100%;
+            left: 5%;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border: 5px solid rgba(136,183,213,0);
+            border-top-color: rgba(0,0,0,.8);
+            margin-left: 14px;
+        }
+
+    </style>
+</head>
+<body>
+<header id="header"></header>
+<section>
+    <div class="projectHeaderWrap">
+        <div class="projectHeader">
+            <div class="projectHeaderText">
+                <span>사이드프로젝트</span>
+            </div>
+        </div>
+        <div class="projectHeaderContent">
+            <h3 class="projectText">AI아바타챗봇 창업공모전준비</h3>
+            <li class="projectLeaderWrap">
+                <div class="userWrap">
+                    <div class="leaderImg">
+                        <a>
+                            <img src="https://letspl.me/assets/images/prof-no-img.png">
+                        </a>
+                    </div>
+                    <span class="leaderText">
+                            <span class="userId">상냥이</span>
+                            <span class="confirmPhone">(휴대폰 인증)</span>
+                            <span class="lastLogin"> -1일전 로그인</span>
+                            <div class="idMenu">
+                                <ul>
+                                    <li>
+                                        <a href="#/people">프로필 상세</a>
+                                    </li>
+                                    <li>
+                                        <a>1:1 대화</a>
+                                    </li>
+                                    <li>
+                                        <a>프로젝트 지원</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </span>
+                </div>
+            </li>
+            <div>
+                <span class="status gray">모집 중</span>
+                <span class="status white">준비 중</span>
+            </div>
+        </div>
+    </div>
+    <div class="projectPageWrap">
+        <div class="projectDetailContents">
+            <div class="projectTabMenu">
+                <ul>
+                    <li>
+                        <a name="info" class="active">정보</a>
+                    </li>
+                    <li>
+                        <a name="blog">스토리</a>
+                    </li>
+                    <li>
+                        <a name="question">질문</a>
+                    </li>
+                    <li>
+                        <a name="work" class="disabled">일감</a>
+                    </li>
+                    <li>
+                        <a name="feed" class="disabled">피드</a>
+                    </li>
+                    <li>
+                        <a name="management" class="disabled">관리</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="projectDetailWrap">
+                <div class="projectInfo active">
+                    <div class="section status">
+                        <h3 class="detailTab">모집 현황</h3>
+                        <ul>
+                            <li>
+                                <span class="position">UI/UX기획</span>
+                                <span class="applyNumber">0/1</span>
+                                <a class="applyButton">지원</a>
+                            </li>
+                            <li>
+                                <span class="position">그래픽디자인</span>
+                                <span class="applyNumber">0/1</span>
+                                <a class="applyButton">지원</a>
+                            </li>
+                            <li>
+                                <span class="position">UI/UX디자인</span>
+                                <span class="applyNumber">0/1</span>
+                                <a class="applyButton">지원</a>
+                            </li>
+                            <li>
+                                <span class="position">IOS</span>
+                                <span class="applyNumber">0/1</span>
+                                <a class="applyButton">지원</a>
+                            </li>
+                            <li>
+                                <span class="position">운영</span>
+                                <span class="applyNumber">0/1</span>
+                                <a class="applyButton">지원</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section platform">
+                        <h3 class="detailTab">- 출시 플랫폼</h3>
+                        <div class="platformIconsWrap">
+                            <div class="iconImg">
+                                <img src="../../static/images/ic-appstore.png">
+                            </div>
+                            <div class="iconImg">
+                                <img src="../../static/images/ic-playstore.png">
+                            </div>
+                            <div class="iconImg">
+                                <img src="../../static/images/ic-web.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section intro">
+                        <h3 class="detailTab">- 소개</h3>
+                        <div></div>
+                    </div>
+                    <div class="section member">
+                        <div class="leaderSection">
+                            <h3 class="detailTab">- 리더</h3>
+                            <div class="thirdWrapper">
+                                <div class="userGridTool">
+                                    <ul class="userGridList">
+                                        <li class="userGrid">
+                                            <img src="../../static/images/image/letspler_new_mark.png"
+                                                 class="red2">
+
+                                            <div class="userGridtop">
+                                                <div class="userIn" style="display: flex;">
+                                                    <div class="userGridimg">
+                                                        <img src="../../static/images/image/여.png"
+                                                             style="width: 50px; object-fit: cover;">
+                                                    </div>
+                                                    <a class="like"></a>
+                                                </div>
+
+                                                <div class="usertool">
+                                                    <div class="user1">
+                                                        <div class="userLvIcon">
+                                                            <img class="lvIcon"
+                                                                 src="../../static/images/image/level_6.png">
+                                                        </div>
+                                                        <div class="userGridName">
+                                                            <p class="ugname">상냥이</p>
+                                                        </div>
+                                                        <div class="usercheckIcon">
+                                                            <img class="checkIcon"
+                                                                 src="../../static/images/image/ic-certi-red.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="userInn">
+                                                        <div class="bitandheart">
+                                                            <div class="bitdiv">
+                                                                <div class="bitimg">
+                                                                    <img src="../../static/images/image/BBBB.png"
+                                                                         class="bitIcon">
+                                                                </div>
+                                                                <div class="bittag">
+                                                                    <p class="bitptag">3</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="heartdiv">
+                                                                <div class="heartimg">
+                                                                    <img src="../../static/images/image/ico_like.png"
+                                                                         class="heartIcon"></div>
+                                                                <div class="hearttag">
+                                                                    <p class="heartptag">1</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="userinfo">
+                                                <div class="bon"><span class="info">[본캐]UI/UX기획</span><span
+                                                        class="num">중수</span></div>
+                                                <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                                        class="num">초보</span></div>
+                                            </div>
+
+                                            <div class="usertag">
+                                                <ul class="ulusertag">
+                                                    <li class="liusertag">#IT</li>
+                                                    <li class="liusertag">#UIUX</li>
+                                                    <li class="liusertag">#프론트</li>
+                                                    <li class="liusertag">#디자인</li>
+                                                    <li class="liusertag">#기획</li>
+                                                </ul>
+                                                <p class="join">진행중인 모임이 없습니다.</p>
+                                            </div>
+                                            <div class="userGridbottom">
+                                                <img class="btimg" src="../../static/images/image/BBBB.png">
+                                                <p class="btchat">BIt Chat</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="memberSection">
+                            <h3 class="detailTab">- 멤버</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projectNavContent">
+            <div class="projectNavInfoWrap">
+                <div class="leaderInfo infoWrap">
+                    <h3 class="projectTab">리더 정보</h3>
+                    <div class="leaderInfo">
+                        <div class="userIdWrap">
+                            <div class="leaderImg">
+                                <a class="leaderImgWrap">
+                                   <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/undefined/images/762F0BD1-2C15-4D91-A075-24EEB6F0385F.jpg">
+                                </a>
+                            </div>
+                            <div class="userWrapper">
+                                <span class="userId">
+                                    Oxkong
+                                    <div class="idMenu">
+                                        <ul>
+                                    <li>
+                                        <a href="#/people">프로필 상세</a>
+                                    </li>
+                                    <li>
+                                        <a>1:1 대화</a>
+                                    </li>
+                                    <li>
+                                        <a>프로젝트 지원</a>
+                                    </li>
+                                </ul>
+                                    </div>
+                                </span>
+                                <span class="confirmPhone">휴대폰 인증완료</span>
+                                <span class="reactionRateWrap">
+                                    <span class="leftText">리더 응답률 : </span>
+                                    <span class="rightText">100% (2건, 평균 17시간)</span>
+                                </span>
+                                <div class="heartAndShareWrap">
+                                    <a class="heartWrap viewCount">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none">
+                                            <path d="M8 2.48901C6.27297 2.48988 4.58622 3.01069 3.15934 3.98365C1.73246 4.9566 0.631569 6.33661 0 7.94401C0.630962 9.55179 1.73172 10.9321 3.15875 11.9051C4.58577 12.878 6.27285 13.3985 8 13.3985C9.72715 13.3985 11.4142 12.878 12.8413 11.9051C14.2683 10.9321 15.369 9.55179 16 7.94401C15.3684 6.33661 14.2675 4.9566 12.8407 3.98365C11.4138 3.01069 9.72703 2.48988 8 2.48901V2.48901ZM8 11.58C7.28087 11.58 6.57788 11.3668 5.97995 10.9672C5.38201 10.5677 4.91597 9.99984 4.64077 9.33545C4.36557 8.67106 4.29357 7.93998 4.43386 7.23466C4.57416 6.52935 4.92046 5.88148 5.42896 5.37297C5.93746 4.86447 6.58534 4.51817 7.29065 4.37788C7.99597 4.23758 8.72704 4.30959 9.39144 4.58479C10.0558 4.85999 10.6237 5.32602 11.0232 5.92396C11.4228 6.5219 11.636 7.22488 11.636 7.94401C11.6355 8.90818 11.2522 9.8327 10.5705 10.5145C9.88869 11.1962 8.96416 11.5795 8 11.58ZM8 5.76201C7.56844 5.76201 7.14657 5.88999 6.78775 6.12975C6.42892 6.36951 6.14925 6.71029 5.9841 7.109C5.81894 7.50771 5.77573 7.94643 5.85993 8.3697C5.94412 8.79297 6.15194 9.18176 6.45709 9.48692C6.76225 9.79208 7.15105 9.99989 7.57431 10.0841C7.99758 10.1683 8.43631 10.1251 8.83502 9.95992C9.23372 9.79477 9.57451 9.5151 9.81427 9.15627C10.054 8.79744 10.182 8.37557 10.182 7.94401C10.1824 7.65736 10.1262 7.37344 10.0167 7.10853C9.90719 6.84362 9.74648 6.60292 9.54379 6.40023C9.34109 6.19753 9.10039 6.03682 8.83548 5.9273C8.57057 5.81779 8.28666 5.76162 8 5.76201Z" fill="#A4A4B4"></path>
+                                        </svg>
+                                        <span>507</span>
+                                    </a>
+                                    <a class="heartWrap">
+                                        <div class="favorite"></div>
+                                        <span class="favoriteNumber">3</span>
+                                    </a>
+                                    <a class="shareWrap">
+                                        <img src="https://letspl.me/assets/images/ic-share.png">
+                                        <span>공유하기</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projectDate infoWrap">
+                    <h3 class="projectTab">프로젝트 기간</h3>
+                    <p class="projectText">22.04.25 ~ 22.10.25<span>(184일)</span></p>
+                </div>
+                <div class="projectDate infoWrap">
+                    <h3 class="projectTab">프로젝트 분야</h3>
+                    <p class="projectText">금융</p>
+                </div>
+                <div class="subscriber infoWrap">
+                    <h3 class="projectTab">구독중인 렛플인 3명</h3>
+                    <ul>
+                        <li>
+                            <div class="subHover">
+                                <p>
+                                    <span>[L6]</span>
+                                    <span>홍영은</span>
+                                </p>
+                            </div>
+                            <div class="imgWrap">
+                                <img src="https://letspl.me/assets/images/prof-no-img.png">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="subHover">
+                                <p>
+                                    <span>[L6]</span>
+                                    <span>홍영은</span>
+                                </p>
+                            </div>
+                            <div class="imgWrap">
+                                <img src="https://letspl.me/assets/images/prof-no-img.png">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="subHover">
+                                <p>
+                                    <span>[L6]</span>
+                                    <span>홍영은</span>
+                                </p>
+                            </div>
+                            <div class="imgWrap">
+                                <img src="https://letspl.me/assets/images/prof-no-img.png">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+        $("#footer").load('../../templates/fix/footer.html');
+    });
+
+    $(".userWrap").on("mouseover", function () {
+        $(this).find("div.idMenu").show();
+    })
+
+    $(".userWrap").on("mouseout", function () {
+        $(this).find("div.idMenu").hide();
+    })
+
+    $(".userId").on("mouseover", function(){
+        $(this).find(".idMenu").show();
+    })
+
+    $(".userId").on("mouseout", function(){
+        $(this).find(".idMenu").hide();
+    })
+
+    $(".subscriber").find("li").on("mouseover", function () {
+        $(this).find("div.subHover").css("display", "block");
+    })
+
+    $(".subscriber").find("li").on("mouseout", function () {
+        $(this).find("div.subHover").css("display", "none");
+    })
+
+</script>
+</html>

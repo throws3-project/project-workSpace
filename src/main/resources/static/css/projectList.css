@@ -10,53 +10,60 @@ p {
     margin: 0;
 }
 
+header {
+    box-shadow: 0 3px 27px 0 rgb(0 0 0 / 2%);
+}
+
 /* section one*/
 
 h2.startProject {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 0px 40px;
+    padding: 35px 0px 20px;
 }
 
 span.start {
     letter-spacing: normal;
-    font-size: 16px;
+    font-size: 13px;
     color: #00704a;
+    height: 25px;
+    line-height: 25px;
 }
 
 h2.startProject span.projectStudy {
-    font-size: 35px;
+    font-size: 26px;
     color: #42495b;
+    letter-spacing: 0;
+    font-weight: 700;
 }
 
 /* section two */
 
 div.projectView {
     background-color: #fbfbfb;
-    padding-top: 20px;
 }
 
 div.projectView-wrap {
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 div.projectView-leftWrap {
     flex: 1 1;
     margin-right: 25px;
-    padding: 25px 0;
+    padding: 20px 0;
 }
 
 div.projectView-leftWrap h3 {
     text-transform: unset;
     margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 20px;
     color: #333;
     letter-spacing: normal;
     font-weight: bold;
@@ -65,7 +72,7 @@ div.projectView-leftWrap h3 {
 div.projectView-rightWrap h3 {
     text-transform: unset;
     margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 20px;
     color: #333;
     letter-spacing: normal;
     font-weight: bold;
@@ -74,27 +81,34 @@ div.projectView-rightWrap h3 {
 div.projectView-rightWrap {
     flex: 1 1;
     margin-left: 25px;
-    padding: 25px 0;
+    padding: 20px 0;
 }
 
 div.newProject {
     display: flex;
-    width: 95%;
-}
-
-div.newProject {
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
 
 div.project-wrap {
-    width: 85%;
+    width: 100%;
     position: relative;
 }
 
+div.sliderWrap {
+    overflow: hidden;
+    margin: auto;
+    width: 100%;
+}
+
 div.textWrap {
-    width: 85%;
+    width: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 div.project-image {
@@ -110,30 +124,31 @@ div.bottomText {
     flex-direction: column;
     align-items: start;
     flex-wrap: wrap;
-    padding: 12px;
+    padding: 0 12px;
     width: 100%;
 }
 
 p.category {
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 12px;
     text-align: left;
     color: #b1b1b1;
     letter-spacing: normal;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 p.categoryText {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 25px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+    margin: 0;
     letter-spacing: normal;
+    color: #000;
 }
 
 p.recruitText {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 18px;
     color: #8a8a8a;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -144,14 +159,18 @@ p.recruitText {
     width: 100%;
     letter-spacing: normal;
     margin: 0;
+    padding-top: 8px;
+    font-weight: 700;
 }
 
 div.projectTopWrap {
     display: flex;
-    -webkit-flex-direction: column;
-    -webkit-justify-content: center;
-    -webkit-align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    max-width: 495px;
+    margin: 0 auto;
 }
 
 button.banner-button {
@@ -159,12 +178,12 @@ button.banner-button {
     border: none;
     background: none;
     color: #fff;
-    position: absolute;
     top: 0;
     bottom: 0;
     right: 0px;
-    width: 35px;
+    width: 32px;
     z-index: 1;
+    cursor: pointer;
 }
 
 button.prev-arrow {
@@ -201,31 +220,31 @@ button.next-arrow:before {
 
 div.allProject {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding-top: 60px;
-    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 
 div.selectOption {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .selectOption .smSelect {
-    max-width: 200px;
+    max-width: 150px;
     width: 100%;
     background-image: url("https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg");
     background-color: unset;
     background-position: 90%;
     color: #696980;
-    margin-right: 15px;
-    padding-left: 20px;
-    background-size: 20px 7px;
-    font-size: 15px;
+    margin-right: 10px;
+    padding-left: 15px;
+    background-size: 10px 5px;
+    font-size: 11px;
     padding-right: 0;
     font-weight: 600;
-    height: 50px;
+    height: 35px;
     background-repeat: no-repeat;
     border: 1px solid #bcbccb;
 }
@@ -233,13 +252,13 @@ div.selectOption {
 .selectOption .smSelect:focus {
     background-image: url('https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg');
     background-repeat: no-repeat;
-    background-size: 20px 7px;
+    background-size: 10px 5px;
 }
 
 div.allProject h3 {
     text-transform: unset;
     margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 20px;
     color: #333;
     letter-spacing: normal;
     font-weight: bold;
@@ -271,18 +290,17 @@ div.projectGridView {
     grid-template-columns: repeat(4, 1fr);
     display: grid;
     place-items: center;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
 }
 
 div.projectList {
-    display: flex;
+    display: inline-flex;
     width: 100%;
-    padding: 20px 25px 25px 20px;
+    padding: 15px 20px;
     border-radius: 8px;
     border: 1px solid #ebebeb;
     background-color: #fff;
-    box-sizing: border-box;
     align-items: center;
     margin-bottom: 12px;
     position: relative;
@@ -291,42 +309,49 @@ div.projectList {
 
 div.projectList div.heart {
     position: absolute;
-    right: 24px;
-    top: 16px;
+    right: 19px;
+    top: 6px;
 }
 
 div.listImg {
-    width: 100%;
-    margin-right: 25px;
-    height: 96px;
+    margin-right: 20px;
+    width: 100px;
+    height: 68px;
+    border-radius: 6px;
+    flex-shrink: 0;
 }
 
 div.listImg img {
-    width: 150px;
+    width: 100%;
     height: auto;
     object-fit: cover;
 }
 
 div.listCategory {
-    height: 90px;
+    line-height: 12px;
 }
 
 div.listCategory p.recruitText {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 12px;
     color: #999;
+    margin: 7px 0px;
+    padding: 0;
+    font-weight: normal;
 }
 
 div.listCategory p.text {
-    font-size: 16px;
+    font-size: 12px;
     color: #666;
     font-weight: 600;
+    margin: 0;
+    line-height: 8px;
 }
 
 
 div.favorite {
-    width: 34px;
-    height: 32px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
     background-image: url("https://letspl.me/_next/static/media/ic-favorite-empty-white.b1db0e3e169a5cf61afa41daf5bfdc15.svg");
     background-repeat: no-repeat;
@@ -335,22 +360,21 @@ div.favorite {
 
 div.top {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 13px;
+    right: 13px;
 }
 
-
 span.text {
-    margin-left: 35px;
-    margin-left: 15px;
-    font-size: 20px;
+    margin-left: 10px;
+    font-size: 15px;
     padding-top: 4px;
 }
 
 label.checkbox input.check {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    outline: 0;
 }
 
 input[type='checkbox']:checked {
@@ -362,6 +386,7 @@ div.bottom {
     justify-content: space-between;
     align-items: center;
     padding: 0px 12px;
+    width: 100%;
 }
 
 div.heart {
@@ -370,14 +395,14 @@ div.heart {
 }
 
 div.heart img {
-    width: 20px;
+    width: 16px;
     height: auto;
 }
 
 span.heartCount {
-    margin-left: 5px;
-    font-size: 16px;
-    height: 30px;
+    margin-left: 3px;
+    font-size: 12px;
+    height: 22px;
     font-weight: 600;
     color: #888;
 }
@@ -405,7 +430,7 @@ div.bottom div.recruitModel {
 }
 
 div.recruitModel ul {
-    width: 300px;
+    width: 195px;
     padding: 10px;
 }
 
@@ -416,6 +441,7 @@ div.recruitModel ul li {
 
 div.recruitModel ul li span {
     font-weight: 700;
+    font-size: 13px;
 }
 
 div.recruitModel ul li span:last-child {
@@ -431,19 +457,20 @@ div.recruitStatus {
 div.recruitStatus span {
     color: #666;
     font-weight: 600;
+    font-size: 13px;
 }
 
 div.recruitStatus span:first-child {
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 div.recruitStatus div {
-    margin-left: 8px;
+    margin-left: 6px;
 }
 
 div.recruitStatus div img {
-    width: 13px;
-    height: 11px;
+    width: 10px;
+    height: 9px;
 }
 
 div.bottomWrap div.recruitModel {
@@ -459,6 +486,8 @@ div.bottomWrap div.recruitModel {
 div.projectGridWrap {
     width: 100%;
     position: relative;
+    max-width: 285px;
+    height: 269px;
     border-radius: 8px;
     border: 1px solid #ebebeb;
     background-color: #fff;
@@ -468,9 +497,12 @@ div.projectGridWrap {
     cursor: pointer;
 }
 
+div.projectTopInfo {
+    display: inline-flex;
+}
+
 div.box {
-    box-sizing: border-box;
-    padding: 2px 10px;
+    padding: 0px 12px;
     margin-right: 5px;
 }
 
@@ -485,12 +517,13 @@ div.black {
 div.box-wrap div.box span {
     color: #fff;
     font-weight: 600;
+    font-size: 10px;
 }
 
 div.topInfo {
     display: flex;
     align-items: center;
-    padding-top: 12px;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 12px;
     justify-content: space-between;
@@ -500,7 +533,7 @@ div.topInfo {
 }
 
 div.box-wrap {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 
@@ -519,29 +552,49 @@ div.projectImg img {
 }
 
 div.projectMiddleInfo {
-    box-sizing: border-box;
-    padding: 14px;
+    padding: 13px;
 }
 
 div.projectBottomInfo {
-    padding: 14px;
+    padding: 13px 13px 0 13px;
 }
 
 div.middleWrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+}
+
+div.middleWrap div.left div.heart {
+    vertical-align: middle;
+}
+
+div.middleWrap div.left div.heart img{
+    width: 14px;
+    height: auto;
 }
 
 div.right span {
     color: #888;
     font-weight: 600;
+    font-size: 12px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus span {
+    font-size: 11px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus div{
+    margin-left: 7px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus div img{
+    width: 8px;
+    height: 9px;
 }
 
 div.bottomWrap div.recruit {
     border-top: 1px solid #f6f6f6;
-    padding-top: 14px;
 }
 
 div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
@@ -554,19 +607,19 @@ div.sideProject {
 }
 
 div.sideList {
-    max-width: 1600px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    padding: 60px 0 40px;
+    padding: 40px 0 20px;
 }
 
 div.sideList h3 {
     text-transform: unset;
-    margin-bottom: 20px;
-    font-size: 27px;
+    font-size: 20px;
     color: #333;
     letter-spacing: normal;
     font-weight: bold;
+    margin: 0;
 }
 
 div.sideCollect {
@@ -581,21 +634,21 @@ div.sideCollectList {
     border-radius: 8px;
     box-shadow: 0 2px 32px 0 rgb(0 0 0 / 6%);
     background-color: #fff;
-    margin: 28px 20px 20px;
-    padding: 20px 30px 16px 12px;
+    margin: 20px 15px 15px;
+    padding: 20px 30px 16px 16px;
     width: 100%;
-    max-width: 510px;
-    box-sizing: border-box;
-    height: 230px;
+    max-width: 390px;
+    height: 164px;
 }
 
 div.sideImg {
-    width: 125px;
-    height: 65px;
+    width: 80px;
+    height: 37px;
     display: inline-flex;
     overflow: hidden;
     border-radius: 4px;
-    margin-right: 16px;
+    margin-right: 14px;
+    border: 1px solid #f3f3f4;
 }
 
 div.sideImg img{
@@ -604,7 +657,7 @@ div.sideImg img{
 }
 
 div.sideCollectList div.textWrap {
-    width: 85%;
+    display: inline-flex;
     position: unset;
     flex-direction: column;
 }
@@ -612,36 +665,36 @@ div.sideCollectList div.textWrap {
 div.hotText {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 div.hot {
-    padding: 4px 8px 4px 8px;
+    padding: 2px 6px;
     border-radius: 15px;
     border: 1px solid #336d47;
     display: inline-flex;
-    margin-right: 12px;
+    margin-right: 8px;
 }
 
 div.hot span {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     color: #222;
 }
 
 div.hotText p{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     color: #000;
     overflow: hidden;
-    padding-top: 5px;
+    padding-top: 3px;
     margin: 0;
     letter-spacing: 1px;
 }
 
 p.sideText {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 14px;
     color: #888;
     font-weight: 600;
     overflow: hidden;
@@ -655,13 +708,12 @@ p.sideText {
 div.sideApps{
     display: flex;
     align-items: center;
-    padding-top: 15px;
 }
 
 div.sideApp {
-    width: 55px;
-    height: 55px;
-    margin-right: 10px;
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
 }
 
 div.sideApp img {

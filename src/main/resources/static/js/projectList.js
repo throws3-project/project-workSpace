@@ -36,6 +36,20 @@ arrows.forEach((arrow) => {
     });
 });
 
+// Auto Slide
+// setInterval(function() {
+//     if (count == li.length - 1) {
+//         count = 0;
+//         $(".slide").removeClass("selected");
+//         li[count].classList.add("selected");
+//     }else {
+//         count++;
+//     }
+//     banner.style.transform = "translate3d(-" + count * 100 + "%, 0px, 0px)";
+// }, 5000);
+
+
+
 // recruitModel display
 $("div.recruitStatus").on("mouseover", function () {
     $(this).parent().children().closest("div.recruitModel").css("display", "block");
