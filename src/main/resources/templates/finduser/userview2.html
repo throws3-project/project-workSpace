@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>userview</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/userview.css" type="text/css" />
+</head>
+<header id="header"></header>
+
+<body>
+    <section class="userViewWrap">
+      <div class="userProInfo">
+          <!-- 프로필 이미지부분 -->
+            <div class="userPro">
+                <div class="userProImg">
+                    <img src="../../static/images/여.png">
+                </div>
+           
+            <a class="userLikeWrap">
+                <div class="userLike"></div>
+            </a>
+        </div>
+        <!-- 프로필 텍스트부분 -->
+        <div class="userProTxt">
+            <!-- 번호인증 -->
+            <div class="userProCheckWrap">
+                <div class="userProCheck">
+                    <div class="userProCheckTag grayTag">
+                        <span>번호미인증</span>
+                    </div>
+                </div>
+                    <!-- p -->
+                    <p class="userProName">
+                        <img src="../../static/images/level_6.png">&nbsp;박상아
+                    </p>
+                    <p class="userLogin">
+                        마지막 로그인 : 오늘
+                    </p>
+                    <div class="userProChatBtnWrap">
+                        <button class="userProPinkBtn">1대1대화</button>
+                        <button class="userProBlueBtn">모임초대</button>
+                    </div>
+                
+            </div>
+            <!-- 정보, 스토리 선택 -->
+            <div class="userPageTab">
+                <div class="userTabWrap">
+                    <a class="">정보</a>
+                    <a class="active">스토리</a>
+                </div>
+            </div>
+      <!-- 스토리 -->
+            <div class="userStroyTab">
+                <div class="userStoryWrap">
+                    <div class="userStroyContentsWrap">
+                        <div class="userStoryContents">
+                            <ul>
+                                <!-- 스토리가 없을떄 -->
+                                <p class="storyNone">
+                                    아직 작성된 스토리가 없습니다. 상아야님을 구독하시면 스토리가 올라올때 알려 드릴게요~ 😁
+                                </p>
+                                <!-- 스토리 있을 떄 -->
+                                <li class="storyTimeLi">
+                                    <div class="storyTimeLineLeft">
+                                        <div class="storyTimeLineImg">
+                                            <img src="../../static/images/썸네일6.png">
+                                        </div>
+                                        <div class="storyTimeLineContents">
+                                            <div class="timeLineTitWrap">
+                                                <span class="timeLintCategory">workspace-공식채널</span>
+                                                <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>
+                                            </div>
+                                            <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 7일 입니다.
+                                                여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다.
+                                                각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D
+                                            </div>
+                                            <div class="timeLineTagWrap">
+                                                <span>#상아에요</span>
+                                                <span># 상아태그</span>
+                                        <span>#상혁준형</span>
+                                        <span>#서현승근</span>
+                                        <span>#화이팅</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="storyTimeLineRight">
+                                <!-- <div class="heartWrap">
+                                    <div class="favorite"></div>
+                                </div> -->
+                                <div class="TimeLineStatusWrap">
+                                    <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                        <img class="storyTimeLineDivImg" src="../../static/images/eye.png">
+                                        <span class="divFooterTxt">122</span>
+                                    </p>
+                                     <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                        <img class="storyTimeLineDivImg" src="../../static/images/msg.png">
+                                        <span class="divFooterTxt">0</span>
+                                    </p>
+                                    <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                        <img class="storyTimeLineDivImg" src="../../static/images/likeup.png">
+                                        <span class="divFooterTxt">4</span>
+                                    </p>
+                                    
+            
+                                </div>
+                            </div>
+                            </li>
+                            <li class="nostory">
+                                <button class="storyNoneBtn">구독하고 스토리 알림받기~</button>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <div>
+                        아직 작성중인 스토리가 없습니다~
+                    </div> -->
+                </div>
+            </div>
+            <!-- 비슷한 워크인 추천 -->
+            <div class="samePeople">
+                <div class="samePeopleWrap">
+                    <div class="samePeopleTit">
+                        <p>박상아님과 비슷한 프로필을 추천드려요</p>
+                    </div>
+                    <div class="samePeopleContents">
+                                <div class="userGrid">
+                                    <div class="userGridtop">
+                                        <div class="userIn" style="display: flex;">
+                                            <div class="userGridimg">
+                                                <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                
+                                        <div class="usertool">
+                                            <div class="user1">
+                                                <div class="userLvIcon">
+                                                    <img  class="lvIcon" src="../../static/images/level_6.png">
+                                                </div>
+                                                <div class="userGridName">
+                                                    <p class="ugname">박상아</p>
+                                                </div>
+                                                <div class="usercheckIcon">
+                                                    <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                                </div>
+                                            </div>
+                                            <div class="user2">
+                                                <p class="user2Ptag">웹 서버</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sameBoxBottom"> 
+                                        <p>#IT</p>
+                                        <p>#UIUX</p>
+                                        <p>#프론트</p>
+                                </div>
+                
+                                </div>
+
+                                <!-- 여기까지 한개 -->
+                                <div class="userGrid">
+                                    <div class="userGridtop">
+                                        <div class="userIn" style="display: flex;">
+                                            <div class="userGridimg">
+                                                <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                
+                                        <div class="usertool">
+                                            <div class="user1">
+                                                <div class="userLvIcon">
+                                                    <img  class="lvIcon" src="../../static/images/level_6.png">
+                                                </div>
+                                                <div class="userGridName">
+                                                    <p class="ugname">박상아</p>
+                                                </div>
+                                                <div class="usercheckIcon">
+                                                    <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                                </div>
+                                            </div>
+                                            <div class="user2">
+                                                <p class="user2Ptag">웹 서버</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sameBoxBottom"> 
+                                            <p>#IT</p>
+                                            <p>#UIUX</p>
+                                            <p>#프론트</p>
+                                            <p>#디자인</p>
+                                            <p>#기획</p>
+                                    </div>
+                                </div>
+                                <!-- 여기까지 한개 -->
+                                <div class="userGrid">
+                                    <div class="userGridtop">
+                                        <div class="userIn" style="display: flex;">
+                                            <div class="userGridimg">
+                                                <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                
+                                        <div class="usertool">
+                                            <div class="user1">
+                                                <div class="userLvIcon">
+                                                    <img  class="lvIcon" src="../../static/images/level_6.png">
+                                                </div>
+                                                <div class="userGridName">
+                                                    <p class="ugname">박상아</p>
+                                                </div>
+                                                <div class="usercheckIcon">
+                                                    <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                                </div>
+                                            </div>
+                                            <div class="user2">
+                                                <p class="user2Ptag">웹 서버</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sameBoxBottom"> 
+                                            <p>#IT</p>
+                                            <p>#UIUX</p>
+                                            <p>#프론트</p>
+                                            <p>#디자인</p>
+                                            <p>#기획</p>
+                                    </div>
+                                </div>
+                                <!-- 여기까지 한개 -->
+                                <div class="userGrid">
+                                    <div class="userGridtop">
+                                        <div class="userIn" style="display: flex;">
+                                            <div class="userGridimg">
+                                                <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                
+                                        <div class="usertool">
+                                            <div class="user1">
+                                                <div class="userLvIcon">
+                                                    <img  class="lvIcon" src="../../static/images/level_6.png">
+                                                </div>
+                                                <div class="userGridName">
+                                                    <p class="ugname">박상아</p>
+                                                </div>
+                                                <div class="usercheckIcon">
+                                                    <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                                </div>
+                                            </div>
+                                            <div class="user2">
+                                                <p class="user2Ptag">웹 서버</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sameBoxBottom"> 
+                                            <p>#IT</p>
+                                            <p>#UIUX</p>
+                                            <p>#프론트</p>
+                                            <p>#디자인</p>
+                                            <p>#기획</p>
+                                    </div>
+                                </div>
+                                <!-- 여기까지 한개 -->
+                                <div class="userGrid">
+                                    <div class="userGridtop">
+                                        <div class="userIn" style="display: flex;">
+                                            <div class="userGridimg">
+                                                <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                
+                                        <div class="usertool">
+                                            <div class="user1">
+                                                <div class="userLvIcon">
+                                                    <img  class="lvIcon" src="../../static/images/level_6.png">
+                                                </div>
+                                                <div class="userGridName">
+                                                    <p class="ugname">박상아</p>
+                                                </div>
+                                                <div class="usercheckIcon">
+                                                    <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                                </div>
+                                            </div>
+                                            <div class="user2">
+                                                <p class="user2Ptag">웹 서버</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sameBoxBottom"> 
+                                            <p>#IT</p>
+                                            <p>#UIUX</p>
+                                            <p>#프론트</p>
+                                            <p>#디자인</p>
+                                            <p>#기획</p>
+                                    </div>
+                                </div>
+                                <!-- 여기까지 한개 -->
+                                <div class="userGrid">
+                                    <div class="userGridtop">
+                                        <div class="userIn" style="display: flex;">
+                                            <div class="userGridimg">
+                                                <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                
+                                        <div class="usertool">
+                                            <div class="user1">
+                                                <div class="userLvIcon">
+                                                    <img  class="lvIcon" src="../../static/images/level_6.png">
+                                                </div>
+                                                <div class="userGridName">
+                                                    <p class="ugname">박상아</p>
+                                                </div>
+                                                <div class="usercheckIcon">
+                                                    <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                                </div>
+                                            </div>
+                                            <div class="user2">
+                                                <p class="user2Ptag">웹 서버</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sameBoxBottom"> 
+                                            <p>#IT</p>
+                                            <p>#UIUX</p>
+                                            <p>#프론트</p>
+                                            <p>#디자인</p>
+                                            <p>#기획</p>
+                                    </div>
+                                </div>
+                                <!-- 여기까지 한개 -->
+                            
+                 
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>   
+    </section>
+
+    <footer id="foot"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+        $("#foot").load('../../templates/fix/footer.html');
+    })
+</script>
+</html>
