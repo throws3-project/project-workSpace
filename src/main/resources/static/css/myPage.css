@@ -18,7 +18,7 @@ ul#nav li:hover{
 }
 
 a{
-    text-decoration-line: none;
+    text-decoration-line: none !important;
     color: black;
 }
 
@@ -177,6 +177,43 @@ section#info #thumbNail{
     display: none;
 }
 
+section#info div#labelTag{
+    display: inline-flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+section#info div#interestWrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+section#info div#labelTag label{
+    color: #222;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+section#info div#labelTag p{
+    padding: 12px 16px 11px;
+    border-radius: 100px;
+    border: 1px solid #e8e8e8;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.active{
+    border-radius: 21px;
+    background-color: #333;
+    color: #fff;
+}
+
 section#info div#title h2 {
     font-size: 1.5rem;
 }
@@ -217,12 +254,12 @@ section#project button.submit{
 }
 
 section#project div.box{
-    height: 130px;
     background-color: #f7f7f7;
     box-sizing: border-box;
-    padding: 15px 0;
+    padding: 25px 0;
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 4px;
 }
 
 section#project div.box p{
@@ -439,15 +476,16 @@ p.categoryText{
 section#story button.submit{
     width: 170px;
     height: 40px;
+    margin-top: 25px;
 }
 
 section#story div.box{
-    height: 130px;
     background-color: #f7f7f7;
     box-sizing: border-box;
-    padding: 15px 0;
+    padding: 25px 0;
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 4px;
 }
 
 section#story div.box p{
@@ -466,12 +504,12 @@ section#like button.submit{
     }
 
 section#like div.box{
-    height: 130px;
     background-color: #f7f7f7;
     box-sizing: border-box;
-    padding: 15px 0;
+    padding: 25px 0;
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 4px;
 }
 
 section#like div.box p{
