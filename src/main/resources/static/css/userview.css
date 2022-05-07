@@ -244,10 +244,12 @@ a{
     margin-bottom: 24px;
 }
 .userSummryBoxLi span:first-child{
-    width: 80px;
-    margin-right: 48px;
+    width: 100px;
+    display: inline-block;
+    /* margin-right: 48px; */
     font-weight: 600;
 }
+
 .userBoxLiSpan{
     color: #424251;
     width: 26%;
@@ -320,10 +322,18 @@ a{
     max-width: 1080px;
     width: 100%;
     margin: 0 auto;
+    
 }
 .ingProjectWrap{
+    overflow: hidden;
+    display: -webkit-flex;
     display: flex;
-    flex-direction: column!important;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ededed;
 }
 
 /* 나를 구독중인 */
@@ -807,7 +817,10 @@ label.checkbox input[type='checkbox'] {
 }
 
 div.projectMiddleInfo p.category {
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
+    font-size: 12px;
+    line-height: 12px;
+    color: #b1b1b1;
 }
 
 div.projectGridView {
@@ -1008,7 +1021,7 @@ div.bottomWrap div.recruitModel {
 }
 
 div.projectGridWrap {
-    width: 100%;
+    /* width: 100%;
     position: relative;
     max-width: 285px;
     height: 269px;
@@ -1019,10 +1032,44 @@ div.projectGridWrap {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-}
+    flex-shrink: 0;
+    margin-right: 10px; */
+    max-width: 285px;
+    width: 100%;
+    height: 290px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 0 12px;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    overflow: hidden;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    transition: all .2s;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 10px;
 
+}
+.categoryText{
+    font-size: 15px;
+    color: #000;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    margin-top: 12px;
+    height: 44px;
+    margin-bottom: 0;
+    font-weight: 600;
+
+}
 div.projectTopInfo {
     display: inline-flex;
+    
 }
 
 div.box {
@@ -1076,11 +1123,13 @@ div.projectImg img {
 }
 
 div.projectMiddleInfo {
-    padding: 13px;
+    padding: 3px;
+    margin-left: 1rem;
 }
 
 div.projectBottomInfo {
-    padding: 13px 13px 0 13px;
+    box-sizing: border-box;
+    padding: 14px;
 }
 
 div.middleWrap {
