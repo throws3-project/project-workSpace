@@ -159,3 +159,44 @@ div.joinCompleteWrapper{
     width: 530px;
     text-align: center;
 }
+
+@media (max-width: 414px){
+    div.joinWrapper{
+        margin: 0px !important;
+        width: 414px !important;
+    }
+
+    select{
+        width: 102px !important;
+    }
+
+    li.firstLi, li.secondLi, li.thirdLi, li.fourthLi{
+        width: 408px !important;
+    }
+
+    div.codeWrap{
+        width: 319px !important;
+    }
+
+    div.joinCompleteWrapper{
+        width: 414px !important;
+    }
+
+    div.h3Wrapper{
+        padding-left: 10px;
+    }
+
+    div.form{
+        text-align: center !important;
+    }
+
+    button.emailButton{
+        width: 103px !important;
+    }
+
+    label{
+        text-align: left !important;
+        padding-left: 10px !important;
+    }
+
+}

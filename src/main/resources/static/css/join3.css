@@ -1,7 +1,7 @@
 div.joinWrapper{
     margin: 0 686.5px;
     width: 650px;
-    height: 620px;
+    height: 705px;
     padding: 90px 0px 140px;
 }
 
@@ -100,7 +100,7 @@ li.secondLi, li.thirdLi, li.fourthLi{
 }
 
 li.fifthLi{
-    display: flex;
+    /*display: flex;*/
 }
 
 select.oneSelect{
@@ -182,15 +182,16 @@ button.joinComplete{
     margin-top: 30px;
 }
 
-button.addButton{
+input.addButton{
     margin-left: 6px;
     margin-right: 0;
-    padding: 10px 20px!important;
+    padding: 6px 20px!important;
     background-color: #f2f2f2;
     color: #222;
     border: 1px solid #f2f2f2;
     border-radius: 4px;
     height: 38px;
+    font-size: 14px;
 }
 
 button{
@@ -227,7 +228,7 @@ input.linkInput{
 }
 
 div.linkDiv{
-    display: flex;
+    /*display: flex;*/
 }
 
 /* 모달 */
@@ -357,4 +358,104 @@ button.complete{
     border: none;
     color: #fff;
     background-color: #00704a;
+    margin-top: 20px;
+}
+
+div.urlFirstWrap{
+    display: flex;
+}
+
+div.flex{
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+div.labelWrap{
+    display: flex;
+}
+
+@media (max-width: 414px){
+    div.joinWrapper{
+        margin: 0px !important;
+        width: 414px !important;
+    }
+
+    select{
+        width: 102px !important;
+    }
+
+    li.firstLi, li.secondLi, li.thirdLi, li.fourthLi{
+        width: 408px !important;
+    }
+
+    div.codeWrap{
+        width: 319px !important;
+    }
+
+    div.joinCompleteWrapper{
+        width: 414px !important;
+        text-align: center;
+    }
+
+    div.h3Good{
+        padding-left: 10px;
+    }
+
+    div.form{
+        text-align: center !important;
+    }
+
+    button.emailButton{
+        width: 103px !important;
+    }
+
+    span.bigTxt{
+        font-size: 22px !important;
+    }
+
+    div.settingWrapper2{
+        width: 310px !important;
+    }
+
+    select.twoSelect{
+        width: 153px !important;
+    }
+
+    select.oneSelect{
+        width: 90px !important;
+    }
+
+    button.joinComplete{
+        width: 180px !important;
+    }
+
+    label{
+        text-align: left !important;
+        padding-left: 10px !important;
+    }
+
+    #my_modal{
+        left: 12% !important;
+    }
+
+    div.settingWrapper{
+        width: 289px !important;
+    }
+
+    input.inputTag{
+        width: 282px !important;
+    }
+
+    textarea#userIntroduce{
+        width: 282px !important;
+    }
+
+    input.linkInput{
+        width: 206px !important;
+    }
+
+    div.form ul li {
+        width: 414px;
+    }
 }

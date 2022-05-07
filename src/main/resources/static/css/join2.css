@@ -306,3 +306,68 @@ img.pokjukPng2{
 a{
     cursor: pointer;
 }
+
+@media (max-width: 414px){
+    div.joinWrapper{
+        margin: 0px !important;
+        width: 414px !important;
+    }
+
+    select{
+        width: 102px !important;
+    }
+
+    li.firstLi, li.secondLi, li.thirdLi, li.fourthLi{
+        width: 408px !important;
+    }
+
+    div.codeWrap{
+        width: 319px !important;
+    }
+
+    div.joinCompleteWrapper{
+        width: 414px !important;
+        text-align: center;
+    }
+
+    div.h3Good{
+        padding-left: 10px;
+    }
+
+    div.form{
+        text-align: center !important;
+    }
+
+    button.emailButton{
+        width: 103px !important;
+    }
+
+    span.bigTxt{
+        font-size: 24px !important;
+    }
+
+    div.settingWrapper2{
+        width: 310px !important;
+    }
+
+    select.twoSelect{
+        width: 153px !important;
+    }
+
+    select.oneSelect{
+        width: 310px !important;
+    }
+
+    button.joinComplete{
+        width: 180px !important;
+    }
+
+    label{
+        text-align: left !important;
+        padding-left: 10px !important;
+    }
+
+    #my_modal{
+        left: 6% !important;
+    }
+}

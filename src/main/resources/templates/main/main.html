@@ -5,6 +5,7 @@
     <title>workSpace-main</title>
     <link rel="stylesheet" href="../../static/css/mainPage.css" type="text/css">
     <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--    <script src="../../static/js/mainPage.js"></script>-->
 </head>
 <body>
@@ -70,11 +71,23 @@
 </div>
 </div>
 
+<button id="popup_open_btn3" class="modalBtn">로그아웃</button>
+
+<div class="modalWindow">
+    <div id="my_modal3">
+        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon2"></a>
+        <div class="letter">
+            <p class="completeP">로그아웃이 완료되었습니다.</p>
+            <button class="complete">확인</button>
+        </div>
+    </div>
+</div>
+
     <section>
         <div class="firstWrapper">
         <h3><span class="bigTxt">새로운 프로젝트/스터디</span></h3>
             <div class="projectGridView">
-                <div class="projectGridWrap">
+                <div class="projectGridWrap1">
                     <div class="projectTopInfo">
                         <div class="topInfo">
                             <div class="box-wrap">
@@ -137,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="projectGridWrap">
+                <div class="projectGridWrap2">
                     <div class="projectTopInfo">
                         <div class="topInfo">
                             <div class="box-wrap">
@@ -200,7 +213,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="projectGridWrap">
+                <div class="projectGridWrap3">
                     <div class="projectTopInfo">
                         <div class="topInfo">
                             <div class="box-wrap">
@@ -263,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="projectGridWrap">
+                <div class="projectGridWrap4">
                     <div class="projectTopInfo">
                         <div class="topInfo">
                             <div class="box-wrap">
@@ -334,7 +347,7 @@
         <div class="secondWrapper">
             <h3><span class="bigTxt">핫한 스토리</span></h3>
             <div class="featuredContents">
-                <a class="featuredGrid" href="">
+                <a class="featuredGrid1" href="">
                     <div class="featuredTop">
                         <img src="../../static/images/썸네일0.png">
                         <div class="featuredGridHead">
@@ -364,7 +377,7 @@
                 </a>
 
                 <!-- 두번째 그리드 -->
-                <a class="featuredGrid" href="">
+                <a class="featuredGrid2" href="">
                     <div class="featuredTop">
                         <img src="../../static/images/썸네일1.png">
                         <div class="featuredGridHead">
@@ -393,7 +406,7 @@
                     </div>
                 </a>
                 <!-- 3번째 그리드 -->
-                <a class="featuredGrid" href="">
+                <a class="featuredGrid3" href="">
                     <div class="featuredTop">
                         <img src="../../static/images/썸네일2.png">
                         <div class="featuredGridHead">
@@ -422,7 +435,7 @@
                     </div>
                 </a>
                 <!-- 4번째 그리드 -->
-                <a class="featuredGrid" href="">
+                <a class="featuredGrid4" href="">
                     <div class="featuredTop">
                         <img src="../../static/images/썸네일3.png">
                         <div class="featuredGridHead">
@@ -469,7 +482,7 @@
         <h3><span class="bigTxt">같이 해요</span></h3>
         <div class="userGridTool">
             <ul class="userGridList">
-                <li class="userGrid">
+                <li class="userGrid1">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -538,7 +551,7 @@
                     </div>
 
                 </li>
-                <li class="userGrid">
+                <li class="userGrid2">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -607,7 +620,7 @@
                     </div>
 
                 </li>
-                <li class="userGrid">
+                <li class="userGrid3">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -676,7 +689,7 @@
                     </div>
 
                 </li>
-                <li class="userGrid">
+                <li class="userGrid4">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -745,7 +758,7 @@
                     </div>
 
                 </li>
-                <li class="userGrid">
+                <li class="userGrid5">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -814,7 +827,7 @@
                     </div>
 
                 </li>
-                <li class="userGrid">
+                <li class="userGrid6">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -883,7 +896,7 @@
                     </div>
 
                 </li>
-                <li class="userGrid">
+                <li class="userGrid7">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -952,7 +965,7 @@
                     </div>
 
                 </li>
-                <li class="userGrid">
+                <li class="userGrid8">
                     <img src="../../static/images/letspler_new_mark.png" class="red2">
 
                     <div class="userGridtop">
@@ -1144,6 +1157,13 @@
             $($(".modalWindow").get(i)).hide();
         });
     });
+
+    $('.complete').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).hide();
+        });
+    });
+
 
 
 </script>

@@ -151,7 +151,7 @@ div.bottomWrap div.recruitModel {
     bottom: 0px;
 }
 
-div.projectGridWrap {
+div.projectGridWrap1, div.projectGridWrap2, div.projectGridWrap3, div.projectGridWrap4 {
     width: 285px;
     /*height: 290px;*/
     position: relative;
@@ -365,7 +365,7 @@ button.storyGo{
     box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
 }
 
-.userGrid{
+.userGrid1, .userGrid2, .userGrid3, .userGrid4, .userGrid5, .userGrid6, .userGrid7, .userGrid8{
     border-radius: 20px;
     position: relative;
     width: 285px;
@@ -579,6 +579,11 @@ button{
     right: 10px;
 }
 
+#my_modal3 .modal_close_btn {
+    bottom: 25px;
+    right: 165px;
+}
+
 p.snsLoginP{
     margin-bottom: 20px !important;
     font-size: 1.5rem;
@@ -691,7 +696,7 @@ div.joinPromise{
 
 /*  스토리 */
 /* featured */
-.featuredGrid:hover{
+.featuredGrid1:hover, .featuredGrid2:hover, .featuredGrid3:hover, .featuredGrid4:hover{
     transform: scale(1.05);
     border: 1px solid #00704a;
 }
@@ -711,7 +716,7 @@ div.joinPromise{
     font-weight: 700;
     font-family: 'GmarketSansMedium';
 }
-.featuredGrid{
+.featuredGrid1, .featuredGrid2, .featuredGrid3, .featuredGrid4{
     border: 1px solid #e6e6e6;
     box-sizing: border-box;
     cursor: pointer;
@@ -823,7 +828,7 @@ div.joinPromise{
     flex-direction: row;
     align-items: center;
 }
-.featuredGrid p{
+.featuredGrid1 p, .featuredGrid2 p, .featuredGrid3 p, .featuredGrid4 p{
     margin: 0;
     font-weight: 600;
 }
@@ -835,6 +840,118 @@ div.joinPromise{
     border-bottom: 1px solid #e6e6e6;
     box-sizing: border-box;
     margin: 30px 0;
+}
+
+.featuredGrid1, .featuredGrid2, .featuredGrid3, .featuredGrid4{
+    text-decoration: none !important;
+}
+
+#my_modal3 {
+    position: absolute;
+    text-align: center;
+    width: 325px;
+    padding: 25px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+}
+
+img.xIcon2{
+    position: relative;
+    width: 25px;
+    right: -139px;
+    top: -15px;
+}
+
+button.complete{
+    width: 260px;
+    height: 44px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 20px;
+}
+
+@media (max-width: 414px){
+    div.arrow, div.banner{
+        display: none;
+    }
+
+    div.red{
+        display: none;
+    }
+
+    div.black{
+        display: none;
+    }
+
+    div.projectGridWrap3, div.projectGridWrap4{
+        display: none;
+    }
+
+    div.projectGridWrap1, div.projectGridWrap2{
+        width: 190px !important;
+    }
+
+    p.categoryText, p.category{
+        font-size: 12px;
+    }
+
+    .featuredGrid3, .featuredGrid4{
+        display: none;
+    }
+
+    .userGrid3, .userGrid4, .userGrid5, .userGrid6, .userGrid7, .userGrid8{
+        display: none;
+    }
+
+    .userGridTool{
+        width: 414px;
+    }
+
+    .userGrid1, .userGrid2{
+        width: 200px !important;
+    }
+
+    li.liusertag{
+        display: none;
+    }
+
+    div.projectGridView{
+        padding-left: 7px;
+    }
+
+    .featuredContents{
+        padding-left: 15px;
+    }
+
+    .userGridList{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #my_modal, #my_modal2{
+        left: 5.5%;
+    }
+
+    #my_modal3{
+        left: 10.5%;
+    }
+
+    header#header , header#footer{
+        display: none;
+    }
+
+    .userLvIcon{
+        display: none;
+    }
+
+    span.bigTxt{
+        padding-left: 5px;
+    }
 }
 
 
