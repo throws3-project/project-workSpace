@@ -1,0 +1,301 @@
+.notice {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-bottom: 164px;
+}
+
+.noticeTitle h2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.35em;
+    line-height: 1.5em;
+}
+
+.noticeTitle h2 .smallTxt{
+    color: #00704a;
+    font-size: 12px;
+    text-transform: none;
+}
+.noticeTitle h2 .bigTxt{
+    color: #42495b;
+    font-size: 20px;
+    text-transform: none;
+
+}
+
+
+/* 제목 부분 */
+.noticeViewTop {
+    border-top: 2px solid #42495b;
+}
+
+.noticeTitleWriter {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.left {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 8px 0;
+    width: 60px;
+    border-right: 1px solid #e5e5e5;
+}
+
+.right{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 8px 0;
+}
+
+.left p, .right p{
+    font-size: .875rem;
+    color: #42495b;
+    padding-left: 20px;
+}
+
+
+/* 내용 부분 */
+.noticeViewContents {
+    padding: 14px 22px 40px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 24px;
+}
+
+.noticeViewContents textarea{
+    resize: none;
+    background-color: #fff;
+    border: none;
+    min-height: 5rem;
+    overflow-y: hidden;
+}
+
+
+/* 목록 버튼*/
+.btnWrap {
+    margin-top: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    margin-bottom: 44px;
+    text-align: center;
+}
+.noticeSection .noticeViewWrap .btnWrap button:last-child {
+    margin-right: 8px;
+}
+.btnWrap .whiteBtn {
+    background-color: #fff;
+    color: #000;
+    width: auto;
+    border: 1px solid #81839c;
+}
+.btnWrap button {
+    transition: all .2s;
+    border-radius: 4px;
+    font-size: .75rem;
+}
+
+/*이전글,다음글*/
+.beforeNextFeedWrap {
+    border-top: 1px solid #e5e5e5;
+    margin-bottom: 200px;
+}
+.beforeNextFeedWrap .FeedRow {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    border-bottom: 1px solid #e5e5e5;
+}
+.FeedRow .right {
+    padding: 8px 0;
+    position: relative;
+}
+.FeedRow .left {
+    width: 100px;
+    border-right: 1px solid #e5e5e5;
+    padding: 8px 0;
+    position: relative;
+}
+.FeedRow .left p {
+    padding-left: 48px;
+}
+.FeedRow .right a {
+    font-size: .875rem;
+    color: #42495b;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 5px;
+    padding-top: 3px;
+    text-decoration: none;
+}
+
+/* 이전글 다음글 화살표 */
+.FeedRow:first-child .left:before, .FeedRow:last-child .left:before {
+    content: " ";
+    position: absolute;
+    width: 12px;
+    height: 8px;
+    background-image: url("https://letspl.me/_next/static/media/ic-arrow-down.1f0189fe085468481ae8f9a167f7dde2.svg");
+    background-repeat: no-repeat;
+    left: 20px;
+    top: 15px;
+}
+.FeedRow:last-child .left:before {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p {
+    margin : 0 !important;
+}
+
+
+
+
+/* Button */
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s
+    ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s
+    ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s
+    ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    height: 3.25em;
+    letter-spacing: 0.07em;
+    line-height: 3.35em;
+    overflow: hidden;
+    padding: 0 1.75em;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+input[type="submit"].icon, input[type="reset"].icon, input[type="button"].icon,
+button.icon, .button.icon {
+    padding-left: 1.35em;
+}
+
+input[type="submit"].icon:before, input[type="reset"].icon:before, input[type="button"].icon:before,
+button.icon:before, .button.icon:before {
+    margin-right: 0.5em;
+}
+
+input[type="submit"].fit, input[type="reset"].fit, input[type="button"].fit,
+button.fit, .button.fit {
+    width: 100%;
+}
+
+input[type="submit"].small, input[type="reset"].small, input[type="button"].small,
+button.small, .button.small {
+    font-size: 0.8em;
+}
+
+input[type="submit"].large, input[type="reset"].large, input[type="button"].large,
+button.large, .button.large {
+    font-size: 1.15em;
+    padding: 0 3.5em;
+}
+
+input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"].disabled,
+input[type="reset"]:disabled, input[type="button"].disabled, input[type="button"]:disabled,
+button.disabled, button:disabled, .button.disabled, .button:disabled {
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+@media screen and (max-width: 480px) {
+    input[type="submit"], input[type="reset"], input[type="button"], button,
+    .button {
+        padding: 0;
+    }
+}
+
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+    background-color: transparent;
+    border-color: rgba(144, 144, 144, 0.3);
+    color: #444;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover,
+button:hover, input[type="submit"]:active, input[type="reset"]:active,
+input[type="button"]:active, button:active, input[type="submit"].icon:before,
+input[type="reset"].icon:before, input[type="button"].icon:before,
+button.icon:before, .button.icon:before {
+    color: #444;
+}
+
+input[type="submit"].primary, input[type="reset"].primary, input[type="button"].primary,
+button.primary, .button.primary {
+    border: none;
+    background-color: white;
+}
+
+input[type="submit"].primary.icon:before, input[type="reset"].primary.icon:before,
+input[type="button"].primary.icon:before, button.primary.icon:before,
+.button.primary.icon:before {
+    color: #ffffff;
+}

@@ -1,0 +1,23 @@
+div.policySection{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+div.policySection p{
+    margin: 0;
+    font-size: 14px;
+}
+
+div.policySection h2{
+    font-size: 20px;
+}
+div.policySection h2{
+    font-size: 21px;
+}
+div.policySection a{
+    text-decoration: none;
+    color: black;
+}
+

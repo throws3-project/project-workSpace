@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/notice.css" type="text/css">
+
+</head>
+<body>
+<header id="header"></header>
+
+<section class="notice">
+    <div class="noticeTitle">
+        <h2>
+            <span class="smallTxt">LET's know</span>
+            <span class="bigTxt">공지사항</span>
+        </h2>
+    </div>
+    <div class="noticeList">
+        <table>
+            <thead>
+                <tr>
+                    <th class="title">제목</th>
+                    <th class="date">작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>프로젝트/스터디 검수 및 노출 조건안내 (2022.03.26 업데이트~)</p>
+                    </td>
+                    <td>
+                        <p>22.03.06 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>렛플 모바일 어플리케이션이 출시되었습니다.</p>
+                    </td>
+                    <td>
+                        <p>21.12.28 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>프로젝트 검수조건 안내(2021년 12월)</p>
+                    </td>
+                    <td>
+                        <p>21.12.10 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>렛플 프로젝트 게시 시 , 연결 게시 사이트 안내 (2021년 12월)</p>
+                    </td>
+                    <td>
+                        <p>21.05.23 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>[신규 기능] 렛플 - 스토리 오픈</p>
+                    </td>
+                    <td>
+                        <p>21.03.28 </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagingAndBtn">
+            <span>
+                <a class="btn_paging prev"></a>
+                <a class="active">1</a>
+                <a class="btn_paging next"></a>
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<footer id="foot"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+        $("#foot").load('../../templates/fix/footer.html');
+    })
+
+
+</script>
+</html>
