@@ -688,5 +688,102 @@ color: #ffffff;
 /*미디어쿼리*/
 
 @media screen and (max-width: 414px){
+    .buildProjectTitWrap .titContents h3 {
+        color: #fff;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 3rem;
+        font-family: 'GmarketSansMedium', sans-serif;
+    }
 
+    .buildProjectTitWrap {
+        width: 100%;
+        max-width: 100%;
+        padding: 40px 21px 8px;
+        background-color: #336d47;
+        box-sizing: border-box;
+    }
+
+    .buildProjectContents .answer .inputWrap input {
+        font-size: 12px;
+    }
+
+    .titContents p{
+        display: none;
+    }
+
+    .buildProjectContents {
+        padding: 10px;
+    }
+
+    .buildProjectContents .question p {
+        color: #000;
+        font-size: 19px;
+        line-height: 19px;
+    }
+
+    .checkBox .txt {
+        font-size: 13px;
+        line-height: 38px;
+        color: #696980;
+        margin-left: 30px;
+    }
+
+    .buildProjectContents .answer ul li.checkBoxWrap.selectPurpose {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    div.noticBox p{
+        font-size: 12px !important;
+    }
+
+    .uploadBox {
+        display: none !important;
+    }
+
+    select {
+        font-size: x-small !important;
+    }
+
+    .buildProjectContents .question p span {
+        font-size: 11px;
+    }
+
+    .addMemberBtnWrap button, .confirmBtnWrap button{
+        font-family: 'GmarketSansLight', sans-serif;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
