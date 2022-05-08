@@ -9,6 +9,7 @@ textarea {
 .loungeSection{
    width: 1200px;
     margin: 0 auto;
+    margin-top: 150px;
     /* transform: scale(0.9); */
 }
 /* .loungeWrap{
@@ -167,7 +168,7 @@ textarea {
 .up{
     background-image: url(../../static/images/up.png);
 }
-.profileWrap{
+.profileWraps{
     width: 28px;
     height: 28px;
     border-radius: 8px;
@@ -354,7 +355,7 @@ textarea {
     background-color: #f7f7f7;
     padding: 24px 24px 10px 80px;
     box-sizing: border-box;
-
+    display: none;
 }
 .activeWrap{
     box-sizing: border-box;

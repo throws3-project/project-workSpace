@@ -247,34 +247,33 @@ const editor = new toastui.Editor({
 
 
 //스터디 분야 선택
-let input = $("#keyword");
 
-$("#skill").on("keydown", input, function (e) {
+$("#skill").on("keydown", $("#keyword"), function (e) {
     let check = false;
 
     if (e.keyCode == 13) {
         e.preventDefault();
         $(".skillTag").each(function (i, tag) {
-            console.log(input.val());
+            console.log($("#keyword").val());
             console.log($(tag).text());
-            if (input.val() === $(tag).text()) {
+            if ($("#keyword").val().toLowerCase() === $(tag).text()) {
                 alert("이미 등록한 키워드입니다.");
                 check = true;
             }
         })
         let str = "";
-        str += "<a class='skillTag'>" + input.val().toLowerCase() + "</a>";
+        str += "<a class='skillTag'>" + $("#keyword").val().toLowerCase() + "</a>";
 
         if (check == false) {
             $(".skillResult").append(str);
         }
-        input.val("");
+        $("#keyword").val("");
     }
 })
 
 //스터디 분야 삭제
 $("div.skillResult").on("click", "a.skillTag", function () {
-        $(this).hide();
+    $(this).remove();
 })
 
 // 셀렉트 비활성화
@@ -282,16 +281,15 @@ $("div.skillResult").on("click", "a.skillTag", function () {
 $(".searchSelect").attr("disabled","disabled") ;
 
 
-
-
-// 검색태그 만들기
-
-
-
-// 모달창
-
-
-
+//이미지
+$(".uploadImgLi").each(function (i,img) {
+    $(img).children().on("click",function () {
+        let src = $(img).children().attr("src");
+        $(".thumbnailImage2").attr("src",src);
+        $(".thumbnailImage2").css("width",385);
+        $(".thumbnailImage2").css("height",230);
+    })
+})
 
 
 
