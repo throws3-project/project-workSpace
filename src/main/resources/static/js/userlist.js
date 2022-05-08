@@ -32,8 +32,23 @@
 //     $(this).css('background-color','pink');
 // });
 
-$(".ugname").mouseover(function(){
-    $(this).next().css('display','block');
-}).on('mouseover foucus', function{
-    $(this).css('background-color','pink');
-});
+// $(".ugname").mouseover(function(){
+//     $(this).next().css('display','block');
+// }).on('mouseover foucus', function(){
+//     $(this).css('background-color','pink');
+// });
+
+
+$(".ugname").each(function (i,name) {
+    $(name).hover(function () {
+        $(this).next().show();
+    })
+})
+
+// $(".idHoverMenu").each(function (i,over) {
+//     $(over).on("mouseout",function () {
+//         if($(this).css("display")=="block"){
+//             $(this).hide();
+//         }
+//     })
+// })

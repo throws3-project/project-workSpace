@@ -55,34 +55,6 @@
         </div>
         <div class="buildProjectWrap">
             <div class="buildProjectContents">
-                <div class="question">
-                    <p>분류</p>
-                </div>
-                <div class="answer" style="margin-bottom: 0 !important;">
-                    <div class="selectMotivation">
-                        <div class="ccheck">
-                            <label class="checkBox first">
-                                <span class="txt">워크인</span>
-                                <input type="radio" class="choice" name="type" value="project" checked>
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="ccheck">
-                            <label class="checkBox first">
-                                <span class="txt">프로젝트/스토리</span>
-                                <input type="radio" class="choice" name="type" value="study">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                    <div class="searchOption">
-                        <select class="searchSelect">
-                            <option value="a">미지정</option>
-                        </select>
-                        </div>
-                        
-
 
                 <!--  프로젝트 양식 -->
                 <div class="make">
@@ -188,14 +160,14 @@
                         </div>
 
 
-                        <div class="question">
-                            <p> 검색태그 (최대 5개)</p>
-                        </div>
+                        <div id="tag" class="marginBottom">
+                            <p>검색태그 (#)</p>
+                            <div class="answer" id="skill">
+                                <input type="text" class="able" id="keyword" placeholder="태그는 최대 5개 가능합니다" minlength="3"
+                                       maxlength="20" autocomplete="off">
+                            </div>
+                            <div class="skillResult">
 
-
-                        <div class="answer" id="referenceWrap">
-                            <div>
-                                <input class="srhTag" type="text" placeholder="태그는 최대 5개 가능합니다.">
                             </div>
                         </div>
 
@@ -210,16 +182,6 @@
         </div>
     </section>
 
-    <div class="modalWindow">
-        <div id="my_modal">
-            <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
-            <div class="letter">
-                <p class="completeP">워크인(개인) 으로만 작성이 가능합니다.</p>
-                <p class="get200PointP">현재 소속되어있는 프로젝트/스터디 정보가 없습니다.</p>
-                <button class="complete">확인</button>
-            </div>
-        </div>
-    </div>
 
 
     <footer id="foot"></footer>

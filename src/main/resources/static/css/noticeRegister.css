@@ -44,8 +44,10 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 8px 0;
-    width: 60px;
+    width: 100px;
+    text-align: center;
     border-right: 1px solid #e5e5e5;
+    line-height: 36px;
 }
 
 .right{
@@ -53,6 +55,18 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 8px 0;
+    width: 93%;
+    margin-left: 10px;
+    align-items: center;
+}
+
+div#attach{
+    height: 100px;
+    line-height: 84px;
+}
+
+label img{
+    width: 50px;
 }
 
 .left p, .right p{
@@ -64,7 +78,7 @@
 
 /* 내용 부분 */
 .noticeViewContents {
-    padding: 14px 22px 40px;
+    padding-top: 20px;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 24px;
 }
@@ -72,11 +86,17 @@
 .noticeViewContents textarea{
     resize: none;
     background-color: #fff;
-    border: none;
+    border: 1px solid lightgray;
     min-height: 5rem;
-    overflow-y: hidden;
+    width: 100%;
 }
 
+.noticeTitleWriter input[type="text"]{
+    height: 36px;
+    line-height: 36px;
+    width: 100%;
+    background-color: white;
+}
 
 /* 목록 버튼*/
 .btnWrap {
@@ -108,8 +128,16 @@
     margin-left: 10px;
 }
 
-.btnWrap button.writer {
-    display: none;
+ul#thumbNailWrap{
+    display: flex;
+    margin-left: 50px;
+}
+ul#thumbNailWrap li{
+    margin-right: 20px;
+}
+ul#thumbNailWrap li img{
+    width: 70px;
+    height: 70px;
 }
 
 /*이전글,다음글*/

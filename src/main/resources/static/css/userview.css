@@ -7,6 +7,10 @@ a{
     transition: all .2s;
 }
 
+.userStroyTab{
+    display: none;
+}
+
 .userProInfo{
     position: relative;
     display: flex;
@@ -362,12 +366,13 @@ a{
     color: #00704a;
 }
 .userFollowerImg{
-    display: inline-block;
+    display: inline-flex;
     flex-direction: row;
 }
+
 .userFollowerImg li{
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 10px;
     left: 0;
     right: 0;
 }
@@ -1172,6 +1177,56 @@ div.bottomWrap div.recruit {
 
 div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
     color: #ea6560;
+}
+
+
+
+
+/* 나를 구독중인 hover */
+.hoverName{
+    width: 82px;
+    height: 28px;
+    background-color: rgba(0,0,0,.8);
+    box-sizing: 0 3px 24px 0 rgba(0,0,0,.2);
+    position: absolute;
+    border-radius: 4px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+     display: none;
+    bottom: 356px;
+}
+.hoverName a {
+    font-size: 1rem;
+    color: #8e8ea2;
+    margin-bottom: 0;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1.6;
+}
+.hoverName p {
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    position: relative;
+    top: 0;
+}
+.hoverName span:first-child {
+    font-size: 12px!important;
+    color: #00704a!important;
+    margin-right: 4px!important;
+}
+.hoverName  span:last-child {
+    font-size: 12px!important;
+    color: #fff!important;
+}
+.hoverName ul li {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: -20px;
 }
 
 

@@ -5,6 +5,30 @@
     <title>MyPage</title>
     <link rel="stylesheet" href="../../static/css/main.css" type="text/css">
     <link rel="stylesheet" href="../../static/css/myPage.css" type="text/css">
+    <style>
+        .platformResult a {
+            text-decoration: none;
+            display: none;
+            cursor: pointer;
+            background-color: #336d47;
+            padding: 4px;
+            border-radius: 4px;
+            color: #fff;
+            margin-left: 2px;
+            font-size: 13px;
+        }
+
+        .skillResult a {
+            text-decoration: none;
+            cursor: pointer;
+            background-color: #336d47;
+            padding: 4px;
+            border-radius: 4px;
+            color: #fff;
+            margin-left: 2px;
+            font-size: 13px;
+        }
+    </style>
 </head>
 <body>
 <header id="header"></header>
@@ -62,22 +86,19 @@
                     <div id="mainSkill" class="marginBottom">
                         <p>메인 직무/ 상세 직무 / 능력치</p>
                         <div class="flex">
-                            <select class="able first" name="mainSkill">
-                                <option value="1">사업</option>
-                                <option value="2">기획</option>
-                                <option value="3">디자인</option>
-                                <option value="4">프론트엔드개발</option>
-                                <option value="5">백엔드개발</option>
-                                <option value="6">기타</option>
+                            <select class="able first" name="mainSkill" onchange="personChange(this)">
+                                <option value="a">기획</option>
+                                <option value="b">디자인</option>
+                                <option value="c">프론트엔드개발</option>
+                                <option value="d">백엔드개발</option>
+                                <option value="e">사업</option>
+                                <option value="f">기타</option>
                             </select>
                             <select class="able second" name="subSkill">
-                                <option value="11">사업기획</option>
-                                <option value="12">마케팅</option>
-                                <option value="13">재무/회계</option>
-                                <option value="14">영업</option>
-                                <option value="15">전략/컨설팅</option>
-                                <option value="16">투자/고문</option>
-                                <option value="17">(사업)그외</option>
+                                <option>UI/UX 기획</option>
+                                <option>게임 기획</option>
+                                <option>프로젝트 매니저</option>
+                                <option>하드웨어(제품) 기획</option>
                             </select>
                             <select class="able third" name="skillLevel">
                                 <option value="1">초심자</option>
@@ -92,22 +113,19 @@
                     <div id="subSkill" class="marginBottom">
                         <p>서브 직무/ 상세 직무 / 능력치</p>
                         <div class="flex">
-                            <select class="able first" name="mainSkill">
-                                <option value="1">사업</option>
-                                <option value="2">기획</option>
-                                <option value="3">디자인</option>
-                                <option value="4">프론트엔드개발</option>
-                                <option value="5">백엔드개발</option>
-                                <option value="6">기타</option>
+                            <select class="able first" name="mainSkill" onchange="personChange(this)">
+                                <option value="a">기획</option>
+                                <option value="b">디자인</option>
+                                <option value="c">프론트엔드개발</option>
+                                <option value="d">백엔드개발</option>
+                                <option value="e">사업</option>
+                                <option value="f">기타</option>
                             </select>
                             <select class="able second" name="subSkill">
-                                <option value="11">사업기획</option>
-                                <option value="12">마케팅</option>
-                                <option value="13">재무/회계</option>
-                                <option value="14">영업</option>
-                                <option value="15">전략/컨설팅</option>
-                                <option value="16">투자/고문</option>
-                                <option value="17">(사업)그외</option>
+                                <option>UI/UX 기획</option>
+                                <option>게임 기획</option>
+                                <option>프로젝트 매니저</option>
+                                <option>하드웨어(제품) 기획</option>
                             </select>
                             <select class="able third" name="skillLevel">
                                 <option value="1">초심자</option>
@@ -142,18 +160,30 @@
                     <div id="location" class="marginBottom">
                         <p>지역 설정</p>
                         <div class="flex">
-                            <select class="able first" name="price">
-                                <option value="1">온라인/오프라인 모두 가능</option>
-                                <option value="2">기획</option>
-                                <option value="3">디자인</option>
+                            <select class="able first" name="price" onchange="onOffChange(this)">
+                                <option value="a">온라인/오프라인 모두 가능</option>
+                                <option value="b">온라인만 가능</option>
+                                <option value="c">오프라인만 가능</option>
                             </select>
                             <select class="able second" name="price">
-                                <option value="1">상관없음</option>
-                                <option value="2">기획</option>
-                                <option value="3">디자인</option>
-                                <option value="4">프론트엔드개발</option>
-                                <option value="5">백엔드개발</option>
-                                <option value="6">기타</option>
+                                <option value="z">상관없음</option>
+                                <option value="a">서울특별시</option>
+                                <option value="b">경기도</option>
+                                <option value="c">부산광역시</option>
+                                <option value="d">인천광역시</option>
+                                <option value="e">대구관역시</option>
+                                <option value="f">경상남도</option>
+                                <option value="g">경상북도</option>
+                                <option value="h">대전광역시</option>
+                                <option value="i">충청남도</option>
+                                <option value="j">충청북도</option>
+                                <option value="k">전라남도</option>
+                                <option value="l">전라북도</option>
+                                <option value="m">광주광역시</option>
+                                <option value="n">강원도</option>
+                                <option value="o">울산광역시</option>
+                                <option value="p">제주특별자치도</option>
+                                <option value="q">세종특별자치시</option>
                             </select>
                             <select class="able third hidden">
                                 <option></option>
@@ -166,13 +196,14 @@
                         <div class="flex">
                             <select class="able first" name="price">
                                 <option value="1">주중/주말 모두 가능</option>
-                                <option value="2">기획</option>
-                                <option value="3">디자인</option>
+                                <option value="2">주중만 가능</option>
+                                <option value="3">주말만 가능</option>
                             </select>
                             <select class="able second" name="price">
                                 <option value="1">상관없음</option>
-                                <option value="2">기획</option>
-                                <option value="3">디자인</option>
+                                <option value="2">오전 위주</option>
+                                <option value="3">오후 위주</option>
+                                <option value="4">저녁 위주</option>
                             </select>
                             <select class="able third hidden">
                                 <option></option>
@@ -180,26 +211,45 @@
                         </div>
                     </div>
 
-                    <div id="interesting" class="marginBottom">
-                        <p>관심분야</p>
-                        <select class="able first" name="price">
-                            <option value="1">O2O</option>
-                            <option value="2">기획</option>
-                            <option value="3">디자인</option>
-                        </select>
+                    <div id="labelTag">
+                        <label>관심분야 (최대 5개)</label>
+                        <div id="interestWrap">
+                            <p>O2O</p>
+                            <p>공유서비스</p>
+                            <p>데이팅서비스</p>
+                            <p>여행</p>
+                            <p>소셜네트워크</p>
+                            <p>뷰티/패션</p>
+                            <p>이커머스</p>
+                            <p>엔터테인먼트</p>
+                            <p>게임</p>
+                            <p>헬스/스포츠</p>
+                            <p>뉴스/정보</p>
+                            <p>유틸</p>
+                            <p>금융</p>
+                            <p>부동산/인테리어</p>
+                            <p>종교</p>
+                            <p>우주/외계인</p>
+                        </div>
                     </div>
 
                     <div id="tag" class="marginBottom">
                         <p>검색태그 (#)</p>
-                        <div>
-                            <input type="text" class="able" placeholder="태그는 최대 5개 가능합니다">
+                        <div class="answer" id="skill">
+                            <input type="text" class="able" id="keyword" placeholder="태그는 최대 5개 가능합니다" minlength="3"
+                                   maxlength="20" autocomplete="off">
+                        </div>
+                        <div class="skillResult">
+
                         </div>
                     </div>
+
 
                     <div id="content" class="marginBottom">
                         <p>자세한 소개</p>
                         <textarea name="content" class="able" rows="5" maxlength="200" placeholder="최대 200자 까지 작성 가능합니다."></textarea>
                     </div>
+
 
                     <div id="portfolio" class="marginBottom">
                         <div id="url" class="flex a1">
@@ -221,298 +271,90 @@
                 <div>
                     <h3 class="titleMsg">지원 현황</h3>
                 </div>
-<!--                <div class="projectGridView">-->
-<!--                    <div class="projectGridWrap">-->
-<!--                        <div class="projectTopInfo">-->
-<!--                            <div class="topInfo">-->
-<!--                                <div class="box-wrap">-->
-<!--                                    <div class="box red">-->
-<!--                                        <span>NEW</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="box black">-->
-<!--                                        <span>사이드프로젝트</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="favorite"></div>-->
-<!--                            </div>-->
-<!--                            <div class="projectImg">-->
-<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="projectMiddleInfo">-->
-<!--                            <p class="category">소셜네트워크</p>-->
-<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
-<!--                        </div>-->
-<!--                        <div class="projectBottomInfo">-->
-<!--                            <div class="middleWrap">-->
-<!--                                <div class="left">-->
-<!--                                    <div class="heart">-->
-<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
-<!--                                        <span class="heartCount">0</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="right">-->
-<!--                                    <div>-->
-<!--                                        <span>89</span>-->
-<!--                                        <span> (-)</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="bottomWrap">-->
-<!--                                <div class="recruit">-->
-<!--                                    <div class="recruitStatus">-->
-<!--                                        <span>모집완료</span>-->
-<!--                                        <span>-->
-<!--                                    0/1-->
-<!--                                </span>-->
-<!--                                        <div>-->
-<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="recruitModel">-->
-<!--                                        <ul>-->
-<!--                                            <li>-->
-<!--                                                <span>UI/UX기획</span>-->
-<!--                                                <span>1명</span>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <span>웹 프론트엔드</span>-->
-<!--                                                <span>2명</span>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="projectGridWrap">-->
-<!--                        <div class="projectTopInfo">-->
-<!--                            <div class="topInfo">-->
-<!--                                <div class="box-wrap">-->
-<!--                                    <div class="box red">-->
-<!--                                        <span>NEW</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="box black">-->
-<!--                                        <span>사이드프로젝트</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="favorite"></div>-->
-<!--                            </div>-->
-<!--                            <div class="projectImg">-->
-<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="projectMiddleInfo">-->
-<!--                            <p class="category">소셜네트워크</p>-->
-<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
-<!--                        </div>-->
-<!--                        <div class="projectBottomInfo">-->
-<!--                            <div class="middleWrap">-->
-<!--                                <div class="left">-->
-<!--                                    <div class="heart">-->
-<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
-<!--                                        <span class="heartCount">0</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="right">-->
-<!--                                    <div>-->
-<!--                                        <span>89</span>-->
-<!--                                        <span> (-)</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="bottomWrap">-->
-<!--                                <div class="recruit">-->
-<!--                                    <div class="recruitStatus">-->
-<!--                                        <span>모집완료</span>-->
-<!--                                        <span>-->
-<!--                                    0/1-->
-<!--                                </span>-->
-<!--                                        <div>-->
-<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="recruitModel">-->
-<!--                                        <ul>-->
-<!--                                            <li>-->
-<!--                                                <span>UI/UX기획</span>-->
-<!--                                                <span>1명</span>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <span>웹 프론트엔드</span>-->
-<!--                                                <span>2명</span>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="projectGridWrap">-->
-<!--                        <div class="projectTopInfo">-->
-<!--                            <div class="topInfo">-->
-<!--                                <div class="box-wrap">-->
-<!--                                    <div class="box red">-->
-<!--                                        <span>NEW</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="box black">-->
-<!--                                        <span>사이드프로젝트</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="favorite"></div>-->
-<!--                            </div>-->
-<!--                            <div class="projectImg">-->
-<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="projectMiddleInfo">-->
-<!--                            <p class="category">소셜네트워크</p>-->
-<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
-<!--                        </div>-->
-<!--                        <div class="projectBottomInfo">-->
-<!--                            <div class="middleWrap">-->
-<!--                                <div class="left">-->
-<!--                                    <div class="heart">-->
-<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
-<!--                                        <span class="heartCount">0</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="right">-->
-<!--                                    <div>-->
-<!--                                        <span>89</span>-->
-<!--                                        <span> (-)</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="bottomWrap">-->
-<!--                                <div class="recruit">-->
-<!--                                    <div class="recruitStatus">-->
-<!--                                        <span>모집완료</span>-->
-<!--                                        <span>-->
-<!--                                    0/1-->
-<!--                                </span>-->
-<!--                                        <div>-->
-<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="recruitModel">-->
-<!--                                        <ul>-->
-<!--                                            <li>-->
-<!--                                                <span>UI/UX기획</span>-->
-<!--                                                <span>1명</span>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <span>웹 프론트엔드</span>-->
-<!--                                                <span>2명</span>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="projectGridWrap">-->
-<!--                        <div class="projectTopInfo">-->
-<!--                            <div class="topInfo">-->
-<!--                                <div class="box-wrap">-->
-<!--                                    <div class="box red">-->
-<!--                                        <span>NEW</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="box black">-->
-<!--                                        <span>사이드프로젝트</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="favorite"></div>-->
-<!--                            </div>-->
-<!--                            <div class="projectImg">-->
-<!--                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="projectMiddleInfo">-->
-<!--                            <p class="category">소셜네트워크</p>-->
-<!--                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
-<!--                        </div>-->
-<!--                        <div class="projectBottomInfo">-->
-<!--                            <div class="middleWrap">-->
-<!--                                <div class="left">-->
-<!--                                    <div class="heart">-->
-<!--                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
-<!--                                        <span class="heartCount">0</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="right">-->
-<!--                                    <div>-->
-<!--                                        <span>89</span>-->
-<!--                                        <span> (-)</span>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="bottomWrap">-->
-<!--                                <div class="recruit">-->
-<!--                                    <div class="recruitStatus">-->
-<!--                                        <span>모집완료</span>-->
-<!--                                        <span>-->
-<!--                                    0/1-->
-<!--                                </span>-->
-<!--                                        <div>-->
-<!--                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="recruitModel">-->
-<!--                                        <ul>-->
-<!--                                            <li>-->
-<!--                                                <span>UI/UX기획</span>-->
-<!--                                                <span>1명</span>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <span>웹 프론트엔드</span>-->
-<!--                                                <span>2명</span>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+<!--                <div class="emptyBox">-->
+<!--                    <div>-->
+<!--                        <p>아직 완료된 프로젝트/스터디가 없습니다.</p>-->
 <!--                    </div>-->
 <!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <div>-->
-<!--                        <p>아직 지원중인 프로젝트/스터디가 없습니다.</p>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <button class="submit">프로젝트/스터디 지원하기</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-                <div class="box">
-                    <div>
-                        <p>아직 완료된 프로젝트/스터디가 없습니다.</p>
+                <div class="projectGridWrap">
+                    <div class="projectTopInfo">
+                        <div class="topInfo">
+                            <div class="box-wrap">
+                                <div class="box green">
+                                    <span>NEW</span>
+                                </div>
+                                <div class="box black">
+                                    <span>사이드프로젝트</span>
+                                </div>
+                            </div>
+                            <div class="favorite"></div>
+                        </div>
+                        <div class="projectImg">
+                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
+                        </div>
                     </div>
-                    <div>
-                        <button class="submit">프로젝트/스터디 지원하기</button>
+                    <div class="projectMiddleInfo">
+                        <p class="category">소셜네트워크</p>
+                        <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                    </div>
+                    <div class="projectBottomInfo">
+                        <div class="middleWrap">
+                            <div class="left">
+                                <div class="heart">
+                                    <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
+                                    <span class="heartCount">0</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div>
+                                    <span>89</span>
+                                    <span> (-)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottomWrap">
+                            <div class="recruit">
+                                <div class="recruitStatus">
+                                    <span>모집완료</span>
+                                    <span>
+                                    0/1
+                                </span>
+                                    <div>
+                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                    </div>
+                                </div>
+                                <div class="recruitModel">
+                                    <ul>
+                                        <li>
+                                            <span>UI/UX기획</span>
+                                            <span>1명</span>
+                                        </li>
+                                        <li>
+                                            <span>웹 프론트엔드</span>
+                                            <span>2명</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div>
                     <div>
                         <h3 class="titleMsg">진행 현황</h3>
                     </div>
-                    <div class="box">
+                    <div class="emptyBox">
                         <div>
                             <p>아직 진행중인 프로젝트/스터디가 없습니다.</p>
-                        </div>
-                        <div>
-                            <button class="submit">프로젝트/스터디 지원하기</button>
                         </div>
                     </div>
                     <div>
                         <div>
                             <h3 class="titleMsg">완료 현황</h3>
                         </div>
-                        <div class="box">
+                        <div class="emptyBox">
                             <div>
                                 <p>아직 완료된 프로젝트/스터디가 없습니다.</p>
-                            </div>
-                            <div>
-                                <button class="submit">프로젝트/스터디 지원하기</button>
                             </div>
                         </div>
                     </div>
@@ -528,12 +370,12 @@
                 <div>
                     <h3 class="titleMsg">내 게시글</h3>
                 </div>
-                <div class="box">
+                <div class="emptyBox">
                     <div>
                         <p>아직 작성하신 게시글 없습니다.</p>
                     </div>
                     <div>
-                        <button class="submit">게시글 작성하러 가기</button>
+                        <button class="submit"><span>게시글 작성하러 가기</span></button>
                     </div>
                 </div>
             </div>
@@ -541,7 +383,7 @@
                 <div>
                     <h3 class="titleMsg">내 시리즈</h3>
                 </div>
-                <div class="box">
+                <div class="emptyBox">
                     <div>
                         <p>아직 추가한 시리즈가 없습니다.</p>
                     </div>
@@ -560,12 +402,9 @@
                 <div>
                     <h3 class="titleMsg">찜한 프로젝트/스터디</h3>
                 </div>
-                <div class="box">
+                <div class="emptyBox">
                     <div>
                         <p>아직 찜한 프로젝트/스터디가 없습니다.</p>
-                    </div>
-                    <div>
-                        <button class="submit">프로젝트/스터디 찜하기</button>
                     </div>
                 </div>
             </div>
@@ -573,12 +412,9 @@
                 <div>
                     <h3 class="titleMsg">찜한 워크인</h3>
                 </div>
-                <div class="box">
+                <div class="emptyBox">
                     <div>
                         <p>아직 찜한 워크인이 없습니다.</p>
-                    </div>
-                    <div>
-                        <button class="submit">워크인 찜하기</button>
                     </div>
                 </div>
             </div>
