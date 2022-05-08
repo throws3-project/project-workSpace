@@ -1,0 +1,726 @@
+li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: unset !important;
+}
+
+p {
+    margin: 0;
+}
+
+header {
+    box-shadow: 0 3px 27px 0 rgb(0 0 0 / 2%);
+}
+
+section {
+    margin-top: 150px;
+}
+
+/* section one*/
+
+h2.startProject {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 0px 20px;
+}
+
+span.start {
+    letter-spacing: normal;
+    font-size: 13px;
+    color: #00704a;
+    height: 25px;
+    line-height: 25px;
+}
+
+h2.startProject span.projectStudy {
+    font-size: 26px;
+    color: #42495b;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+/* section two */
+
+div.projectView {
+    background-color: #fbfbfb;
+}
+
+div.projectView-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+div.projectView-leftWrap {
+    flex: 1 1;
+    margin-right: 25px;
+    padding: 20px 0;
+}
+
+div.projectView-leftWrap h3 {
+    text-transform: unset;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+    letter-spacing: normal;
+    font-weight: bold;
+}
+
+div.projectView-rightWrap h3 {
+    text-transform: unset;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+    letter-spacing: normal;
+    font-weight: bold;
+}
+
+div.projectView-rightWrap {
+    flex: 1 1;
+    margin-left: 25px;
+    padding: 20px 0;
+}
+
+div.newProject {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+div.project-wrap {
+    width: 100%;
+    position: relative;
+}
+
+div.sliderWrap {
+    overflow: hidden;
+    margin: auto;
+    width: 100%;
+}
+
+div.textWrap {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+div.project-image {
+    width: 100%;
+}
+
+div.project-image img {
+    width: 100%;
+}
+
+div.bottomText {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 0 12px;
+    width: 100%;
+}
+
+p.category {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: left;
+    color: #b1b1b1;
+    letter-spacing: normal;
+    margin-bottom: 6px;
+}
+
+p.categoryText {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+    margin: 0;
+    letter-spacing: normal;
+    color: #000;
+}
+
+p.recruitText {
+    font-size: 12px;
+    line-height: 18px;
+    color: #8a8a8a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    width: 100%;
+    letter-spacing: normal;
+    margin: 0;
+    padding-top: 8px;
+    font-weight: 700;
+}
+
+div.projectTopWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 495px;
+    margin: 0 auto;
+}
+
+button.banner-button {
+    padding: 5px;
+    border: none;
+    background: none;
+    color: #fff;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    width: 32px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+button.prev-arrow {
+    left: 0px;
+}
+
+button.next-arrow {
+    right: 0px;
+}
+
+
+button.banner-button:hover {
+    background: rgba(0, 0, 0, .2);
+    transition: all .25s ease-in;
+}
+
+button.banner-button:before {
+    margin: 0 5px;
+    display: inline-block;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    content: "";
+}
+
+button.prev-arrow:before {
+    border-right: 8px solid #fff;
+}
+
+button.next-arrow:before {
+    border-left: 8px solid #fff;
+}
+
+/* section three */
+
+div.allProject {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+div.selectOption {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.selectOption .smSelect {
+    max-width: 150px;
+    width: 100%;
+    background-image: url("https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg");
+    background-color: unset;
+    background-position: 90%;
+    color: #696980;
+    margin-right: 10px;
+    padding-left: 15px;
+    background-size: 10px 5px;
+    font-size: 11px;
+    padding-right: 0;
+    font-weight: 600;
+    height: 35px;
+    background-repeat: no-repeat;
+    border: 1px solid #bcbccb;
+}
+
+.selectOption .smSelect:focus {
+    background-image: url('https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg');
+    background-repeat: no-repeat;
+    background-size: 10px 5px;
+}
+
+div.allProject h3 {
+    text-transform: unset;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+    letter-spacing: normal;
+    font-weight: bold;
+}
+
+label.checkbox {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    width: 100%;
+    max-width: 200px;
+}
+
+label.checkbox input[type='checkbox'] {
+    appearance: auto;
+    z-index: unset;
+    opacity: unset;
+    background-color: #ea6560;
+    float: unset;
+    margin: 0;
+}
+
+div.projectMiddleInfo p.category {
+    margin-bottom: 15px;
+}
+
+div.projectGridView {
+    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    place-items: center;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+}
+
+div.projectList {
+    display: inline-flex;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    align-items: center;
+    margin-bottom: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+div.projectList div.heart {
+    position: absolute;
+    right: 19px;
+    top: 6px;
+}
+
+div.listImg {
+    margin-right: 20px;
+    width: 100px;
+    height: 68px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+div.listImg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+div.listCategory {
+    line-height: 12px;
+}
+
+div.listCategory p.recruitText {
+    font-size: 12px;
+    line-height: 12px;
+    color: #999;
+    margin: 7px 0px;
+    padding: 0;
+    font-weight: normal;
+}
+
+div.listCategory p.text {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    margin: 0;
+    line-height: 8px;
+}
+
+
+div.favorite {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background-image: url("https://letspl.me/_next/static/media/ic-favorite-empty-white.b1db0e3e169a5cf61afa41daf5bfdc15.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+div.top {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+span.text {
+    margin-left: 10px;
+    font-size: 15px;
+    padding-top: 4px;
+}
+
+label.checkbox input.check {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    outline: 0;
+}
+
+input[type='checkbox']:checked {
+    accent-color: #336d47;
+}
+
+div.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 12px;
+    width: 100%;
+}
+
+div.heart {
+    display: inline-flex;
+    align-items: center;
+}
+
+div.heart img {
+    width: 16px;
+    height: auto;
+}
+
+span.heartCount {
+    margin-left: 3px;
+    font-size: 12px;
+    height: 22px;
+    font-weight: 600;
+    color: #888;
+}
+
+ul.slider {
+    display: flex;
+    transform: translate3d(0%, 0px, 0px);
+    transition-duration: 1000ms;
+    width: 100%;
+}
+
+li.slide {
+    display: block;
+    min-width: 100%;
+}
+
+div.bottom div.recruitModel {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgba(51, 51, 51, .2);
+    border-radius: 2px;
+    right: 0;
+    bottom: 0;
+}
+
+div.recruitModel ul {
+    width: 195px;
+    padding: 10px;
+}
+
+div.recruitModel ul li {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.recruitModel ul li span {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+div.recruitModel ul li span:last-child {
+    color: #314e92;
+}
+
+div.recruitStatus {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+div.recruitStatus span {
+    color: #666;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+div.recruitStatus span:first-child {
+    margin-right: 6px;
+}
+
+div.recruitStatus div {
+    margin-left: 6px;
+}
+
+div.recruitStatus div img {
+    width: 10px;
+    height: 9px;
+}
+
+div.bottomWrap div.recruitModel {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgba(51, 51, 51, .2);
+    border-radius: 2px;
+    right: 0px;
+    bottom: 0px;
+}
+
+div.projectGridWrap {
+    width: 100%;
+    position: relative;
+    max-width: 285px;
+    height: 269px;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+div.projectTopInfo {
+    display: inline-flex;
+}
+
+div.box {
+    padding: 0px 12px;
+    margin-right: 5px;
+}
+
+div.green {
+    background-color: #336d47;
+}
+
+div.black {
+    background-color: #000;
+}
+
+div.box-wrap div.box span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 10px;
+}
+
+div.topInfo {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 12px;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+div.box-wrap {
+    display: inline-flex;
+    align-items: center;
+}
+
+div.projectImg {
+    background: transparent;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    max-height: 120px;
+    height: 100%;
+}
+
+div.projectImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+div.projectMiddleInfo {
+    padding: 13px;
+}
+
+div.projectBottomInfo {
+    padding: 13px 13px 0 13px;
+}
+
+div.middleWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.middleWrap div.left div.heart {
+    vertical-align: middle;
+}
+
+div.middleWrap div.left div.heart img{
+    width: 14px;
+    height: auto;
+}
+
+div.right span {
+    color: #888;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus span {
+    font-size: 11px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus div{
+    margin-left: 7px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus div img{
+    width: 8px;
+    height: 9px;
+}
+
+div.bottomWrap div.recruit {
+    border-top: 1px solid #f6f6f6;
+}
+
+div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
+    color: #ea6560;
+}
+
+/* section four */
+div.sideProject {
+    background-color: #f8f8f8;
+}
+
+div.sideList {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0 20px;
+}
+
+div.sideList h3 {
+    text-transform: unset;
+    font-size: 20px;
+    color: #333;
+    letter-spacing: normal;
+    font-weight: bold;
+    margin: 0;
+}
+
+div.sideCollect {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    place-items: center;
+}
+
+div.sideCollectList {
+    display: flex;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 32px 0 rgb(0 0 0 / 6%);
+    background-color: #fff;
+    margin: 20px 15px 15px;
+    padding: 20px 30px 16px 16px;
+    width: 100%;
+    max-width: 390px;
+    height: 164px;
+}
+
+div.sideImg {
+    width: 80px;
+    height: 37px;
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-right: 14px;
+    border: 1px solid #f3f3f4;
+}
+
+div.sideImg img{
+    width: 100%;
+    object-fit: contain;
+}
+
+div.sideCollectList div.textWrap {
+    display: inline-flex;
+    position: unset;
+    flex-direction: column;
+}
+
+div.hotText {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+div.hot {
+    padding: 2px 6px;
+    border-radius: 15px;
+    border: 1px solid #336d47;
+    display: inline-flex;
+    margin-right: 8px;
+}
+
+div.hot span {
+    font-size: 10px;
+    font-weight: 700;
+    color: #222;
+}
+
+div.hotText p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    overflow: hidden;
+    padding-top: 3px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+p.sideText {
+    font-size: 12px;
+    line-height: 14px;
+    color: #888;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin: 0;
+}
+
+div.sideApps{
+    display: flex;
+    align-items: center;
+}
+
+div.sideApp {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+}
+
+div.sideApp img {
+    width: 100%;
+    object-fit: cover;
+}
