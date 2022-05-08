@@ -30,58 +30,62 @@
         <div class="btns">
             <button class="btn">1</button>
             <button class="btn">2</button>
+            <li class="dot selected" value="2" role="button" tabindex="0" aria-label="slide item 1"></li>
+            <li class="dot selected" value="2" role="button" tabindex="0" aria-label="slide item 2"></li>
         </div>
     </section>
 
-<button id="popup_open_btn" class="modalBtn">로그인</button>
+<!--모달-->
 
-<div class="modalWindow">
-<div id="my_modal">
-    <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
-    <p class="snsLoginP">로그인</p>
-    <div class="snsWrap">
-        <button class="kakao_button">카카오 계정으로 로그인</button>
-        <button class="face_button">페이스북 계정으로 로그인</button>
-        <button class="google_button">구글 계정으로 로그인</button>
-    </div>
-    <div class="turnJoinWrap">
-        <button class="turnJoin">회원 가입하기</button>
-    </div>
-</div>
-</div>
+<!--<button id="popup_open_btn" class="modalBtn">로그인</button>-->
 
-<button id="popup_open_btn2" class="modalBtn">회원가입</button>
+<!--<div class="modalWindow">-->
+<!--<div id="my_modal">-->
+<!--    <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>-->
+<!--    <p class="snsLoginP">로그인</p>-->
+<!--    <div class="snsWrap">-->
+<!--        <button class="kakao_button">카카오 계정으로 로그인</button>-->
+<!--        <button class="face_button">페이스북 계정으로 로그인</button>-->
+<!--        <button class="google_button">구글 계정으로 로그인</button>-->
+<!--    </div>-->
+<!--    <div class="turnJoinWrap">-->
+<!--        <button class="turnJoin">회원 가입하기</button>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
 
-<div class="modalWindow">
-<div id="my_modal2">
-    <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
-    <p class="snsLoginP">회원가입</p>
-    <div class="snsWrap">
-        <button class="kakao_button2">카카오 계정으로 회원가입</button>
-        <button class="face_button2">페이스북 계정으로 회원가입</button>
-        <button class="google_button2">구글 계정으로 회원가입</button>
-    </div>
-    <div class="joinPromise">
-        <p class="firstPMaybe">소셜 로그인으로 가입 시<a href="#" class="firstA"> 이용약관,</a><a href="#" class="secondA"> 개인정보처리방침,</a><a
-            href="#" class="thirdA"> 전자금융거래약관</a>에 동의함으로 처리됩니다.</p>
-    </div>
-    <div class="turnLoginWrap">
-        <button class="turnLogin">로그인 하기</button>
-    </div>
-</div>
-</div>
+<!--<button id="popup_open_btn2" class="modalBtn">회원가입</button>-->
 
-<button id="popup_open_btn3" class="modalBtn">로그아웃</button>
+<!--<div class="modalWindow">-->
+<!--<div id="my_modal2">-->
+<!--    <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>-->
+<!--    <p class="snsLoginP">회원가입</p>-->
+<!--    <div class="snsWrap">-->
+<!--        <button class="kakao_button2">카카오 계정으로 회원가입</button>-->
+<!--        <button class="face_button2">페이스북 계정으로 회원가입</button>-->
+<!--        <button class="google_button2">구글 계정으로 회원가입</button>-->
+<!--    </div>-->
+<!--    <div class="joinPromise">-->
+<!--        <p class="firstPMaybe">소셜 로그인으로 가입 시<a href="#" class="firstA"> 이용약관,</a><a href="#" class="secondA"> 개인정보처리방침,</a><a-->
+<!--            href="#" class="thirdA"> 전자금융거래약관</a>에 동의함으로 처리됩니다.</p>-->
+<!--    </div>-->
+<!--    <div class="turnLoginWrap">-->
+<!--        <button class="turnLogin">로그인 하기</button>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
 
-<div class="modalWindow">
-    <div id="my_modal3">
-        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon2"></a>
-        <div class="letter">
-            <p class="completeP">로그아웃이 완료되었습니다.</p>
-            <button class="complete">확인</button>
-        </div>
-    </div>
-</div>
+<!--<button id="popup_open_btn3" class="modalBtn">로그아웃</button>-->
+
+<!--<div class="modalWindow">-->
+<!--    <div id="my_modal3">-->
+<!--        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon2"></a>-->
+<!--        <div class="letter">-->
+<!--            <p class="completeP">로그아웃이 완료되었습니다.</p>-->
+<!--            <button class="complete">확인</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
     <section>
         <div class="firstWrapper">
@@ -1043,6 +1047,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     const btns = document.querySelectorAll("button.btn");
+    const littleBtns = document.querySelectorAll("li.dot");
     const banner = document.querySelector("div.banner");
     const arrows = document.querySelectorAll("div.arrow");
     var count = 0;
@@ -1058,6 +1063,10 @@
             count = index;
             banner.style.transform = "translate(-" + count * 100 + "vw)";
         })
+    });
+
+    littleBtns.forEach(function(value, index, ar){
+
     });
 
     arrows.forEach((arrow) => {
@@ -1092,79 +1101,25 @@
         $("#footer").load('../../templates/fix/footer.html');
     });
 
-    // 모달창
-    // function modal(id) {
-    //     var zIndex = 9999;
-    //     var modal = document.getElementById(id);
-    //
-    //     // 모달 div 뒤에 희끄무레한 레이어
-    //     var bg = document.createElement('div');
-    //     bg.setStyle({
-    //         position: 'fixed',
-    //         zIndex: zIndex,
-    //         left: '0px',
-    //         top: '0px',
-    //         width: '100%',
-    //         height: '100%',
-    //         overflow: 'auto',
-    //         // 레이어 색갈은 여기서 바꾸면 됨
-    //         backgroundColor: 'rgba(0,0,0,0.4)'
+    // 모달
+
+    // $('.modalBtn').each(function(i, btn){
+    //     $(btn).on("click", function(){
+    //         $($(".modalWindow").get(i)).show();
     //     });
-    //     document.body.append(bg);
-    //
-    //     // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
-    //     modal.querySelector('.modal_close_btn').addEventListener('click', function() {
-    //         bg.remove();
-    //         modal.style.display = 'none';
-    //     });
-    //
-    //     modal.setStyle({
-    //         position: 'fixed',
-    //         display: 'block',
-    //         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-    //
-    //         // 시꺼먼 레이어 보다 한칸 위에 보이기
-    //         zIndex: zIndex + 1,
-    //
-    //         // div center 정렬
-    //         top: '50%',
-    //         left: '50%',
-    //         transform: 'translate(-50%, -50%)',
-    //         msTransform: 'translate(-50%, -50%)',
-    //         webkitTransform: 'translate(-50%, -50%)'
-    //     });
-    // }
-    //
-    // // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
-    // Element.prototype.setStyle = function(styles) {
-    //     for (var k in styles) this.style[k] = styles[k];
-    //     return this;
-    // };
-    //
-    // document.getElementById('popup_open_btn').addEventListener('click', function() {
-    //     // 모달창 띄우기
-    //     modal('my_modal');
     // });
-
-    $('.modalBtn').each(function(i, btn){
-        $(btn).on("click", function(){
-            $($(".modalWindow").get(i)).show();
-        });
-    });
-
-    $('.modal_close_btn').each(function(i, btn){
-        $(btn).on("click", function(){
-            $($(".modalWindow").get(i)).hide();
-        });
-    });
+    //
+    // $('.modal_close_btn').each(function(i, btn){
+    //     $(btn).on("click", function(){
+    //         $($(".modalWindow").get(i)).hide();
+    //     });
+    // });
 
     $('.complete').each(function(i, btn){
         $(btn).on("click", function(){
             $($(".modalWindow").get(i)).hide();
         });
     });
-
-
 
 </script>
 </html>
