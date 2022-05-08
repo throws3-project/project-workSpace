@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>workSpace</title>
     <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
-    <link rel="stylesheet" href="../../static/css/header.css" type="text/css"/>
-    <link rel="stylesheet" href="../../static/css/footer.css" type="text/css"/>
     <style>
+        section {
+            margin-top: 150px;
+        }
+
         div.section {
             margin-bottom: 30px;
         }
@@ -71,7 +73,7 @@
             overflow: hidden;
         }
 
-        div.userWrap div.leaderImg a{
+        div.userWrap div.leaderImg a {
             width: 35px;
             height: 35px;
         }
@@ -167,6 +169,7 @@
             position: relative;
             margin: 0;
             max-width: 840px;
+            width: 100%;
         }
 
         div.projectTabMenu {
@@ -202,7 +205,7 @@
             text-decoration: none;
         }
 
-        div.projectTabMenu ul li a.active, .projectTabMenu>ul li a:hover {
+        div.projectTabMenu ul li a.active, .projectTabMenu > ul li a:hover {
             color: #42495b;
             background-color: #fff;
             border: 1px solid #000;
@@ -268,7 +271,7 @@
             font-size: 13px;
             font-weight: 700;
             color: #81839c;
-            padding: 2px 45px;
+            padding: 2px 35px;
             border: 1px solid #81839c;
             border-radius: 2px;
             transition: all .2s;
@@ -287,10 +290,6 @@
 
         div.projectInfo {
             display: none;
-        }
-
-        div.active {
-            display: block;
         }
 
         div.status {
@@ -457,6 +456,7 @@
         }
 
         .num {
+            font-weight: 700;
             font-size: 13px;
             color: #999;
             margin-left: 10px;
@@ -509,7 +509,6 @@
 
         .userGridTool {
             margin: 0 auto;
-            width: 1200px;
             padding: 0;
             box-sizing: border-box;
         }
@@ -517,9 +516,8 @@
         .userGridList {
             width: 100%;
             display: grid;
-            flex-direction: row;
-            flex-wrap: wrap;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 4px;
         }
 
         .userLvIcon {
@@ -533,6 +531,37 @@
         .ugname {
             margin-bottom: 0;
             font-size: 15px;
+            cursor:pointer;
+        }
+
+        ul.idHoverMenu {
+            display: none;
+            position: absolute;
+            width: 120px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            -webkit-box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+            box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+            margin-left: -37px;
+            top: 50px;
+        }
+
+        ul.idHoverMenu li {
+            width: 100%;
+        }
+
+        ul.idHoverMenu li a {
+            display: block;
+            padding: 5px 15px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        ul.idHoverMenu li a:hover {
+            background-color: rgba(234,101,95,.5);
         }
 
         .join {
@@ -639,7 +668,7 @@
             cursor: pointer;
         }
 
-         div.userWrapper span.confirmPhone {
+        div.userWrapper span.confirmPhone {
             font-size: 11px;
             line-height: 11px;
             color: #8e8ea2;
@@ -742,7 +771,7 @@
         }
 
         /* nav section four */
-        div.subscriber ul{
+        div.subscriber ul {
             display: flex;
             flex-direction: row;
             align-items: flex-end;
@@ -759,7 +788,7 @@
             display: inline-block;
         }
 
-        div.subscriber ul li:nth-child(2){
+        div.subscriber ul li:nth-child(2) {
             margin-left: -15px;
         }
 
@@ -794,7 +823,7 @@
         div.subHover {
             width: 103px;
             height: 26px;
-            background-color: rgba(0,0,0,.8);
+            background-color: rgba(0, 0, 0, .8);
             position: absolute;
             top: -20px;
             right: -51px;
@@ -806,7 +835,7 @@
             display: none;
         }
 
-        div.subHover p{
+        div.subHover p {
             width: 100%;
             text-align: center;
             line-height: 1;
@@ -815,7 +844,7 @@
             margin: 0;
         }
 
-        div.subHover p span:first-child{
+        div.subHover p span:first-child {
             font-size: 12px;
             color: #00704a;
             margin-right: 4px;
@@ -839,8 +868,8 @@
             width: 0;
             position: absolute;
             pointer-events: none;
-            border: 5px solid rgba(136,183,213,0);
-            border-top-color: rgba(0,0,0,.8);
+            border: 5px solid rgba(136, 183, 213, 0);
+            border-top-color: rgba(0, 0, 0, .8);
             margin-left: 14px;
         }
 
@@ -852,10 +881,1069 @@
             width: 0;
             position: absolute;
             pointer-events: none;
-            border: 5px solid rgba(136,183,213,0);
-            border-top-color: rgba(0,0,0,.8);
+            border: 5px solid rgba(136, 183, 213, 0);
+            border-top-color: rgba(0, 0, 0, .8);
             margin-left: 14px;
         }
+
+        div.subscribeButton {
+            background-color: #ea6560;
+            color: #fff;
+            border: 1px solid #ea6560;
+            margin-top: 15px;
+            padding: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        a.subscribeButton {
+            text-decoration: none;
+        }
+
+
+        /* chapter two story */
+
+        div.storySection {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 10px;
+            display: none;
+        }
+
+        div.stories {
+            max-width: 1200px;
+            padding: 0;
+        }
+
+        div.story ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        div.story ul li {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 20px;
+            border: 1px solid #e5e5e5;
+            background-color: #fff;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        div.left {
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+        }
+
+        div.storyImg {
+            width: 145px;
+            height: 114px;
+            overflow: hidden;
+            margin-right: 30px;
+            flex-shrink: 0;
+            position: relative;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+        }
+
+        div.storyImg img {
+            width: 145px;
+            height: 114px;
+            object-fit: cover;
+        }
+
+        div.list {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        div.categoryWrap {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        span.category {
+            font-size: 10px;
+            line-height: 14px;
+            border-radius: 4px;
+            color: #ea6560;
+            margin-bottom: 3px;
+            padding: 4px 12px;
+            background-color: #f2f2f2;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        p.categoryText {
+            font-size: 17px;
+            color: #42495b;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            overflow: hidden;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        div.previewText {
+            font-size: 14px;
+            line-height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            margin-bottom: 10px;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            color: #b5b5c2;
+            display: -webkit-inline-box;
+            word-break: normal;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        div.tagWrap {
+            color: #222;
+            margin-right: 4px;
+            line-height: 14px;
+            display: -webkit-box;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            margin-bottom: 10px;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+        }
+
+        div.tagWrap span {
+            font-size: 11px;
+            color: #8e8ea2;
+            margin-right: 3px;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        div.right {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        div.listStatus {
+            display: inline-flex;
+        }
+
+        div.listStatus p {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 12px;
+        }
+
+        div.listStatus p svg {
+            margin-right: 4px;
+        }
+
+        div.listStatus p span {
+            font-size: 12px;
+            line-height: 1px;
+            color: #42495b;
+            font-weight: 700;
+        }
+
+        div.noStoryWrap {
+            background-color: #f7f7f7;
+            padding: 16px 0;
+            text-align: center;
+        }
+
+        div.noStoryWrap p {
+            font-size: 13px;
+            color: #a9a9b9;
+            word-wrap: break-word;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        button.subscribeBtnNow {
+            border-radius: 5px;
+            background-color: #ea6560;
+            margin: 0;
+            padding: 8px 29px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        span.subscribeBtnNow {
+            text-decoration: none;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* chapter three faq */
+        div.projectFaq {
+            display: none;
+        }
+
+        h3.faqText {
+            font-size: 22px;
+            margin-top: 15px;
+            margin-bottom: 28px;
+            line-height: unset;
+            font-weight: 700;
+            text-transform: unset;
+        }
+
+        div.faqWrap {
+            display: inline-flex;
+            flex-direction: column;
+            background-color: #fff;
+            display: inline-flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #e3e3e3;
+            border-radius: 8px;
+            padding: 18px 20px;
+        }
+
+        div.textareaWrap {
+            display: inline-flex;
+            margin-bottom: 15px;
+        }
+
+        textarea.textarea {
+            flex: 1 1;
+            padding: 0;
+            border: 0;
+            font-size: 14px;
+            resize: none;
+            background-color: unset;
+        }
+
+        div.textButtonWrap {
+            width: 100%;
+            display: inline-flex;
+            justify-content: space-between;
+            display: none;
+        }
+
+        p.count {
+            font-size: 14px;
+            color: #b1b1b1;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p.count span:first-child {
+            color: #333;
+        }
+
+        button.faqButton {
+            background-color: #f2f2f2;
+            color: #222;
+            border: 1px solid #f2f2f2;
+            width: auto;
+            padding: 6px 27px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor:pointer;
+        }
+
+        div.faqBottom a:after{
+            content: " ";
+            width: 11px;
+            height: 11px;
+            display: inline-block;
+            margin-left: 4px;
+            background-image: url("https://letspl.me/_next/static/media/option-triangle.2abb88b721408916136ac6048ff74b95.svg");
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        div.faqBottom a.active:after{
+        transform: rotate(-180deg);
+        }
+
+        span.replyCount:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 2px;
+            background-image: url("https://letspl.me/_next/static/media/ico_comment.66b0e87a88ad24dc805cabc6e2ca41af.svg");
+        }
+
+        div.faqUploadWrap {
+            background-color: #fff;
+            padding: 13px 24px;
+            border-top: 1px solid #ededed;
+        }
+
+        div.faqTop {
+            display: flex;
+            align-items: center;
+        }
+
+        div.profileImg {
+            width: 54px;
+            height: 54px;
+            margin-right: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid #e3e3e3;
+        }
+
+        div.profileImg img{
+            width: 54px;
+            height: 54px;
+            object-fit: cover;
+        }
+
+        div.name {
+            flex: 1 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        p.profileName {
+            font-size: 16px;
+            color: #42495b;
+            cursor: pointer;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        div.faqTop div.name div.idMenu {
+            display: none;
+            position: absolute;
+            top: 31px;
+            left: -5px;
+            text-align: left;
+            width: 120px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            z-index: 555;
+            box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 20%);
+        }
+
+        div.name span {
+            color: #c9c9d9;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        div.faqMiddle {
+            padding-left: 5px;
+            margin-bottom: 12px;
+        }
+
+        div.faqMiddle textarea {
+            height: auto;
+            background-color: #fff;
+            border: none;
+            color: #222;
+            margin-top: 13px;
+            margin-bottom: 13px;
+            width: 100%;
+            opacity: 1;
+            -webkit-text-fill-color: #222;
+            font-size: 14px;
+            font-weight: 700;
+            height: 62px;
+            resize: none;
+            overflow: hidden;
+        }
+
+        div.faqBottom {
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 13px;
+        }
+
+        div.faqBottom a {
+            cursor: pointer;
+            font-size: .75rem;
+            color: #c9c9d9;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        span.replyCount {
+            font-size: 11px;
+            color: #42495b;
+            display: inline-flex;
+        }
+
+
+        div.replyWrap {
+            background-color: #f8f8f8;
+            padding: 16px 34px;
+            transition: all .2s;
+            flex-direction: column;
+            display: none;
+        }
+
+        div.replyWrapContent {
+            margin-bottom: 14px;
+            border-bottom: 1px solid #e3e3e3;
+        }
+
+        div.top {
+            display: flex;
+            align-items: center;
+        }
+
+        div.top div.left {
+            display: block;
+            width: auto;
+        }
+
+        div.top div.left div.profileImg {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e3e3e3;
+        }
+
+        div.top div.left div.profileImg img {
+            width: 44px;
+            height: 44px;
+            object-fit: cover;
+        }
+
+        div.replyWrapContent div.top div.right {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        div.top div.right h4 {
+            font-size: 14px;
+            color: #42495b;
+            font-weight: 700;
+            margin: 0;
+            text-transform: none;
+        }
+
+        div.replyWrapContent div.top div.right div.idMenu {
+            display: none;
+            position: absolute;
+            text-align: left;
+            top: 18px;
+            left: -4px;
+            width: 120px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            z-index: 555;
+            box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 20%);
+        }
+
+        div.top div.right p.dateText {
+            font-size: 11px;
+            font-weight: 700;
+            color: #42495b;
+            margin: 0;
+        }
+
+        div.replyWrapContent div.top div.right h4.profileName div.idMenu{
+            display: none;
+            position: absolute;
+            text-align: left;
+            width: 120px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            z-index: 555;
+            box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 20%);
+        }
+
+        div.bottom {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
+
+        div.textWrap {
+            flex: 1 1;
+            width: 100%;
+            padding: 0.75em 1em;
+        }
+
+        div.textWrap textarea {
+            background: none;
+            border: none;
+            color: #222;
+            flex: 1 1;
+            padding: 0;
+            resize: none;
+            overflow: hidden;
+            opacity: 1;
+            -webkit-text-fill-color: #222;
+            margin-bottom: 20px;
+            font-size: 12px;
+            height: 42px;
+            font-weight: 700;
+        }
+
+        p.noMemberText {
+            font-size: 14px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        p.noMemberText a {
+            color: #00704a;
+            margin-left: 4px;
+            text-decoration: none;
+        }
+
+        div.reply {
+            display: flex;
+        }
+
+
+
+        /* chatting */
+        div.chattingWrap {
+            position: fixed;
+            left: 50%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 6999;
+            bottom: 0;
+            transform: translateX(-50%);
+            display: block;
+            text-align: right;
+        }
+
+        div.chattingOpen {
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
+            width: 58px;
+            margin-left: auto;
+            position: relative;
+            cursor: pointer;
+            display: none;
+        }
+
+        div.chattingOpen:after {
+            content: "";
+            display: inline-flex;
+            width: 58px;
+            border-radius: 100%;
+            height: 58px;
+            background-color: #f6f6f6;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: 55px auto;
+            z-index: 99;
+            background-image: url("https://letspl.me/_next/static/media/ic_chatting.15e3dffd8b339e28846d7ab7827b7b92.svg");
+        }
+
+        div.chatting {
+            position: fixed;
+            left: 50%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 6999;
+            bottom: 0;
+            transform: translateX(-50%);
+            display: none;
+            text-align: right;
+        }
+
+        div.open {
+            display:block;
+        }
+
+        div.chattingContentWrap {
+            max-width: 720px;
+            height: 460px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 10px 0 rgb(0 0 0 / 15%);
+            background-color: #fff;
+            margin-left: auto;
+            border-radius: 4px;
+        }
+
+        div.chattingHeader {
+            display: inline-flex;
+            position: relative;
+        }
+
+        div.chattingHeader div.left {
+            max-width: 250px;
+            width: 100%;
+            border-right: 1px solid #f0f0f0;
+            padding: 0 12px;
+            display: block;
+        }
+
+        div.chattingHeader div.left p {
+            padding: 15px 0 7px;
+            font-weight: 700;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        div.chattingHeader div.right {
+            flex-direction: row;
+            align-items: center;
+            padding: 5px 16px 5px 20px;
+            width: 100%;
+            justify-content: unset;
+            position: relative;
+        }
+
+        div.chattingHeader div.right div.chatterImg {
+            width: 36px;
+            height: 36px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 100px;
+        }
+
+        div.chattingHeader div.right div.chatterImg img {
+            height: 100%;
+            width: auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1.2);
+        }
+
+        div.user {
+            display: inline-flex;
+            flex-direction: column;
+            margin-left: 12px;
+            text-align: left;
+        }
+
+        div.user p.userId {
+            font-size: 13px;
+            line-height: 26px;
+            color: #424251;
+            cursor: pointer;
+            position: relative;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        div.user div.idMenu {
+            bottom: -40px;
+            width: 120px;
+            box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+            z-index: 999;
+        }
+
+        p.lastTime {
+            font-size: 11px;
+            line-height: 11px;
+            color: #222;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            margin: 0;
+        }
+
+        span.questionMore {
+            width: 13px;
+            height: 16px;
+            background-image: url("https://letspl.me/_next/static/media/ic_chat_info.91e6cce265e9132807d26073431abb85.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 4px;
+            position: relative;
+            z-index: 99;
+            cursor: pointer;
+        }
+
+        span.questionHoverView {
+            display: none;
+            position: absolute;
+            top: 15px;
+            left: 0;
+            background: #fff;
+            padding: 10px;
+            flex-direction: revert;
+            width: 270px;
+            box-shadow: 0 2px 10px 0 rgb(0 0 0 / 15%);
+        }
+
+        div.moreAndFold {
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            display: inline-flex;
+            flex-direction: row;
+            z-index: 1000;
+        }
+
+        div.alarm {
+            background-image: url("https://letspl.me/_next/static/media/ic-notifi-on.83421910bacc6c482742663953bae0f2.png");
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            margin-right: 3px;
+            background-size: 24px;
+            background-position: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        div.fold {
+            background-image: url("https://letspl.me/_next/static/media/ic-signout.754c0b1eb28b57f2b7a550d73337ae5d.png");
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            margin-right: 12px;
+            background-size: 24px;
+            background-position: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        div.foldChatButton {
+            position: absolute;
+            left: 12px;
+            top: 18px;
+            background-color: #fff;
+            background-image: url("https://letspl.me/_next/static/media/ic_chat_window.ee10e350ee96e8186c595e431aee6be8.svg");
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            background-position: 50%;
+            cursor: pointer;
+        }
+
+        div.active {
+            display: block;
+        }
+
+        div.chattingSection {
+            display: inline-flex;
+            flex-direction: row;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        div.chatList {
+            padding: 0 12px;
+            overflow: auto;
+            position: relative;
+            max-width: 250px;
+            width: 100%;
+            border-right: 1px solid #f0f0f0;
+        }
+
+        div.chatList ul {
+            width: 100%;
+        }
+
+        div.chatList ul li {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            border-top: 1px solid #f0f0f0;
+            padding: 8px 0;
+            cursor: pointer;
+            width: 100%;
+            max-width: 225px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        div.chatList ul li.active:before {
+            content: "";
+            position: absolute;
+            width: -webkit-calc(100% + 24px);
+            width: calc(100% + 24px);
+            height: 100%;
+            left: -12px;
+            top: 0;
+            background-color: rgba(234,101,96,.7);
+            z-index: 1;
+        }
+
+        div.chatList ul li.active div.chatInfo span.userIdAndBeforeTime,
+        div.chatList ul li.active div.chatInfo span.chatter,
+        div.chatList ul li.active div.chatInfo span.beforeTime,
+        div.chatList ul li.active div.chatInfo p.chatInfoText,
+        div.chatList ul li.active div.chatInfo p.endTime {
+            color: #fff;
+        }
+
+        div.chatList div.chatImg {
+            width: 28px;
+            height: 28px;
+            border-radius: 100px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            margin-right: 8px;
+            z-index: 99;
+        }
+
+        div.chatList div.chatImg img {
+            height: 100%;
+            width: auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1.2);
+        }
+
+        div.chatInfo {
+            display: inline-flex;
+            flex-direction: column;
+            z-index: 99;
+            width: 100%;
+        }
+
+        div.chatInfo span.userIdAndBeforeTime {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        span.chatter {
+            font-size: 13px;
+            font-weight: 700;
+            color: #424251;
+        }
+
+        span.beforeTime {
+            font-size: 11px;
+            color: #222;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        p.chatInfoText {
+            font-size: 10px;
+            letter-spacing: 0;
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: normal;
+            line-height: 1.2;
+            height: 26px;
+            text-align: left;
+            overflow: hidden;
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            color: #222;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+
+        p.endTime {
+            font-size: 10px;
+            font-weight: 700;
+            color: #222;
+            text-align: left;
+            margin: 0;
+        }
+
+        div.chattingSection div.chattingRoom.active {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+
+        div.chattingSection div.chattingRoom {
+            position: relative;
+            width: 100%;
+            display: none;
+        }
+
+        div.chattingSection div.chattingRoomWrap {
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            display: block;
+            width: 100%;
+            height: 332px;
+            padding: 5px 22px;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.dayInfo {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.dayInfo p {
+            font-size: 10px;
+            color: #686868;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.dayInfo p:before {
+            content: "";
+            width: 156px;
+            background-color: #f3f3f3;
+            height: 1px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        div.chattingSection div.chattingRoomWrap div.dayInfo p:after {
+            content: "";
+            width: 156px;
+            background-color: #f3f3f3;
+            height: 1px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        div.chattingSection div.chattingRoomWrap div.userStatus {
+            text-align: center;
+            margin-bottom: 3px;
+            margin-top: 3px;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.userStatus p {
+            position: relative;
+            padding: 5px 16px;
+            background-color: #f3f3f3;
+            border-radius: 100px;
+            display: inline-block;
+            color: #222;
+            font-size: 10px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            position: relative;
+            justify-content: flex-start;
+            margin-bottom: 8px;
+            flex: 1 0 auto;
+            margin-top: 10px;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent div.chatterImg {
+            width: 32px;
+            height: 32px;
+            border-radius: 100px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent div.chatterImg img{
+            height: 100%;
+            width: auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%,-50%) scale(1.2);
+            transform: translate(-50%,-50%) scale(1.2);
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent div.userIdChat {
+            display: inline-flex;
+            flex-direction: column;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent div.userIdChat span.userId {
+            font-size: 12px;
+            color: #222;
+            margin-left: 6px;
+            text-align: left;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent div.userIdChat p.chatText {
+            padding: 8px 20px;
+            font-size: 13px;
+            background-color: #f1f1f3;
+            position: relative;
+            margin-left: 12px;
+            border-radius: 4px;
+            max-width: 205px;
+            text-align: left;
+            word-wrap: break-word;
+            font-weight: 700;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent div.userIdChat p.chatText:before {
+            border-color: #ededef transparent transparent;
+            border-style: solid;
+            border-width: 8px 0 0 10px;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -8px;
+        }
+
+        div.chattingSection div.chattingRoomWrap div.opponent div.userIdChat p.chatText span.time {
+            position: absolute;
+            font-size: 10px;
+            color: #222;
+            bottom: 0;
+            right: -55px;
+        }
+
+
+
+
+
+
+
 
     </style>
 </head>
@@ -1004,6 +2092,14 @@
                                                         </div>
                                                         <div class="userGridName">
                                                             <p class="ugname">상냥이</p>
+                                                            <ul class="idHoverMenu">
+                                                                <li>
+                                                                    <a>프로필 상세</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a>1:1 대화</a>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                         <div class="usercheckIcon">
                                                             <img class="checkIcon"
@@ -1032,25 +2128,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
-
                                             <div class="userinfo">
                                                 <div class="bon"><span class="info">[본캐]UI/UX기획</span><span
                                                         class="num">중수</span></div>
                                                 <div class="boo"><span class="info">[부캐]게임기획</span><span
                                                         class="num">초보</span></div>
                                             </div>
-
                                             <div class="usertag">
-                                                <ul class="ulusertag">
-                                                    <li class="liusertag">#IT</li>
-                                                    <li class="liusertag">#UIUX</li>
-                                                    <li class="liusertag">#프론트</li>
-                                                    <li class="liusertag">#디자인</li>
-                                                    <li class="liusertag">#기획</li>
-                                                </ul>
-                                                <p class="join">진행중인 모임이 없습니다.</p>
+                                                <p class="join">아직 담당하는 역할이 없습니다.</p>
                                             </div>
                                             <div class="userGridbottom">
                                                 <img class="btimg" src="../../static/images/image/BBBB.png">
@@ -1063,7 +2149,373 @@
                         </div>
                         <div class="memberSection">
                             <h3 class="detailTab">- 멤버</h3>
+                            <div class="thirdWrapper">
+                                <div class="userGridTool">
+                                    <ul class="userGridList">
+                                        <li class="userGrid">
+                                            <img src="../../static/images/image/letspler_new_mark.png"
+                                                 class="red2">
 
+                                            <div class="userGridtop">
+                                                <div class="userIn" style="display: flex;">
+                                                    <div class="userGridimg">
+                                                        <img src="../../static/images/image/여.png"
+                                                             style="width: 50px; object-fit: cover;">
+                                                    </div>
+                                                    <a class="like"></a>
+                                                </div>
+
+                                                <div class="usertool">
+                                                    <div class="user1">
+                                                        <div class="userLvIcon">
+                                                            <img class="lvIcon"
+                                                                 src="../../static/images/image/level_6.png">
+                                                        </div>
+                                                        <div class="userGridName">
+                                                            <p class="ugname">상냥이</p>
+                                                            <ul class="idHoverMenu">
+                                                                <li>
+                                                                    <a>프로필 상세</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a>1:1 대화</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="usercheckIcon">
+                                                            <img class="checkIcon"
+                                                                 src="../../static/images/image/ic-certi-red.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="userInn">
+                                                        <div class="bitandheart">
+                                                            <div class="bitdiv">
+                                                                <div class="bitimg">
+                                                                    <img src="../../static/images/image/BBBB.png"
+                                                                         class="bitIcon">
+                                                                </div>
+                                                                <div class="bittag">
+                                                                    <p class="bitptag">3</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="heartdiv">
+                                                                <div class="heartimg">
+                                                                    <img src="../../static/images/image/ico_like.png"
+                                                                         class="heartIcon"></div>
+                                                                <div class="hearttag">
+                                                                    <p class="heartptag">1</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="userinfo">
+                                                <div class="bon"><span class="info">[본캐]UI/UX기획</span><span
+                                                        class="num">중수</span></div>
+                                                <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                                        class="num">초보</span></div>
+                                            </div>
+                                            <div class="usertag">
+                                                <p class="join">아직 담당하는 역할이 없습니다.</p>
+                                            </div>
+                                            <div class="userGridbottom">
+                                                <img class="btimg" src="../../static/images/image/BBBB.png">
+                                                <p class="btchat">BIt Chat</p>
+                                            </div>
+                                        </li>
+                                        <li class="userGrid">
+                                            <img src="../../static/images/image/letspler_new_mark.png"
+                                                 class="red2">
+
+                                            <div class="userGridtop">
+                                                <div class="userIn" style="display: flex;">
+                                                    <div class="userGridimg">
+                                                        <img src="../../static/images/image/여.png"
+                                                             style="width: 50px; object-fit: cover;">
+                                                    </div>
+                                                    <a class="like"></a>
+                                                </div>
+
+                                                <div class="usertool">
+                                                    <div class="user1">
+                                                        <div class="userLvIcon">
+                                                            <img class="lvIcon"
+                                                                 src="../../static/images/image/level_6.png">
+                                                        </div>
+                                                        <div class="userGridName">
+                                                            <p class="ugname">상냥이</p>
+                                                            <ul class="idHoverMenu">
+                                                                <li>
+                                                                    <a>프로필 상세</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a>1:1 대화</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="usercheckIcon">
+                                                            <img class="checkIcon"
+                                                                 src="../../static/images/image/ic-certi-red.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="userInn">
+                                                        <div class="bitandheart">
+                                                            <div class="bitdiv">
+                                                                <div class="bitimg">
+                                                                    <img src="../../static/images/image/BBBB.png"
+                                                                         class="bitIcon">
+                                                                </div>
+                                                                <div class="bittag">
+                                                                    <p class="bitptag">3</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="heartdiv">
+                                                                <div class="heartimg">
+                                                                    <img src="../../static/images/image/ico_like.png"
+                                                                         class="heartIcon"></div>
+                                                                <div class="hearttag">
+                                                                    <p class="heartptag">1</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="userinfo">
+                                                <div class="bon"><span class="info">[본캐]UI/UX기획</span><span
+                                                        class="num">중수</span></div>
+                                                <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                                        class="num">초보</span></div>
+                                            </div>
+                                            <div class="usertag">
+                                                <p class="join">아직 담당하는 역할이 없습니다.</p>
+                                            </div>
+                                            <div class="userGridbottom">
+                                                <img class="btimg" src="../../static/images/image/BBBB.png">
+                                                <p class="btchat">BIt Chat</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="storySection">
+                    <div class="stories">
+                        <div class="story">
+                            <ul>
+                                <li>
+                                    <div class="left">
+                                        <div class="storyImg">
+                                            <img src="../../static/images/storyImg_ex.png">
+                                        </div>
+                                        <div class="list">
+                                            <div class="categoryWrap">
+                                                <span class="category">테스터 모집</span>
+                                                <p class="categoryText">﻿인공지능 사이드 프로젝트 커뮤니티 리뉴얼 할 사이</p>
+                                            </div>
+                                            <div class="previewText">
+                                                ﻿인공지능 사이드 프로젝트 커뮤니티 리뉴얼 할 사이드 프로젝트 팀원 모집 합니다1. 인공지능 사이드 프로젝트 커뮤니티 설명-
+                                                인공지능 및 메타버스, 스마트시티, 디지털트윈 관련 정보를 교환하고 같이 사이드 프로젝트, 창업공모전 및 공모전을 하는 커뮤니티
+                                                입니다- 독립 사이트 aitutor21.com, 카톡 단톡방, 페이스북 그룹을 운영 중 이며 페북 그룹은 5000 명, 단톡방은
+                                                420 명 / 170 명 입니다.- 회원은 인공지능 개발자, 사업가, 연구원, 디자이너, 교수 등으로 구성되어 있습니다. 2.
+                                                프로젝트 필요성- IT 업체의 경우 인공지능 개발자 채용이 아주 어렵고, 개발자들 또한 좋은 회사를 찾기가 쉽지 않음 - 평생
+                                                직장이 사라져 개인 포트폴리오와 역량개발이 아주 중요하고, 회사를 다니면서 창업이나 개인사업을 준비하는 사람들이 많아짐 - 사이드
+                                                프로젝트를 위한 멤버 구성이나 참여가 아주 어려움 - 사이드 프로젝트의 수익 연결이나 성공 사례가 확률적으로 어려움3. 출시
+                                                플랫폼/타겟 유저- aitutor21.com 개발되어 있으나 디자인 컨텐츠 활성도가 약해서 리뉴얼을 하려고 함- 서비스의 유저는
+                                                인공지능/메타버스/디지털트윈 관련 개발자/기획자/디자이너/사업가임 4. 이런분들을 원합니다.- 사이트를 리뉴얼 하고 계속
+                                                운영하면서 공모전과 창업공모전을 계속 같이 하려고 함- 창업공모전을 위해 POC 개발을 같이 할 기획 1 개발 1 디자이너 1 명
+                                                구함- 현재 팀원은 기획 개발자 분들임- 기획은 UI/UX 를 윅스나 피그마로 만들어 주실 분이 필요함- 개발은 PHP 나 자바
+                                                개발자가 필요함- 디자이너는 웹앱 디자이너가 필요함- 연락은 카톡 simjs1 이 빠릅니다
+                                            </div>
+                                            <div class="tagWrap">
+                                                <span>#nft</span>
+                                                <span>#web3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="listStatus">
+                                            <p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     viewBox="0 0 16 16" fill="none">
+                                                    <path d="M8 2.48901C6.27297 2.48988 4.58622 3.01069 3.15934 3.98365C1.73246 4.9566 0.631569 6.33661 0 7.94401C0.630962 9.55179 1.73172 10.9321 3.15875 11.9051C4.58577 12.878 6.27285 13.3985 8 13.3985C9.72715 13.3985 11.4142 12.878 12.8413 11.9051C14.2683 10.9321 15.369 9.55179 16 7.94401C15.3684 6.33661 14.2675 4.9566 12.8407 3.98365C11.4138 3.01069 9.72703 2.48988 8 2.48901V2.48901ZM8 11.58C7.28087 11.58 6.57788 11.3668 5.97995 10.9672C5.38201 10.5677 4.91597 9.99984 4.64077 9.33545C4.36557 8.67106 4.29357 7.93998 4.43386 7.23466C4.57416 6.52935 4.92046 5.88148 5.42896 5.37297C5.93746 4.86447 6.58534 4.51817 7.29065 4.37788C7.99597 4.23758 8.72704 4.30959 9.39144 4.58479C10.0558 4.85999 10.6237 5.32602 11.0232 5.92396C11.4228 6.5219 11.636 7.22488 11.636 7.94401C11.6355 8.90818 11.2522 9.8327 10.5705 10.5145C9.88869 11.1962 8.96416 11.5795 8 11.58ZM8 5.76201C7.56844 5.76201 7.14657 5.88999 6.78775 6.12975C6.42892 6.36951 6.14925 6.71029 5.9841 7.109C5.81894 7.50771 5.77573 7.94643 5.85993 8.3697C5.94412 8.79297 6.15194 9.18176 6.45709 9.48692C6.76225 9.79208 7.15105 9.99989 7.57431 10.0841C7.99758 10.1683 8.43631 10.1251 8.83502 9.95992C9.23372 9.79477 9.57451 9.5151 9.81427 9.15627C10.054 8.79744 10.182 8.37557 10.182 7.94401C10.1824 7.65736 10.1262 7.37344 10.0167 7.10853C9.90719 6.84362 9.74648 6.60292 9.54379 6.40023C9.34109 6.19753 9.10039 6.03682 8.83548 5.9273C8.57057 5.81779 8.28666 5.76162 8 5.76201Z"
+                                                          fill="#A4A4B4"></path>
+                                                </svg>
+                                                <span>277</span>
+                                            </p>
+                                            <p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     viewBox="0 0 16 16" fill="none">
+                                                    <path d="M13.6 2H2.4C2.02991 2.00185 1.67561 2.15017 1.41457 2.41252C1.15353 2.67487 1.007 3.02991 1.007 3.4L1 16L3.8 13.2H13.6C13.9713 13.2 14.3274 13.0525 14.5899 12.7899C14.8525 12.5274 15 12.1713 15 11.8V3.4C15 3.0287 14.8525 2.6726 14.5899 2.41005C14.3274 2.1475 13.9713 2 13.6 2V2ZM5.9 8.3H4.5V6.9H5.9V8.3ZM8.7 8.3H7.3V6.9H8.7V8.3ZM11.5 8.3H10.1V6.9H11.5V8.3Z"
+                                                          fill="#9D9DAC"></path>
+                                                </svg>
+                                                <span>0</span>
+                                            </p>
+                                            <p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     viewBox="0 0 16 16" fill="none">
+                                                    <path d="M0.614014 14.3H3.27501V6.322H0.614014V14.3ZM15.249 6.987C15.248 6.63459 15.1075 6.29691 14.8583 6.04771C14.6091 5.79852 14.2714 5.65806 13.919 5.657H9.71901L10.351 2.617L10.371 2.404C10.3704 2.1395 10.2651 1.886 10.078 1.699L9.37501 1L4.99801 5.384C4.87301 5.506 4.77387 5.65193 4.70652 5.81309C4.63917 5.97425 4.60499 6.14733 4.60601 6.322V12.974C4.60707 13.3264 4.74753 13.6641 4.99673 13.9133C5.24592 14.1625 5.5836 14.3029 5.93601 14.304H11.923C12.1845 14.305 12.4404 14.2284 12.6583 14.0838C12.8762 13.9393 13.0463 13.7333 13.147 13.492L15.156 8.8C15.2175 8.64535 15.2491 8.48043 15.249 8.314V7.047L15.242 7.04L15.249 6.987Z"
+                                                          fill="#A4A4B4"></path>
+                                                </svg>
+                                                <span>0</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="stories">
+                        <div class="noStoryWrap">
+                            <p>아직 작성된 스토리가 없습니다.</p>
+                            <p>구독(🧡)하시고, 신규 스토리 알림을 받아보세요!</p>
+                            <button class="subscribeBtnNow">
+                            <span class="subscribeBtnNow">
+                               지금 구독하기
+                            </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="projectFaq">
+                    <h3 class="faqText">
+                        👍 이 모임에 응원·질문을 올려주세요!
+                    </h3>
+                    <div class="faqWrap">
+                        <div class="textareaWrap">
+                            <textarea class="textarea" placeholder="이 모임에 응원·질문을 올려주세요!" maxlength="1000"
+                                      rows="2"></textarea>
+                        </div>
+                        <div class="textButtonWrap">
+                            <p class="count">
+                                <span>1</span>
+                                /
+                                <span>1,000</span>
+                            </p>
+                            <button class="faqButton">등록</button>
+                        </div>
+                    </div>
+                    <div class="faqUploadSection">
+                        <div class="faqUploadWrap">
+                            <div class="faqTop">
+                                <a href="">
+                                    <div class="profileImg">
+                                        <img src="https://letspl.me/assets/images/prof-no-img.png">
+                                    </div>
+                                </a>
+                                <div class="name">
+                                    <p class="profileName">
+                                        쿨스카이
+                                    </p>
+                                    <div class="idMenu">
+                                        <ul>
+                                            <li>
+                                                <a href="#/people">프로필 상세</a>
+                                            </li>
+                                            <li>
+                                                <a>1:1 대화</a>
+                                            </li>
+                                            <li>
+                                                <a>모임 초대</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span>22.04.29 06:45</span>
+                                </div>
+                            </div>
+                            <div class="faqMiddle">
+                                <textarea disabled maxlength="1000">정말 할게 참 많구나
+                                </textarea>
+                            </div>
+                            <div class="faqBottom">
+                                <a>댓글 열기</a>
+                                <span class="replyCount">0</span>
+                            </div>
+                        </div>
+                        <div class="replyWrap">
+                            <p class="noMemberText">
+                                😢 프로젝트의 멤버가 아니셔서 답글을 달 수 없네요.
+                                <a>지원하시겠어요?</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faqUploadSection">
+                        <div class="faqUploadWrap">
+                            <div class="faqTop">
+                                <a href="">
+                                    <div class="profileImg">
+                                        <img src="https://letspl.me/assets/images/prof-no-img.png">
+                                    </div>
+                                </a>
+                                <div class="name">
+                                    <p class="profileName">
+                                        홍승근
+                                    </p>
+                                    <div class="idMenu">
+                                        <ul>
+                                            <li>
+                                                <a href="#/people">프로필 상세</a>
+                                            </li>
+                                            <li>
+                                                <a>1:1 대화</a>
+                                            </li>
+                                            <li>
+                                                <a>모임 초대</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span>22.04.29 06:45</span>
+                                </div>
+                            </div>
+                            <div class="faqMiddle">
+                                <textarea disabled maxlength="1000">코딩테스트 멸망..
+                                </textarea>
+                            </div>
+                            <div class="faqBottom">
+                                <a>댓글 열기</a>
+                                <span class="replyCount">0</span>
+                            </div>
+                        </div>
+                        <div class="replyWrap">
+                            <div class="replyWrapContent">
+                                <div class="top">
+                                    <div class="left">
+                                        <a>
+                                            <div class="profileImg">
+                                                <img src="https://letspl.me/assets/images/prof-no-img.png">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="right">
+                                        <h4 class="profileName">
+                                            스마트차징솔루션
+                                        </h4>
+                                        <div class="idMenu">
+                                            <ul>
+                                                <li>
+                                                    <a href="#/people">프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p class="dateText">21.05.28 09:28</p>
+                                    </div>
+                                </div>
+                                <div class="bottom">
+                                    <div class="textWrap">
+                                        <textarea disabled maxlength="500">너무 어렵더라</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="noMemberText">
+                                😢 프로젝트의 멤버가 아니셔서 답글을 달 수 없네요.
+                                <a>지원하시겠어요?</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1077,7 +2529,7 @@
                         <div class="userIdWrap">
                             <div class="leaderImg">
                                 <a class="leaderImgWrap">
-                                   <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/undefined/images/762F0BD1-2C15-4D91-A075-24EEB6F0385F.jpg">
+                                    <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/undefined/images/762F0BD1-2C15-4D91-A075-24EEB6F0385F.jpg">
                                 </a>
                             </div>
                             <div class="userWrapper">
@@ -1085,16 +2537,16 @@
                                     Oxkong
                                     <div class="idMenu">
                                         <ul>
-                                    <li>
-                                        <a href="#/people">프로필 상세</a>
-                                    </li>
-                                    <li>
-                                        <a>1:1 대화</a>
-                                    </li>
-                                    <li>
-                                        <a>프로젝트 지원</a>
-                                    </li>
-                                </ul>
+                                            <li>
+                                                <a href="#/people">프로필 상세</a>
+                                            </li>
+                                            <li>
+                                                <a>1:1 대화</a>
+                                            </li>
+                                            <li>
+                                                <a>프로젝트 지원</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </span>
                                 <span class="confirmPhone">휴대폰 인증완료</span>
@@ -1104,8 +2556,10 @@
                                 </span>
                                 <div class="heartAndShareWrap">
                                     <a class="heartWrap viewCount">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none">
-                                            <path d="M8 2.48901C6.27297 2.48988 4.58622 3.01069 3.15934 3.98365C1.73246 4.9566 0.631569 6.33661 0 7.94401C0.630962 9.55179 1.73172 10.9321 3.15875 11.9051C4.58577 12.878 6.27285 13.3985 8 13.3985C9.72715 13.3985 11.4142 12.878 12.8413 11.9051C14.2683 10.9321 15.369 9.55179 16 7.94401C15.3684 6.33661 14.2675 4.9566 12.8407 3.98365C11.4138 3.01069 9.72703 2.48988 8 2.48901V2.48901ZM8 11.58C7.28087 11.58 6.57788 11.3668 5.97995 10.9672C5.38201 10.5677 4.91597 9.99984 4.64077 9.33545C4.36557 8.67106 4.29357 7.93998 4.43386 7.23466C4.57416 6.52935 4.92046 5.88148 5.42896 5.37297C5.93746 4.86447 6.58534 4.51817 7.29065 4.37788C7.99597 4.23758 8.72704 4.30959 9.39144 4.58479C10.0558 4.85999 10.6237 5.32602 11.0232 5.92396C11.4228 6.5219 11.636 7.22488 11.636 7.94401C11.6355 8.90818 11.2522 9.8327 10.5705 10.5145C9.88869 11.1962 8.96416 11.5795 8 11.58ZM8 5.76201C7.56844 5.76201 7.14657 5.88999 6.78775 6.12975C6.42892 6.36951 6.14925 6.71029 5.9841 7.109C5.81894 7.50771 5.77573 7.94643 5.85993 8.3697C5.94412 8.79297 6.15194 9.18176 6.45709 9.48692C6.76225 9.79208 7.15105 9.99989 7.57431 10.0841C7.99758 10.1683 8.43631 10.1251 8.83502 9.95992C9.23372 9.79477 9.57451 9.5151 9.81427 9.15627C10.054 8.79744 10.182 8.37557 10.182 7.94401C10.1824 7.65736 10.1262 7.37344 10.0167 7.10853C9.90719 6.84362 9.74648 6.60292 9.54379 6.40023C9.34109 6.19753 9.10039 6.03682 8.83548 5.9273C8.57057 5.81779 8.28666 5.76162 8 5.76201Z" fill="#A4A4B4"></path>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                             viewBox="0 0 16 16" fill="none">
+                                            <path d="M8 2.48901C6.27297 2.48988 4.58622 3.01069 3.15934 3.98365C1.73246 4.9566 0.631569 6.33661 0 7.94401C0.630962 9.55179 1.73172 10.9321 3.15875 11.9051C4.58577 12.878 6.27285 13.3985 8 13.3985C9.72715 13.3985 11.4142 12.878 12.8413 11.9051C14.2683 10.9321 15.369 9.55179 16 7.94401C15.3684 6.33661 14.2675 4.9566 12.8407 3.98365C11.4138 3.01069 9.72703 2.48988 8 2.48901V2.48901ZM8 11.58C7.28087 11.58 6.57788 11.3668 5.97995 10.9672C5.38201 10.5677 4.91597 9.99984 4.64077 9.33545C4.36557 8.67106 4.29357 7.93998 4.43386 7.23466C4.57416 6.52935 4.92046 5.88148 5.42896 5.37297C5.93746 4.86447 6.58534 4.51817 7.29065 4.37788C7.99597 4.23758 8.72704 4.30959 9.39144 4.58479C10.0558 4.85999 10.6237 5.32602 11.0232 5.92396C11.4228 6.5219 11.636 7.22488 11.636 7.94401C11.6355 8.90818 11.2522 9.8327 10.5705 10.5145C9.88869 11.1962 8.96416 11.5795 8 11.58ZM8 5.76201C7.56844 5.76201 7.14657 5.88999 6.78775 6.12975C6.42892 6.36951 6.14925 6.71029 5.9841 7.109C5.81894 7.50771 5.77573 7.94643 5.85993 8.3697C5.94412 8.79297 6.15194 9.18176 6.45709 9.48692C6.76225 9.79208 7.15105 9.99989 7.57431 10.0841C7.99758 10.1683 8.43631 10.1251 8.83502 9.95992C9.23372 9.79477 9.57451 9.5151 9.81427 9.15627C10.054 8.79744 10.182 8.37557 10.182 7.94401C10.1824 7.65736 10.1262 7.37344 10.0167 7.10853C9.90719 6.84362 9.74648 6.60292 9.54379 6.40023C9.34109 6.19753 9.10039 6.03682 8.83548 5.9273C8.57057 5.81779 8.28666 5.76162 8 5.76201Z"
+                                                  fill="#A4A4B4"></path>
                                         </svg>
                                         <span>507</span>
                                     </a>
@@ -1167,13 +2621,128 @@
                             </div>
                         </li>
                     </ul>
+                    <div class="subscribeButton">
+                        <a class="subscribeButton">
+                            구독하기
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<section>
 
-<footer id="footer"></footer>
+</section>
+<div class="chattingWrap">
+    <div class="chattingOpen open"></div>
+    <div class="chatting">
+        <div class="chattingContentWrap">
+            <div class="chattingHeader">
+                <div class="left">
+                    <div class="foldChatButton"></div>
+                    <p>대화 목록</p>
+                </div>
+                <div class="right">
+                    <div class="chatterImg">
+                        <img src="https://letspl.me/assets/images/prof-no-img.png">
+                    </div>
+                    <div class="user">
+                        <p class="userId">
+                            에붸붸
+                            <span>[미접속]</span>
+                        </p>
+                        <div class="idMenu">
+                            <ul>
+                                <li>
+                                    <a href="#/people">프로필 상세</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="lastTime">
+                        <span class="questionMore">
+                            <span class="questionHoverView">대화 없이 종료시, 지불 포인트의 100%가 환불됩니다!</span>
+                        </span>
+                            1일 18시 36분 남았습니다
+                        </p>
+                        <div class="moreAndFold">
+                            <div class="alarm"></div>
+                            <div class="fold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chattingSection">
+                <div class="chatList">
+                    <ul>
+                        <li class="active">
+                            <div class="chatImg">
+                                <img src="https://letspl.me/assets/iclogo_rec.png">
+                            </div>
+                            <div class="chatInfo">
+                                <span class="userIdAndBeforeTime">
+                                    <span class="chatter">오픈 챗</span>
+                                    <span class="beforeTime">6시간 전</span>
+                                </span>
+                                <p class="chatInfoText"></p>
+                                <p class="endTime">종료 : 종료기한없음</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="chatImg">
+                                <img src="https://letspl.me/assets/images/prof-no-img.png">
+                            </div>
+                            <div class="chatInfo">
+                                <span class="userIdAndBeforeTime">
+                                    <span class="chatter">홍승근</span>
+                                    <span class="beforeTime">6시간 전</span>
+                                </span>
+                                <p class="chatInfoText">ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ</p>
+                                <p class="endTime">종료 : 20.05.10 11:16</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chattingRoom active">
+                    <div class="chattingRoomWrap">
+                        <div class="dayInfo">
+                            <p>
+                                22.05.03 화요일
+                            </p>
+                        </div>
+                        <div class="userStatus">
+                            <p>
+                                상냥이님이 대화방을 개설하였습니다.
+                            </p>
+                        </div>
+                        <div class="userStatus">
+                            <p>
+                                홍승근님이 누구님을 초대하셨습니다.
+                            </p>
+                        </div>
+                        <div class="opponent">
+                            <div class="chatterImg">
+                                <a>
+                                    <img src="https://letspl.me/assets/images/prof-no-img.png">
+                                </a>
+                            </div>
+                            <div class="userIdChat">
+                                <span class="userId">홍승근</span>
+                                <p class="chatText">
+                                    <span class="chatTextContents">
+                                        안녕하세요
+                                    </span>
+                                    <span class="time">오전 11:16</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -1190,12 +2759,36 @@
         $(this).find("div.idMenu").hide();
     })
 
-    $(".userId").on("mouseover", function(){
+    $(".userId").on("mouseover", function () {
         $(this).find(".idMenu").show();
     })
 
-    $(".userId").on("mouseout", function(){
+    $(".userId").on("mouseout", function () {
         $(this).find(".idMenu").hide();
+    })
+
+    $(".ugname").on("mouseover", function () {
+        $(this).next().show();
+    })
+
+    $(".ugname").on("mouseout", function () {
+        $(this).next().hide();
+    })
+
+    $(".idHoverMenu").on("mouseover", function () {
+        $(this).show();
+    })
+
+    $(".idHoverMenu").on("mouseout", function () {
+        $(this).show();
+    })
+
+    $(".profileName").on("mouseover", function () {
+        $(this).next().show();
+    })
+
+    $(".profileName").on("mouseout", function () {
+        $(this).next().hide();
     })
 
     $(".subscriber").find("li").on("mouseover", function () {
@@ -1204,6 +2797,90 @@
 
     $(".subscriber").find("li").on("mouseout", function () {
         $(this).find("div.subHover").css("display", "none");
+    })
+
+    /* chapter three faq */
+
+    $("textarea.textarea").on("propertychange change keyup paste input", function () {
+        if (!$(this).val()) {
+            $("div.textButtonWrap").css("display", "none");
+            $(this).attr("rows", 2);
+        } else {
+            $("div.textButtonWrap").css("display", "inline-flex");
+            $(this).attr("rows", 5);
+        }
+    })
+
+    $("textarea.textarea").on("keyup", function () {
+        $("p.count").children(":first").text($(this).val().length);
+    })
+
+
+
+
+
+    // reply
+    let text = null;
+    $("div.faqBottom").find("a").on("click",function () {
+        $("div.faqBottom").find("a").removeClass("active");
+        $("div.replyWrap").removeClass("reply");
+
+        text = $(this).text();
+
+        $("div.faqBottom").find("a").text("댓글 열기");
+
+        if(text == "댓글 닫기"){
+            $(this).text("댓글 열기");
+            return;
+        }
+
+        if($(this).text() == "댓글 열기") {
+            $(this).text("댓글 닫기");
+            $(this).addClass("active");
+            $(this).parents("div.faqUploadWrap").next().addClass("reply");
+        }
+
+    })
+
+
+
+    /* move menu */
+    $("div.projectTabMenu").find("li").on("click", function() {
+        $("div.projectTabMenu").find("a").removeClass("active");
+        $("div.projectDetailWrap").children().removeClass("active");
+        $(this).find("a").addClass("active");
+
+        if($(this).find("a").text() == "정보"){
+            $("div.projectDetailWrap").children("div.projectInfo").addClass("active");
+            $("textarea.textarea").val("");
+            $("textarea.textarea").attr("rows",2);
+            $("div.textButtonWrap").hide();
+        }else if($(this).find("a").text() == "스토리"){
+            $("div.projectDetailWrap").children("div.storySection").addClass("active");
+            $("textarea.textarea").val("");
+            $("textarea.textarea").attr("rows",2);
+            $("div.textButtonWrap").hide();
+        }else if($(this).find("a").text() == "질문"){
+            $("div.projectDetailWrap").children("div.projectFaq").addClass("active");
+        }
+    })
+
+
+
+
+
+    /* chatting */
+
+    let count = 1;
+
+    $("div.chattingOpen").on("click", function () {
+            $(this).removeClass("open");
+            $("div.chatting").addClass("open");
+    })
+
+    $("div.foldChatButton").on("click", function () {
+        $(this).parents("div.chatting").removeClass("open");
+        $("div.chattingOpen").addClass("open");
     })
 
 </script>
