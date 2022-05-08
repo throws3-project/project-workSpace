@@ -1,3 +1,7 @@
+.buildProject {
+    margin-top: 150px;
+}
+
 .buildProjectTitWrap {
     width: 100%;
     max-width: 100%;
@@ -688,6 +692,9 @@ color: #ffffff;
 /*미디어쿼리*/
 
 @media screen and (max-width: 414px){
+    .buildProjectContents .answer .thumbnailWrap .thumbnailBox {
+        width: 372px
+    }
     .buildProjectTitWrap .titContents h3 {
         color: #fff;
         font-size: 25px;
