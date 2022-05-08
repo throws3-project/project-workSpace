@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/noticeRegister.css" type="text/css">
+</head>
+<header id="header"></header>
+
+<section class="notice">
+    <div class="noticeTitle">
+        <h2>
+            <span class="smallTxt">NOTICE</span>
+            <span class="bigTxt">공지사항</span>
+        </h2>
+    </div>
+    <div class="noticeViewWrap">
+        <div class="noticeViewTop">
+            <div class="noticeTitleWriter">
+                <div class="left">
+                    <p>제목</p>
+                </div>
+                <div class="right">
+                    <input type="text" placeholder="제목을 입력해주세요." value="프로젝트/스터디 검수 및 노출 조건안내 (2022.03.26 업데이트~)">
+                </div>
+            </div>
+            <div class="noticeTitleWriter">
+                <div class="left" id="attach">
+                    <p>첨부파일</p>
+                </div>
+                <div class="right" style="display: flex">
+                    <label for="uploadFile">
+                        <img src="https://letspl.me/assets/images/ic-camera-alt-24-px.png" alt="">
+                    </label>
+                    <input type="file" name="uploadFile" id="uploadFile" style="display: none">
+                    <div class="field">
+                        <div class="uploadResult">
+                            <ul id="thumbNailWrap">
+                                <li>
+                                    <a>
+                                        <img src="../../static/images/스토리배너1.png">
+                                    </a>
+                                    <span>x</span>
+                                </li>
+                                <li>
+                                    <a>
+                                        <img src="../../static/images/썸네일2.png">
+                                    </a>
+                                    <span>x</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="noticeViewContents">
+            <textarea name="content" onkeydown="resize(this)" onkeyup="resize(this)" id="content" cols="30" rows="10" placeholder="내용을 입력해주세요">안녕하세요 렛플입니다.
+
+
+
+렛플에서 기존 사이드프로젝트뿐만 아니라, 스터디도 같이 모집할 수 있습니다.
+
+
+
+이번 업데이트를 통해서, 작성 양식또한 변경이 되어서,  검수조건이 아래와 같이 변동됩니다.
+
+아래 내용을 참고하여 프로젝트를 작성해주시기 바랍니다.
+
+
+
+사이드프로젝트는 기존과 동일하게 사전검수(1영업일내)를 통해서 게시되며,
+
+스터디는 사후검수이지만, 검수조건에 해당하지 않으면 리더분께 알려드리고, 조치가 없으면 게시가 중단됩니다.
+
+
+
+1. 필수 작성 내용
+
+
+
+> 사이드 프로젝트의 필수 내용
+
+
+ - 프로젝트 시작 동기
+
+1) 왜 이 아이템을 선택했는지, 기존의 다른 서비스들과 어떠한 차별점을 지니는지 작성해주세요
+
+2) 어떤 특성의 분들(나이/취향 등)이 자주 사용할 것 같은지 알려주세요.
+
+
+
+ - 회의 진행/모임 방식
+
+1) 1주를 기준으로 회의나 모임의 빈도를 알려주세요
+2) 온/오프라인으로 진행 시, 구체적인 진행방식을 적어주세요
+
+
+
+> 스터디 필수 내용
+
+
+ - 스터디 목표 및 진행방식
+
+
+1) 스터디의 최종적인 목표를 적어주세요
+2) 주단위로 어떻게 진행하게 되는지 알려주세요
+3) 온/오프라인 진행장소 및 방법
+
+4) 전체 기간
+
+
+ - 참여 조건
+
+
+1) 원하는 멤버분들이 이미 가지고 있어야 하는 지식수준을 알려주세요.
+2) 참여회비가 있다면 적어주세요(무료/한달에 만원 등)
+
+
+
+2. 검수 항목
+
+
+- 위의 내용이 포함되어 있지 않으면 거절되거나 게시가 중단됩니다.
+
+
+- 위의 내용이 포함되어 있더라도 무성의하거나 , 이해할 수 없는 전문용어등으로 이해가 어렵다면 거절됩니다.
+
+
+- 위의 내용이 연결된 링크에만 표시되어있어, 본문에 기재가 되어있지 않다면 거절됩니다.
+
+
+- 이미 게시된 프로젝트를 폐기하고, 동일 혹은 비슷한 내용으로 신규 요청시 게시가 거절됩니다.
+
+
+
+- 개인정보가 직접적으로 드러나 있을 경우에 거절됩니다.
+  (휴대폰 번호대신, 카톡 아이디나, 이메일을 활용해주세요)
+
+
+
+- 회사의 일반 채용조건(급여/4대보험/면접 등) 및 직급(CEO/CTO)가 보이거나,
+  이미 설립된 회사에서 직원을 구하는 용도로 작성하는 프로젝트는 게시가 거절됩니다.
+
+
+
+
+
+3.검색/추천 로직 변경
+
+
+
+설명이 풍부하고  관리가 잘되고 있는 프로젝트만 렛플인분들에게 선별하여 보여드리기 위해서
+
+다음과 같은 프로젝트는 검색/추천에서 제외됩니다.
+
+다만, 직접 주소를 쳐서 들어가는 경우는 언제나 접속 가능합니다.
+
+
+
+> 프로젝트/스터디 리더 로그인 14일 초과시 노출 제외
+
+
+
+프로젝트 리더분이 14일동안 로그인 안할경우는
+
+프로젝트가 더이상 추천되거나 노출되지 않습니다.
+
+
+
+> 프로젝트/스터디 응답 삼진아웃제 적용
+
+
+
+프로젝트 중, 자동 지원취소가 3건이상 및 응답율이 50% 미만인 프로젝트는 더이상 노출되지 않습니다.
+
+(지원취소일의 기준은 2022년 3월 28일부터 적용됩니다.)
+
+
+
+> 휴대폰번호 등 주요 연락처가 미인증된 프로젝트는 노출 제외
+
+
+
+프로젝트 중, 프로젝트 리더분이 실명/휴대폰 인증이 안된 프로젝트는
+
+더이상 노출되지 않습니다.</textarea>
+        </div>
+        <div class="btnWrap">
+            <button class="primaryBtn">작성완료</button>
+            <button class="whiteBtn">작성취소</button>
+        </div>
+    </div>
+</section>
+
+
+<footer id="foot"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+        $("#foot").load('../../templates/fix/footer.html');
+    })
+    function resize(obj) {
+        obj.style.height = "375px";
+        obj.style.height = (12+obj.scrollHeight)+"px";
+    }
+
+</script>
+</html>

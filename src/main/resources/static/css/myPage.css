@@ -253,7 +253,7 @@ section#project button.submit{
     height: 40px;
 }
 
-section#project div.box{
+section#project div.emptyBox{
     background-color: #f7f7f7;
     box-sizing: border-box;
     padding: 25px 0;
@@ -262,11 +262,184 @@ section#project div.box{
     border-radius: 4px;
 }
 
-section#project div.box p{
+section#project div.emptyBox p{
     font-size: 14px;
     color: #a9a9b9;
     word-wrap: break-word;
-    margin: auto auto 28px;
+}
+
+
+/*승근*/
+
+div.allProject {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+div.selectOption {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.selectOption .smSelect {
+    max-width: 150px;
+    width: 100%;
+    background-image: url("https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg");
+    background-color: unset;
+    background-position: 90%;
+    color: #696980;
+    margin-right: 10px;
+    padding-left: 15px;
+    background-size: 10px 5px;
+    font-size: 11px;
+    padding-right: 0;
+    font-weight: 600;
+    height: 35px;
+    background-repeat: no-repeat;
+    border: 1px solid #bcbccb;
+}
+
+.selectOption .smSelect:focus {
+    background-image: url('https://letspl.me/_next/static/media/ic_option_arrow.556e891f4497a2dc76c8a33607a31937.svg');
+    background-repeat: no-repeat;
+    background-size: 10px 5px;
+}
+
+div.allProject h3 {
+    text-transform: unset;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+    letter-spacing: normal;
+    font-weight: bold;
+}
+
+label.checkbox {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    width: 100%;
+    max-width: 200px;
+}
+
+label.checkbox input[type='checkbox'] {
+    appearance: auto;
+    z-index: unset;
+    opacity: unset;
+    background-color: #ea6560;
+    float: unset;
+    margin: 0;
+}
+
+div.projectMiddleInfo p.category {
+    margin-bottom: 15px;
+}
+
+div.projectGridView {
+    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    place-items: center;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+}
+
+div.projectList {
+    display: inline-flex;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    align-items: center;
+    margin-bottom: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+div.projectList div.heart {
+    position: absolute;
+    right: 19px;
+    top: 6px;
+}
+
+div.listImg {
+    margin-right: 20px;
+    width: 100px;
+    height: 68px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+div.listImg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+div.listCategory {
+    line-height: 12px;
+}
+
+div.listCategory p.recruitText {
+    font-size: 12px;
+    line-height: 12px;
+    color: #999;
+    margin: 7px 0px;
+    padding: 0;
+    font-weight: normal;
+}
+
+div.listCategory p.text {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    margin: 0;
+    line-height: 8px;
+}
+
+
+div.favorite {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background-image: url("https://letspl.me/_next/static/media/ic-favorite-empty-white.b1db0e3e169a5cf61afa41daf5bfdc15.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+div.top {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+span.text {
+    margin-left: 10px;
+    font-size: 15px;
+    padding-top: 4px;
+}
+
+label.checkbox input.check {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    outline: 0;
+}
+
+input[type='checkbox']:checked {
+    accent-color: #336d47;
+}
+
+div.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 12px;
+    width: 100%;
 }
 
 div.heart {
@@ -275,20 +448,28 @@ div.heart {
 }
 
 div.heart img {
-    width: 20px;
+    width: 16px;
     height: auto;
 }
 
 span.heartCount {
-    margin-left: 5px;
-    font-size: 16px;
-    height: 30px;
+    margin-left: 3px;
+    font-size: 12px;
+    height: 22px;
     font-weight: 600;
     color: #888;
 }
 
+ul.slider {
+    display: flex;
+    transform: translate3d(0%, 0px, 0px);
+    transition-duration: 1000ms;
+    width: 100%;
+}
+
 li.slide {
-    position: relative;
+    display: block;
+    min-width: 100%;
 }
 
 div.bottom div.recruitModel {
@@ -297,12 +478,12 @@ div.bottom div.recruitModel {
     background-color: #fff;
     border: 1px solid rgba(51, 51, 51, .2);
     border-radius: 2px;
-    right: 17px;
-    bottom: -18px;
+    right: 0;
+    bottom: 0;
 }
 
 div.recruitModel ul {
-    width: 300px;
+    width: 195px;
     padding: 10px;
 }
 
@@ -313,6 +494,7 @@ div.recruitModel ul li {
 
 div.recruitModel ul li span {
     font-weight: 700;
+    font-size: 13px;
 }
 
 div.recruitModel ul li span:last-child {
@@ -328,19 +510,20 @@ div.recruitStatus {
 div.recruitStatus span {
     color: #666;
     font-weight: 600;
+    font-size: 13px;
 }
 
 div.recruitStatus span:first-child {
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 div.recruitStatus div {
-    margin-left: 8px;
+    margin-left: 6px;
 }
 
 div.recruitStatus div img {
-    width: 13px;
-    height: 11px;
+    width: 10px;
+    height: 9px;
 }
 
 div.bottomWrap div.recruitModel {
@@ -354,9 +537,10 @@ div.bottomWrap div.recruitModel {
 }
 
 div.projectGridWrap {
-    width: 285px;
-    /*height: 290px;*/
+    width: 100%;
     position: relative;
+    max-width: 285px;
+    height: 317px;
     border-radius: 8px;
     border: 1px solid #ebebeb;
     background-color: #fff;
@@ -364,32 +548,36 @@ div.projectGridWrap {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    margin-bottom: 20px;
+}
+
+div.projectTopInfo {
+    display: inline-flex;
 }
 
 div.box {
-    box-sizing: border-box;
-    padding: 2px 10px;
+    padding: 0px 12px;
     margin-right: 5px;
 }
 
-div.red {
-    background-color: #336d47;
+div.green {
+    background-color: #336d47 !important;
 }
 
 div.black {
-    background-color: #000;
+    background-color: #000 !important;
 }
 
 div.box-wrap div.box span {
     color: #fff;
-    font-size: 12px;
-    line-height: 19px;
+    font-weight: 600;
+    font-size: 10px;
 }
 
 div.topInfo {
     display: flex;
     align-items: center;
-    padding-top: 12px;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 12px;
     justify-content: space-between;
@@ -399,7 +587,7 @@ div.topInfo {
 }
 
 div.box-wrap {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 
@@ -418,58 +606,56 @@ div.projectImg img {
 }
 
 div.projectMiddleInfo {
-    box-sizing: border-box;
-    /*padding: 14px;*/
-    padding-left: 14px;
+    padding: 13px;
 }
 
 div.projectBottomInfo {
-    /*padding: 14px;*/
-    padding-left: 14px;
-    padding-right: 14px;
+    padding: 13px 13px 0 13px;
 }
-
 
 div.middleWrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*margin-bottom: 16px;*/
+}
+
+div.middleWrap div.left div.heart {
+    vertical-align: middle;
+}
+
+div.middleWrap div.left div.heart img{
+    width: 14px;
+    height: auto;
 }
 
 div.right span {
     color: #888;
     font-weight: 600;
+    font-size: 12px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus span {
+    font-size: 11px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus div{
+    margin-left: 7px;
+}
+
+div.bottomWrap div.recruit div.recruitStatus div img{
+    width: 8px;
+    height: 9px;
 }
 
 div.bottomWrap div.recruit {
     border-top: 1px solid #f6f6f6;
-    padding-top: 4px;
 }
 
 div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
-    color: #00704a;
+    color: #ea6560;
 }
 
-div.projectGridView {
-    grid-template-columns: repeat(4, 1fr);
-    display: grid;
-    place-items: center;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
-}
 
-p{
-    margin: 0 !important;
-}
-
-p.category{
-    height: 40px;
-}
-
-p.categoryText{
-    height: 40px;
-}
 
 
 /*--------------------스토리-----------------*/
@@ -479,7 +665,7 @@ section#story button.submit{
     margin-top: 25px;
 }
 
-section#story div.box{
+section#story div.emptyBox{
     background-color: #f7f7f7;
     box-sizing: border-box;
     padding: 25px 0;
@@ -488,7 +674,7 @@ section#story div.box{
     border-radius: 4px;
 }
 
-section#story div.box p{
+section#story div.emptyBox p{
     font-size: 14px;
     color: #a9a9b9;
     word-wrap: break-word;
@@ -503,7 +689,7 @@ section#like button.submit{
         height: 40px;
     }
 
-section#like div.box{
+section#like div.emptyBox{
     background-color: #f7f7f7;
     box-sizing: border-box;
     padding: 25px 0;
@@ -512,7 +698,7 @@ section#like div.box{
     border-radius: 4px;
 }
 
-section#like div.box p{
+section#like div.emptyBox p{
     font-size: 14px;
     color: #a9a9b9;
     word-wrap: break-word;
@@ -675,7 +861,5 @@ section#score table th.lastCell, section#score table tr.lastCell, section#score 
 section#score table td{
     border-bottom: 1px solid lightgray;
 }
-
-
 
 
