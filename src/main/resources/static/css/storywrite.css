@@ -774,6 +774,150 @@ input[type="button"].primary.icon:before, button.primary.icon:before,
 color: #ffffff;
 }
 
+/* 모달 */
+
+#my_modal {
+    position: absolute;
+    text-align: center;
+    /* width: 325px; */
+    padding: 0px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+}
+
+#my_modal .modal_close_btn {
+    bottom: 25px;
+    right: 165px;
+}
+
+p.snsLoginP{
+    margin-bottom: 20px !important;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    position: relative;
+}
+
+div.snsWrap{
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+button.turnJoin{
+    border: none;
+    background-color: #fff;
+    font-size: .75rem;
+    color: #8e8ea2;
+    padding: 0 !important;
+    margin-top: 30px;
+}
+
+button.turnLogin{
+    border: none;
+    background-color: #fff;
+    font-size: .75rem;
+    color: #8e8ea2;
+    padding: 0 !important;
+    margin-top: 20px;
+}
+
+div.turnJoinWrap , button.turnLoginWrap{
+    text-align: center;
+}
+
+img.xIcon{
+    position: relative;
+    width: 25px;
+    right: -166px;
+    top: 10px;
+}
+
+div.modalWindow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: block;
+}
+
+a.firstA, a.secondA, a.thirdA{
+    color: #00704a;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+p.firstPMaybe{
+    font-size: 11px;
+    margin-top: 15px !important;
+}
+
+div.turnLoginWrap{
+    text-align: center;
+}
+
+div.joinPromise{
+    margin-top: 5px;
+}
+
+a.modal_close_btn{
+    text-decoration: none;
+    color: #8e8ea2;
+}
+
+p.snsLoginP{
+    color: #00704a;
+}
+
+p.completeP{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
+p.get200PointP{
+    font-size: .75rem;
+    color: #8e8ea2;
+    line-height: 1rem;
+}
+
+div.letter{
+    margin-top: 30px;
+}
+
+button.complete{
+    width: 260px;
+    height: 44px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 20px;
+}
+
+div.urlFirstWrap{
+    display: flex;
+}
+
+div.flex{
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+div.labelWrap{
+    display: flex;
+}
+
 
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){

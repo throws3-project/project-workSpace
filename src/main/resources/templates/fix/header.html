@@ -15,7 +15,7 @@
             <li><a href="#">블로그</a></li>
             <li><a href="#">라운지</a></li>
         </ul>
-        <div class="loginWrap"><a class="joinAndLogin">가입</a><a class="joinAndLogin">로그인</a></div>
+        <div class="loginWrap"><a class="joinAndLogin">로그인</a><a class="joinAndLogin">가입</a></div>
         <div class="profileWrap">
             <div class="boxBigWrap">
                 <div class="boxWrap">
@@ -70,9 +70,55 @@
         </div>
     </nav>
 </header>
+
+<div class="modalWindow">
+    <div id="my_modal">
+        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
+        <p class="snsLoginP">로그인</p>
+        <div class="snsWrap">
+            <button class="kakao_button">카카오 계정으로 로그인</button>
+            <button class="face_button">페이스북 계정으로 로그인</button>
+            <button class="google_button">구글 계정으로 로그인</button>
+        </div>
+        <div class="turnJoinWrap">
+            <button class="turnJoin">회원 가입하기</button>
+        </div>
+    </div>
+</div>
+
+<div class="modalWindow">
+    <div id="my_modal2">
+        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
+        <p class="snsLoginP">회원가입</p>
+        <div class="snsWrap">
+            <button class="kakao_button2">카카오 계정으로 회원가입</button>
+            <button class="face_button2">페이스북 계정으로 회원가입</button>
+            <button class="google_button2">구글 계정으로 회원가입</button>
+        </div>
+        <div class="joinPromise">
+            <p class="firstPMaybe">소셜 로그인으로 가입 시<a href="#" class="firstA"> 이용약관,</a><a href="#" class="secondA"> 개인정보처리방침,</a><a
+                    href="#" class="thirdA"> 전자금융거래약관</a>에 동의함으로 처리됩니다.</p>
+        </div>
+        <div class="turnLoginWrap">
+            <button class="turnLogin">로그인 하기</button>
+        </div>
+    </div>
+</div>
+
+<div class="modalWindow">
+    <div id="my_modal3">
+        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon2"></a>
+        <div class="letter">
+            <p class="completeP">로그아웃이 완료되었습니다.</p>
+            <button class="complete">확인</button>
+        </div>
+    </div>
+</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    const btns = document.querySelectorAll("a.joinAndLogin");
+
     $('#profile').on('click', function(){
         if($('.hoverMenu').css('display') === 'none'){
             $('.hoverMenu').show();
@@ -81,6 +127,26 @@
             $('.hoverMenu').hide();
             console.log("hide");
         }
+    });
+
+    $('.joinAndLogin').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).show();
+        });
+    });
+
+    $('.logOut').on("click", function(){
+        $($(".modalWindow").get(2)).show();
+    });
+
+    $('.modal_close_btn').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).hide();
+        });
+    });
+
+    $('.complete').on("click", function(){
+        $($(".modalWindow").get(2)).hide();
     });
 </script>
 </html>
