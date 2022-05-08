@@ -225,10 +225,6 @@ div.foldChatButton {
     cursor: pointer;
 }
 
-div.active {
-    display: block;
-}
-
 div.chattingSection {
     display: inline-flex;
     flex-direction: row;
@@ -508,4 +504,8 @@ div.chattingSection div.chattingRoomWrap div.opponent div.userIdChat p.chatText 
     color: #222;
     bottom: 0;
     right: -55px;
+}
+
+div.active {
+    display: block;
 }
