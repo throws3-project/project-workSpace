@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../static/css/header.css" type="text/css">
 </head>
 <body>
-<header>
+<header id="header">
     <nav class="header"><img src="../../static/images/headerLogo.png">
         <ul class="bar">
             <li><a href="#">팀원찾기</a></li>
@@ -16,7 +16,71 @@
             <li><a href="#">라운지</a></li>
         </ul>
         <div class="loginWrap"><a class="joinAndLogin">가입</a><a class="joinAndLogin">로그인</a></div>
+        <div class="profileWrap">
+            <div class="boxBigWrap">
+                <div class="boxWrap">
+                    <div class="grayBox"><span>0</span><span>P</span></div>
+                    <a href="#" class="chargeButton">충전하기</a>
+                </div>
+                <a href="#" class="buildProject">프로젝트 생성</a>
+            </div>
+            <div id="profile">
+                <img src="https://letspl.me/assets/images/prof-no-img.png" class="profile">
+            </div>
+        </div>
+        <div class="hoverMenu">
+            <div class="profileSummary">
+                <div class="profileImgWrap">
+                    <a href="#" class="profileImgWrapA">
+                        <img src="https://letspl.me/assets/images/prof-no-img.png" class="myPageInfo">
+                    </a>
+                    <div class="profileImgWholeWrap">
+                    <div class="profileImgWrapFirstLine">
+                        <span class="lvColor">Lv.</span><span class="lvColor2">0</span>
+                        <a href="#" class="logOut">로그아웃</a>
+                    </div>
+                    <div class="profileImgWrapSecondLine">
+                        <a href="#">
+                            <p class="profileUserId">아이디에요</p>
+                        </a>
+                    </div>
+                    <div class="profileImgWrapThirdLine">
+                        <a href="#">
+                            <p class="positionTxt">본캐 : UI/UX기획 / 중수</p>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navList">
+                <div class="navListFirstDiv"><a href="#" class="navListFirstA">내 프로필</a></div>
+                <div class="navListSecondDiv"><a href="#" class="navListSecondA">정보 수정</a></div>
+                <div class="navListThirdDiv"><a href="#" class="navListThirdA">프로젝트 현황</a></div>
+            </div>
+            <div class="alarmList">
+                <ul>
+                    <li class="firstAlarm">내 프로젝트/스터디(<span>0</span>)</li>
+                    <li class="firstAlarmContent"><p class="firstAlarmContentP">프로젝트/스터디가 없습니다.</p><a href="#"><p class="firstAlarmContentP2">프로젝트/스터디 만들기 ></p></a></li>
+                </ul>
+                <ul>
+                    <li class="secondAlarm">신규 알림(<span>0</span>)</li>
+                    <li class="secondAlarmContent"><p class="secondAlarmContentP">알림메시지가 없습니다.</p></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#profile').on('click', function(){
+        if($('.hoverMenu').css('display') === 'none'){
+            $('.hoverMenu').show();
+            console.log("show");
+        }else{
+            $('.hoverMenu').hide();
+            console.log("hide");
+        }
+    });
+</script>
 </html>

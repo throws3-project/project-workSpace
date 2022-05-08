@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>workSpace-join</title>
+    <link rel="stylesheet" href="../../static/css/join.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<!--<header id="header"></header>-->
+    <section>
+        <div class="joinWrapper">
+            <div class="h3Wrapper">
+            <h3>
+            <span class="smTxt">본 캐릭터 설정</span>
+            <span class="bigTxt">회원 가입이 바로 완료됩니다</span>
+            </h3>
+            </div>
+            <div class="form">
+                <ul class="firstSignForm">
+                    <li class="firstLi">
+                        <label>이메일</label>
+                        <div class="px414 emailWrap">
+                            <input type="text" value="받을 예정입니다." class="emailInput">
+                            <button class="emailButton" value="인증완료">인증완료</button>
+                        </div>
+                    </li>
+                    <li class="secondLi">
+                        <label>닉네임</label>
+                        <input type="text" class="nickInput" placeholder="3~10자리 이내로 적어주세요!" minlength="2" maxlength="10">
+                    </li>
+                    <li class="thirdLi">
+                        <label>본 캐릭터 설정</label>
+                        <div class="settingWrapper">
+                            <select>
+                                <option selected value="02">기획</option>
+                                <option value="03">디자인</option>
+                                <option value="04">프론트엔드개발</option>
+                                <option value="05">백엔드개발</option>
+                                <option value="01">사업</option>
+                                <option value="06">기타</option>
+                            </select>
+                            <select>
+                                <option selected value="0201">UI/UX기획</option>
+                                <option value="0202">게임기획</option>
+                                <option value="0203">프로젝트 매니저</option>
+                                <option value="0204">하드웨어(제품) 기획</option>
+                            </select>
+                            <select>
+                                <option value="0301">초심자</option>
+                                <option value="0302">초보</option>
+                                <option selected value="0303">중수</option>
+                                <option value="0304">고수</option>
+                                <option value="0305">구루</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="fourthLi">
+                        <label>프로모션 코드</label>
+                        <div class="px406 codeWrap">
+                            <input type="text" placeholder="프로모션 코드를 적어주세요(선택)" class="codeInput">
+                            <button class="codeButton">코드확인</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="joinCompleteWrapper">
+                <button class="joinComplete">가입완료</button>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--<header id="footer"></header>-->
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#header").load('../../templates/fix/header.html');
+});
+
+    $(document).ready(function(){
+        $("#footer").load('../../templates/fix/footer.html');
+});
+</script>
+</html>
