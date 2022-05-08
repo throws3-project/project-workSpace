@@ -477,3 +477,18 @@ textarea {
     font-size: .75rem;
     border-radius: 4px;
 }
+
+/* 미디어쿼리 */
+@media screen and (max-width: 414px){
+    .lounge{
+        width: 414px;
+    }
+    div.loungeLank {
+        max-width: 200px;
+        width: 100%;
+        right: 111px;
+        top: 203px;
+        position: fixed;
+        display: none;
+    }
+}
