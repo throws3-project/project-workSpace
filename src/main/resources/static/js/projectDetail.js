@@ -32,7 +32,7 @@ $(".idHoverMenu").on("mouseover", function () {
 })
 
 $(".idHoverMenu").on("mouseout", function () {
-    $(this).show();
+    $(this).hide();
 })
 
 $(".profileName").on("mouseover", function () {
