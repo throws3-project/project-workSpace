@@ -58,6 +58,7 @@
 .noticeList table tbody tr td p {
     font-size: .875rem;
     color: #42495b;
+    cursor: pointer;
 }
 
 .noticeList table thead tr th {
