@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>userList</title>
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/userlist.css" type="text/css" />
+</head>
+<!-- <header id="header"></header> -->
+<body>
+    <div>
+        <section class="peopleView">
+
+            <!--상단 배너-->
+            <div class="banner">
+                <h2>
+                    <span class="bannerspan1">workspace</span>
+                    <span class="bannerspan2">멤버 모집하기</span>
+                </h2>
+                <div class="todayuser">
+                    <p class="pic">오늘의 PICK! 워크피플을 소개합니다</p>
+                    <div class="todayuserWrap">
+                        <a href="#">
+                            <div class="imgWrap">
+                                <!-- 해당 워크피플의 사진 불러와서 넣기-->
+                                <img src="../../static/images/여.png">
+                            </div>
+                        </a>
+                        <div class="txtWrap">
+                            <div class="txttop">
+                                <p>
+                                    <!--  해당 워크피플 레벨에 맞는 아이콘 넣기  -->
+                                    <img class="icon" src="../../static/images/level_6.png">
+                                    <!-- 해당 워크피플 url -->
+                                    <a href="https://letspl.me/people/%EC%83%81%EC%95%84%EC%95%BC">
+                                        <!-- 해당 워크피플 ID -->
+                                        <span class="userId">SANGA</span>
+                                    </a>
+                                </p>
+                                <!-- best img -->
+                                <img class="best" src="../../static/images/bestUser.png">
+                            </div>
+                            <div class="txtrow">
+                                <p class="smtxt">😀 가장 잘 하는 건&nbsp;</p>
+                                <p class="maintxt">안녕하세요! 현재 PM을 하고 있는 2년차 기획자입니다.
+                                    Computer Science를 전공하고 응용수리통계학을 복수전공해서 AI 분야에 관심이 많습니다.
+                                    기획부터 디자인, 개발 등 여러 포지션으로 사이드 프로젝트를 해왔습니다.
+                                    해커톤 경험, 수상이력, 대기업 인턴십 경험 또한 적잖게 있습니다.
+                                    스타트업/중소기업에서 상품 A-Z 기획 경험도 있습니다.
+                                </p>
+                                <div class="tagtxt">
+                                    <div class="tagdiv">
+                                        <p class="tagname">#기획자</p>
+                                    </div>
+                                    <div class="tagdiv">
+                                        <p class="tagname">#퍼블리싱</p>
+                                    </div>
+                                </div>
+                                <div class="nowGroup">
+                                    <p class="smtxt">💪 현재 참여하고 있는 모임은</p>
+                                    <a href="#" class="nowgroupatag">
+                                        [사이드 프로젝트] 현재 프로젝트 참여중인 모임의 주소1
+                                    </a>
+                                    <p class="none"></p>
+                                    <a href="#" class="nowgroupatag">
+                                        [사이드 프로젝트] 현재 프로젝트 참여중인 모임의 주소2
+                                    </a>
+                                 
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="userSearchOption">
+                    <p class="title">워크피플 찾기</p>
+                    <div class="searchOption">
+                        <select class="searchSelect">
+                            <option value="KR00">지역 미지정</option>
+                            <option value="a">서울특별시</option>
+                            <option value="b">경기도</option>
+                            <option value="c">부산광역시</option>
+                            <option value="d">인천광역시</option>
+                            <option value="e">대구광역시</option>
+                            <option value="f">경상남도</option>
+                            <option value="g">경상북도</option>
+                            <option value="h">대전광역시</option>
+                            <option value="i">충청남도</option>
+                            <option value="j">충청북도</option>
+                            <option value="k">전라남도</option>
+                            <option value="l">전라북도</option>
+                            <option value="m">광주광역시</option>
+                            <option value="n">강원도</option>
+                            <option value="o">울산광역시</option>
+                            <option value="p">제주특별자치도</option>
+                            <option value="q">세종특별자치시</option>
+                        </select>
+                        <select class="searchSelect">
+                            <option value="0000">직무</option>
+                            <optgroup label="기획">
+                                <option value="0201">UI/UX기획</option>
+                                <option value="0202">게임기획</option>
+                                <option value="0203">프로젝트 매니저</option>
+                                <option value="0204">하드웨어(제품) 기획</option>
+                            </optgroup>
+                            <optgroup label="디자인">
+                                <option value="0301">그래픽디자인</option>
+                                <option value="0302">UI/UX디자인</option>
+                                <option value="0303">3D디자인</option>
+                                <option value="0304">하드웨어(제품) 디자인</option>
+                                <option value="0305">(디자인)기타</option>
+                            </optgroup>
+                            <optgroup label="프론트엔드 개발">
+                                <option value="0401">IOS</option>
+                                <option value="0402">안드로이드</option>
+                                <option value="0403">웹프론트엔드</option>
+                                <option value="0404">웹퍼블리셔</option>
+                                <option value="0405">크로스플랫폼</option>
+                            </optgroup>
+                            <optgroup label="백엔드 개발">
+                                <option value="0501">웹 서버</option>
+                                <option value="0504">블록체인</option>
+                                <option value="0505">AI</option>
+                                <option value="0503">DB/빅데이터/DS</option>
+                                <option value="0502">게임 서버</option>
+                            </optgroup>
+                            <optgroup label="사업">
+                                <option value="0101">사업기획</option>
+                                <option value="0102">마케팅</option>
+                                <option value="0103">재무/회계</option>
+                                <option value="0104">영업</option>
+                                <option value="0106">전략/컨설팅</option>
+                                <option value="0107">투자/고문</option>
+                                <option value="0105">(사업)그외</option>
+                            </optgroup>
+                            <optgroup label="기타">
+                                <option value="0606">작가/블로거</option>
+                                <option value="0607">인플루언서/스트리머</option>
+                                <option value="0601">작곡(사운드)</option>
+                                <option value="0602">영상</option>
+                                <option value="0603">운영</option>
+                                <option value="0604">QA</option>
+                                <option value="0605">기타</option>
+                            </optgroup>
+                        </select>
+                        <select class="searchSelect">
+                            <option value="00">모임 여부</option>
+                            <option value="01">미진행 중</option>
+                            <option value="02">진행 중</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--유저 정보-->
+            <div class="userGridTool">
+                <ul class="userGridList">
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                    <li class="userGrid">
+                        <img src="../../static/images/letspler_new_mark.png" class="red">
+
+                        <div class="userGridtop">
+                            <div class="userIn" style="display: flex;">
+                                <div class="userGridimg">
+                                    <img src="../../static/images/여.png" style="width: 50px; object-fit: cover;">
+                                </div>
+                                <a class="like"></a>
+                            </div>
+
+                            <div class="usertool">
+                                <div class="user1">
+                                    <div class="userLvIcon">
+                                        <img  class="lvIcon" src="../../static/images/level_6.png">
+                                    </div>
+                                    <div class="userGridName">
+                                        <p class="ugname">박상아
+                                            <ul class="idHoverMenu">
+                                                <li>
+                                                    <a>프로필 상세</a>
+                                                </li>
+                                                <li>
+                                                    <a>1:1 대화</a>
+                                                </li>
+                                                <li>
+                                                    <a>모임 초대</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="usercheckIcon">
+                                        <img class="checkIcon" src="../../static/images/ic-certi-red.png">
+                                    </div>
+                                </div>
+                                <div class="userInn">
+                                    <div class="bitandheart">
+                                        <div class="bitdiv">
+                                            <div class="bitimg">
+                                                <img src="../../static/images/BBBB.png" class="bitIcon">
+                                            </div>
+                                            <div class="bittag">
+                                                <p class="bitptag">3</p>
+                                            </div>
+                                        </div>
+                                        <div class="heartdiv">
+                                            <div class="heartimg">
+                                                <img src="../../static/images/ico_like.png"
+                                                    class="heartIcon"></div>
+                                            <div class="hearttag">
+                                                <p class="heartptag">1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="userinfo">
+                            <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                            <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                    class="num">초보</span></div>
+                        </div>
+
+                        <div class="usertag">
+                            <ul class="ulusertag">
+                                <li class="liusertag">#IT</li>
+                                <li class="liusertag">#UIUX</li>
+                                <li class="liusertag">#프론트</li>
+                                <li class="liusertag">#디자인</li>
+                                <li class="liusertag">#기획</li>
+                            </ul>
+                            <p class="join">진행중인 모임이 없습니다.</p>
+                        </div>
+                        <div class="userGridbottom">
+                            <img class="btimg" src="../../static/images/BBBB.png">
+                            <p class="btchat">BIt Chat</p>
+                        </div>
+
+                    </li>
+                  
+                      
+                          
+                </ul>
+                <div class="more"> 
+                    <a class="morebtn">더 불러오기</a>
+                </div>
+            </div>
+            <div class="topClass">
+                <div class="top10">
+                    <p class="topTit">이번주 워크력<span class="under">TOP10</span></p>
+                <div class="top3">
+                    <div class="top3list">
+
+                        <div class="gold">
+                            <div class="top3left">
+                                <img src="../../static/images/gold.png">
+                                <p class="left3pTag">상아에요
+                                    <div class="score">
+                                        <sapn class="left3span">7777</sapn>
+                                        <sapn class="leftspan2 up">(▲)</sapn>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="top3right">
+                                <p class="top3Ptag">일일 로그인 완료(으)로 
+                                <span class="top10Stag">워크력 10</span>이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="silver">
+                            <div class="top3left">
+                                <img src="../../static/images/silver.png">
+                                <p class="left3pTag">상아임당
+                                    <div class="score">
+                                        <sapn class="left3span">5555</sapn>
+                                        <sapn class="leftspan2 up">(▲)</sapn>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="top3right">
+                                <p class="top3Ptag">일일 로그인 완료(으)로 
+                                <span class="top10Stag">워크력 10</span>이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="brozen">
+                            <div class="top3left">
+                                <img src="../../static/images/brozen.png">
+                                <p class="leftp3Tag">나는바보
+                                    <div class="score">
+                                        <sapn class="left3span">3333</sapn>
+                                        <sapn class="leftspan2 up">(▲)</sapn>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="top3right">
+                                <p class="top3Ptag">일일 로그인 완료(으)로 
+                                <span class="top10Stag">워크력 10</span>이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="top10list">
+                        <div class="top10Tool">
+                            <div class="top10left">
+                                <span class="lanking">4</span>
+                                <p class="leftpTag">박상아</p>
+                                <div class="score">
+                                    <sapn class="leftspan">1111</sapn>
+                                    <sapn class="leftspan2 down">(▼)</sapn>
+                                </div>
+                            </div>
+                            <div class="top10right">
+                                <p class="top10Ptag">프로젝트/스터디 좋아요(으)로 
+                                    <span class="top10Stag">렛플력 50</span>
+                                    가 회수 되었습니다.</p>
+                            </div>
+                        </div>
+                        <div class="top10Tool">
+                            <div class="top10left">
+                                <span class="lanking">5</span>
+                                <p class="leftpTag">박상아</p>
+                                <div class="score">
+                                    <sapn class="leftspan">1111</sapn>
+                                    <sapn class="leftspan2 up">(▲)</sapn>
+                                </div>
+                            </div>
+                            <div class="top10right">
+                                <p class="top10Ptag">프로젝트/스터디 좋아요(으)로 
+                                    <span class="top10Stag">렛플력 50</span>
+                                    이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+                        <div class="top10Tool">
+                            <div class="top10left">
+                                <span class="lanking">6</span>
+                                <p class="leftpTag">박상아</p>
+                                <div class="score">
+                                    <sapn class="leftspan">1111</sapn>
+                                    <sapn class="leftspan2 up">(▲)</sapn>
+                                </div>
+                            </div>
+                            <div class="top10right">
+                                <p class="top10Ptag">프로젝트/스터디 좋아요(으)로 
+                                    <span class="top10Stag">렛플력 50</span>
+                                    이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+                        <div class="top10Tool">
+                            <div class="top10left">
+                                <span class="lanking">7</span>
+                                <p class="leftpTag">박상아</p>
+                                <div class="score">
+                                    <sapn class="leftspan">1111</sapn>
+                                    <sapn class="leftspan2 up">(▲)</sapn>
+                                </div>
+                            </div>
+                            <div class="top10right">
+                                <p class="top10Ptag">프로젝트/스터디 좋아요(으)로 
+                                    <span class="top10Stag">렛플력 50</span>
+                                    이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+                        <div class="top10Tool">
+                            <div class="top10left">
+                                <span class="lanking">8</span>
+                                <p class="leftpTag">박상아</p>
+                                <div class="score">
+                                    <sapn class="leftspan">1111</sapn>
+                                    <sapn class="leftspan2 up">(▲)</sapn>
+                                </div>
+                            </div>
+                            <div class="top10right">
+                                <p class="top10Ptag">프로젝트/스터디 좋아요(으)로 
+                                    <span class="top10Stag">렛플력 50</span>
+                                    이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+                        <div class="top10Tool">
+                            <div class="top10left">
+                                <span class="lanking">9</span>
+                                <p class="leftpTag">박상아</p>
+                                <div class="score">
+                                    <sapn class="leftspan">1111</sapn>
+                                    <sapn class="leftspan2 up">(▲)</sapn>
+                                </div>
+                            </div>
+                            <div class="top10right">
+                                <p class="top10Ptag">프로젝트/스터디 좋아요(으)로 
+                                    <span class="top10Stag">렛플력 50</span>
+                                    이 지급 되었습니다.</p>
+                            </div>
+                        </div>
+                        <div class="top10Tool">
+                            <div class="top10left">
+                                <span class="lanking">10</span>
+                                <p class="leftpTag">박상아</p>
+                                <div class="score">
+                                    <sapn class="leftspan">1111</sapn>
+                                    <sapn class="leftspan2 down">(▼)</sapn>
+                                </div>
+                            </div>
+                            <div class="top10right">
+                                <p class="top10Ptag">프로젝트/스터디 좋아요(으)로 
+                                    <span class="top10Stag">렛플력 50</span>
+                                    가 회수 되었습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <!-- <footer id="foot"></footer> -->
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+        $("#foot").load('../../templates/fix/footer.html');
+    })
+</script>
+
+
+</html>

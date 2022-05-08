@@ -1,0 +1,475 @@
+a{
+    text-decoration: none !important;
+    color: black !important;
+}
+
+
+/* .storyTimeLi:hover {
+    transform: scale(1.005);
+    border: 1px solid #00704a;
+} */
+.storySection {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.storyTopTit {
+    padding: 40px 10px 10px;
+    box-sizing: border-box;
+}
+.storyTopTit h2 {
+    display: flex;
+    flex-direction: column;
+    /* line-height: normal; */
+}
+.storyTopTit h2 .storySmTxt {
+    color: #00704a;
+    font-size: .875rem;
+    font-weight: bold;
+}
+.storyTopTit h2 .storyBgTxt {
+    color: #42495b;
+    font-size: 1.75rem;
+    font-family: 'GmarketSansMedium';
+}
+
+.storySection .storyContentsWrap {
+    padding: 0;
+}
+
+/* featured */
+.featuredGrid:hover{
+    transform: scale(1.05);
+    border: 1px solid #00704a;
+}
+.featuredStory{
+    margin-bottom: 30px;
+}
+.featuredContents{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 24px;
+}
+.storySection h3{
+    font-size: 22px;
+    color: #424521;
+    line-height: 23px;
+    margin-bottom: 23px;
+    font-weight: 700;
+    font-family: 'GmarketSansMedium';
+}
+ .featuredGrid{
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all .2s;
+    min-width: 180px;
+}
+ .featuredTop{
+    position: relative;
+    padding-top: 72%;
+    background-color: #f5f5f5;
+    overflow: hidden;
+ }
+
+ .featuredTop img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transform: translate(-50%,-50%) scale(1);
+ }
+ .featuredGridHead{
+    width: 75px;
+    height: 28px;
+    border-radius: 100px;
+    background-color: #6cbf89;
+    display: inline-flex;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.featuredGridHead span{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+ 
+.featuredBottom{
+    box-sizing: border-box;
+    padding: 20px 16px 0;
+}
+
+.featuredTitWrap{
+    border-bottom: 1px solid #eee;
+}
+
+/*  text-overflow: ellipsis; -> 잘린 텍스트를 생략 부호 (...)으로 표현함 */
+/* word-wrap: break-word : 비아시아 언어의 줄바꿈을 제어, break-word 강제로 끊어서 줄바꿈 한다. */
+.featuredTit{
+    font-size: 15px;
+    color: #56566d;
+    font-weight: 500;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-wrap: break-word;
+}
+
+.featuredCategory{
+    font-size: 12px;
+    color: #b5b5c2;
+    line-height: 12px;
+    margin: 9px 0 15px !important;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.featuredFooter{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 0;
+}
+.featureImg{
+    width: 16px;
+    margin-right: 2px !important;
+    /* line-height: 14px; */
+    vertical-align: middle;
+}
+.featuredFooterTxt{
+    font-size: 12px;
+    color: #8e8ea2;
+}
+.featuredViewDiv{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+  
+}
+.featuredRpyDiv{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    
+}
+.featuredLikeDiv{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+.featuredGrid p{
+    margin: 0;
+    font-weight: 600;
+}
+
+/* 줄  */
+.line{
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    margin: 30px 0;
+}
+
+/* 시리즈 */
+.seriesUl{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.seriesLi{
+    width: 220px;
+    height: 152px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all .2s;
+    border: 1px solid #222;
+}
+
+.seriesLi a{
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+}
+.seriesImg{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #222;
+    opacity: .6;
+}
+.seriesImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.storySubTit{
+    position: absolute;
+    font-size: 14px;
+    color: #fff;
+    left: 16px;
+    bottom: 20px;
+    font-weight: 500;
+    width: 170px;
+    white-space: normal;
+    overflow: hidden;
+    word-wrap: break-word;
+    font-family: 'GmarketSansMedium';
+}
+
+/* 스토리타임라인 검색 */
+.storySearch{
+    margin-top: 32px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.storyWriter, .storyType{
+    max-width: 140px;
+    width: 100%;
+    border: 1px solid #bcbccb;
+    border-radius: 4px;
+    height: 40px;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: .6875rem;
+    color: #696980;
+    margin-right: 10px;
+    padding-left: 20px;
+    background-image: url(../../static/images/triangle.png);
+    background-position: 90%;
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    appearance: none;
+    font-family: 'GmarketSansMedium';
+}
+
+/* .storyWriter{
+    font-size: .6875rem;
+    color: #696980;
+} */
+.storySearchCheck{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    /* vertical-align: middle; */
+}
+.checkTxt{
+    font-size: 15px;
+    color: #696980;
+    margin-left: 30px;
+}
+
+.storyCheckBox{
+    /* position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-left: 25px; */
+    margin-bottom: 0;
+}
+
+/* .storyCheckBox input{
+    left: 0;
+    width: 100%;
+   
+    vertical-align: middle;
+} */
+
+
+label.storyCheckBox input[type='checkbox'] {
+    appearance: auto;
+    z-index: unset;
+    opacity: unset;
+    accent-color: #336d47 ;
+    float: unset;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    outline: 0;
+}
+
+label.storyCheckBox {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    width: 100%;
+    max-width: 200px;
+}
+
+/* 타임라인 부분 */
+.storyTime{
+    display: flex;
+    flex-direction: column;
+}
+.storyTimeLi{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 18px 24px 26px 20px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.storyTimeLineLeft{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+.storyTimeLineImg{
+    width: 145px;
+    height: 114px;
+    overflow: hidden;
+    margin-right: 30px;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+.storyTimeLineImg img{
+    width: 145px;
+    height: 114px;
+    object-fit: cover;
+}
+.storyTimeLineContents{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.timeLineTitWrap{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1px;
+}
+.timeLintCategory{
+    font-size: 10px!important;
+    line-height: 14px;
+    border-radius: 4px!important;
+    color: #00704a!important;
+    margin-bottom: 3px;
+    font-family: 'GmarketSansMedium';
+    box-sizing: border-box;
+    padding: 4px 12px;
+    background-color: #f2f2f2;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+.timeLineTit{
+    font-size: 17px;
+    color: #42495b;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 0;
+    font-family: 'GmarketSansMedium';
+}
+.timeLineTxt{
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    color: #b5b5c2;
+    word-break: normal;
+    font-weight: 600;
+}
+.timeLineTagWrap{
+    color: #222;
+    margin-right: 4px;
+    line-height: 14px;
+    display: -webkit-box;
+}
+.timeLineTagWrap span{
+    font-size: 12px;
+    color: #8e8ea2;
+    margin-right: 4px;
+    font-weight: 600;
+}
+
+/* 스토리 타임라인 right */
+.storyTimeLineRight{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.TimeLineStatusWrap{
+    display: inline-flex;
+    flex-direction: row;
+}
+.storyTimeLineStatusDiv{
+    display: inline-flex;
+flex-direction: row;
+align-items: center;
+margin-right: 16px;
+}
+
+.storyTimeLineDivImg{
+    width: 16px;
+    height: 16px;
+}
+.divFooterTxt{
+    font-size: 13px;
+    color: #a39e9e;
+    margin-left: 3px;
+}
+
+
+
+.seriesUl::-webkit-scrollbar { width: 3.2px; height: 15px;} /* 스크롤 바 */
+
+.seriesUl::-webkit-scrollbar-track { background-color:#ddd; } /* 스크롤 바 밑의 배경 */
+
+.seriesUl::-webkit-scrollbar-thumb { background: #ddd; border-radius: 0px; } /* 실질적 스크롤 바 */
+
+.seriesUl::-webkit-scrollbar-thumb:hover { background: #636363; } /* 실질적 스크롤 바 위에 마우스를 올려다 둘 때 */
+
+.seriesUl::-webkit-scrollbar-thumb:active { background: rgb(61, 61, 61); } /* 실질적 스크롤 바를 클릭할 때 */
+
+.seriesUl::-webkit-scrollbar-button { display: none; } /* 스크롤 바 상 하단 버튼 */
+
+/* 미디어쿼리 */
+@media screen and (max-width: 414px){
+    html, body{
+        width: 414px;
+    }
+    section.storySection{
+        width: 414px;
+    }
+}

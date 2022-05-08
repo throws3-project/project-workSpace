@@ -1,0 +1,405 @@
+.payment {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-bottom: 164px;
+    margin-top: 150px;
+}
+
+.paymentTitle h2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.35em;
+    line-height: 1.5em;
+}
+
+.paymentTitle h2 .smallTxt{
+    color: #00704a;
+    font-size: 12px;
+    text-transform: none;
+}
+.paymentTitle h2 .bigTxt{
+    color: #42495b;
+    font-size: 20px;
+    text-transform: none;
+}
+
+.adWrap {
+    width: 100%;
+    height: 180px;
+    background-image: url(https://letspl.s3.ap-northeast-2.amazonaws.com/images/bg_payment.png);
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 4px;
+    position: relative;
+    background-repeat: no-repeat;
+    margin-bottom: 48px;
+}
+
+.adWrap:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+}
+
+
+.adWrap p, .payment .adWrap span {
+    color: #fff;
+    display: block;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+.payment .adWrap p {
+    box-sizing: border-box;
+    padding-top: 66px;
+    font-size: 1.5rem;
+}
+
+.payment .adWrap span {
+    font-size: .875rem;
+}
+
+.payment .paymentStep {
+    margin-bottom: 30px;
+}
+
+.payment .paymentStep .stepNumber {
+    font-size: 1.125rem;
+    color: #42495b;
+    margin-bottom: 15px;
+}
+
+.payment .paymentStep .stepNumber span {
+    font-weight: 700;
+    margin-right: 12px;
+}
+
+
+/* 테이블 */
+.payment .paymentStep .chargeTable {
+    width: 100%;
+}
+
+.payment .paymentStep .chargeTable table {
+    border-bottom: 2px solid #42495b;
+    border-top: 2px solid #42495b;
+    width: 100%;
+}
+
+.payment .paymentStep .chargeTable table tr td {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: .875rem;
+    color: #42495b;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 9px 40px;
+    position: relative;
+}
+
+.payment .paymentStep .chargeTable table tr th {
+    border-right: 1px solid #e5e5e5;
+    text-align: center;
+
+}
+
+.chargeTable table thead {
+    border-bottom: solid 2px;
+}
+
+.payment .paymentStep .chargeTable table tr th:nth-child(3) {
+    border-right: none;
+}
+
+.payment .paymentStep .chargeTable table tr td:nth-child(3) {
+    border-right: none;
+}
+
+
+.payment .paymentStep .chargeTable table tr td:first-child label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+}
+
+.payment .paymentStep .chargeTable table tr td:first-child label {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+}
+
+.chargeTable table span:hover{
+    background-color: #dddddd;
+}
+
+.checkBox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkBox {
+    margin: 0 auto;
+}
+
+input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input {
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    border: none;
+    height: 46px;
+    font-size: 14px;
+    padding: 4px 0 0;
+}
+
+.payment .paymentStep .chargeTable table tr td:first-child label .checkmark {
+    top: 0;
+}
+
+.checkBox input:checked~.checkmark {
+    background-color: #336d47;
+    border: none;
+}
+
+.checkmark {
+    top: 0;
+    background-color: #eee;
+    border-radius: 4px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #bcbccb;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.checkBox input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkBox .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 4px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+.payment .paymentStep .paymentMethod {
+    margin-bottom: 30px;
+}
+
+.payment .paymentStep .paymentMethod p {
+    font-size: .875rem;
+    color: #42495b;
+}
+
+.payment .paymentStep .paymentMethod div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.payment .paymentStep .normalPayment div button {
+    width: 240px;
+    height: 58px;
+    border: 1px solid #bababa;
+    background-color: #fff;
+    font-size: .875rem;
+    color: #42495b;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.payment .paymentStep .normalPayment div button:hover {
+    background-color: #f6f6f6;
+    color: #babac1;
+    border: 1px solid #f6f6f6;
+}
+
+.payment .paymentStep .easyPayment div button.kakao {
+    background-image: url(https://letspl.s3.ap-northeast-2.amazonaws.com/images/ic_pay_kakao.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #ffdf00;
+}
+
+.payment .paymentStep .easyPayment div button {
+    width: 240px;
+    height: 58px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p {
+    margin : 0 !important;
+}
+
+
+
+
+/* Button */
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+-moz-appearance: none;
+-webkit-appearance: none;
+-ms-appearance: none;
+appearance: none;
+-moz-transition: background-color 0.2s ease-in-out, color 0.2s
+ease-in-out;
+-webkit-transition: background-color 0.2s ease-in-out, color 0.2s
+ease-in-out;
+-ms-transition: background-color 0.2s ease-in-out, color 0.2s
+ease-in-out;
+transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+border-radius: 0;
+border-style: solid;
+border-width: 1px;
+cursor: pointer;
+display: inline-block;
+font-weight: 700;
+height: 3.25em;
+letter-spacing: 0.07em;
+line-height: 3.35em;
+overflow: hidden;
+padding: 0 1.75em;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+text-transform: uppercase;
+white-space: nowrap;
+}
+
+input[type="submit"].icon, input[type="reset"].icon, input[type="button"].icon,
+button.icon, .button.icon {
+padding-left: 1.35em;
+}
+
+input[type="submit"].icon:before, input[type="reset"].icon:before, input[type="button"].icon:before,
+button.icon:before, .button.icon:before {
+margin-right: 0.5em;
+}
+
+input[type="submit"].fit, input[type="reset"].fit, input[type="button"].fit,
+button.fit, .button.fit {
+width: 100%;
+}
+
+input[type="submit"].small, input[type="reset"].small, input[type="button"].small,
+button.small, .button.small {
+font-size: 0.8em;
+}
+
+input[type="submit"].large, input[type="reset"].large, input[type="button"].large,
+button.large, .button.large {
+font-size: 1.15em;
+padding: 0 3.5em;
+}
+
+input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"].disabled,
+input[type="reset"]:disabled, input[type="button"].disabled, input[type="button"]:disabled,
+button.disabled, button:disabled, .button.disabled, .button:disabled {
+pointer-events: none;
+opacity: 0.25;
+}
+
+@media screen and (max-width: 480px) {
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+padding: 0;
+}
+}
+
+input[type="submit"], input[type="reset"], input[type="button"], button,
+.button {
+background-color: transparent;
+border-color: rgba(144, 144, 144, 0.3);
+color: #444;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover,
+button:hover, input[type="submit"]:active, input[type="reset"]:active,
+input[type="button"]:active, button:active, input[type="submit"].icon:before,
+input[type="reset"].icon:before, input[type="button"].icon:before,
+button.icon:before, .button.icon:before {
+color: #444;
+}
+
+input[type="submit"].primary, input[type="reset"].primary, input[type="button"].primary,
+button.primary, .button.primary {
+border: none;
+background-color: white;
+}
+
+input[type="submit"].primary.icon:before, input[type="reset"].primary.icon:before,
+input[type="button"].primary.icon:before, button.primary.icon:before,
+.button.primary.icon:before {
+color: #ffffff;
+}

@@ -1,0 +1,494 @@
+a{
+    text-decoration: none !important;
+    color:black !important;
+}
+textarea {
+    padding: 0;
+}
+/* 총 section */
+.loungeSection{
+   width: 1200px;
+    margin: 0 auto;
+    /* transform: scale(0.9); */
+}
+/* .loungeWrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+.loungeTool{
+    width:100%;
+}
+
+/* 상단 라운지 */
+.talkTit{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 10px 24px;
+    box-sizing: border-box;
+}
+.talkTit1{
+    font-weight: bold;
+    color: #00704a;
+    font-size: .875rem;
+}
+.talkTit2{
+    font-weight: bold;
+
+}
+/* 상단 댓글 입력부분 */
+.loungeInput{
+    box-sizing: border-box;
+    padding: 26px 40px 10px;
+    background-color: #fff;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 3px 12px 0 rgb(0 0 0 / 6%);
+    margin-bottom: 20px;
+}
+.loungeInputWrap{
+    display: inline-flex;
+    flex-direction: row;
+    margin-bottom: 12px;
+}
+.loungeTextArea{
+    box-sizing: border-box;
+    flex: 1 1;
+    padding: 13px 16px;
+    background: #fff;
+    border: 1px solid #c9c9d9;
+    font-size: .875rem;
+    border-radius: 4px;
+    height: 100%;
+    resize: none;
+}
+.loungeBtn1{
+    background-color: #336d47;
+    color: #fff;
+    width: 80px;
+    border: 1px solid #336d47;
+    float: right;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
+    height: 40px;
+}
+.txtBtnImg{
+    width: 20px;
+}
+/* 라운지 랭킹부분 */
+/* .loungeWrap .loungeLankWrap{
+    position: absolute;   
+
+} */
+/* .loungeLankWrap {
+    position: fixed;
+   max-width: 200px;
+   width: 100%;
+   margin-left: 4em;
+} */
+.loungeLank{
+    max-width: 200px;
+    width: 100%;
+    right: 111px;
+    top: 203px;
+    position: fixed;
+}
+.loungeLikeLank{
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 18px 16px 25px;
+    box-shadow: 0 3px 12px 0 rgb(0 0 0 / 6%);
+    margin-bottom: 12px;
+}
+.loungeReplyLank{
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 18px 16px 25px;
+    box-shadow: 0 3px 12px 0 rgb(0 0 0 / 6%);
+    margin-bottom: 12px;
+}
+.lankTit{
+    font-size: 1rem;
+    font-weight: 700;
+    color: #00704a;
+    margin-bottom: 12px;
+}
+.likeTit{
+    font-size: 13px;
+    color: #42495b;
+    display: block;
+    margin-bottom: 17px; 
+}
+.likeList{
+    width: 100%;
+}
+.likeListLi{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row; 
+    align-items: center;
+    margin-bottom: 6px;
+    height: 28px;
+}
+.replyTit{
+    font-size: 13px;
+    color: #42495b;
+    display: block;
+    margin-bottom: 17px; 
+}
+.replyList{
+    width: 100%;
+}
+.replyListLi{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row; 
+    align-items: center;
+    margin-bottom: 6px;
+    height: 28px;
+}
+.number{
+    font-size: .75rem;
+    color: #9d9dac;
+    width: 24px;
+}
+.upDown{
+    width: 0.6rem;
+    height: 4em;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    margin: 0 16px 0 10px;
+}
+
+.up{
+    background-image: url(../../static/images/up.png);
+}
+.profileWrap{
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.profileImg{
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+}
+.proName{
+    cursor: pointer;
+    font-size: .875rem;
+    color: #8e8ea2;
+    margin-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80px;
+    position: relative;
+    letter-spacing: -.1px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+
+/*댓글 리스트 부분*/
+.replySection{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.replyWrap{
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 0;
+    transition: all .2s;
+}
+
+.replyTool{
+    box-shadow: 0 3px 12px 0 rgb(0 0 0 / 6%);
+    position: relative;
+    z-index: 999;
+    box-sizing: border-box;
+    padding: 13px 10px;
+}
+
+.replyTop{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.replyLeft{
+    margin-right: 16px;
+}
+
+.proWrap img{
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+}
+.proNames{
+    margin: 0;
+}
+
+.replyRight{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+ .txtarea{
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 10px;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #fff;
+    resize: none;
+    height: auto;
+} 
+
+.sell{
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    color: #eeee;
+    
+}
+
+.replyBottom{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 4px;
+    justify-content: space-between;
+}
+
+.replyBtnWrap{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 13px;
+    align-items: center;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+.time{
+    font-size: .75rem;
+    color: #c9c9d9;
+    margin-right: 5px;
+}
+
+.replyContents{
+    margin-top: 10px;
+}
+
+.replyOpen{
+    font-size: .75rem;
+    color: #c9c9c9;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.replyBtmRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.txtBtn{
+    background-color: #fff;
+    /* border: 1px solid #eeee; */
+    border: none;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+   
+}
+.modify{
+    cursor: pointer;
+}
+.remove{
+    cursor: pointer;
+}
+
+.replyCount{
+    font-size: .75rem;
+    color: #42495b;
+    align-items: center;
+}
+
+
+.replyLike{
+    font-size: .75rem;
+    color: #42495b;
+    cursor: pointer;
+    align-items: center;
+}
+
+.rpyImg{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.rpyCountDiv{
+    margin-right: 1em;
+}
+
+/* 댓글의 댓글 */
+.rpyAtiveWrap{
+    background-color: #f7f7f7;
+    padding: 24px 24px 10px 80px;
+    box-sizing: border-box;
+
+}
+.activeWrap{
+    box-sizing: border-box;
+}
+  
+ .activeTop{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+} 
+.activeLeft{
+    margin-right: 16px;
+}
+.activeLeftPro{
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+.activeLeftPro img{
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+}
+
+.activeRight{
+    width: 100%;
+}
+.activeProfile{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.avtiveProName{
+    font-size: 1rem;
+    color: #42495b;
+    cursor: pointer;
+    position: relative;
+}
+
+.activeDate{
+    font-size: .75rem;
+    color: #c9c9d9;
+    margin-right: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+.activeTextArea{
+    font-size : 1rem;
+    resize: none;
+    border: none;
+    background-color: #f7f7f7;
+}
+/* 댓글의 댓글입력창 */
+.activeInput{
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    /* display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    background-color: #f7f7f7;
+    padding: 24px 24px 10px 80px;
+    box-sizing: border-box; */
+    /* display: none; */
+}
+.activeInputPro{
+    width: 44px;
+    height: 44px;
+    margin-right: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.activInputImg{
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-right: 16px;
+}
+.activeInputTxt{
+    flex: 1 1;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.activeInputTextArea{
+    flex: 1 1;
+    font-size: .875rem;
+    box-sizing: border-box;
+    padding: 11px 16px;
+    border-radius: 4px;
+    margin-right: 14px;
+    resize: none;
+    border: none;
+    background-color: #fff;
+}
+.activeInputBtn{
+    background-color: #336d47;
+    color: #fff;
+    border: 1px solid #336d47;
+    width: auto;
+    padding: 8px 29px!important;
+    transition: all .2s;
+    font-size: .75rem;
+    border-radius: 4px;
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width: 414px){
+    .lounge{
+        width: 414px;
+    }
+    div.loungeLank {
+        max-width: 200px;
+        width: 100%;
+        right: 111px;
+        top: 203px;
+        position: fixed;
+        display: none;
+    }
+}
