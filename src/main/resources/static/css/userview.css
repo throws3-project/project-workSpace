@@ -1173,3 +1173,18 @@ div.bottomWrap div.recruit {
 div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
     color: #ea6560;
 }
+
+
+
+/* 미디어쿼리 */
+@media screen and (max-width: 414px){
+    html, body{
+        width: 414px !important;
+    }
+   .userViewWrap{
+        margin-top: 10em !important;
+        width: 414px !important;
+        height: 100% !important;
+    }
+
+}

@@ -463,3 +463,13 @@ margin-right: 16px;
 .seriesUl::-webkit-scrollbar-thumb:active { background: rgb(61, 61, 61); } /* 실질적 스크롤 바를 클릭할 때 */
 
 .seriesUl::-webkit-scrollbar-button { display: none; } /* 스크롤 바 상 하단 버튼 */
+
+/* 미디어쿼리 */
+@media screen and (max-width: 414px){
+    html, body{
+        width: 414px;
+    }
+    section.storySection{
+        width: 414px;
+    }
+}
