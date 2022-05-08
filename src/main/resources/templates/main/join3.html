@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>workSpace-join3</title>
+    <link rel="stylesheet" href="../../static/css/join3.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header id="header"></header>
+
+<div class="modalWindow">
+    <div id="my_modal">
+        <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
+        <div class="letter">
+            <p class="completeP">성공적으로 설정되었습니다.</p>
+            <p class="get200PointP">워크스코어 200을 획득하셨습니다.</p>
+            <button class="complete">확인</button>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="joinWrapper">
+        <div class="h3Good">
+        <h3>
+            <span class="smTxt">부 캐릭터 생성 및 추가답변</span>
+            <span class="bigTxt">완료시,추가 워크스코어 200을 획득합니다.</span>
+        </h3>
+        </div>
+        <div class="form">
+            <ul class="firstSignForm">
+                <li class="firstLi">
+                    <label>부 캐릭터 추가 생성</label>
+                    <div class="settingWrapper">
+                        <select class="oneSelect">
+                            <option selected value="02">기획</option>
+                            <option value="03">디자인</option>
+                            <option value="04">프론트엔드개발</option>
+                            <option value="05">백엔드개발</option>
+                            <option value="01">사업</option>
+                            <option value="06">기타</option>
+                        </select>
+                        <select class="oneSelect">
+                            <option selected value="0201">게임기획</option>
+                            <option value="0202">프로젝트 매니저</option>
+                            <option value="0203">하드웨어(제품) 기획</option>
+                        </select>
+                        <select class="oneSelect">
+                            <option value="0301">초심자</option>
+                            <option value="0302">초보</option>
+                            <option selected value="0303">중수</option>
+                            <option value="0304">고수</option>
+                            <option value="0305">구루</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="secondLi">
+                    <label>비트 포인트 설정</label>
+                    <div class="settingWrapper2">
+                        <select class="twoSelect">
+                            <option value="0401">1</option>
+                            <option value="0402">2</option>
+                            <option value="0403">3</option>
+                            <option value="0404">4</option>
+                            <option value="0405">5</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="thirdLi">
+                    <label>검색 태그(#)</label>
+                    <div class="searchTagWrapper2">
+                        <input type="text" placeholder="태그는 최대 5개 가능합니다" class="inputTag">
+                    </div>
+                </li>
+                <li class="fourthLi">
+                    <label>자세한 소개</label>
+                    <div class="introduceDiv">
+                        <textarea name="userIntroduce" id="userIntroduce" rows="3" maxlength="200" placeholder="최대 200자까지 작성가능합니다"></textarea>
+                    </div>
+                </li>
+                <li class="fifthLi">
+                    <div class="labelWrap">
+                    <label>포트폴리오/SNS 링크</label>
+                    <div class="linkDiv" id="copyInput">
+                        <div class="urlFirstWrap">
+                        <input type="text" class="linkInput" placeholder="포폴/SNS 주소를 입력해주세요">
+                        <input type="button" class="addButton" id="copyButton" value="추가">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="joinCompleteWrapper">
+                        <button class="joinComplete">나중에</button>
+                        <button class="joinComplete">완료</button>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</section>
+<header id="footer"></header>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#header").load('../../templates/fix/header.html');
+    });
+
+    $(document).ready(function(){
+        $("#footer").load('../../templates/fix/footer.html');
+    });
+
+    $(document).ready(function(){
+        $(".modalWindow").show();
+    });
+
+    $('.modal_close_btn').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).hide();
+        });
+    });
+
+    $('.complete').each(function(i, btn){
+        $(btn).on("click", function(){
+            $($(".modalWindow").get(i)).hide();
+        });
+    });
+
+    let count=1;
+    $("#copyInput").on("click", "#copyButton", function(){
+        let length= $("#copyInput").children().length;
+        if(length != 5){
+            count++
+            let input = $($(this).parent().children()[0]);
+            let str = "";
+            str += "<div id=\"url\" class=\"flex\">"
+            str += "<input type='text' class='linkInput' placeholder='포폴/SNS 주소를 입력해주세요' value='" + input.val() + "'>";
+            str += "<input id='deleteUrl' type='button' class='addButton a" + count + "' value='삭제'>";
+            str += "</div>"
+            $("div#copyInput").append(str);
+            input.val("");
+            if(length == 4){
+                $(this).replaceWith("<input id='deleteUrl' type='button' class='addButton' value='삭제'>");
+            }
+        };
+    });
+
+    $("#copyInput").on("click", "#deleteUrl", function(){
+        $(this).parent().hide();
+        count--
+        if(count==0){
+            count++
+            let str = "";
+            str += "<div id=\"url\" class=\"flex\">"
+            str += "<input type='text' class='linkInput' placeholder='포폴/SNS 주소를 입력해주세요' value=''>";
+            str += "<input id='plusUrl' type='button' class='addButton a" + count + "' value='추가'>";
+            str += "</div>"
+            $("div#copyInput").append(str);
+            count=1
+        }
+    });
+
+</script>
+</html>

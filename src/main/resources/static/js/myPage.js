@@ -22,6 +22,14 @@ $(".pointNav").each(function (i,nav) {
     })
 })
 
+// <div id="portfolio" class="marginBottom">
+//     <div id="url" class="flex a1">
+//     <input type="text" class="able" placeholder="URL을 입력해주세요">
+//     <input id="plusUrl" type="button" class="able" value="추가">
+//     </div>
+//     </div>
+
+
 
 /*정보페이지 - 포트폴리오 추가*/
 let count=1

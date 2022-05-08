@@ -436,6 +436,19 @@ select:focus{
 .top3List{
     display:flex;
 }
+.top3left{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+}
+.top3left img{
+    width: 26px;
+    height: 34px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
 .top10left img{
     width: 26px;
     height: 34px;
@@ -449,6 +462,19 @@ select:focus{
     align-items: center;
     flex-shrink: 0;
     flex-wrap: nowrap;
+}
+.left3pTag{
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+.left3span{
+    font-size: 13px;
+    color: #222;
+    margin-left: 6px;
+    margin-right: 4px;
+    font-weight: 600;
 }
 .leftpTag{
     margin: 0;
@@ -495,6 +521,22 @@ select:focus{
     margin: 0;
     font-size: 12px;
 }
+.top3right{
+    padding: 5px 0 5px 20px;
+    background-color: #fafafa;
+    border-radius: 100px;
+    max-width: 948px;
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    box-sizing: border-box;
+}
+.top3Ptag{
+    margin: 0;
+    font-size: 12px;
+}
+
 
 .top10Tool{
     display: flex;
@@ -552,3 +594,151 @@ select:focus{
     font-size: 14px;
     margin-right: 20px;
 }
+
+/* 아이디 호버메뉴 */
+.idHoverMenu{
+    display: none;
+    position: absolute;
+    width: 120px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+    margin-left: -35px;
+}
+.idHoverMenu li {
+    width: 100%;
+}
+.idHoverMenu li a {
+    display: block;
+    padding: 5px 15px;
+    font-weight: 400;
+    font-size: .875rem;
+    color: #333;
+}
+
+
+@media screen and (max-width: 414px){
+     .pic{
+         font-weight: 600;
+     }
+     .userGrid:hover{
+        transform: none;
+        border: 1px solid #e5e5e5;
+     }
+     section.peopleView{
+        width: 414px !important;
+        margin-top: 150px !important;
+     }
+     div.banner{
+         width: 414px !important;
+     }
+     div.todayuser{
+        /* padding: 20px 10px 16px; */
+        box-sizing: border-box;
+     }
+     .todayuser .todayuserWrap{
+         width: 414px !important;
+         display: flex !important;
+         flex-direction: column !important;
+      border-radius: 0;
+
+     }
+     div.txtWrap{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+     }
+     div.imgWrap{
+         height: 100px;
+     }
+     .todayuserWrap .imgWrap img {
+        width: 100px;
+        height: 150px;
+        object-fit: cover;
+     }
+     .txttop p{
+        margin-top: -20px;
+     }
+     .todayuserWrap .txtWrap .txttop .best {
+        position: absolute;
+        width: 42px;
+        top: -6px;
+        right: -48px;
+    }
+    .icon {
+        width: 23px;
+    }
+    .userId {
+        font-size: 12px;
+        color: #444;
+        margin-left: 8px;
+        font-weight: bold;
+    }
+    .smtxt{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .maintxt{
+        font-size: 11px;
+        font-weight: 600;
+    }
+    .tagname{
+        font-size: 9px;
+        font-weight: 600;
+    }
+    .nowgroupatag{
+        font-size: 11px;
+        font-weight: 600;
+    }
+     .todayuserWrap .txtWrap .txttop {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        position: relative;
+        padding-right: 12px;
+        padding-top: 20px;
+        top: -97px;
+        left: -25px;
+    }
+    .userGridList{
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        /* display: grid; */
+        flex-direction: column;
+        align-content: center;
+    }
+    .userGridTool{
+        width: 414px !important;
+    }
+    .searchSelect{
+        font-size: 13px !important;
+    }
+    .top10{
+        width: 414px;
+    }
+    .gold{
+        display: flex;
+    flex-direction: column;
+    }
+    .silver{
+        display: flex;
+        flex-direction: column;
+    }
+    .brozen{
+        display: flex;
+        flex-direction: column;
+    }
+    .top10Tool {
+        width: 100%;
+        flex-direction: column;
+    }
+    .more {
+        width: 100%;
+        margin: 0 auto;
+        left: 0;
+    }
+    .morebtn {
+        padding: 5px;
+        font-size: 16px;
+    }
+ }
