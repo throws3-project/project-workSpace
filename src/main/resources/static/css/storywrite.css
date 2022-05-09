@@ -923,6 +923,9 @@ div.labelWrap{
     display: flex;
 }
 
+a{
+    text-decoration: none !important;
+}
 
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){

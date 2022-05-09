@@ -1230,6 +1230,7 @@ div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
     display: inline-block;
     margin-bottom: 0;
     margin-right: -20px;
+    
 }
 
 
@@ -1243,7 +1244,7 @@ div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
     .userSummryTxtTag {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         flex-wrap: nowrap;
     }
     .userSummryTagWrap {
