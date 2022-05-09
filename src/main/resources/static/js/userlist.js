@@ -3,13 +3,13 @@
 //     idHoverMenu.addEventListener('mouseover',function(){
 //         idHoverMenu.setAttribute('class','hover');
 //     });
-// 	//마우스 아웃
+//    //마우스 아웃
 
-// 	box.addEventListener('mouseout',function(){
+//    box.addEventListener('mouseout',function(){
 
-// 		box.removeAttribute('class');
+//       box.removeAttribute('class');
 
-// 	});
+//    });
 
 // $(".idHoverMenu").css('display', 'block');
 
@@ -67,4 +67,8 @@ $(".idHoverMenu").on("mouseover", function () {
 
 $(".idHoverMenu").on("mouseout", function () {
     $(this).css("display", "none");
+})
+
+$(".ugname").next().find("a").on("click",function(){
+    console.log($(this).text());
 })
