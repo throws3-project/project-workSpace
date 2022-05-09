@@ -15,9 +15,9 @@ a{
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 20px 0 0;
     width: 100%;
     margin: 0 auto;
+    margin-top: 100px;
     transition: all .2s;
 }
 .userPro{
@@ -1215,7 +1215,7 @@ div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
 }
 .hoverName span:first-child {
     font-size: 12px!important;
-    color: #00704a!important;
+    color: white !important;
     margin-right: 4px!important;
 }
 .hoverName  span:last-child {

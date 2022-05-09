@@ -56,3 +56,19 @@ $(".ugname").mouseout(function(){
 //         }
 //     })
 // })
+
+$(".ugname").on("mouseover", function () {
+    $(this).parent().children().closest(".idHoverMenu").css("display", "block");
+})
+
+$(".ugname").on("mouseout", function () {
+    $(this).parent().children().closest(".idHoverMenu").css("display", "none");
+})
+
+$(".idHoverMenu").on("mouseover", function () {
+    $(this).css("display", "block");
+})
+
+$(".idHoverMenu").on("mouseout", function () {
+    $(this).css("display", "none");
+})

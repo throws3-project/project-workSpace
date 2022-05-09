@@ -2,7 +2,7 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 126px;
     box-sizing: border-box;
 }
 
@@ -58,6 +58,7 @@
 .noticeList table tbody tr td p {
     font-size: .875rem;
     color: #42495b;
+    cursor: pointer;
 }
 
 .noticeList table thead tr th {

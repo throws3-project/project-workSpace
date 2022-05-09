@@ -42,6 +42,26 @@ function onOffChange(e) {
     }
 }
 
+function onOffChange2(e) {
+    var onOff_both = ["상관없음", "서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
+    var onOff_on = ["상관없음"];
+    var onOff_off = ["서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
+    var target = document.getElementById("onOffResult2");
+
+    if (e.value == "both") var d = onOff_both;
+    else if (e.value == "on") var d = onOff_on;
+    else if (e.value == "off") var d = onOff_off;
+
+    target.options.length = 0;
+
+    for (x in d) {
+        var opt = document.createElement("option");
+        opt.value = d[x];
+        opt.innerHTML = d[x];
+        target.appendChild(opt);
+    }
+}
+
 
 //모집인원 선택
 function personChange(e) {

@@ -9,7 +9,7 @@ a{
     left: 0;
     z-index: 1;
     background-color: #222;
-    top: 51px;
+    top: 76px;
     overflow: hidden;
 }
 
@@ -132,7 +132,7 @@ a{
 .storyViewWrap{
     box-sizing: border-box;
     max-width: 100%;
-    margin-top: 320px;
+    margin-top: 436px;
     position: relative;
     z-index: 5;
     background-color: #fff;
