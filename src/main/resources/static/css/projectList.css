@@ -724,3 +724,67 @@ div.sideApp img {
     width: 100%;
     object-fit: cover;
 }
+
+
+
+
+
+
+
+/*미디어쿼리*/
+@media screen and (max-width: 414px){
+    h2.startProject {
+        padding: 35px 10px 20px;
+    }
+    div.projectView {
+        padding: 0 20px;
+    }
+    div.allProject{
+        padding: 0 20px;
+    }
+    div.sideProject{
+        padding: 0 20px;
+    }
+    div.projectView-leftWrap {
+        width: 100%;
+    }
+    div.projectView-wrap {
+        height: 370px;
+    }
+    div.selectOption {
+        display: grid!important;
+        grid-template-columns: repeat(2,1fr);
+        grid-row-gap: 5px;
+        grid-column-gap: 5px;
+    }
+    .selectOption .smSelect {
+        max-width: 195px;
+        height: 40px;
+        font-size: 13px;
+    }
+    div.projectGridView {
+        display: block;
+        margin-top: 20px;
+    }
+    div.projectGridWrap {
+        margin-bottom: 15px;
+        max-width: 100%;
+    }
+    div.projectImg {
+        max-height: 100%;
+    }
+    div.projectBottomInfo {
+        padding: 0px 13px 0 13px;
+    }
+    div.sideCollect {
+        grid-template-columns: repeat(1,1fr);
+    }
+    div.sideCollectList {
+        padding: 20px 18px 16px 16px;
+    }
+
+
+
+
+
+}
