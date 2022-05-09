@@ -48,3 +48,26 @@ footer#footer div#left table{
 footer#footer div#left table th{
     font-family: GmarketSansMedium;
 }
+
+@media screen and (max-width: 415px){
+
+    footer#footer div#footerWrap{
+        max-width: 414px;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    footer#footer div#right{
+        display: none;
+    }
+    footer#footer div#left {
+        width: 90%;
+        font-size: 12px;
+        margin: 0 auto;
+    }
+
+
+
+}
