@@ -39,11 +39,11 @@
 // });
 
 
-$(".ugname").each(function (i,name) {
-    $(name).hover(function () {
-        $(this).next().show();
-    })
-})
+// $(".ugname").each(function (i,name) {
+//     $(name).hover(function () {
+//         $(this).next().show();
+//     })
+// })
 
 // $(".idHoverMenu").each(function (i,over) {
 //     $(over).on("mouseout",function () {
@@ -52,3 +52,19 @@ $(".ugname").each(function (i,name) {
 //         }
 //     })
 // })
+
+$(".ugname").on("mouseover", function () {
+    $(this).parent().children().closest(".idHoverMenu").css("display", "block");
+})
+
+$(".ugname").on("mouseout", function () {
+    $(this).parent().children().closest(".idHoverMenu").css("display", "none");
+})
+
+$(".idHoverMenu").on("mouseover", function () {
+    $(this).css("display", "block");
+})
+
+$(".idHoverMenu").on("mouseout", function () {
+    $(this).css("display", "none");
+})

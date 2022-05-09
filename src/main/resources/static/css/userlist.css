@@ -39,6 +39,10 @@ h2{
     margin-bottom: 20px;
 }
 
+section.peopleView{
+    margin-top: 76px;
+}
+
 .todayuser .pick {
     color: #444;
     font-size: 20px;
@@ -614,6 +618,10 @@ select:focus{
     font-weight: 400;
     font-size: .875rem;
     color: #333;
+}
+
+.idHoverMenu li:hover{
+    background-color: #97e7b3;
 }
 
 
