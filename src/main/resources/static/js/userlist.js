@@ -32,18 +32,22 @@
 //     $(this).css('background-color','pink');
 // });
 
-// $(".ugname").mouseover(function(){
-//     $(this).next().css('display','block');
-// }).on('mouseover foucus', function(){
-//     $(this).css('background-color','pink');
-// });
+$(".ugname").mouseover(function(){
+    $(this).next().css('display','block');
+}).on('mouseover foucus', function(){
+    $(this).next().children().css('background-color','green');
+});
+
+$(".ugname").mouseout(function(){
+    $(this).next().css('display', 'none');
+});
 
 
-$(".ugname").each(function (i,name) {
-    $(name).hover(function () {
-        $(this).next().show();
-    })
-})
+// $(".ugname").each(function (i,name) {
+//     $(name).hover(function () {
+//         $(this).next().show();
+//     })
+// })
 
 // $(".idHoverMenu").each(function (i,over) {
 //     $(over).on("mouseout",function () {
