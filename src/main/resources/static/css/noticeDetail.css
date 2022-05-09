@@ -106,6 +106,7 @@
     width: auto;
     border: 1px solid #81839c;
     margin-left: 10px;
+    font-family: 'GmarketSansLight', sans-serif;
 }
 
 .btnWrap button.writer {
@@ -307,4 +308,27 @@ input[type="submit"].primary.icon:before, input[type="reset"].primary.icon:befor
 input[type="button"].primary.icon:before, button.primary.icon:before,
 .button.primary.icon:before {
     color: #ffffff;
+}
+
+
+
+
+
+
+
+/*미디어쿼리*/
+
+@media screen and (max-width: 414px){
+
+    .notice {
+        padding: 0 10px;
+    }
+
+    .left p, .right p {
+        padding-left: 10px;
+    }
+
+    button.whiteBtn{
+        padding: 0 10px;
+    }
 }

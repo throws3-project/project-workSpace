@@ -19,3 +19,5 @@ $(".userFollowerImgs").each(function (i,img) {
         $($(".hoverName").get(i)).hide();
     })
 })
+
+// 스토리 선택시 진행중인 프로젝트/스터디, 나를 구독중인 사람 안나오게하기

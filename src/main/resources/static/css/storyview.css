@@ -699,3 +699,118 @@ margin-right: 16px;
     font-size: .75rem;
     border-radius: 4px;
 }
+
+/* 미디어쿼리 */
+@media screen and (max-width: 414px){
+
+    .storyTimeLi {
+          display: flex;
+          flex-direction: column;
+    padding: 10px 6px;
+    position: relative;
+    }
+    .stroyTimeUl{
+            display: flex;
+    flex-direction: column;
+    }
+    .storyTimeLineLeft {
+         display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    }
+    
+    .storyTimeLineImg{
+        width: 150px;
+        height: 100px;
+         margin: 0;
+    }
+    .storyTimeLineImg img{
+        width: 150px;
+        height: 100px;
+        }
+        .storyTimeLineContents{
+            width: 100%;
+            margin-left: 6px;
+        }
+        .timeLineTitWrap{
+            flex-direction: column;
+             align-items: flex-start;
+             margin-top: 0;
+          margin-bottom: 0;
+        }
+        .timeLineTit{
+            font-size: 14px;
+            width: 95%;
+            margin-bottom: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+        }
+        .timeLineTxt{
+            font-size: 12px;
+        margin-bottom: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        display: -webkit-inline-box;
+        }
+        .timeLineTagWrap{
+            line-height: 12px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            word-wrap: break-word;
+        }
+        .timeLineTagWrap span{
+            font-size: 10px!important;
+            margin-right: 2px;
+        }
+        .TimeLineStatusWrap{
+            display: inline-flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            margin-top: 7px;
+        }
+        .storyTimeLineDivImg{
+            width: 14px;
+            height: 14px;
+        }
+        .divFooterTxt{
+            font-size: 10px!important;
+        }
+        .storyViewContentsWrap {
+            padding: 0;
+        }
+        .funnyStory h3{
+            text-align: center;
+        }
+        .seriesScroll {
+             margin-left: 0;
+        }
+
+        .replyTool {
+            width: 414px;
+        }
+        .rpyAtiveWrap {
+            width: 414px;
+            padding: 20px 20px 10px 40px;
+        }
+        .activeTextArea {
+            font-size: 14px;
+        }
+        .loungeTextArea {
+            height: 150px;
+        }
+        .activeTop {
+            margin-bottom: 0 !important;
+        }
+      
+        .activeInputTextArea {
+         height: 50px;
+            }
+    }
