@@ -713,6 +713,9 @@ a{
     margin-bottom: 10px;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
+    color: #b5b5c2;
+    display: -webkit-inline-box;
+    word-break: normal;
 }
 .timeLineTagWrap{
     color: #222;
@@ -1233,13 +1236,143 @@ div.bottomWrap div.recruit div.recruitStatus span:nth-child(2) {
 
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){
-    html, body{
-        width: 414px !important;
-    }
-   .userViewWrap{
-        margin-top: 10em !important;
-        width: 414px !important;
-        height: 100% !important;
-    }
 
+    .userViewWrap{
+        padding:20px;
+    }
+    .userSummryTxtTag {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    .userSummryTagWrap {
+        margin-right: 70px;
+    }
+    .ingProjectWrap {
+        display: flex;
+        flex-direction: column;
+    }
+    div.projectGridWrap {
+        margin: 0 auto;
+    }
+    .samePeopleTit p {
+        font-size: 21px;
+    }
+    /* .storyTimeLi {
+        display: flex;
+        flex-direction: column;
+    }
+    .storyTimeLineLeft {
+        display: inline-flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    .timeLineTit {
+        font-size: 15px;
+    }
+    .timeLineTxt {
+        font-size: 11px;
+    }
+    .storyTimeLineRight {
+        display: flex;
+        flex-direction: row;
+        margin-top: 5px;
+        justify-content: flex-start;
+    }
+    .divFooterTxt {
+        font-size: 10px;
+    } */
+
+    .storyTimeLi {
+        display: flex;
+        flex-direction: column;
+  padding: 10px 6px;
+  position: relative;
+  }
+  .stroyTimeUl{
+          display: flex;
+  flex-direction: column;
+  }
+  .storyTimeLineLeft {
+       display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  }
+  
+  .storyTimeLineImg{
+      width: 150px;
+      height: 119px;
+       margin: 0;
+  }
+  .storyTimeLineImg img{
+      width: 150px;
+      height: 119px;
+      }
+      .storyTimeLineContents{
+          width: 100%;
+          margin-left: 6px;
+      }
+      .timeLineTitWrap{
+          flex-direction: column;
+           align-items: flex-start;
+           margin-top: 0;
+        margin-bottom: 0;
+      }
+      .timeLineTit{
+          font-size: 14px;
+          width: 95%;
+          margin-bottom: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          word-wrap: break-word;
+      }
+      .timeLineTxt{
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+      .timeLineTagWrap{
+        line-height: 12px;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word;
+        overflow: hidden;
+        
+      }
+      .timeLineTagWrap span{
+          font-size: 10px!important;
+          margin-right: 2px;
+      }
+      .TimeLineStatusWrap{
+          display: inline-flex;
+          -webkit-flex-direction: row;
+          flex-direction: row;
+          margin-top: 7px;
+      }
+      .storyTimeLineDivImg{
+          width: 14px;
+          height: 14px;
+      }
+      .divFooterTxt{
+          font-size: 10px!important;
+      }
+      .storyViewContentsWrap {
+          padding: 0;
+      }
+      .funnyStory h3{
+          text-align: center;
+      }
+      .seriesScroll {
+           margin-left: 0;
+      }
+      .timeLintCategory{
+        padding: 4px 8px;
+      }
+    
 }

@@ -864,3 +864,62 @@ section#score table td{
 }
 
 
+/* 미디어쿼리 */
+@media screen and (max-width: 414px){
+
+    div#container {
+        padding: 10px;
+    }
+    ul#nav li a {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    ul#nav li {
+        margin-right: 4px;
+        width: auto;
+    }
+   select {
+        font-size: 11px !important;
+        font-weight: 600 !important;
+    }
+    section#info div#labelTag p {
+        font-size: 12px;
+    }
+    section#info .alert {
+     font-weight: 600;
+    }
+    p{
+        font-weight: 600 !important;
+    }
+    input{
+        font-size: 13px !important;
+    }
+    .marginBottom {
+        margin-top: 18px;
+    }
+    textarea{
+        font-size: 12px !important;
+    }
+    section#like div.emptyBox p {
+        margin:0 auto;
+    }
+    .flexs{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    section#alert span.alertContent {
+        font-size: 13px;
+    }
+    section#alert div.alertBox a {
+        font-size: 13px;
+    }
+    #goPoint{
+        display: none;
+    }
+    #goScore{
+        display: none;
+    }
+    /* table{
+        table-layout: fixed;
+    } */
+}

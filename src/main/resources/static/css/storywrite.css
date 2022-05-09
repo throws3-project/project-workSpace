@@ -931,12 +931,6 @@ div.labelWrap{
         margin-top: 150px;
         padding: 10px;
     }
-    #header{
-        display: none;
-    }
-    #foot{
-        display: none;
-    }
     .buildProjectContents .answer .thumbnailWrap {
         display: flex;
         flex-direction: column;

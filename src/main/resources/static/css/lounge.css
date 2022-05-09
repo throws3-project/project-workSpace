@@ -481,15 +481,31 @@ textarea {
 
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){
-    .lounge{
+    .loungeLank {
+    display: none;
+    }
+    .loungeInput {
+        width: 414px;
+        padding: 26px 18px 10px;
+    }
+    .replyTool {
         width: 414px;
     }
-    div.loungeLank {
-        max-width: 200px;
-        width: 100%;
-        right: 111px;
-        top: 203px;
-        position: fixed;
-        display: none;
+    .rpyAtiveWrap {
+        width: 414px;
+        padding: 20px 20px 10px 40px;
     }
+    .activeTextArea {
+        font-size: 14px;
+    }
+    .loungeTextArea {
+        height: 150px;
+    }
+    .activeTop {
+        margin-bottom: 0 !important;
+    }
+  
+    .activeInputTextArea {
+     height: 50px;
+        }
 }
