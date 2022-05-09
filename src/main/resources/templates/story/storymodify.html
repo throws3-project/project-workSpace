@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../../static/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/storywrite.css" type="text/css" />
+
+    <!-- Toast UI Editor -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+
+
+    <title>storymodify</title>
+    <style>
+        .platformResult a {
+            text-decoration: none;
+            display: none;
+            cursor: pointer;
+            background-color: #336d47;
+            padding: 4px;
+            border-radius: 4px;
+            color: #fff;
+            margin-left: 2px;
+            font-size: 13px;
+        }
+
+        .skillResult a {
+            text-decoration: none;
+            cursor: pointer;
+            background-color: #336d47;
+            padding: 4px;
+            border-radius: 4px;
+            color: #fff;
+            margin-left: 2px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+
+    <header id="header"></header>
+
+    <section class="storyWriteSection">
+        <div class="storyWriteTit">
+            <p><span>방구석에서 쓰는 소소한 갑분글,</span>나만의 이야기를 들려주마</p>
+            <div class="writeNotice">
+                <p>Tip. 나의 프로필 하단내 글 목록 및 스토리 타임라인에 게재됩니다. <span>단, 문제(저작권 등)소지가 있는 글일 경우 관리자 판단하에 글을 내릴 수 있습니다.</span>
+                </p>
+            </div>
+        </div>
+        <div class="buildProjectWrap">
+            <div class="buildProjectContents">
+
+                <!--  프로젝트 양식 -->
+                <div class="make">
+                    <form action="" name="projectForm">
+                        <div class="question">
+                            <p>유형</p>
+                        </div>
+
+                        <div class="answer">
+                            <ul>
+                                <li class="checkBoxWrap selectPurpose">
+                                    <label class="checkBox">
+                                        <span class="txt">정보</span>
+                                        <input type="radio" name="step2_radio" value="01">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="checkBox">
+                                        <span class="txt">노하우</span>
+                                        <input type="radio" name="step2_radio" value="02">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="checkBox">
+                                        <span class="txt">테스터 모집</span>
+                                        <input type="radio" name="step2_radio" value="03">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="checkBox">
+                                        <span class="txt">이벤트</span>
+                                        <input type="radio" name="step2_radio" value="04">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="checkBox">
+                                        <span class="txt">출시/업데이트</span>
+                                        <input type="radio" name="step2_radio" value="05">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="question">
+                            <p>제목</p>
+                        </div>
+
+                        <div class="answer">
+                            <div class="inputWrap">
+                                <input placeholder="최대 30자까지 입력가능합니다" minlength="3" maxlength="30" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="question"></div>
+
+                        <div class="answer">
+                            <div class="thumbnailWrap">
+                                <div class="thumbnailBox">
+                                    <button type="button" id="imgUploadBtn"></button>
+                                    <img class="thumbnailImage2"
+                                        src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
+                                    <input type="file" style="display: none;" id="imgUpload" name="imgUpload">
+                                </div>
+                                <div class="uploadBox">
+                                    <div>
+                                        <label for="imgUpload">이미지 업로드</label>
+                                    </div>
+                                    <ul>
+                                        <li>&nbsp;가로/세로의 비율이 3:1일 때 썸네일이 가장 예쁩니다.
+                                        </li>
+                                        <li>&nbsp;저작권에 위배되지 않는 파일만 업로드해주세요.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="uploadImgViewWrap">
+                                <p class="uploadImgPtag">&nbsp;이미지가 없으신 분들은 아래에서 이미지를 선택해주세요.</p>
+                                <ul class="uploadImgUl">
+                                    <li class="uploadImgLi">
+                                        <img src="../../static/images/썸네일0.png">
+                                    </li>
+                                    <li class="uploadImgLi">
+                                        <img src="../../static/images/썸네일6.png">
+                                    </li>
+                                    <li class="uploadImgLi">
+                                        <img src="../../static/images/썸네일5.png">
+                                    </li>
+                                    <li class="uploadImgLi">
+                                        <img src="../../static/images/썸네일4.png">
+                                    </li>
+                                    <li class="uploadImgLi">
+                                        <img src="../../static/images/썸네일2.png">
+                                    </li>
+                                    <li class="uploadImgLi">
+                                        <img src="../../static/images/썸네일3.png">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="answer">
+                            <form method="post">
+                                <!--                            <textarea id="summernote" name="editordata"></textarea>-->
+                                <div id="editor"></div>
+                            </form>
+                        </div>
+
+
+                        <div id="tag" class="marginBottom">
+                            <p>검색태그 (#)</p>
+                            <div class="answer" id="skill">
+                                <input type="text" class="able" id="keyword" placeholder="태그는 최대 5개 가능합니다" minlength="3"
+                                       maxlength="20" autocomplete="off">
+                            </div>
+                            <div class="skillResult">
+
+                            </div>
+                        </div>
+
+                        <div class="confirmBtnWrap btnWrap">
+                            <button type="button" value="임시저장" class="grayBtn saveBtn">임시저장</button>
+                            <button type="button" value="완료" class="pinkBtn confirmBtn">작성완료</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer id="foot"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../static/js/storywrite.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#header").load('../../templates/fix/header.html');
+        $("#foot").load('../../templates/fix/footer.html');
+    })
+</script>
+
+</html>

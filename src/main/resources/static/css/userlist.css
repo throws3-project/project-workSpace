@@ -621,7 +621,8 @@ select:focus{
 }
 
 .idHoverMenu li:hover{
-    background-color: #97e7b3;
+    background-color: #f1f8e9;
+    cursor: pointer;
 }
 
 
