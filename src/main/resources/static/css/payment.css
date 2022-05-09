@@ -403,3 +403,30 @@ input[type="button"].primary.icon:before, button.primary.icon:before,
 .button.primary.icon:before {
 color: #ffffff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*미디어쿼리*/
+
+@media screen and (max-width: 414px){
+    .payment .paymentStep .chargeTable table tr td {
+        padding: 9px 15px;
+    }
+
+    .payment .paymentStep .paymentMethod div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding-left: 10px;
+    }
+}

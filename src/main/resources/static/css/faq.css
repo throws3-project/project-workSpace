@@ -124,3 +124,33 @@ section#user, section#project, section#point, section#etc{
 }
 
 /*가입/로그인*/
+
+
+
+
+@media screen and (max-width: 414px){
+    div#container {
+        padding: 0 10px;
+    }
+    ul#nav li {
+        font-size: 11px;
+    }
+
+    div.divTable div.tableCell {
+        padding: 15px 20px;
+        height: auto;
+    }
+
+    span.categoryTxt {
+        display: none;
+    }
+
+    p.contentTxt {
+        font-size: 13px;
+        width: 83%;
+    }
+
+    div.tableCell span{
+        margin-left: 45px;
+    }
+}

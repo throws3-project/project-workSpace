@@ -301,3 +301,25 @@ input[type="button"].primary.icon:before, button.primary.icon:before,
 .button.primary.icon:before {
     color: #ffffff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*미디어쿼리*/
+
+@media screen and (max-width: 414px){
+    .notice {
+        padding: 0 10px;
+    }
+    .noticeList table tbody tr td {
+        padding: 8px 10px;
+    }
+}
