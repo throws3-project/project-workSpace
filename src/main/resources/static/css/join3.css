@@ -5,6 +5,11 @@ div.joinWrapper{
     padding: 90px 0px 140px;
 }
 
+section{
+    margin-top: 76px !important;
+}
+
+
 span.smTxt{
     display: block;
     font-size: .875rem;
