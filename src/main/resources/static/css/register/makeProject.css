@@ -437,6 +437,7 @@ button {
     width: auto!important;
     width: 40%!important;
     max-width: 140px!important;
+    font-family: 'GmarketSansLight', sans-serif;
 }
 
 .confirmBtnWrap .saveBtn {
@@ -480,6 +481,11 @@ div#referenceWrap div{
 div#skill{
     margin-bottom: 2px;
 }
+
+div.skillResult {
+    margin-top: 10px;
+}
+
 
 
 
