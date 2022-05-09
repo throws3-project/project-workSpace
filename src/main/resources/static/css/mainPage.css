@@ -878,6 +878,27 @@ button.complete{
     margin-top: 20px;
 }
 
+/* 배너 버튼 */
+.dot{
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 8px;
+    box-shadow: none!important;
+    height: 6px!important;
+    width: 6px!important;
+    transition: opacity .25s ease-in;
+    opacity: .3;
+}
+
+.selected{
+    opacity: 1;
+    box-shadow: none!important;
+    width: 27px!important;
+    border-radius: 20px!important;
+}
+
 @media (max-width: 414px){
     div.arrow, div.banner{
         display: none;
