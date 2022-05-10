@@ -588,7 +588,7 @@ div.projectManage div.chooseManage{
 
 div.projectManage div.chooseManage ul{
     display: flex;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -615,9 +615,9 @@ div.projectManage div.chooseManage ul li.active a{
     color: #333;
 }
 
-div.projectManage div.managementWrap div.projectSup {
+/* div.projectManage div.managementWrap div.projectSup {
     padding: 0 38px;
-}
+} */
 
 div.projectManage div.managementWrap div.projectSup h3 {
     font-size: 20px;
@@ -1561,4 +1561,464 @@ div.reply {
 
 div.active {
     display: block;
+}
+
+/* 일감 */
+.workChooseManage {
+    margin-bottom: 35px;
+}
+.workRoleUl {
+        display: flex;
+        width: 90%;
+        margin: 0 auto;
+}
+div.workRoleUl div.workChooseManage ul li.active {
+    border-bottom: 2px solid #a1a1a1;
+}
+.workChooseManage ul li {
+    flex: 1 1;
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 2px solid #e6e6e6;
+    cursor: pointer;
+}
+.workChooseManage ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #a1a1a1;
+}
+.workRoleNoticeSelect{
+    border: 1px solid #a5a4a4dd;
+    box-sizing: border-box;
+    border-radius: 1px;
+    padding: 7px;
+    width: 90%;
+    margin: 0 auto;
+}
+.workRoleNoticeSelectBox{
+    border: none;
+    background-color: #fff;
+    padding-left: 21px;
+    font-weight: 600;
+    font-size: 15px;
+    color:#333;
+}
+.todobox{
+    width: 90%;
+    margin:0 auto;
+}
+.todoTextarea{
+    box-sizing: border-box;
+    padding: 13px 16px;
+    background: #fff;
+    border: 1px solid #a5a4a4dd;
+    font-size: .875rem;
+    height: 100%;
+    resize: none;
+    margin-top: 15px;
+    border-radius: 0 !important;
+    font-weight: 600;
+}
+.todobox textarea::placeholder{
+    color: #333 !important;
+}
+.dateAndselect{
+    margin:0 auto;
+    width: 90%;
+    margin-top: 15px;
+}
+.workRoleDate{
+    border: 1px solid #a5a4a4dd;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px;
+    border-radius: 5px;
+     width: 140px;
+}
+.workRoleSelect{
+    border: 1px solid #a5a4a4dd;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 140px;
+    margin-top: 5px;
+    line-height: 24px;
+}
+
+
+/* 지원자 현황 - 지원자 있을 때 */ 
+        .projectSupContents {
+            /* background-color: #f7f7f7; */
+            padding: 35px 0;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1200px;
+         width: 100%;
+       
+        -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+        
+ .projectSupContents span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #a1a1a1;
+}
+.success{
+    font-size: 13px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+    width: 45%;
+    text-align: center;
+    cursor: pointer;
+}
+.success:hover{
+    background-color: #336d47;
+    color: #fff;
+}
+.nonono{
+    font-size: 13px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+    width: 45%;
+    text-align: center;
+    cursor: pointer;
+}
+.nonono:hover{
+    background-color: #336d47;
+    color: #fff;
+}
+.userGridSandN{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.userwork1 {
+    line-height: 50px;
+}
+
+.userIn2 {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #f3f3f4;
+    background-color: #efefef;
+    margin-right: 12px;
+    flex-shrink: 0;
+    position: relative;
+}
+.ugname2{
+      margin-bottom: 0;
+        font-size: 15px;
+        cursor: pointer;
+        font-weight: 600;
+        color: #666;
+}
+.join2, .join3, .join4, .join5 {
+    font-size: 13px;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.userGridtop2{
+        margin-bottom: 8px;
+}
+.line{
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.userGrid2{
+    padding: 15px 15px 10px 20px !important;
+    width: 265px;
+}
+/* 프로젝트 */
+div.projectView-rightWrap h3 {
+    text-transform: unset;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+    letter-spacing: normal;
+    font-weight: bold;
+}
+
+div.projectView-rightWrap {
+    flex: 1 1;
+    margin-left: 25px;
+    padding: 20px 0;
+}
+
+div.newProject {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+div.project-wrap {
+    width: 100%;
+    position: relative;
+}
+
+div.sliderWrap {
+    overflow: hidden;
+    margin: auto;
+    width: 100%;
+}
+
+div.textWrap {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+div.project-image {
+    width: 100%;
+}
+
+div.project-image img {
+    width: 100%;
+}
+
+div.bottomText {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    padding: 0 12px;
+    width: 100%;
+}
+
+p.category {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: left;
+    color: #b1b1b1;
+    letter-spacing: normal;
+    margin-bottom: 6px;
+}
+
+p.categoryText {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+    margin: 0;
+    letter-spacing: normal;
+    color: #000;
+}
+
+p.recruitText {
+    font-size: 12px;
+    line-height: 18px;
+    color: #8a8a8a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    width: 100%;
+    letter-spacing: normal;
+    margin: 0;
+    padding-top: 8px;
+    font-weight: 700;
+}
+
+div.projectTopWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 495px;
+    margin: 0 auto;
+}
+
+button.banner-button {
+    padding: 5px;
+    border: none;
+    background: none;
+    color: #fff;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    width: 32px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+button.prev-arrow {
+    left: 0px;
+}
+
+button.next-arrow {
+    right: 0px;
+}
+
+
+button.banner-button:hover {
+    background: rgba(0, 0, 0, .2);
+    transition: all .25s ease-in;
+}
+
+button.banner-button:before {
+    margin: 0 5px;
+    display: inline-block;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    content: "";
+}
+
+button.prev-arrow:before {
+    border-right: 8px solid #fff;
+}
+
+button.next-arrow:before {
+    border-left: 8px solid #fff;
+}
+div.projectList {
+    display: inline-flex;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    background-color: #fff;
+    align-items: center;
+    margin-bottom: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+div.projectList div.heart {
+    position: absolute;
+    right: 19px;
+    top: 6px;
+}
+
+div.listImg {
+    margin-right: 20px;
+    width: 100px;
+    height: 68px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+div.listImg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+div.listCategory {
+    line-height: 12px;
+}
+
+div.listCategory p.recruitText {
+    font-size: 12px;
+    line-height: 12px;
+    color: #999;
+    margin: 7px 0px;
+    padding: 0;
+    font-weight: normal;
+}
+
+div.listCategory p.text {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    margin: 0;
+    line-height: 8px;
+}
+
+
+div.favorite {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background-image: url("https://letspl.me/_next/static/media/ic-favorite-empty-white.b1db0e3e169a5cf61afa41daf5bfdc15.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+div.top {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+
+
+.projectView-rightWrap2{
+    margin-left: 0 !important;
+}
+.userGridSandN2{
+    display: flex;
+    margin-top: 3px;
+    justify-content: flex-end;
+}
+.success2{
+    font-size: 13px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+    width: 20%;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 8px;
+}
+.success2:hover{
+    background-color: #336d47;
+    color: #fff;
+}
+.nonono2{
+    font-size: 13px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+    width: 20%;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+.nonono2:hover{
+    background-color: #336d47;
+    color: #fff;
+}
+.proManag h3{
+    font-size: 20px;
+    color: #555;
+    font-weight: 700;
+}
+.proManag .projectSupText2{
+    background-color: #f7f7f7;
+    padding: 35px 0;
+    text-align: center;
+}
+
+.projectSupText2 span{
+    font-size: 15px;
+    font-weight: 700;
+    color: #a1a1a1;
 }
