@@ -69,9 +69,28 @@
                     </div>
                 </li>
                 <li class="thirdLi">
-                    <label>검색 태그(#)</label>
+                    <label>관심 분야(최대 5개)</label>
                     <div class="searchTagWrapper2">
-                        <input type="text" placeholder="태그는 최대 5개 가능합니다" class="inputTag">
+                        <div id="labelTag">
+                            <div id="interestWrap">
+                                <p>O2O</p>
+                                <p>공유서비스</p>
+                                <p>데이팅서비스</p>
+                                <p>여행</p>
+                                <p>소셜네트워크</p>
+                                <p>뷰티/패션</p>
+                                <p>이커머스</p>
+                                <p>엔터테인먼트</p>
+                                <p>게임</p>
+                                <p>헬스/스포츠</p>
+                                <p>뉴스/정보</p>
+                                <p>유틸</p>
+                                <p>금융</p>
+                                <p>부동산/인테리어</p>
+                                <p>종교</p>
+                                <p>우주/외계인</p>
+                            </div>
+                        </div>
                     </div>
                 </li>
                 <li class="fourthLi">
@@ -128,6 +147,7 @@
         });
     });
 
+    // 포트폴리오 SNS링크 추가
     let count=1;
     $("#copyInput").on("click", "#copyButton", function(){
         let length= $("#copyInput").children().length;
@@ -147,6 +167,7 @@
         };
     });
 
+    // 포트폴리오 SNS링크 추가
     $("#copyInput").on("click", "#deleteUrl", function(){
         $(this).parent().hide();
         count--
@@ -165,6 +186,25 @@
     $('.complete').on("click", function(){
         $(".modalWindow").hide();
     });
+
+    $("div#interestWrap p").each(function (i,tag) {
+        $(tag).on("click",function () {
+            if($('.active').length<5){
+                if($(tag).attr("class")=="active"){
+                    $(tag).removeClass("active");
+                }else{
+                    $(tag).addClass("active");
+                }
+            }else{
+                if($(tag).attr("class")=="active"){
+                    $(tag).removeClass("active");
+                }else{
+                    alert("이미 5개를 선택하셨습니다.")
+                }
+            }
+
+        })
+    })
 
 </script>
 </html>
