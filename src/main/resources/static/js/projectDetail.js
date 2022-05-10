@@ -114,6 +114,10 @@ $("div.projectTabMenu").find("li").on("click", function() {
         $("div.textButtonWrap").hide();
     }else if($(this).find("a").text() == "질문"){
         $("div.projectDetailWrap").children("div.projectFaq").addClass("active");
+    }else if($(this).find("a").text() == "피드"){
+        $("div.projectDetailWrap").children("div.projectFeed").addClass("active");
+    }else if($(this).find("a").text() == "관리"){
+        $("div.projectDetailWrap").children("div.projectManage").addClass("active");
     }
 })
 
