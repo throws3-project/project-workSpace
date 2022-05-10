@@ -169,7 +169,7 @@ div.projectTabMenu {
     margin-bottom: 20px;
     position: sticky;
     width: 100%;
-    top: 0;
+    top: 68px;
     z-index: 500;
 }
 
@@ -577,7 +577,142 @@ img.red2 {
     height: 37px;
 }
 
-/* section modal */
+/* section manage */
+div.projectManage {
+    display:none;
+}
+
+div.projectManage div.chooseManage{
+    margin-bottom: 35px;
+}
+
+div.projectManage div.chooseManage ul{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+div.projectManage div.chooseManage ul li {
+    flex: 1 1;
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 2px solid #e6e6e6;
+    cursor: pointer;
+}
+
+div.projectManage div.chooseManage ul li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #a1a1a1;
+}
+
+div.projectManage div.chooseManage ul li.active {
+    border-bottom: 2px solid #a1a1a1;
+}
+div.projectManage div.chooseManage ul li.active a{
+    color: #333;
+}
+
+div.projectManage div.managementWrap div.projectSup {
+    padding: 0 38px;
+}
+
+div.projectManage div.managementWrap div.projectSup h3 {
+    font-size: 20px;
+    color: #555;
+    font-weight: 700;
+}
+
+div.projectManage div.managementWrap div.projectSup div.projectSupText {
+    background-color: #f7f7f7;
+    padding: 35px 0;
+    text-align: center;
+}
+
+div.projectManage div.managementWrap div.projectSup div.projectSupText span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #a1a1a1;
+}
+
+div.projectFeed {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px;
+    display: none;
+}
+
+div.projectFeed div.feedWrap {
+    display: flex;
+    width: 100%;
+    padding: 25px;
+    background-color: #f7f7f7;
+}
+
+div.projectFeed div.feedWrap div.feedImg {
+    margin-right: 20px;
+}
+
+div.projectFeed div.feedWrap div.feedImg img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+div.projectFeed div.feedWrap div.feedTextandFile {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+div.projectFeed div.feedWrap div.feedTextandFile div.feedText {
+    width: 100%;
+}
+
+div.projectFeed div.feedWrap div.feedTextandFile div.feedText textarea {
+    margin: 0;
+    margin-bottom: 10px;
+    background-color: #fff;
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    padding: 18px 20px;
+    resize: none;
+    font-weight: 700;
+    color: #222;
+}
+
+div.projectFeed div.feedWrap div.feedTextandFile div.file {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.projectFeed div.feedWrap div.feedTextandFile div.file div.attach, div.projectFeed div.feedWrap div.feedTextandFile div.file div.regist {
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #333;
+    width: auto;
+    padding: 6px 32px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+div.projectFeed div.feedWrap div.feedTextandFile div.file div.attach a, div.projectFeed div.feedWrap div.feedTextandFile div.file div.regist a{
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+
+    /* section modal */
 
 div.projectNavContent {
     max-width: 300px;
@@ -591,7 +726,7 @@ div.projectNavInfoWrap {
     flex-direction: column;
     border: 1px solid #ddd;
     position: sticky;
-    top: 50px;
+    top: 76px;
     margin-bottom: 20px;
     border-radius: 4px;
 }
