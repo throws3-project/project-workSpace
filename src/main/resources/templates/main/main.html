@@ -28,10 +28,8 @@
         </div>
         <div class="arrow next">&gt;</div>
         <div class="btns">
-            <button class="btn">1</button>
-            <button class="btn">2</button>
             <li class="dot selected" value="2" role="button" tabindex="0" aria-label="slide item 1"></li>
-            <li class="dot selected" value="2" role="button" tabindex="0" aria-label="slide item 2"></li>
+            <li class="dot " value="2" role="button" tabindex="0" aria-label="slide item 2"></li>
         </div>
     </section>
 
@@ -1047,6 +1045,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     const btns = document.querySelectorAll("button.btn");
+    const lis = document.querySelectorAll("li.dot");
     const littleBtns = document.querySelectorAll("li.dot");
     const banner = document.querySelector("div.banner");
     const arrows = document.querySelectorAll("div.arrow");
@@ -1054,35 +1053,35 @@
 
     // btns.forEach(function(value, index, ar){
     //     ar[index].addEventListener("click", function(){
-    //         banner.style.transform = "translate(-" + index * 100 + "vw)";
+    //         count = index;
+    //         banner.style.transform = "translate(-" + count * 100 + "vw)";
     //     })
     // });
-
-    btns.forEach(function(value, index, ar){
+    lis.forEach(function(value,index,ar){
         ar[index].addEventListener("click", function(){
             count = index;
             banner.style.transform = "translate(-" + count * 100 + "vw)";
+            $("li.dot").removeClass("selected");
+            $($("li.dot").get(count)).addClass("selected");
         })
-    });
-
-    littleBtns.forEach(function(value, index, ar){
-
-    });
+    })
 
     arrows.forEach((arrow) => {
         arrow.addEventListener("click", function () {
             let arrowType = arrow.classList[1];
             if(arrowType == 'prev' && count != 0){
                 count--;
-            }else if(arrowType == 'next' && count != btns.length -1){
+            }else if(arrowType == 'next' && count != lis.length -1){
                 count++;
             }else{
-                if(count == btns.length -1){
+                if(count == lis.length -1){
                     count = 0;
                 }else{
-                    count = btns.length -1;
+                    count = lis.length -1;
                 }
             }
+            $("li.dot").removeClass("selected");
+            $($("li.dot").get(count)).addClass("selected");
             banner.style.transform = "translate(-" + count * 100 + "vw)";
         });
     });
@@ -1091,6 +1090,8 @@
         count++;
         count = count == 2 ? 0 : count;
         banner.style.transform = "translate(-" + count * 100 + "vw)";
+        $("li.dot").removeClass("selected");
+        $($("li.dot").get(count)).addClass("selected");
     }, 3000);
 
     $(document).ready(function(){
