@@ -11,7 +11,7 @@
 <header id="header"></header>
 
 <div class="modalWindow">
-    <div id="my_modal">
+    <div id="my_modalPage">
         <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
         <div class="letter">
             <p class="completeP">성공적으로 설정되었습니다.</p>
@@ -160,6 +160,10 @@
             $("div#copyInput").append(str);
             count=1
         }
+    });
+
+    $('.complete').on("click", function(){
+        $(".modalWindow").hide();
     });
 
 </script>

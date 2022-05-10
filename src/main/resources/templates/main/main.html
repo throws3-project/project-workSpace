@@ -19,12 +19,14 @@
             <div class="img image2">
                 <img src="../../static/images/top-main-img-4.png">
             </div>
-<!--            <div class="img">-->
-<!--                <img src="">-->
-<!--            </div>-->
-<!--            <div class="img">-->
-<!--                <img src="">-->
-<!--            </div>-->
+        </div>
+        <div class="bannerM">
+            <div class="imgM image1">
+                <img src="../../static/images/M-top-main-img-3.png">
+            </div>
+            <div class="imgM image2">
+                <img src="../../static/images/M-top-main-img-4.png">
+            </div>
         </div>
         <div class="arrow next">&gt;</div>
         <div class="btns">
@@ -1048,8 +1050,9 @@
     const lis = document.querySelectorAll("li.dot");
     const littleBtns = document.querySelectorAll("li.dot");
     const banner = document.querySelector("div.banner");
+    const bannerM = document.querySelector("div.bannerM");
     const arrows = document.querySelectorAll("div.arrow");
-    var count = 0;
+    let count = 0;
 
     // btns.forEach(function(value, index, ar){
     //     ar[index].addEventListener("click", function(){
@@ -1061,6 +1064,7 @@
         ar[index].addEventListener("click", function(){
             count = index;
             banner.style.transform = "translate(-" + count * 100 + "vw)";
+            bannerM.style.transform = "translate(-" + count * 414 + "px)";
             $("li.dot").removeClass("selected");
             $($("li.dot").get(count)).addClass("selected");
         })
@@ -1083,6 +1087,7 @@
             $("li.dot").removeClass("selected");
             $($("li.dot").get(count)).addClass("selected");
             banner.style.transform = "translate(-" + count * 100 + "vw)";
+            bannerM.style.transform = "translate(-" + count * 414 + "px)";
         });
     });
 
@@ -1090,9 +1095,18 @@
         count++;
         count = count == 2 ? 0 : count;
         banner.style.transform = "translate(-" + count * 100 + "vw)";
+        bannerM.style.transform = "translate(-" + count * 414 + "px)";
         $("li.dot").removeClass("selected");
         $($("li.dot").get(count)).addClass("selected");
     }, 3000);
+
+    // setInterval(function(){
+    //     count++;
+    //     count = count == 2 ? 0 : count;
+    //     bannerM.style.transform = "translate(-" + count * 414 + "px)";
+    //     $("li.dot").removeClass("selected");
+    //     $($("li.dot").get(count)).addClass("selected");
+    // }, 3000);
 
     $(document).ready(function(){
         $("#header").load('../../templates/fix/header.html');

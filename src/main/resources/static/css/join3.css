@@ -238,7 +238,7 @@ div.linkDiv{
 
 /* 모달 */
 
-#my_modal {
+#my_modalPage {
     position: absolute;
     text-align: center;
     width: 325px;
@@ -251,7 +251,7 @@ div.linkDiv{
     left: 41%;
 }
 
-#my_modal .modal_close_btn {
+#my_modalPage .modal_close_btn {
     bottom: 25px;
     right: 165px;
 }
@@ -333,6 +333,7 @@ div.joinPromise{
 a.modal_close_btn{
     text-decoration: none;
     color: #8e8ea2;
+    cursor: pointer;
 }
 
 p.snsLoginP{
@@ -440,7 +441,7 @@ div.labelWrap{
         padding-left: 10px !important;
     }
 
-    #my_modal{
+    #my_modalPage{
         left: 12% !important;
     }
 

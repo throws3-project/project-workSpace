@@ -302,6 +302,10 @@ p.secondAlarmContentP{
     right: 165px;
 }
 
+a.modal_close_btn{
+    cursor: pointer;
+}
+
 p.snsLoginP{
     margin-bottom: 20px !important;
     font-size: 1.5rem;
