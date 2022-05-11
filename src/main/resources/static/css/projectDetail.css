@@ -2723,6 +2723,61 @@ p.completeP7{
     line-height: 1.25rem;
 }
 
+/* 멤버 승인완료, 거절모달 */
+#modalPage9, #modalPage10 {
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 26px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+    /* left:3.5% */
+}
+
+#modalPage9 .modalCloseBtn9, #modalPage10 .modalCloseBtn10{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcon6, img.xIcon7{
+    position: relative;
+    width: 25px;
+    right: -170px;
+    top: -13px;
+}
+
+div.modal10, div.modal9{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: none;
+}
+
+
+a.modalCloseBtn9, a.modalCloseBtn10{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.completeP9,p.completeP10{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
 p.mdProPtag2{
     font-size: .75rem;
     color: #8e8ea2;
@@ -2730,7 +2785,7 @@ p.mdProPtag2{
 }
 
 
-button.complete7{
+button.mdBtnMem3,button.mdBtnMem4{
     width: 260px;
     height: 44px;
     border: none;
@@ -2739,6 +2794,96 @@ button.complete7{
     margin-top: 20px;
     cursor: pointer;
 }
+/* 멤버 승인확인 모달 */
+#modalPage8{
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 26px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+    /* left:3.5% */
+}
+
+#modalPage8 .modalCloseBtn8{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcon5{
+    position: relative;
+    width: 25px;
+    right: -170px;
+    top: -13px;
+}
+
+div.modal8{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+     display: none;
+}
+
+
+a.modalCloseBtn8{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.completeP8{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 29px;
+    line-height: 1.25rem;
+}
+
+p.mdProPtag2{
+    font-size: .75rem;
+    color: #8e8ea2;
+    line-height: 1rem;
+}
+
+.mdBtn4{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+button.mdBtnMem1{
+    width: 50%;
+    height: 35px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button.mdBtnMem2{
+    width: 50%;
+    height: 35px;
+    border: 1px solid #eeee;
+    color: #333;
+    background-color: #fff;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
 /* 댓글의 댓글입력창 */
 .activeInput{
     display: flex;
