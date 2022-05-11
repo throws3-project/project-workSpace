@@ -33,9 +33,9 @@ div#labelTag p{
 /*---------------------------------------------------------------*/
 
 div.joinWrapper{
-    margin: 0 686.5px;
+    margin: 0 auto;
     width: 650px;
-    height: 705px;
+    height: 500px;
     padding: 90px 0px 140px;
 }
 
@@ -93,7 +93,7 @@ div.form ul li{
 div.form ul li.fourthLi{
     width: 650px;
     height: 120px;
-    margin-top: 70px;
+    /*margin-top: 70px;*/
 }
 
 div.px414{
@@ -501,11 +501,11 @@ div.labelWrap{
     }
 
 /*  5개 뭐시기  */
-    div.form ul li.fourthLi{
-        margin-top: 195px !important;
-    }
+/*    div.form ul li.fourthLi{*/
+/*        margin-top: 195px !important;*/
+/*    }*/
 
-    footer#footer{
-        margin-top: 130px !important;
-    }
+    /*footer#footer{*/
+    /*    margin-top: 130px !important;*/
+    /*}*/
 }
