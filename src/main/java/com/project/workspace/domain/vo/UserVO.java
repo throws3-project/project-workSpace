@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "tbl_user")
 @Getter
-@ToString
+@ToString(exclude = {"ports", "tags", "alerts", "interests", "users"})
 @NoArgsConstructor
 public class UserVO {
     @Id
@@ -69,18 +69,20 @@ public class UserVO {
     private String userImgPath;
 
     @OneToMany(mappedBy = "userVO")
-    List<PortfolioVO> ports = new ArrayList<>();
+    private List<UserPortfolioVO> ports = new ArrayList<>();
     @OneToMany(mappedBy = "userVO")
-    List<UserTagVO> tags = new ArrayList<>();
+    private List<UserTagVO> tags = new ArrayList<>();
     @OneToMany(mappedBy = "userVO")
-    List<UserAlertVO> alerts = new ArrayList<>();
+    private List<UserAlertVO> alerts = new ArrayList<>();
     @OneToMany(mappedBy = "userVO")
-    List<UserInterestVO> interests = new ArrayList<>();
+    private List<UserInterestVO> interests = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name = "following_user")
+    private List<UserFollowVO> users = new ArrayList<>();
 
     @Builder
 
-    public UserVO(Long userNum, String userId, String userName, String userGender, String userLocation, String userNick_name, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userLevel, Long userExp, Long userPoint, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath, List<PortfolioVO> ports, List<UserTagVO> tags, List<UserAlertVO> alerts, List<UserInterestVO> interests) {
-        this.userNum = userNum;
+    public UserVO(String userId, String userName, String userGender, String userLocation, String userNick_name, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userLevel, Long userExp, Long userPoint, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath, List<UserPortfolioVO> ports, List<UserTagVO> tags, List<UserAlertVO> alerts, List<UserInterestVO> interests, List<UserFollowVO> users) {
         this.userId = userId;
         this.userName = userName;
         this.userGender = userGender;
@@ -109,5 +111,6 @@ public class UserVO {
         this.tags = tags;
         this.alerts = alerts;
         this.interests = interests;
+        this.users = users;
     }
 }
