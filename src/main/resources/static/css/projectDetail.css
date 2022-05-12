@@ -2112,7 +2112,7 @@ div.modal1{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-    display: none; 
+     display: none;  
 }
 
 a.firstA, a.secondA, a.thirdA{
@@ -2279,7 +2279,7 @@ div.modal2{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-     display: none; 
+      display: none;  
 }
 
 
@@ -2305,14 +2305,14 @@ p.get200PointP11{
 }
 
 
-button.complete2{
+ button.completes{
     width: 260px;
     height: 44px;
     border: none;
     color: #fff;
     background-color: #00704a;
     margin-top: 20px;
-}
+} 
 /* 멤버허용모달 */
 #modalPage3 {
     position: absolute;
@@ -2349,7 +2349,7 @@ div.modal3{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-     display: none; 
+      display: none;  
 }
 
 
@@ -2419,7 +2419,7 @@ div.modal4{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-     display: none; 
+      display: none;  
 }
 
 
@@ -2494,7 +2494,7 @@ div.modal5{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-    display: none;
+    display: none; 
 }
 
 
@@ -2559,6 +2559,15 @@ button.mdBtnRemove{
     top: 30%;
     left: 41%;
 }
+.gonbackSpan{
+    text-align: left;
+    float: left;
+    font-size: 10px;
+    color: red;
+    margin-top: -10px;
+    font-weight: 600;
+    margin-left: 6px;
+}
 
 .mdBtn3{
     display: flex;
@@ -2586,7 +2595,7 @@ div.modal6{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-     display: none; 
+    display: none; 
 }
 
 
@@ -2704,7 +2713,7 @@ div.modal7{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-    display: none; 
+     display: none;  
 }
 
 
@@ -2721,6 +2730,15 @@ p.completeP7{
     font-weight: 700;
     margin-bottom: 12px;
     line-height: 1.25rem;
+}
+button.complete7{
+    width: 260px;
+    height: 44px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 /* 멤버 승인완료, 거절모달 */
@@ -2759,7 +2777,7 @@ div.modal10, div.modal9{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-    display: none;
+    display: none; 
 }
 
 
@@ -2794,7 +2812,7 @@ button.mdBtnMem3,button.mdBtnMem4{
     margin-top: 20px;
     cursor: pointer;
 }
-/* 멤버 승인확인 모달 */
+/* 멤버 승인확인 중 모달 */
 #modalPage8{
     position: absolute;
     text-align: center;
@@ -2830,7 +2848,7 @@ div.modal8{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-     display: none;
+      display: none; 
 }
 
 
@@ -2883,7 +2901,203 @@ button.mdBtnMem2{
     cursor: pointer;
 
 }
+/* 멤버 방출 중 모달 */
+#modalPage11 {
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 12px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 334px;
+    top: 30%;
+    left: 41%;
+}
+.gonbackSpan{
+    text-align: left;
+    float: left;
+    font-size: 10px;
+    color: red;
+    margin-top: -10px;
+    font-weight: 600;
+    margin-left: 6px;
+}
 
+.mdBtnBangWrap{
+    display: flex;
+    margin-bottom: 1em;
+    margin-top: 24px;
+}
+#modalPage11 .modalCloseBtn11{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcon11{
+    position: relative;
+    width: 20px;
+    right: -175px;
+    top: -2px;
+}
+
+div.modal11{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+     display: none;  
+}
+
+
+a.modalCloseBtn11{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+.mdInputBangSpanDiv{
+    text-align: left;
+    display: flex;
+    margin-bottom: 5px;
+    flex-direction: column;
+}
+span.completeBang{
+    font-size: 11px;
+    color: #c5c2c2ee;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+}
+
+p.mdProPtag2{
+    font-size: .75rem;
+    color: #8e8ea2;
+    line-height: 1rem;
+}
+.mdProRemoveDivPtag {
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 2px solid;
+
+}
+.mdProRemoveDivPtag2{
+    font-size: 12px;
+    text-align: left;
+    line-height: 1.25rem;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    font-weight: 600;
+}
+
+button.mdBtnBang{
+    width: 50%;
+    height: 35px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button.mdBtnBang1{
+    width: 50%;
+    height: 35px;
+    border: 1px solid #eeee;
+    color: #333;
+    background-color: #fff;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.mdInputBangSpan{
+    font-size: 12px;
+    float: left;
+    font-weight: 600;
+    margin-right: 11px;
+    line-height: 24px;
+}
+.mdInputBangContents{
+    border: 1px solid #a59f9fee !important; 
+    background-color: #fff !important;
+    font-size: 12px !important;
+}
+.mdProRemoveDiv{
+    margin-bottom: 1.5em;
+}
+/* 멤버 방출확인모달 */
+#modalPage12{
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 26px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+    /* left:3.5% */
+}
+
+#modalPage12 .modalCloseBtn12{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcon12{
+    position: relative;
+    width: 25px;
+    right: -170px;
+    top: -13px;
+}
+
+div.modal12{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+     display: none; 
+}
+
+
+a.modalCloseBtn12{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.completeP12{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
+
+button.mdBtnMem12{
+    width: 260px;
+    height: 44px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 20px;
+    cursor: pointer;
+}
 /* 댓글의 댓글입력창 */
 .activeInput{
     display: flex;
