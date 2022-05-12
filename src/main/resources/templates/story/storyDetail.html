@@ -9,7 +9,32 @@
     <link rel="stylesheet" href="../../static/css/storyview.css" type="text/css" />
 </head>
 <header id="header"></header>
+<!-- 스토리삭제확인모달 -->
+<div class="modalStory2 modals">
+    <div id="modalStory2Page">
+        <a class="modalStoryCloseBtn2"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcons2 xBtns"></a>
+        <div class="storyLetter2">
+            <p class="completePStory2">삭제되었습니다.</p>     
 
+             <button class="mdBtnStoryBtn2 xBtns">확인</button>
+        </div>
+    </div>
+</div>
+<!-- 스토리삭제중모달 -->
+<div class="modalStory3 modals">
+    <div id="modalStory3Page">
+        <a class="modalStoryCloseBtn3"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcons3 xBtns"></a>
+        <div class="storyLetter3">
+            <p class="completePStory3">스토리 삭제</p>     
+             <p class="completePStory33">스토리를 삭제하시겠습니까?</p>
+             
+             <div class="mdBtn">
+                <button class="mdBtnRemoves">삭제</button>
+                <button class="mdBtnBacks xBtns">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
 <body>
     <!-- 상단 스크롤 배너부분 -->
     <div class="storyViewBanner" >
@@ -91,6 +116,15 @@
             </div>
             <div class="contentsBtnReplyWrap">
                 <a class="contentsBtnReply active">댓글 열기</a>
+                <div class="replyBtnWrap">
+                    <p class="txtBtn modify">
+                        <img class="txtBtnImg" src="../../static/images/modify.png">
+                    </p>
+                    <div class="sell">｜</div>
+                    <p class="txtBtn remove">
+                    <img class="txtBtnImg" src="../../static/images/remove.png">
+                    </p>
+                </div>
             </div>
         </div>
         <!-- 여기까지 콘텐츠 전체 -->
@@ -120,7 +154,7 @@
                         <div class="activeRight">
                             <div class="activeProfile">
                                 <p class="activeProName">상아야
-                                     <!-- <div class="hover">
+                                   
                         <ul class="hoverUl">
                             <li class="hoverLi">
                                 <a href="/people/%EC%83%81%EC%95%84%EC%95%BC">프로필 상세</a>
@@ -132,7 +166,7 @@
                                 <a>모임초대</a>
                             </li>
                         </ul>
-                    </div>  -->
+                     
                                 </p>
                                 <span class="activeDate">22.05.02 08:43</span>   
                             </div>

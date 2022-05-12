@@ -294,7 +294,30 @@ $(".uploadImgLi").each(function (i,img) {
 
 
 
+// 스토리 작성확인 모달 
+// $(".remove").on("click",function(){
+//     $(".modalStory3").css('display','block');  
+// });
 
+// $(".mdBtnRemoves").on("click",function(){
+//     $(".modalStory3").css('display','none');
+//     $(".modalStory2").css('display','block');
+// });
+
+// $(".xBtns").on("click",function(){
+//     $(".modals").hide();
+// });
+
+
+// 스토리 작성 확인모달
+$(".completeMd").on("click",function(){
+    $(".modalStory4").css('display','block');  
+
+});
+
+$(".xBtns").on("click",function(){
+   $(".modals").hide();
+});
 
 
 
