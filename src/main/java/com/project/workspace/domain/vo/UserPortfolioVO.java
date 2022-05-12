@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_portfolio")
 @Getter
-@ToString
+@ToString(of = {"portNum","portUrl"})
 @NoArgsConstructor
 public class UserPortfolioVO {
     @Id
@@ -23,9 +23,7 @@ public class UserPortfolioVO {
     private UserVO userVO;
 
     @Builder
-
-    public UserPortfolioVO(Long portNum, String portUrl, UserVO userVO) {
-        this.portNum = portNum;
+    public UserPortfolioVO(String portUrl, UserVO userVO) {
         this.portUrl = portUrl;
         this.userVO = userVO;
     }

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_like_project")
 @Getter
-@ToString
+@ToString(of = {"projectLikeNum"})
 @NoArgsConstructor
 public class ProjectLikeVO {
     @Id
@@ -27,8 +27,7 @@ public class ProjectLikeVO {
     private UserVO userVO;
 
     @Builder
-    public ProjectLikeVO(Long projectLikeNum, ProjectVO projectVO, UserVO userVO) {
-        this.projectLikeNum = projectLikeNum;
+    public ProjectLikeVO(ProjectVO projectVO, UserVO userVO) {
         this.projectVO = projectVO;
         this.userVO = userVO;
     }

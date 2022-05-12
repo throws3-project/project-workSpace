@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tbl_story_reply")
-@ToString
+@ToString(exclude = {"userVO","storyVO"})
 @Getter
 @NoArgsConstructor
 public class StoryReplyVO {
@@ -34,10 +34,8 @@ public class StoryReplyVO {
     private StoryVO storyVO;
 
     @Builder
-    public StoryReplyVO(Long storyReplyNum, String storyReply, Date replyTime, String status, UserVO userVO, StoryVO storyVO) {
-        this.storyReplyNum = storyReplyNum;
+    public StoryReplyVO(String storyReply, String status, UserVO userVO, StoryVO storyVO) {
         this.storyReply = storyReply;
-        this.replyTime = replyTime;
         this.status = status;
         this.userVO = userVO;
         this.storyVO = storyVO;

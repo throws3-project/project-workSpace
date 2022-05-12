@@ -1,5 +1,6 @@
 package com.project.workspace.domain.vo;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -9,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tbl_lounge_reply")
-@ToString
+@ToString(exclude = {"loungeVO", "userVO"})
 @Getter
 @NoArgsConstructor
 public class LoungeReplyVO {
@@ -31,4 +32,12 @@ public class LoungeReplyVO {
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;
+
+    @Builder
+    public LoungeReplyVO(String loungeReplyContent, String loungeReplyStatus, LoungeVO loungeVO, UserVO userVO) {
+        this.loungeReplyContent = loungeReplyContent;
+        this.loungeReplyStatus = loungeReplyStatus;
+        this.loungeVO = loungeVO;
+        this.userVO = userVO;
+    }
 }

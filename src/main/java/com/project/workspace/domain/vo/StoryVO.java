@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_story")
-@ToString
+@ToString(exclude = { "userVO", "tags", "replies",  "series", "likes" })
 @Getter
 @NoArgsConstructor
 public class StoryVO {
@@ -36,9 +38,17 @@ public class StoryVO {
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+    @OneToMany(mappedBy = "storyVO")
+    private List<StoryTagVO> tags = new ArrayList<>();
+    @OneToMany(mappedBy = "storyVO")
+    private List<StoryReplyVO> replies = new ArrayList<>();
+    @OneToMany(mappedBy = "storyVO")
+    private List<StorySeriesVO> series = new ArrayList<>();
+    @OneToMany(mappedBy = "storyVO")
+    private List<StoryLikeVO> likes = new ArrayList<>();
+
     @Builder
-    public StoryVO(Long storyNum, String storyPart, String storyTitle, String storyContent, String storyImgName, String storyImgUuid, String storyImgPath, Long storyReadCount, UserVO userVO) {
-        this.storyNum = storyNum;
+    public StoryVO(String storyPart, String storyTitle, String storyContent, String storyImgName, String storyImgUuid, String storyImgPath, Long storyReadCount, UserVO userVO) {
         this.storyPart = storyPart;
         this.storyTitle = storyTitle;
         this.storyContent = storyContent;

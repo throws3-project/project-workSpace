@@ -9,10 +9,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tbl_story_tag")
-@ToString
+@ToString(of = {"storyTagNum","tagName"})
 @Getter
 @NoArgsConstructor
-public class StoryTag {
+public class StoryTagVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "story_tag_num")
@@ -25,8 +25,7 @@ public class StoryTag {
     private StoryVO storyVO;
 
     @Builder
-    public StoryTag(Long storyTagNum, String tagName, StoryVO storyVO) {
-        this.storyTagNum = storyTagNum;
+    public StoryTagVO(String tagName, StoryVO storyVO) {
         this.tagName = tagName;
         this.storyVO = storyVO;
     }

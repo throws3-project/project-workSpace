@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_userAlert")
 @Getter
-@ToString
+@ToString(exclude = {"userVO"})
 @NoArgsConstructor
 public class UserAlertVO {
     @Id
@@ -29,8 +29,7 @@ public class UserAlertVO {
     private UserVO userVO;
 
     @Builder
-    public UserAlertVO(Long alertNum, String alertPart, Long numbers, String alertType, UserVO userVO) {
-        this.alertNum = alertNum;
+    public UserAlertVO(String alertPart, Long numbers, String alertType, UserVO userVO) {
         this.alertPart = alertPart;
         this.numbers = numbers;
         this.alertType = alertType;

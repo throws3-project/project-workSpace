@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_lounge")
-@ToString
+@ToString(exclude = {"userVO", "replies", "likes"})
 @Getter
 @NoArgsConstructor
 public class LoungeVO {
@@ -27,11 +29,14 @@ public class LoungeVO {
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+    @OneToMany(mappedBy = "loungeVO")
+    private List<LoungeReplyVO> replies = new ArrayList<>();
+    @OneToMany(mappedBy = "loungeVO")
+    private List<LoungeLikeVO> likes = new ArrayList<>();
+
     @Builder
-    public LoungeVO(Long loungeNum, String loungeContent, Date loungeDate, UserVO userVO) {
-        this.loungeNum = loungeNum;
+    public LoungeVO(String loungeContent, UserVO userVO) {
         this.loungeContent = loungeContent;
-        this.loungeDate = loungeDate;
         this.userVO = userVO;
     }
 }

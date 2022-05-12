@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_project")
 @Getter
-@ToString
+@ToString(exclude = { "userVO", "skills", "persons", "references", "members", "likes" })
 @NoArgsConstructor
 public class ProjectVO {
     @Id
@@ -48,9 +50,20 @@ public class ProjectVO {
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+    @OneToMany(mappedBy = "projectVO")
+    private List<ProjectSkillVO> skills = new ArrayList<>();
+    @OneToMany(mappedBy = "projectVO")
+    private List<ProjectPersonVO> persons = new ArrayList<>();
+    @OneToMany(mappedBy = "projectVO")
+    private List<ProjectReferenceVO> references = new ArrayList<>();
+    @OneToMany(mappedBy = "projectVO")
+    private List<ProjectMemberVO> members = new ArrayList<>();
+    @OneToMany(mappedBy = "projectVO")
+    private List<ProjectLikeVO> likes = new ArrayList<>();
+
     @Builder
-    public ProjectVO(Long projectNum, String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal, Long projectReadCount, Long loginCount, UserVO userVO) {
-        this.projectNum = projectNum;
+
+    public ProjectVO(String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal, Long projectReadCount, Long loginCount, UserVO userVO) {
         this.projectName = projectName;
         this.projectPart = projectPart;
         this.projectLocation = projectLocation;

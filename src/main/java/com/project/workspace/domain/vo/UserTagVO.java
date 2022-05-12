@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_userTag")
 @Getter
-@ToString
+@ToString(of = {"tagNum","tagName"})
 @NoArgsConstructor
 public class UserTagVO {
     @Id
@@ -25,8 +25,7 @@ public class UserTagVO {
     private UserVO userVO;
 
    @Builder
-    public UserTagVO(Long tagNum, String tagName, UserVO userVO) {
-        this.tagNum = tagNum;
+    public UserTagVO(String tagName, UserVO userVO) {
         this.tagName = tagName;
         this.userVO = userVO;
     }

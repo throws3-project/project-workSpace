@@ -10,9 +10,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_project_referenece")
 @Getter
-@ToString
+@ToString(exclude = {"projectVO"})
 @NoArgsConstructor
-public class ProjectReference {
+public class ProjectReferenceVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_reference_num")
@@ -25,8 +25,7 @@ public class ProjectReference {
     private ProjectVO projectVO;
 
     @Builder
-    public ProjectReference(Long projectReferenceNum, String projectUrl, ProjectVO projectVO) {
-        this.projectReferenceNum = projectReferenceNum;
+    public ProjectReferenceVO(String projectUrl, ProjectVO projectVO) {
         this.projectUrl = projectUrl;
         this.projectVO = projectVO;
     }

@@ -8,17 +8,15 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tbl_series")
-@ToString
+@Table(name = "tbl_like_story")
+@ToString(of = {"likeNum"})
 @Getter
 @NoArgsConstructor
-public class StorySeries {
+public class StoryLikeVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "series_num")
-    private Long seriesNum;
-    @Column(name = "series_name")
-    private Long seriesName;
+    @Column(name = "like_num")
+    private Long likeNum;
 
     @ManyToOne
     @JoinColumn(name = "user_num")
@@ -28,9 +26,7 @@ public class StorySeries {
     private StoryVO storyVO;
 
     @Builder
-    public StorySeries(Long seriesNum, Long seriesName, UserVO userVO, StoryVO storyVO) {
-        this.seriesNum = seriesNum;
-        this.seriesName = seriesName;
+    public StoryLikeVO(UserVO userVO, StoryVO storyVO) {
         this.userVO = userVO;
         this.storyVO = storyVO;
     }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tbl_like_lounge")
-@ToString
+@ToString(of = {"loungeLikeNum"})
 @Getter
 @NoArgsConstructor
 public class LoungeLikeVO {
@@ -27,8 +27,7 @@ public class LoungeLikeVO {
     private UserVO userVO;
 
     @Builder
-    public LoungeLikeVO(Long loungeLikeNum, LoungeVO loungeVO, UserVO userVO) {
-        this.loungeLikeNum = loungeLikeNum;
+    public LoungeLikeVO(LoungeVO loungeVO, UserVO userVO) {
         this.loungeVO = loungeVO;
         this.userVO = userVO;
     }

@@ -8,9 +8,9 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tbl_uesrInterest")
+@Table(name = "tbl_userInterest")
 @Getter
-@ToString
+@ToString(of = {"interestNum","interest"})
 @NoArgsConstructor
 public class UserInterestVO {
     @Id
@@ -25,8 +25,7 @@ public class UserInterestVO {
     private UserVO userVO;
 
     @Builder
-    public UserInterestVO(Long interestNum, String interest, UserVO userVO) {
-        this.interestNum = interestNum;
+    public UserInterestVO(String interest, UserVO userVO) {
         this.interest = interest;
         this.userVO = userVO;
     }

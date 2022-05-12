@@ -1,5 +1,6 @@
 package com.project.workspace.domain.vo;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -10,9 +11,9 @@ import java.util.Date;
 @Entity
 @Table(name = "tbl_project_member")
 @Getter
-@ToString
+@ToString(exclude = {"projectVO", "userVO"})
 @NoArgsConstructor
-public class ProjectMember {
+public class ProjectMemberVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_member_num")
@@ -33,4 +34,13 @@ public class ProjectMember {
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;
+
+    @Builder
+    public ProjectMemberVO(String projectPart, String projectMotive, String projectMemberStatus, ProjectVO projectVO, UserVO userVO) {
+        this.projectPart = projectPart;
+        this.projectMotive = projectMotive;
+        this.projectMemberStatus = projectMemberStatus;
+        this.projectVO = projectVO;
+        this.userVO = userVO;
+    }
 }

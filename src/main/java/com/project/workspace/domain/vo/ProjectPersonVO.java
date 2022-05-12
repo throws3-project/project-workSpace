@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_project_person")
 @Getter
-@ToString
+@ToString(exclude = {"projectVO"})
 @NoArgsConstructor
 public class ProjectPersonVO {
     @Id
@@ -29,8 +29,7 @@ public class ProjectPersonVO {
     private ProjectVO projectVO;
 
     @Builder
-    public ProjectPersonVO(Long projectPersonNum, String projectMainSkill, String projectSubSkill, Long projectCount, ProjectVO projectVO) {
-        this.projectPersonNum = projectPersonNum;
+    public ProjectPersonVO(String projectMainSkill, String projectSubSkill, Long projectCount, ProjectVO projectVO) {
         this.projectMainSkill = projectMainSkill;
         this.projectSubSkill = projectSubSkill;
         this.projectCount = projectCount;
