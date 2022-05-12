@@ -473,6 +473,163 @@ margin-right: 16px;
     color: #a39e9e;
     margin-left: 3px;
 }
+/* 스토리삭제확인모달 */
+#modalStory2Page{
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 26px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+}
+
+#modalStory2Page .modalStoryCloseBtn2{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcons2{
+    position: relative;
+    width: 25px;
+    right: -170px;
+    top: -13px;
+}
+
+div.modalStory2{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: none;  
+}
+
+
+a.modalStoryCloseBtn2{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.completePStory2{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
+
+button.mdBtnStoryBtn2{
+    width: 260px;
+    height: 44px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 20px;
+    cursor: pointer;
+}
+/* 스토리삭제중모달 */
+#modalStory3Page {
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 12px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+    /* left:3.5% */
+}
+
+.mdBtn{
+    display: flex;
+    margin-bottom: 1em;
+    margin-top: 24px;
+}
+#modalStory3Page .modalStoryCloseBtn3{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcons3{
+    position: relative;
+    width: 25px;
+    right: -170px;
+    top: 0px;
+}
+
+div.modalStory3{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: none;  
+}
+
+
+a.modalStoryCloseBtn3{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.completePStory3{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
+p.completePStory33{
+    font-size: .75rem;
+    color: #8e8ea2;
+    line-height: 1rem;
+}
+
+
+.storyLetter3{
+    padding: 5px 15px 0 15px;
+}
+button.mdBtnBacks{
+    width: 50%;
+    height: 35px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button.mdBtnRemoves{
+    width: 50%;
+    height: 35px;
+    border: 1px solid #eeee;
+    color: #333;
+    background-color: #fff;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
 
 /* 재미있는 스토리 추천 */
 
@@ -567,6 +724,37 @@ margin-right: 16px;
     font-weight: 700;
     margin-top: 26px;
     font-family: 'GmarketSansMedium';
+}
+/* 댓글 수정,삭제 */
+.replyBtnWrap{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 13px;
+    align-items: center;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+.contentsBtnReply{
+    width: 100%;
+}
+.remove {
+    cursor: pointer;
+}
+.txtBtnImg {
+    width: 20px;
+}
+.modify {
+    cursor: pointer;
+}
+.txtBtn {
+    background-color: #fff;
+    /* border: 1px solid #eeee; */
+    border: none;
+    font-size: 14px;
+    margin-bottom: 0 !important;
 }
 /* 댓글 */
 .rpyAtiveWrap{
