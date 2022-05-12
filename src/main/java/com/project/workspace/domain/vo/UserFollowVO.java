@@ -1,11 +1,13 @@
 package com.project.workspace.domain.vo;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Component
 @Table(name = "tbl_follow_user")
 @Getter
 @ToString

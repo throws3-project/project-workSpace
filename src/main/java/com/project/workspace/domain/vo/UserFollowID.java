@@ -2,11 +2,13 @@ package com.project.workspace.domain.vo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
+@Component
 @NoArgsConstructor
 public class UserFollowID implements Serializable {
 
