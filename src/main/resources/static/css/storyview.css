@@ -888,6 +888,39 @@ button.mdBtnRemoves{
     border-radius: 4px;
 }
 
+
+/* 피드 댓글 마우스오버시 */
+ul.hoverUl {
+    display: none;
+    position: absolute;
+    /* right: 1px; */
+    width: 120px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+    box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+    margin-top: 24px;
+}
+
+ul.hoverUl li {
+    width: 100%;
+}
+
+ul.hoverUl li a {
+    display: block;
+    padding: 5px 15px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+ul.hoverUl li a:hover {
+    background-color: #f1f8e9;
+    text-decoration: none !important;
+}
+
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){
 
