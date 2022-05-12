@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @ToString(exclude = {"ports", "tags", "alerts", "interests", "users", "projects", "projectMembers","projectLikes","stories","replies","series","storyReplies","studies","studyMembers","lounges","loungeLikes" ,"loungeReplies"})
 @NoArgsConstructor
+@DynamicInsert
 public class UserVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -105,7 +107,7 @@ public class UserVO {
     private List<LoungeReplyVO> loungeReplies = new ArrayList<>();
 
     @Builder
-    public UserVO(String userId, String userName, String userGender, String userLocation, String userNick_name, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userLevel, Long userExp, Long userPoint, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
+    public UserVO(String userId, String userName, String userGender, String userLocation, String userNick_name, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
         this.userId = userId;
         this.userName = userName;
         this.userGender = userGender;
@@ -121,9 +123,6 @@ public class UserVO {
         this.userOnOff = userOnOff;
         this.userTime = userTime;
         this.userCode = userCode;
-        this.userLevel = userLevel;
-        this.userExp = userExp;
-        this.userPoint = userPoint;
         this.userPrice = userPrice;
         this.socialType = socialType;
         this.userStatus = userStatus;

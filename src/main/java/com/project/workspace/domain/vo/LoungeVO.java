@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 @ToString(exclude = {"userVO", "replies", "likes"})
 @Getter
 @NoArgsConstructor
+@DynamicInsert
 public class LoungeVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

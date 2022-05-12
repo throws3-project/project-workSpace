@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @ToString(exclude = {"userVO", "keywords", "members" })
 @NoArgsConstructor
+@DynamicInsert
 public class StudyVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +48,7 @@ public class StudyVO {
     private List<StudyMemberVO> members = new ArrayList<>();
 
     @Builder
-    public StudyVO(String studyTitle, String studyPart, String studyLocation, String studyOnOff, Long studyMax, String studyContent, String studyStatus, Long studyReadCount, UserVO userVO) {
+    public StudyVO(String studyTitle, String studyPart, String studyLocation, String studyOnOff, Long studyMax, String studyContent, String studyStatus, UserVO userVO) {
         this.studyTitle = studyTitle;
         this.studyPart = studyPart;
         this.studyLocation = studyLocation;
@@ -54,7 +56,6 @@ public class StudyVO {
         this.studyMax = studyMax;
         this.studyContent = studyContent;
         this.studyStatus = studyStatus;
-        this.studyReadCount = studyReadCount;
         this.userVO = userVO;
     }
 }

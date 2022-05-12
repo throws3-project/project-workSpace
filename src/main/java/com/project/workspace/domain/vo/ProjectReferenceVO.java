@@ -8,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tbl_project_referenece")
+@Table(name = "tbl_project_reference")
 @Getter
 @ToString(exclude = {"projectVO"})
 @NoArgsConstructor

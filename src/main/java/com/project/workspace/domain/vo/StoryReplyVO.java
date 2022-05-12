@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,6 +14,7 @@ import java.util.Date;
 @ToString(exclude = {"userVO","storyVO"})
 @Getter
 @NoArgsConstructor
+@DynamicInsert
 public class StoryReplyVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
