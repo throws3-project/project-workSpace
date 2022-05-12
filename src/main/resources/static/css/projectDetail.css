@@ -144,7 +144,7 @@ div.idMenu ul li a {
 }
 
 div.idMenu ul li a:hover {
-    background-color: rgba(234, 101, 95, .5);
+    background-color: #f1f8e9;
 }
 
 /* section two */
@@ -496,7 +496,7 @@ div.moreProject h3.detailTab {
 }
 
 .btchat:hover {
-    background-color: #1187cf;
+    background-color:  #336d47;
     color: #fff;
 }
 
@@ -554,7 +554,7 @@ ul.idHoverMenu li a {
 }
 
 ul.idHoverMenu li a:hover {
-    background-color: rgba(234,101,95,.5);
+    background-color: #f1f8e9;
 }
 
 .join {
@@ -608,16 +608,22 @@ div.projectManage div.chooseManage ul li a{
     color: #a1a1a1;
 }
 
-div.projectManage div.chooseManage ul li.active {
+/* div.projectManage div.chooseManage ul li.active {
     border-bottom: 2px solid #a1a1a1;
-}
-div.projectManage div.chooseManage ul li.active a{
+} */
+/* div.projectManage div.chooseManage ul li.active a{
     color: #333;
-}
+} */
 
 /* div.projectManage div.managementWrap div.projectSup {
     padding: 0 38px;
 } */
+div.projectSup{
+    display: none;
+}
+div.proManag{
+    display: none;
+}
 
 div.projectManage div.managementWrap div.projectSup h3 {
     font-size: 20px;
@@ -1569,10 +1575,6 @@ div.reply {
     display: flex;
 }
 
-div.active {
-    display: block;
-}
-
 /* 일감 */
 .workChooseManage {
     margin-bottom: 35px;
@@ -1689,7 +1691,21 @@ div.workRoleUl div.workChooseManage ul li.active {
     text-align: center;
     cursor: pointer;
 }
+.successBang{
+    font-size: 13px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+    width: 45%;
+    text-align: center;
+    cursor: pointer;
+}
 .success:hover{
+    background-color: #336d47;
+    color: #fff;
+}
+.successBang:hover{
     background-color: #336d47;
     color: #fff;
 }
@@ -2040,14 +2056,13 @@ div.top {
     position: absolute;
     text-align: center;
     width: 325px;
-    /* padding: 0px 30px 74px; */
     background-color: #fefefe;
     border: 1px solid #888;
     border-radius: 8px;
     height: 490px;
     top: 30%;
     left: 40%;
-    padding: 48px 40px 24px;
+    padding: 37px 40px 24px;
     max-width: 406px;
     width: 100%;
     /* 
@@ -2082,6 +2097,7 @@ button.turnJoin{
     color: #8e8ea2;
     padding: 0 !important;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 button.turnLogin{
@@ -2091,6 +2107,7 @@ button.turnLogin{
     color: #8e8ea2;
     padding: 0 !important;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 div.turnJoinWrap , button.turnLoginWrap{
@@ -2099,8 +2116,8 @@ div.turnJoinWrap , button.turnLoginWrap{
 
 img.xxIcon{
     position: relative;
-    width: 25px;
-    right: -168px;
+    width: 20px;
+    right: -178px;
     top: -23px;
 }
 
@@ -2149,7 +2166,7 @@ p.completeP1{
     color: #42495b;
     font-weight: 700;
     margin-bottom: 12px;
-    line-height: 1rem;
+    line-height: 1.25rem;
     text-align: left;
 }
 
@@ -2159,7 +2176,7 @@ p.get200PointP1{
     line-height: 1rem;
     margin-top: 11px;
     margin-bottom: 5px;
-    /* font-weight: 600; */
+     font-weight: 600; 
 }
 
 p.get200PointP2{
@@ -2175,7 +2192,7 @@ p.get200PointP3{
     color: #696980;
     line-height: 1rem;
     margin-top: 1px;
-    /* font-weight: 600; */
+     font-weight: 600; 
 }
 .mdPtag{
     display: flex;
@@ -2183,10 +2200,6 @@ p.get200PointP3{
     align-items: flex-start;
     margin-top: 1em;
 }
-
-/* div.letter1{
-    margin-top: 30px;
-} */
 
 .mdBtn{
     display: flex;
@@ -2203,6 +2216,7 @@ button.complete1{
     margin-right: 7px;
     border-radius: 6px;
     cursor: pointer;
+    
 }
 button.complete2{
     width: 50%;
@@ -2270,6 +2284,9 @@ img.xxxIcon{
     right: -170px;
     top: 0px;
 }
+.letter2{
+    margin-top: 2em;
+}
 
 div.modal2{
     position: fixed;
@@ -2302,6 +2319,7 @@ p.get200PointP11{
     font-size: .75rem;
     color: #8e8ea2;
     line-height: 1rem;
+    font-weight: 600;
 }
 
 
@@ -2312,6 +2330,7 @@ p.get200PointP11{
     color: #fff;
     background-color: #00704a;
     margin-top: 20px;
+    cursor: pointer;
 } 
 /* 멤버허용모달 */
 #modalPage3 {
@@ -2326,6 +2345,9 @@ p.get200PointP11{
     top: 30%;
     left: 41%;
     /* left:3.5% */
+}
+.letter3{
+    margin-top: 2em;
 }
 
 #modalPage3 .modalCloseBtn3{
@@ -2372,6 +2394,7 @@ p.get200PointP111{
     font-size: .75rem;
     color: #8e8ea2;
     line-height: 1rem;
+    font-weight: 600;
 }
 
 
@@ -2382,6 +2405,7 @@ button.complete3{
     color: #fff;
     background-color: #00704a;
     margin-top: 20px;
+    cursor: pointer;
 }
 /* 리더허용모달 */
 #modalPage4 {
@@ -2429,7 +2453,9 @@ a.modalCloseBtn4{
     cursor: pointer;
 }
 
-
+.letter4{
+    margin-top: 2em;
+}
 p.completeP4{
     font-size: 1.125rem;
     color: #42495b;
@@ -2441,6 +2467,7 @@ p.completeP4{
 p.get200PointP1111{
     font-size: .75rem;
     color: #8e8ea2;
+    font-weight: 600;
     line-height: 1rem;
 }
 
@@ -2452,6 +2479,7 @@ button.complete4{
     color: #fff;
     background-color: #00704a;
     margin-top: 20px;
+    cursor: pointer;
 }
 /* 프로젝트삭제모달 */
 #modalPage5 {
@@ -2517,6 +2545,7 @@ p.mdProPtag1{
     font-size: .75rem;
     color: #8e8ea2;
     line-height: 1rem;
+    font-weight: 600;
 }
 
 
@@ -2550,12 +2579,12 @@ button.mdBtnRemove{
 #modalPage6 {
     position: absolute;
     text-align: center;
-    width: 387px;
-    padding: 12px 30px 74px;
+    width: 400px;
+    padding: 25px 30px 74px;
     background-color: #fefefe;
     border: 1px solid #888;
     border-radius: 8px;
-    height: 334px;
+    height: 404px;
     top: 30%;
     left: 41%;
 }
@@ -2638,9 +2667,9 @@ p.mdProPtag2{
 }
 
 
-/* .letter6{
-   margin-top: 30px;
-} */
+ .letter6{
+  padding: 10px;
+} 
 button.mdBtnBack{
     width: 50%;
     height: 35px;
@@ -2740,6 +2769,9 @@ button.complete7{
     margin-top: 20px;
     cursor: pointer;
 }
+.letter7{
+    margin-top: 2em;
+}
 
 /* 멤버 승인완료, 거절모달 */
 #modalPage9, #modalPage10 {
@@ -2755,6 +2787,10 @@ button.complete7{
     left: 41%;
     /* left:3.5% */
 }
+.letter9, .letter10{
+    margin-top: 2em;
+}
+
 
 #modalPage9 .modalCloseBtn9, #modalPage10 .modalCloseBtn10{
     bottom: 25px;
@@ -2967,20 +3003,24 @@ a.modalCloseBtn11{
     flex-direction: column;
 }
 span.completeBang{
-    font-size: 11px;
+    font-size: 12px;
     color: #c5c2c2ee;
-    font-weight: 700;
+    /* font-weight: 700; */
     text-align: left;
     line-height: 24px;
+    /* font-weight: 600; */
+    margin-left: 3px;
+    margin-top: -5px;
 }
 
 p.mdProPtag2{
     font-size: .75rem;
     color: #8e8ea2;
     line-height: 1rem;
+    font-weight: 600;
 }
 .mdProRemoveDivPtag {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     border-bottom: 2px solid;
 
@@ -3019,7 +3059,7 @@ button.mdBtnBang1{
 }
 
 .mdInputBangSpan{
-    font-size: 12px;
+    font-size: 13px;
     float: left;
     font-weight: 600;
     margin-right: 11px;
@@ -3078,6 +3118,9 @@ a.modalCloseBtn12{
     color: #8e8ea2;
     cursor: pointer;
 }
+.letter12{
+    margin-top: 2em;
+}
 
 
 p.completeP12{
@@ -3090,6 +3133,182 @@ p.completeP12{
 
 
 button.mdBtnMem12{
+    width: 260px;
+    height: 44px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 20px;
+    cursor: pointer;
+}
+/* 프로젝트 구독하기 모달 */
+#modalPage13 {
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 25px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 334px;
+    top: 30%;
+    left: 41%;
+}
+p.completeP13{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.5rem;
+    text-align: left;
+}
+.mdBtnProWraps{
+    display: flex;
+    margin-bottom: 1em;
+    margin-top: 37px;
+    
+}
+#modalPage13 .modalCloseBtn13{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcon13{
+    position: relative;
+    width: 20px;
+    right: -168px;
+    top: -11px;
+}
+
+div.modal13{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: none;
+}
+
+
+a.modalCloseBtn13{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.mdProPtags{
+    font-size: .75rem;
+    color: #8e8ea2;
+    line-height: 1rem;
+    text-align: left;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+
+button.mdBtnProYes{
+    width: 50%;
+    height: 35px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button.mdBtnProNo{
+    width: 50%;
+    height: 35px;
+    border: 1px solid #eeee;
+    color: #333;
+    background-color: #fff;
+    margin-top: 10px;
+    margin-right: 7px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.mdInputBangSpan{
+    font-size: 12px;
+    float: left;
+    font-weight: 600;
+    margin-right: 11px;
+    line-height: 24px;
+}
+.mdInputBangContents{
+    border: 1px solid #a59f9fee !important; 
+    background-color: #fff !important;
+    font-size: 12px !important;
+}
+.mdProRemoveDiv{
+    margin-bottom: 1.5em;
+}
+/* 프로젝트 예 클릭 시 모달 */
+#modalPage14{
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 26px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+    /* left:3.5% */
+}
+
+#modalPage14 .modalCloseBtn14{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcon14{
+    position: relative;
+    width: 25px;
+    right: -170px;
+    top: -13px;
+}
+
+div.modal14{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+     display: none; 
+}
+
+
+a.modalCloseBtn14{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.completeP14{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
+.letter14{
+    margin-top: 2em;
+}
+
+button.mdBtnMem14{
     width: 260px;
     height: 44px;
     border: none;
@@ -3240,3 +3459,49 @@ div.replyWrapContent2 {
     margin-bottom: 14px;
      border-bottom: none; 
 }
+
+
+/* 피드 댓글 마우스오버시 */
+ul.hoverUl {
+    display: none;
+    position: absolute;
+    /* right: 1px; */
+    width: 120px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+    box-shadow: 2px 2px 5px 0 rgb(0 0 0 / 20%);
+    margin-top: 24px;
+}
+
+ul.hoverUl li {
+    width: 100%;
+}
+
+ul.hoverUl li a {
+    display: block;
+    padding: 5px 15px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+ul.hoverUl li a:hover {
+    background-color: #f1f8e9;
+    text-decoration: none !important;
+}
+
+
+
+div.active {
+    display: block;
+}
+.activeBorder{
+    border-bottom: 2px solid #336d47 !important;
+}
+/* div.actives{
+    display: block;
+    border-bottom: 1px solid #333;
+} */

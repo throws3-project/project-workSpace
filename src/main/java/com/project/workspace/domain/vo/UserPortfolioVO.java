@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 
 @Entity
+@Component
 @Table(name = "tbl_portfolio")
 @Getter
 @ToString(of = {"portNum","portUrl"})

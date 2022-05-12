@@ -4,11 +4,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Component
 @Table(name = "tbl_story_reply")
 @ToString(exclude = {"userVO","storyVO"})
 @Getter
