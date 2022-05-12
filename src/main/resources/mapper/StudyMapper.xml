@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.workspace.mapper.StudyMapper">
+    <!--스터디 등록-->
+    <insert id="insertStudy">
+        insert into tbl_study
+        (user_num, study_title, study_part, study_location, study_on_off, study_content)
+        values(#{userNum}, #{studyTitle}, #{studyPart}, #{studyLocation}, #{studyOnOff}, #{studyContent})
+    </insert>
+    <!--스터디 키워드 등록-->
+    <insert id="insertKeyword">
+        insert into tbl_study_keyword
+        (study_num, study_keyword)
+        values(#{studyNum}, #{studyKeyword})
+    </insert>
+    <!--스터디 멤버 등록-->
+    <insert id="insertMember">
+        insert into tbl_study_member
+        (study_num, user_num, study_motive)
+        values(#{studyNum}, #{userNum}, #{studyMotive})
+    </insert>
+
+    <!--스터디 리스트-->
+    <select id="getStudyList" resultType="studyVO">
+        select * from tbl_study
+    </select>
+    <!--스터디 키워드 리스트-->
+    <select id="getKeywordList" resultType="studyKeywordVO">
+        select * from tbl_study_keyword
+    </select>
+    <!--스터디 멤버 리스트-->
+    <select id="getMemberList" resultType="studyMemberVO">
+        select * from tbl_study_member
+    </select>
+
+</mapper>

@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.workspace.mapper.StoryMapper">
+    <insert id="insertStory">
+        insert into tbl_story
+        (user_num, story_part, story_title, story_content, story_img_name, story_img_uuid, story_img_path)
+        values(#{userNum},#{storyPart}, #{storyTitle}, #{storyContent}, #{storyImgName}, #{storyImgUuid}, #{storyImgPath})
+    </insert>
+    <insert id="insertSeries">
+        insert into tbl_series
+        (story_num, user_num, series_name)
+        values(#{storyNum}, #{userNum}, #{seriesName})
+    </insert>
+    <insert id="insertStoryReply">
+        insert into tbl_story_reply
+        (story_num, story_reply, user_num)
+        values(#{storyNum}, #{storyReply},#{userNum})
+    </insert>
+    <insert id="insertStoryTag">
+        insert into tbl_story_tag
+        (story_num, tag_name)
+        values(#{storyNum}, #{tagName})
+    </insert>
+    <insert id="insertLikeStory">
+        insert into tbl_like_story
+        (story_num, user_num)
+        values(#{storyNum}, #{userNum})
+    </insert>
+
 
 
 </mapper>
