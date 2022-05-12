@@ -9,10 +9,10 @@
 </head>
 <body>
 <header id="header"></header>
-<!-- 지원하기 모달 -->
- <div class="modal1">
+<!-- 지원하기 모달  applyButton -->
+ <div class="modal1 modals">
     <div id="modalPage1">
-        <a class="modalCloseBtn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxIcon"></a>
+        <a class="modalCloseBtn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxIcon xBtns"></a>
         <div class="letter1">
             <p class="completeP1">AI아바타챗봇[UI/UX 디자인]으로 지원하시겠습니까?</p>
             <div class="mdInput">
@@ -21,7 +21,7 @@
             </div>
 
             <div class="mdBtn">
-            <button class="complete2">아니오</button>
+            <button class="complete2 xBtns">아니오</button>
             <button class="complete1">예</button>
             </div>
              <p class="get200PointP1">예를 누르시면, 정보제공/유의사항에 동의한 것으로 간주합니다.</p>
@@ -37,61 +37,61 @@
     </div>
 </div> 
 <!-- 지원 후 메세지모달 -->
-<div class="modal2">
+<div class="modal2 modals">
     <div id="modalPage2">
-        <a class="modalCloseBtn2"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxxIcon"></a>
+        <!-- <a class="modalCloseBtn2"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxxIcon xBtns"></a> -->
         <div class="letter2">
             <p class="completeP2">리더에게 성공적으로 전달되었습니다.</p>     
              <p class="get200PointP11">리더에게 알림 톡 메일이 발송되었습니다.</p>
              <p class="get200PointP11">지원내역은 내 정보>프로젝트에서 확인가능합니다.</p>
-             <button class="complete2">확인</button>
+             <button class="completes xBtns">확인</button>
         </div>
     </div>
 </div> 
 <!-- 멤버에게만 허락된다는 모달 -->
-<div class="modal3">
+<div class="modal3 modals">
     <div id="modalPage3">
-        <a class="modalCloseBtn3"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxxxIcon"></a>
+        <!-- <a class="modalCloseBtn3"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxxxIcon xBtns"></a> -->
         <div class="letter3">
             <p class="completeP3">멤버에만 허용된 공간입니다.</p>     
              <p class="get200PointP111">멤버라면 로그인,</p>
              <p class="get200PointP111">아니면 프로젝트에 지원해보세요.</p>
-             <button class="complete3">확인</button>
+             <button class="complete3 xBtns">확인</button>
         </div>
     </div>
 </div> 
 <!-- 리더에게 허락된다는 모달 -->
-<div class="modal4">
+<div class="modal4 modals">
     <div id="modalPage4">
-        <a class="modalCloseBtn4"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxxxxIcon"></a>
+        <!-- <a class="modalCloseBtn4"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xxxxxIcon xBtns"></a> -->
         <div class="letter4">
             <p class="completeP4">리더만 허용된 공간입니다.</p>     
              <p class="get200PointP1111">리더라면 로그인,</p>
              <p class="get200PointP1111">아니면 프로젝트를 직접만들어보세요.</p>
-             <button class="complete4">확인</button>
+             <button class="complete4 xBtns">확인</button>
         </div>
     </div>
 </div> 
 <!-- 프로젝트관리 모달 -->
-<div class="modal5">
+<div class="modal5 modals">
     <div id="modalPage5">
-        <a class="modalCloseBtn5"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon1"></a>
+        <a class="modalCloseBtn5"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon1 xBtns"></a>
         <div class="letter5">
             <p class="completeP5">프로젝트 관리</p>     
              <p class="mdProPtag1">프로젝트를 수정, 삭제할 수 있습니다.</p>
              
              <div class="mdBtn2">
-                <button class="mdBtnModify">수정</button>
                 <button class="mdBtnRemove">삭제</button>
+                <button class="mdBtnModify ">수정</button>
             </div>
         </div>
     </div>
 </div>
 <!-- 프로젝트 삭제 중 모달 -->
-<div class="modal6">
+<div class="modal6 modals">
     <div id="modalPage6">
         <a class="modalCloseBtn6">
-            <img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon3">
+            <img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon3 xBtns">
         </a>
         <div class="letter6">
             <!-- <p class="completeP6">정말 삭제하시겠습니까?</p>  -->
@@ -104,61 +104,123 @@
                  <div class="mdInputSpanDiv">
                 <span class="mdInputSpan2">* 프로젝트명</span><span class="completeP6">확인을 위해 프로젝트명을 입력해주세요.</span>  
             </div>
+            <span class="gonbackSpan">입력 시 띄어쓰기를 포함해주세요</span>
                 <input type="text" class="mdInputContents2" maxlength="20">
             </div>
              <div class="mdBtn3">
-                <button class="mdBtnBack">취소</button>
                 <button class="mdBtnCom">완료</button>
+                <button class="mdBtnBack xBtns">취소</button>
                 </div>
         </div>
     </div>
 </div>
 <!-- 프로젝트 삭제완료 모달 -->
-<div class="modal7">
+<div class="modal7 modals">
     <div id="modalPage7">
-        <a class="modalCloseBtn7"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon4"></a>
+        <!-- <a class="modalCloseBtn7"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon4 xBtns"></a> -->
         <div class="letter7">
             <p class="completeP7">프로젝트 삭제완료</p>     
              <p class="mdProPtag2">프로젝트가 성공적으로 삭제되었습니다.</p>
              <!-- <p class="mdProPtag2">삭제되었습니다.</p> -->
-             <button class="complete7">확인</button>
+             <button class="complete7 xBtns">확인</button>
         </div>
     </div>
 </div>
 <!-- 멤버승인모달 -->
-<div class="modal8">
+<div class="modal8 modals">
     <div id="modalPage8">
-        <a class="modalCloseBtn8"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon5"></a>
+        <a class="modalCloseBtn8"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon5 xBtns"></a>
         <div class="letter8">
             <p class="completeP8">멤버로 승인하시겠습니까?</p>     
              <div class="mdBtn4">
-                <button class="mdBtnMem2">취소</button>
+                <button class="mdBtnMem2 xBtns">취소</button>
                 <button class="mdBtnMem1">확인</button>
                 </div>
         </div>
     </div>
 </div>
 <!-- 멤버승인확인 -->
-<div class="modal9">
+<div class="modal9 modals">
     <div id="modalPage9">
-        <a class="modalCloseBtn9"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon6"></a>
+        <!-- <a class="modalCloseBtn9"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon6 xBtns"></a> -->
         <div class="letter9">
             <p class="completeP9">승인되었습니다.</p>     
 
-             <button class="mdBtnMem3">확인</button>
+             <button class="mdBtnMem3 xBtns">확인</button>
         </div>
     </div>
 </div>
 <!-- 멤버거절 -->
-<div class="modal10">
+<div class="modal10 modals">
     <div id="modalPage10">
-        <a class="modalCloseBtn10"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon7"></a>
+        <!-- <a class="modalCloseBtn10"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon7 xBtns"></a> -->
         <div class="letter10">
             <p class="completeP10">거절되었습니다.</p>     
-             <button class="mdBtnMem4">확인</button>
+             <button class="mdBtnMem4 xBtns">확인</button>
         </div>
     </div>
 </div>
+<!-- 방출 중 모달 -->
+<div class="modal11 modals">
+    <div id="modalPage11">
+        <a class="modalCloseBtn11">
+            <img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon11 xBtns">
+        </a>
+        <div class="letter11">
+            <!-- <p class="completeP6">정말 삭제하시겠습니까?</p>  -->
+            <div class="mdProRemoveDiv">    
+            <p class="mdProRemoveDivPtag">확 인</p> 
+                <!-- <p class="mdProRemoveDivPtag2">멤버에게 방출사유를 전달해주세요. </p> -->
+              </div>
+            
+             <div class="mdInputBang">
+                 <div class="mdInputBangSpanDiv">
+                <span class="mdInputBangSpan">* 방출사유</span><span class="completeBang">멤버에게 방출사유를 전달해주세요.</span>  
+            </div>
+                <input type="text" class="mdInputBangContents" maxlength="20">
+            </div>
+             <div class="mdBtnBangWrap">
+                <button class="mdBtnBang1 xBtns">취소</button>
+                <button class="mdBtnBang">완료</button>
+                </div>
+        </div>
+    </div>
+</div>
+<!-- 방출 확인 모달 -->
+<div class="modal12 modals">
+    <div id="modalPage12">
+        <!-- <a class="modalCloseBtn12"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon12 xBtns"></a> -->
+        <div class="letter12">
+            <p class="completeP12">방출되었습니다.</p>     
+             <button class="mdBtnMem12 xBtns">확인</button>
+        </div>
+    </div>
+</div>
+<!-- 프로젝트 구독하기 모달 -->
+<div class="modal13 modals">
+    <div id="modalPage13">
+        <a class="modalCloseBtn13"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon13 xBtns"></a>
+        <div class="letter13">
+            <p class="completeP13">AI아바타챗봇 창업공모전준비를 구독하시겠습니까?</p>  
+             <p class="mdProPtags">구독하시면, 관련된 정보나 홍보 컨텐츠가 SMS/이메일을 통해 정기적으로 배송되며 자동으로 웍스 광고수신동의가 이루어집니다</p>
+             <div class="mdBtnProWraps">
+                <button class="mdBtnProNo xBtns">아니오</button>
+                <button class="mdBtnProYes">예</button>
+                </div>
+        </div>
+    </div>
+</div>
+<!-- 프로젝트 구독하기 예 클릭 시  모달 -->
+<div class="modal14 modals">
+    <div id="modalPage14">
+        <!-- <a class="modalCloseBtn14"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon14 xBtns"></a> -->
+        <div class="letter14">
+            <p class="completeP14">구독 목록에 추가되었습니다.</p>     
+             <button class="mdBtnMem14 xBtns">확인</button>
+        </div>
+    </div>
+</div>
+
 <section>
     <div class="projectHeaderWrap">
         <div class="projectHeader">
@@ -218,10 +280,10 @@
                         <a name="work" class="disabled">일감</a>
                     </li>  -->
                     <li>
-                        <a name="feed" class="disabled">피드</a>
+                        <a name="feed" class="disabled disafeed">피드</a>
                     </li>
                     <li>
-                        <a name="management" class="disabled">관리</a>
+                        <a name="management" class="disabled disamanage">관리</a>
                     </li>
                 </ul>
             </div>
@@ -282,8 +344,6 @@
                                 <div class="userGridTool">
                                     <ul class="userGridList">
                                         <li class="userGrid">
-                                            <img src="../../static/images/image/letspler_new_mark.png"
-                                                 class="red2">
 
                                             <div class="userGridtop">
                                                 <div class="userIn" style="display: flex;">
@@ -363,9 +423,6 @@
                                 <div class="userGridTool">
                                     <ul class="userGridList">
                                         <li class="userGrid">
-                                            <img src="../../static/images/image/letspler_new_mark.png"
-                                                 class="red2">
-
                                             <div class="userGridtop">
                                                 <div class="userIn" style="display: flex;">
                                                     <div class="userGridimg">
@@ -435,8 +492,6 @@
                                             </div>
                                         </li>
                                         <li class="userGrid">
-                                            <img src="../../static/images/image/letspler_new_mark.png"
-                                                 class="red2">
 
                                             <div class="userGridtop">
                                                 <div class="userIn" style="display: flex;">
@@ -646,9 +701,44 @@
                             </div>
                         </div>
                         <div class="replyWrap">
+                            <div class="replyActive">
+                                <div class="activeWrap">
+                                   <div class="activeTop">
+                                       <div class="activeLeft">
+                                       <a href="#">
+                                           <div class="activeLeftPro">
+                                               <img src="../../static/images/여.png">
+                                           </div>
+                                       </a>
+                                       </div>
+                                       <div class="activeRight">
+                                           <div class="activeProfile">
+                                               <p class="activeProName" id="activeProName">상아야       
+                                          <ul class="hoverUl" id="houverUl">
+                                           <li>
+                                               <a href="#">프로필 상세</a>
+                                           </li>
+                                           <li >
+                                               <a>1 : 1 대화</a>
+                                           </li>
+                                           <li>
+                                               <a>모임초대</a>
+                                           </li>
+                                         </ul>
+                                    
+                                               </p>
+                                               <span class="activeDate">22.05.02 08:43</span>   
+                                           </div>
+                                           <div class="activeTxt">
+                                               <textarea class="activeTextArea" maxlength="500" placeholder="댓글을 작성해주세요" rows="2" readonly="">반갑습니다.</textarea>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                       </div>
                             <p class="noMemberText">
                                 😢 프로젝트의 멤버가 아니셔서 답글을 달 수 없네요.
-                                <a>지원하시겠어요?</a>
+                                <a>지원해주세요</a>
                             </p>
                         </div>
                     </div>
@@ -690,6 +780,50 @@
                             </div>
                         </div>
                         <div class="replyWrap">
+                            <div class="replyActive">
+                                <div class="activeWrap">
+                                   <div class="activeTop">
+                                       <div class="activeLeft">
+                                       <a href="#">
+                                           <div class="activeLeftPro">
+                                               <img src="../../static/images/여.png">
+                                           </div>
+                                       </a>
+                                       </div>
+                                       <div class="activeRight">
+                                           <div class="activeProfile">
+                                               <p class="activeProName" id="activeProName">상아야       
+                                          <ul class="hoverUl" id="houverUl">
+                                           <li>
+                                               <a href="#">프로필 상세</a>
+                                           </li>
+                                           <li >
+                                               <a>1 : 1 대화</a>
+                                           </li>
+                                           <li>
+                                               <a>모임초대</a>
+                                           </li>
+                                         </ul>
+                                    
+                                               </p>
+                                               <span class="activeDate">22.05.02 08:43</span>   
+                                           </div>
+                                           <div class="activeTxt">
+                                               <textarea class="activeTextArea" maxlength="500" placeholder="댓글을 작성해주세요" rows="2" readonly="">반갑습니다.</textarea>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                       </div>
+                            <div class="activeInput">
+                                <div class="activInputPro">
+                                    <img class="activInputImg" src="../../static/images/여.png">
+                                </div>
+                                <div class="activeInputTxt">
+                                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요" class="activeInputTextArea"></textarea>
+                                    <button class="activeInputBtn">등록</button>
+                                </div>
+                            </div>
                             <div class="replyWrapContent">
                                 <div class="top">
                                     <!-- <div class="left">
@@ -716,68 +850,22 @@
                                         <p class="dateText">21.05.28 09:28</p>
                                     </div>
                                 </div>
-                                <div class="bottom">
+                                <!-- <div class="bottom">
                                     <div class="textWrap">
                                         <textarea disabled maxlength="500">너무 어렵더라</textarea>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                            <p class="noMemberText">
+
+                            <!-- <p class="noMemberText">
                                 😢 프로젝트의 멤버가 아니셔서 답글을 달 수 없네요.
-                                <a>지원하시겠어요?</a>
-                            </p>
+                                <a>지원해주세요?</a>
+                            </p> -->
                         </div>
                     </div>
                 </div>
 
 
-                <!-- 일감 -->
-                 <!-- <div class="workrole">
-                    <div class="workRoleWrap">
-                       
-                        <div class="workChooseManage">
-                            <ul class="workRoleUl">
-                                <li class="active">
-                                    <a>할일 관리</a>
-                                </li>
-                                <li>
-                                    <a>목표/마일스톤</a>
-                                </li>
-                            </ul>
-                        </div>
-                    
-                        <div class="workRoleNotice">
-                            <div class="workRoleNoticeSelect">
-                                <select class="workRoleNoticeSelectBox">
-                                    <option value="a">업데이트</option>
-                                    <option value="b">생성</option>
-                                    <option value="c">삭제</option>
-                                </select>
-                            </div>
-                        </div>
-             
-                        <div class="todo">
-                            <div class="todobox">
-                                <textarea placeholder="투두 내용을 적어주세요." maxlength="1000" rows="1" class="todoTextarea"></textarea>
-                            </div>  
-                        </div>
-       
-                        <div class="dateAndselect">
-                            <div class="workRoleDateWrap">
-                                <input type="date" class="workRoleDate">
-                            </div>
-                            <div class="workRoleSelectWrap">
-                                <select class="workRoleSelect">
-                                    <option value="a">업데이트</option>
-                                    <option value="a">업데이트</option>
-                                    <option value="a">업데이트</option>
-                                    <option value="a">업데이트</option>
-                                </select>
-                            </div>
-                        </div>
-                 
-                    </div>
-                </div>  -->
 
                 <!-- 피드 -->
                 <div class="projectFeed">
@@ -850,20 +938,19 @@
                                        </div>
                                        <div class="activeRight">
                                            <div class="activeProfile">
-                                               <p class="activeProName">상아야
-                                                    <!-- <div class="hover">
-                                       <ul class="hoverUl">
-                                           <li class="hoverLi">
-                                               <a href="/people/%EC%83%81%EC%95%84%EC%95%BC">프로필 상세</a>
+                                               <p class="activeProName" id="activeProName">상아야       
+                                          <ul class="hoverUl" id="houverUl">
+                                           <li>
+                                               <a href="#">프로필 상세</a>
                                            </li>
-                                           <li class="hoverLi">
+                                           <li >
                                                <a>1 : 1 대화</a>
                                            </li>
-                                           <li class="hoverLi">
+                                           <li>
                                                <a>모임초대</a>
                                            </li>
-                                       </ul>
-                                   </div>  -->
+                                         </ul>
+                                    
                                                </p>
                                                <span class="activeDate">22.05.02 08:43</span>   
                                            </div>
@@ -977,18 +1064,18 @@
                     <div class="managementWrap">
                         <div class="chooseManage">
                             <ul>
-                                <li class="active">
+                                <li class="active activeBorder">
                                     <a>지원자 관리</a>
                                 </li>
                                 <li>
                                     <a>멤버 관리</a>
                                 </li>
-                                <li>
+                                <li class="proManageMd">
                                     <a>프로젝트 관리</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="projectSup">
+                        <div class="projectSup manages active">
                             <!-- <h3>지원자 현황</h3> -->
                             <div class="projectSupText">
                                 <span>현재 지원자가 없습니다.</span>
@@ -1282,7 +1369,7 @@
                         </div>
                         </div>
                         <!-- 멤버관리 -->
-                         <div class="proManag">
+                         <div class="proManag manages">
                              <!-- 멤버없을때 -->
                             <div class="projectSupText">
                                 <span>현재 가입된 멤버가 없습니다.</span>
@@ -1323,7 +1410,7 @@
                                             <p class="join3">[직무]</p>
                                         </div>
                                         <div class="userGridSandN">
-                                            <p class="success">방출</p>
+                                            <p class="successBang">방출</p>
                                         </div>
                                     </li>
                                     </ul>

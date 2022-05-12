@@ -863,6 +863,374 @@ section#score table td{
     border-bottom: 1px solid lightgray;
 }
 
+/* 본인스토리 */
+.myStoryWrap{
+    max-width: 1200px;
+    padding: 0;
+    width: 100%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+.myStory{
+    margin-top: 52px;
+    box-sizing: border-box;
+}
+.storyTime{
+    display: flex;
+    flex-direction: column;
+}
+.storyTimeLi{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 18px 24px 26px 20px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.storyTimeLineLeft{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+.storyTimeLineImg{
+    width: 145px;
+    height: 114px;
+    overflow: hidden;
+    margin-right: 30px;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+.storyTimeLineImg img{
+    width: 145px;
+    height: 114px;
+    object-fit: cover;
+}
+.storyTimeLineContents{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.timeLineTitWrap{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1px;
+}
+.timeLintCategory{
+    font-size: 10px!important;
+    line-height: 14px;
+    border-radius: 4px!important;
+    color: #00704a!important;
+    margin-bottom: 3px;
+    font-family: 'GmarketSansMedium';
+    box-sizing: border-box;
+    padding: 4px 12px;
+    background-color: #f2f2f2;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+.timeLineTit{
+    font-size: 17px;
+    color: #42495b;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 0;
+    font-family: 'GmarketSansMedium';
+}
+.timeLineTxt{
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    color: #b5b5c2;
+    word-break: normal;
+    font-weight: 600;
+}
+.timeLineTagWrap{
+    color: #222;
+    margin-right: 4px;
+    line-height: 14px;
+    display: -webkit-box;
+}
+.timeLineTagWrap span{
+    font-size: 12px;
+    color: #8e8ea2;
+    margin-right: 4px;
+    font-weight: 600;
+}
+
+/* 스토리 타임라인 right */
+.storyTimeLineRight{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.TimeLineStatusWrap{
+    display: inline-flex;
+    flex-direction: row;
+}
+.storyTimeLineStatusDiv{
+    display: inline-flex;
+flex-direction: row;
+align-items: center;
+margin-right: 16px;
+}
+
+.storyTimeLineDivImg{
+    width: 16px;
+    height: 16px;
+}
+.divFooterTxt{
+    font-size: 13px;
+    color: #a39e9e;
+    margin-left: 3px;
+}
+/* 찜한유저 */
+.userId{
+    font-size: 15px;
+    color: #444;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.userSearchOption .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.userSearchOption .searchOption {
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 22px;
+}
+.userSearchOption .searchOption .searchSelect {
+    max-width: 140px;
+    width: 100%;
+    border: 1px solid #bcbccb;
+    border-radius: 4px;
+    height: 40px;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #696980;
+    margin-right: 10px;
+    padding-left: 20px;
+    background-image: url(../../static/images/triangle.png);
+    background-position: 90%;
+    background-repeat: no-repeat;
+    appearance: none;
+}.newMark{
+    position: relative;
+}
+.red {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 37px;
+    height: 37px;
+}
+.like{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    background-image: url(../../static/images/grayheart.png);
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: 50%;
+    bottom: -10px;
+    right: -7px;
+    border-radius: 100px;
+    -webkit-box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 0 24px 0 rgb(0 0 0 / 10%);
+}
+
+.userGrid{
+    border-radius: 20px;
+    position: relative;
+    width: 285px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 20px 15px 10px 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all .2s;
+}
+
+.userGridtop{
+    display: flex;
+}
+.userIn{
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #f3f3f4;
+    background-color: #efefef;
+    margin-right: 20px;
+    flex-shrink: 0;
+    position: relative;
+    
+}
+
+.user1{
+    display: flex;
+    height: 35px;
+    line-height: 35px;
+}
+.checkIcon{
+    vertical-align: middle;
+    width:18px;
+}
+.lvIcon{
+    width: 28px;
+    height: 20px
+}
+.bitIcon{
+    width: 17px;
+    line-height: 20px;
+}
+.heartIcon{
+    width: 17px;
+    line-height: 20px;
+}
+.boo{
+    margin-top: -0.6em;
+}
+
+.bitdiv{
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 6px;
+}
+.bitimg{
+    margin-right: 5px;
+}
+
+.heartdiv{
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+}
+.heartimg{
+    margin-right: 5px;
+}
+
+.bitptag {
+    margin: 0;
+    font-size: 13px;
+}
+.heartptag {
+    margin: 0;
+    font-size: 13px;
+}
+.info{
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+}
+.num{
+    font-size: 13px;
+    color: #999;
+    margin-left: 10px;
+}
+
+.usertag{
+    margin:0 0 0.7rem 0;
+}
+.ulusertag{
+    display: flex;
+}
+
+.ulusertag li{
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    margin-right: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.userinfo{
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.btimg{
+    position: absolute;
+    width: 18px;
+    right: 173px;
+    bottom: 15px;
+}
+.btchat{
+    font-size:13px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+.btchat:hover {
+    background-color:  #336d47;
+    color: #fff;
+}
+
+.userGridTool {
+    margin: 0 auto;
+    width: 1200px;
+    padding: 0;
+    box-sizing: border-box;
+}
+.userGridList{
+    width: 100%;
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4,1fr);
+}
+.userLvIcon{
+    margin-right: 8px;
+}
+
+.userGridName{
+    margin-right: 5px;
+}
+.ugname{
+   margin-bottom: 0;
+   font-size: 15px;
+}
+.join{
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.bitandheart{
+    display: flex;
+}
+
 
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){
