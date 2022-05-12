@@ -42,6 +42,28 @@ $(".profileName").on("mouseover", function () {
 $(".profileName").on("mouseout", function () {
     $(this).next().hide();
 })
+$(".idMenu").on("mouseover", function () {
+    $(this).show();
+})
+
+$(".idMenu").on("mouseout", function () {
+    $(this).hide();
+})
+
+$(".activeProName").on("mouseover", function () {
+    $(this).next().show();
+})
+
+$(".activeProName").on("mouseout", function () {
+    $(this).next().hide();
+})
+$(".hoverUl").on("mouseover", function () {
+    $(this).show();
+})
+
+$(".hoverUl").on("mouseout", function () {
+    $(this).hide();
+})
 
 $(".subscriber").find("li").on("mouseover", function () {
     $(this).find("div.subHover").css("display", "block");
@@ -120,4 +142,102 @@ $("div.projectTabMenu").find("li").on("click", function() {
         $("div.projectDetailWrap").children("div.projectManage").addClass("active");
     }
 })
+
+
+// 모달 종료
+$(".xBtns").on("click",function(){
+    $(".modals").hide();
+ });
+
+ //지원버튼 클릭 시 모달
+ $(".applyButton").on("click",function(){
+    $(".modal1").css('display','block');  
+});
+
+//지원버튼 예 클릭 시 모달
+$(".complete1").on("click",function(){
+    $(".modal2").css('display','block'); 
+    $(".modal1").css('display','none'); 
+});
+
+//피드 클릭 시 멤버에게만 허용된다는 메세지 모달
+$(".disafeed").on("click",function(){
+    $(".modal3").css('display','block');  
+});
+
+//관리 클릭 시 리더에게만 허용된다는 모달
+$(".disamanage").on("click",function(){
+    $(".modal4").css('display','block');  
+});
+
+//관리 에서 프로젝트 클릭 시 모달 
+$(".proManageMd").on("click",function(){
+    $(".modal5").css('display','block');  
+});
+
+//관리에서 삭제버튼 클릭 시 모달
+$(".mdBtnRemove").on("click",function(){
+    $(".modal6").css('display','block');  
+});
+
+//삭제버튼 클릭 후 모달
+$(".mdBtnCom").on("click",function(){
+    $(".modal6").css('display','none');  
+    $(".modal7").css('display','block');  
+});
+
+//지원자 승인 모달 success, nonono
+$(".success").on("click",function(){
+    $(".modal8").css('display','block');  
+});
+
+//지원자 승인 확인 모달 mdBtnMem1
+$(".mdBtnMem1").on("click",function(){
+    $(".modal9").css('display','block');  
+});
+
+//지원자 거절 모달
+$(".nonono").on("click",function(){
+    $(".modal10").css('display','block');  
+});
+
+//멤버 방출 모달 successBang
+$(".successBang").on("click",function(){
+    $(".modal11").css('display','block');  
+});
+
+//멤버 방출 완료 모달 mdBtnBang
+$(".mdBtnBang").on("click",function(){
+    $(".modal11").css('display','none');  
+    $(".modal12").css('display','block');  
+});
+
+//프로젝트 구독하기 모달
+$(".subscribeButton").on("click",function(){
+    $(".modal13").css('display','block');  
+});
+//프로젝트 구독하기 예 클릭 시 모달 mdBtnProYes
+$(".mdBtnProYes").on("click",function(){
+    $(".modal13").css('display','none');
+    $(".modal14").css('display','block');  
+});
+// 관리 메뉴 이동 
+$("div.chooseManage").find("li").on("click", function(){
+    
+    if($(this).find("a").text() == "지원자 관리"){
+        $(".manages").removeClass("active")
+        $(".chooseManage ul li").removeClass("activeBorder")
+        $(".projectSup").addClass("active");
+        $(this).addClass("activeBorder");
+    }else if($(this).find("a").text() == "멤버 관리"){
+        $(".manages").removeClass("active")
+        $(".chooseManage ul li").removeClass("activeBorder")
+        $(".proManag").addClass("active");
+        $(this).addClass("activeBorder");
+    }else{
+        $(".chooseManage ul li").removeClass("activeBorder")
+        $(".manages").removeClass("active")
+    }
+})
+
 
