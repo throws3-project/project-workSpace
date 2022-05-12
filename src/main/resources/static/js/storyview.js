@@ -23,3 +23,18 @@ $(".xBtns").on("click",function(){
     $(".modals").hide();
 });
 
+//프로필 상세보기 
+$(".activeProName").on("mouseover", function () {
+    $(this).next().show();
+})
+
+$(".activeProName").on("mouseout", function () {
+    $(this).next().hide();
+})
+$(".hoverUl").on("mouseover", function () {
+    $(this).show();
+})
+
+$(".hoverUl").on("mouseout", function () {
+    $(this).hide();
+})
