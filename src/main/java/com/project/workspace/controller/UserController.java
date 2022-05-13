@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/main/*")
+@RequestMapping("/user/*")
 public class UserController {
 
     private final UserService userService;
