@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "tbl_project_reference")
 @Component
-@Table(name = "tbl_project_referenece")
 @Getter
 @ToString(exclude = {"projectVO"})
 @NoArgsConstructor

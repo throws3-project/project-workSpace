@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.util.List;
 @ToString(exclude = { "userVO", "tags", "replies",  "series", "likes" })
 @Getter
 @NoArgsConstructor
+@DynamicInsert
 public class StoryVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,14 +52,13 @@ public class StoryVO {
     private List<StoryLikeVO> likes = new ArrayList<>();
 
     @Builder
-    public StoryVO(String storyPart, String storyTitle, String storyContent, String storyImgName, String storyImgUuid, String storyImgPath, Long storyReadCount, UserVO userVO) {
+    public StoryVO(String storyPart, String storyTitle, String storyContent, String storyImgName, String storyImgUuid, String storyImgPath, UserVO userVO) {
         this.storyPart = storyPart;
         this.storyTitle = storyTitle;
         this.storyContent = storyContent;
         this.storyImgName = storyImgName;
         this.storyImgUuid = storyImgUuid;
         this.storyImgPath = storyImgPath;
-        this.storyReadCount = storyReadCount;
         this.userVO = userVO;
     }
 }
