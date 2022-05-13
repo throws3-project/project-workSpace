@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Title</title>
     <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/header.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/css/chat.css" type="text/css">
     <link rel="stylesheet" href="/css/faq.css" type="text/css">
 </head>
 <body>
-<header id="header"></header>
+<th:block th:insert="/fix/header.html :: headFragment"/>
 
 <div id="container">
     <section id="fix">
@@ -697,17 +700,10 @@ SNS 통한 가입고객은 SNS내에서 연동해제를 별도로 하셔야 합�
 
 
 </div>
-
-<footer id="foot"></footer>
+<th:block th:insert="/fix/chat.html :: sideFragment"/>
+<th:block th:insert="/fix/footer.html :: footerFragment"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/faq.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#header").load('../../templates/fix/header.html');
-        $("#foot").load('../../templates/fix/footer.html');
-    })
-
-
-</script>
+<script src="/js/chat.js"></script>
 </html>

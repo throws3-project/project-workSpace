@@ -1,57 +1,57 @@
-footer#footer{
+div#footer{
     margin-top: 100px;
     border-top: 1px solid #f0f0f0;
     margin-bottom: 50px;
 }
-footer#footer div#footerWrap{
+div#footer div#footerWrap{
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     padding-top: 30px;
     padding-bottom: 30px;
 }
-footer#footer .title{
+div#footer .title{
     font-family: GmarketSansMedium;
 }
 
-footer#footer .flex{
+div#footer .flex{
     display: flex;
     justify-content: space-between;
 }
 
-footer#footer div#right ul{
+div#footer div#right ul{
     margin-left: 40px;
 }
-footer#footer div#right{
+div#footer div#right{
     margin-top: 47px;
 }
 
-footer#footer div#right ul a{
+div#footer div#right ul a{
     text-decoration: none;
     color: black;
 }
 
-footer#footer div#right ul a:hover{
+div#footer div#right ul a:hover{
     color: #00704a;
 }
 
-footer#footer div#left{
+div#footer div#left{
     text-align: left;
 }
 
-footer#footer div#left{
+div#footer div#left{
     width: 55%;
 }
-footer#footer div#left table{
+div#footer div#left table{
     width: 100%;
 }
-footer#footer div#left table th{
+div#footer div#left table th{
     font-family: GmarketSansMedium;
 }
 
 @media screen and (max-width: 415px){
 
-    footer#footer div#footerWrap{
+    div#footer div#footerWrap{
         max-width: 414px;
         width: 100%;
         margin: 0 auto;
@@ -59,10 +59,10 @@ footer#footer div#left table th{
         padding-bottom: 30px;
     }
 
-    footer#footer div#right{
+    div#footer div#right{
         display: none;
     }
-    footer#footer div#left {
+    div#footer div#left {
         width: 90%;
         font-size: 12px;
         margin: 0 auto;

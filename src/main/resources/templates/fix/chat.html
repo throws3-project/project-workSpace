@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>workSpace</title>
-    <link rel="stylesheet" href="/css/main.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/chat.css" type="text/css"/>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="sideFragment">
+    <side id="side">
 <div class="chattingWrap">
     <div class="chattingOpen open"></div>
     <div class="chatting">
@@ -116,7 +110,6 @@
         </div>
     </div>
 </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/js/chat.js"></script>
+        </side>
+</th:block>
 </html>

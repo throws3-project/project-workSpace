@@ -5,6 +5,9 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>MyPage</title>
     <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/header.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/css/chat.css" type="text/css">
     <link rel="stylesheet" href="/css/myPage.css" type="text/css">
     <style>
         .platformResult a {
@@ -36,7 +39,7 @@
     </style>
 </head>
 <body>
-<header id="header"></header>
+<th:block th:insert="/fix/header.html :: headFragment"/>
 <div id="container">
     <section id="fix">
         <div id="title">
@@ -1151,14 +1154,11 @@
     </section>
 
 </div>
-<footer id="fooot"></footer>
+<th:block th:insert="/fix/chat.html :: sideFragment"/>
+<th:block th:insert="/fix/footer.html :: footerFragment"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/chat.js"></script>
 <script src="/js/myPage.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#header").load('../../templates/fix/header.html');
-        $("#fooot").load('../../templates/fix/footer.html');
-    })
-</script>
 </html>
