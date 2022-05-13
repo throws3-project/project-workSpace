@@ -19,7 +19,6 @@ public class MainController {
     public void index(){
 
     }
-
     @GetMapping("/userDetail")
     public void userDetail(){
 
@@ -28,18 +27,20 @@ public class MainController {
     public void userList(){
 
     }
-    @GetMapping("/joinForm")
-    public void joinForm(){
+    @GetMapping("/privacyTerm")
+    public void privacyTerm(){
 
     }
-    @GetMapping("/joinPlus")
-    public void joinPlus(){
+    @GetMapping("/refundTerm")
+    public void refundTerm(){
 
     }
-    @GetMapping("/joinSuccess")
-    public void joinSuccess(){
+    @GetMapping("/serviceTerm")
+    public void serviceTerm(){
 
     }
+    @GetMapping("/tradeTerm")
+    public void tradeTerm(){
 
-
+    }
 }

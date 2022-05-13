@@ -17,24 +17,20 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/index")
-    public void index(){
+    @GetMapping("/joinForm")
+    public void joinForm(){
 
     }
-    @GetMapping("/privacyTerm")
-    public void privacyTerm(){
+    @GetMapping("/joinPlus")
+    public void joinPlus(){
 
     }
-    @GetMapping("/refundTerm")
-    public void refundTerm(){
+    @GetMapping("/joinSuccess")
+    public void joinSuccess(){
 
     }
-    @GetMapping("/serviceTerm")
-    public void serviceTerm(){
-
-    }
-    @GetMapping("/tradeTerm")
-    public void tradeTerm(){
+    @GetMapping("/payment")
+    public void payment(){
 
     }
 
