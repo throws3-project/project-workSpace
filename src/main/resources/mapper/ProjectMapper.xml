@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.workspace.mapper.ProjectMapper">
+    <insert id="insertProject">
+        insert into tbl_project
+        (user_num, project_name, project_part, project_location, project_on_off, project_platform, project_content, project_img, project_img_uuid, project_img_path, project_total)
+        values(#{userNum}, #{projectName}, #{projectPart}, #{projectLocation}, #{projectOnOff}, #{projectPlatform}, #{projectContent}, #{projectImg}, #{projectImgUuid}, #{projectImgPath}, #{projectTotal});
+    </insert>
+    <insert id="insertProjectMember">
+       insert into tbl_project_member
+        (project_num, user_num, project_part, project_motive)
+        values(#{projectNum}, #{userNum}, #{projectPart}, #{projectMotive});
+    </insert>
+    <insert id="insertProjectPerson">
+        insert into tbl_project_person
+        (project_num, project_main_skill, project_sub_skill, project_count)
+        values(#{projectNum}, #{projectMainSkill}, #{projectSubSkill}, #{projectCount});
+    </insert>
+    <insert id="insertProjectReference">
+        insert into tbl_project_reference
+        (project_num, project_url)
+        values(#{projectNum},#{projectUrl});
+    </insert>
+    <insert id="insertProjectSkill">
+        insert into tbl_project_skill
+        (project_num, project_skill)
+        values(#{projectNum}, #{projectSkill});
+    </insert>
+    <insert id="insertLikeProject">
+        insert into tbl_like_project
+        (project_num, user_num)
+        values(#{projectNum}, #{userNum});
+    </insert>
+
+</mapper>

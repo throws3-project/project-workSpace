@@ -927,6 +927,72 @@ a{
     text-decoration: none !important;
 }
 
+
+/* 스토리작성확인모달 */
+#modalStory4Page{
+    position: absolute;
+    text-align: center;
+    width: 387px;
+    padding: 26px 30px 74px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    height: 215px;
+    top: 30%;
+    left: 41%;
+}
+
+#modalStory4Page .modalStoryCloseBtn4{
+    bottom: 25px;
+    right: 165px;
+}
+
+
+img.xIcons4{
+    position: relative;
+    width: 25px;
+    right: -170px;
+    top: -13px;
+}
+
+div.modalStory4{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: none;  
+}
+
+
+a.modalStoryCloseBtn4{
+    text-decoration: none;
+    color: #8e8ea2;
+    cursor: pointer;
+}
+
+
+p.completePStory4{
+    font-size: 1.125rem;
+    color: #42495b;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
+
+button.mdBtnStoryBtn4{
+    width: 260px;
+    height: 44px;
+    border: none;
+    color: #fff;
+    background-color: #00704a;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){
     section.storyWriteSection{

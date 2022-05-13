@@ -1,3 +1,4 @@
+/* 배너 */
 div.img {
     float: left;
     width: 100vw;
@@ -899,9 +900,45 @@ button.complete{
     border-radius: 20px!important;
 }
 
+/* 모바일 배너 */
+div.bannerM{
+    display: none;
+}
+
 @media (max-width: 414px){
-    div.arrow, div.banner{
+    /*모바일 배너*/
+    div.bannerM {
+        width: 828px;
+        transition: transform 0.5s; /* transform 동작 시 애니메이션 효과 0.5초 */
+        display: block;
+    }
+
+    section.container {
+        margin: 0;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        margin-top: 91px !important;
+    }
+
+    div.imgM{
+        float: left;
+        width: 414px;
+        text-align: center;
+    }
+
+    div.imgM img{
+        width: 414px !important;
+    }
+
+    div.banner{
         display: none;
+    }
+
+    div.arrow{
+        /*display: none;*/
+        width: 25px !important;
+        font-size: 1.5rem;
     }
 
     div.red{
@@ -965,9 +1002,9 @@ button.complete{
         left: 10.5%;
     }
 
-    header#header , header#footer{
-        display: none;
-    }
+    /*header#header , header#footer{*/
+    /*    display: none;*/
+    /*}*/
 
     .userLvIcon{
         display: none;

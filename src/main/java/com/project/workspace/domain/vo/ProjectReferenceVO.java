@@ -4,11 +4,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "tbl_project_reference")
+@Component
 @Getter
 @ToString(exclude = {"projectVO"})
 @NoArgsConstructor

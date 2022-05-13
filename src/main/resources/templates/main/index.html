@@ -19,12 +19,14 @@
             <div class="img image2">
                 <img src="../../static/images/top-main-img-4.png">
             </div>
-<!--            <div class="img">-->
-<!--                <img src="">-->
-<!--            </div>-->
-<!--            <div class="img">-->
-<!--                <img src="">-->
-<!--            </div>-->
+        </div>
+        <div class="bannerM">
+            <div class="imgM image1">
+                <img src="../../static/images/M-top-main-img-3.png">
+            </div>
+            <div class="imgM image2">
+                <img src="../../static/images/M-top-main-img-4.png">
+            </div>
         </div>
         <div class="arrow next">&gt;</div>
         <div class="btns">
@@ -1040,87 +1042,17 @@
         </div>
     </div>
 </section>
+<!--푸터-->
 <header id="footer"></header>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../static/js/mainPage.js"></script>
 <script>
-    const btns = document.querySelectorAll("button.btn");
-    const lis = document.querySelectorAll("li.dot");
-    const littleBtns = document.querySelectorAll("li.dot");
-    const banner = document.querySelector("div.banner");
-    const arrows = document.querySelectorAll("div.arrow");
-    var count = 0;
-
-    // btns.forEach(function(value, index, ar){
-    //     ar[index].addEventListener("click", function(){
-    //         count = index;
-    //         banner.style.transform = "translate(-" + count * 100 + "vw)";
-    //     })
-    // });
-    lis.forEach(function(value,index,ar){
-        ar[index].addEventListener("click", function(){
-            count = index;
-            banner.style.transform = "translate(-" + count * 100 + "vw)";
-            $("li.dot").removeClass("selected");
-            $($("li.dot").get(count)).addClass("selected");
-        })
-    })
-
-    arrows.forEach((arrow) => {
-        arrow.addEventListener("click", function () {
-            let arrowType = arrow.classList[1];
-            if(arrowType == 'prev' && count != 0){
-                count--;
-            }else if(arrowType == 'next' && count != lis.length -1){
-                count++;
-            }else{
-                if(count == lis.length -1){
-                    count = 0;
-                }else{
-                    count = lis.length -1;
-                }
-            }
-            $("li.dot").removeClass("selected");
-            $($("li.dot").get(count)).addClass("selected");
-            banner.style.transform = "translate(-" + count * 100 + "vw)";
-        });
-    });
-
-    setInterval(function(){
-        count++;
-        count = count == 2 ? 0 : count;
-        banner.style.transform = "translate(-" + count * 100 + "vw)";
-        $("li.dot").removeClass("selected");
-        $($("li.dot").get(count)).addClass("selected");
-    }, 3000);
-
     $(document).ready(function(){
         $("#header").load('../../templates/fix/header.html');
     });
-
     $(document).ready(function(){
         $("#footer").load('../../templates/fix/footer.html');
     });
-
-    // 모달
-
-    // $('.modalBtn').each(function(i, btn){
-    //     $(btn).on("click", function(){
-    //         $($(".modalWindow").get(i)).show();
-    //     });
-    // });
-    //
-    // $('.modal_close_btn').each(function(i, btn){
-    //     $(btn).on("click", function(){
-    //         $($(".modalWindow").get(i)).hide();
-    //     });
-    // });
-
-    $('.complete').each(function(i, btn){
-        $(btn).on("click", function(){
-            $($(".modalWindow").get(i)).hide();
-        });
-    });
-
 </script>
 </html>

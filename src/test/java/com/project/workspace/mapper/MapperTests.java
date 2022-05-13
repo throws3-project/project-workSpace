@@ -13,6 +13,6 @@ public class MapperTests {
 
     @Test
     public void testGetInfo(){
-        userMapper.getInfo().forEach(port -> log.info(port.toString()));
+        userMapper.getList().forEach(port -> log.info(port.toString()));
     }
 }

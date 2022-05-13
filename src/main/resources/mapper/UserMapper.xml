@@ -1,8 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.workspace.mapper.UserMapper">
-    <select id="getInfo" resultType="portPolioVO">
-        select * from tbl_portpolio;
+    <!--유저 리스트-->
+    <select id="getList" resultType="userVO">
+        select * from tbl_user
+    </select>
+    <!--유저 조회-->
+    <select id="getInfo" resultType="userVO">
+        select * from tbl_user
+        where user_num=#{userNum}
+    </select>
+
+    <!--포트폴리오 추가-->
+    <insert id="insertPortfolio">
+        insert into tbl_portfolio
+        (user_num, port_url)
+        values(#{userNum}, #{portUrl})
+    </insert>
+    <!--포트폴리오 리스트-->
+    <select id="getPortList" resultType="userPortfolioVO">
+        select * from tbl_portfolio
+    </select>
+    <!--포르폴리오 조회-->
+    <select id="getPortInfo" resultType="userPortfolioVO">
+        select * from tbl_portfolio
+        where user_num = #{userNum}
+    </select>
+
+    <!--유저태그 추가-->
+    <insert id="insertUserTag">
+    insert into tbl_user_tag
+    (user_num, tag_name)
+    values(#{userNum}, #{tagName})
+    </insert>
+    <!--유저태그 리스트-->
+    <select id="getTagList" resultType="userTagVO">
+        select * from tbl_user_tag
+    </select>
+
+    <!--관심사 추가-->
+    <insert id="insertInterest">
+        insert into tbl_user_interest
+        (user_num, interest)
+        values(#{userNum}, #{interest});
+    </insert>
+    <!--관심사 리스트-->
+    <select id="getInterestList" resultType="userInterestVO">
+        select * from tbl_user_Interest
+    </select>
+
+
+    <!--팔로우 추가-->
+    <insert id="insertFollow">
+        insert into tbl_follow_user
+        (follower_user, following_user)
+        values(#{followerUser}, #{followingUser});
+    </insert>
+    <!--팔로우 리스트-->
+    <select id="getFollowList" resultType="userFollowVO">
+        select * from tbl_follow_user
+    </select>
+
+
+    <!--알림 추가-->
+    <insert id="insertAlert">
+    insert into tbl_user_alert
+    (user_num, alert_part, numbers, alert_type)
+    values(#{userNum}, #{alertPart}, #{numbers}, #{alertType});
+    </insert>
+    <!--알림 리스트-->
+    <select id="getAlertList" resultType="userAlertVO">
+        select * from tbl_user_alert
     </select>
 
 </mapper>

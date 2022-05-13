@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../../static/css/main.css" type="text/css"/>
 </head>
 <body>
+<!--헤더-->
 <header id="header"></header>
 
 <div class="modalWindow">
-    <div id="my_modal">
+    <div id="my_modalPage">
         <a class="modal_close_btn"><img src="../../static/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
         <div class="letter">
             <p class="completeP">성공적으로 설정되었습니다.</p>
@@ -68,12 +69,6 @@
                         </select>
                     </div>
                 </li>
-                <li class="thirdLi">
-                    <label>검색 태그(#)</label>
-                    <div class="searchTagWrapper2">
-                        <input type="text" placeholder="태그는 최대 5개 가능합니다" class="inputTag">
-                    </div>
-                </li>
                 <li class="fourthLi">
                     <label>자세한 소개</label>
                     <div class="introduceDiv">
@@ -103,64 +98,13 @@
 <header id="footer"></header>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../static/js/join3.js"></script>
 <script>
     $(document).ready(function(){
         $("#header").load('../../templates/fix/header.html');
     });
-
     $(document).ready(function(){
         $("#footer").load('../../templates/fix/footer.html');
     });
-
-    $(document).ready(function(){
-        $(".modalWindow").show();
-    });
-
-    $('.modal_close_btn').each(function(i, btn){
-        $(btn).on("click", function(){
-            $($(".modalWindow").get(i)).hide();
-        });
-    });
-
-    $('.complete').each(function(i, btn){
-        $(btn).on("click", function(){
-            $($(".modalWindow").get(i)).hide();
-        });
-    });
-
-    let count=1;
-    $("#copyInput").on("click", "#copyButton", function(){
-        let length= $("#copyInput").children().length;
-        if(length != 5){
-            count++
-            let input = $($(this).parent().children()[0]);
-            let str = "";
-            str += "<div id=\"url\" class=\"flex\">"
-            str += "<input type='text' class='linkInput' placeholder='포폴/SNS 주소를 입력해주세요' value='" + input.val() + "'>";
-            str += "<input id='deleteUrl' type='button' class='addButton a" + count + "' value='삭제'>";
-            str += "</div>"
-            $("div#copyInput").append(str);
-            input.val("");
-            if(length == 4){
-                $(this).replaceWith("<input id='deleteUrl' type='button' class='addButton' value='삭제'>");
-            }
-        };
-    });
-
-    $("#copyInput").on("click", "#deleteUrl", function(){
-        $(this).parent().hide();
-        count--
-        if(count==0){
-            count++
-            let str = "";
-            str += "<div id=\"url\" class=\"flex\">"
-            str += "<input type='text' class='linkInput' placeholder='포폴/SNS 주소를 입력해주세요' value=''>";
-            str += "<input id='plusUrl' type='button' class='addButton a" + count + "' value='추가'>";
-            str += "</div>"
-            $("div#copyInput").append(str);
-            count=1
-        }
-    });
-
 </script>
 </html>

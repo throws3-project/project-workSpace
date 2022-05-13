@@ -1,7 +1,41 @@
+/* 5개까지 가능한것 */
+div#interestWrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div#labelTag label{
+    color: #222;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+div#labelTag p{
+    padding: 3px 12px 0px;
+    border-radius: 100px;
+    border: 1px solid #e8e8e8;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+.active{
+    border-radius: 21px;
+    background-color: #333;
+    color: #fff;
+}
+
+/*---------------------------------------------------------------*/
+
 div.joinWrapper{
-    margin: 0 686.5px;
+    margin: 0 auto;
     width: 650px;
-    height: 705px;
+    height: 500px;
     padding: 90px 0px 140px;
 }
 
@@ -59,6 +93,7 @@ div.form ul li{
 div.form ul li.fourthLi{
     width: 650px;
     height: 120px;
+    /*margin-top: 70px;*/
 }
 
 div.px414{
@@ -238,7 +273,7 @@ div.linkDiv{
 
 /* 모달 */
 
-#my_modal {
+#my_modalPage {
     position: absolute;
     text-align: center;
     width: 325px;
@@ -251,7 +286,7 @@ div.linkDiv{
     left: 41%;
 }
 
-#my_modal .modal_close_btn {
+#my_modalPage .modal_close_btn {
     bottom: 25px;
     right: 165px;
 }
@@ -333,6 +368,7 @@ div.joinPromise{
 a.modal_close_btn{
     text-decoration: none;
     color: #8e8ea2;
+    cursor: pointer;
 }
 
 p.snsLoginP{
@@ -440,7 +476,7 @@ div.labelWrap{
         padding-left: 10px !important;
     }
 
-    #my_modal{
+    #my_modalPage{
         left: 12% !important;
     }
 
@@ -463,4 +499,13 @@ div.labelWrap{
     div.form ul li {
         width: 414px;
     }
+
+/*  5개 뭐시기  */
+/*    div.form ul li.fourthLi{*/
+/*        margin-top: 195px !important;*/
+/*    }*/
+
+    /*footer#footer{*/
+    /*    margin-top: 130px !important;*/
+    /*}*/
 }
