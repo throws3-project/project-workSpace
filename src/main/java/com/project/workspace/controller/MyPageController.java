@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/main/*")
-public class MypageController {
+public class MyPageController {
     @GetMapping("myPage")
     public void myPage(){
 
