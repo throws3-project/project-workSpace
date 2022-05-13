@@ -52,7 +52,7 @@ div.loginWrap {
     cursor: default;
 }
 
-header#header{
+div#header{
     position: fixed;
     top: 0;
     left: 0;

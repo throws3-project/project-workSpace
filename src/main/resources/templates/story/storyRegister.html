@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/header.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/css/chat.css" type="text/css">
     <link rel="stylesheet" href="/css/storywrite.css" type="text/css" />
 
     <!-- Toast UI Editor -->
@@ -43,7 +46,7 @@
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 
 
-    <header id="header"></header>
+    <th:block th:insert="/fix/header.html :: headFragment"/>
 <!-- 스토리작성확인모 달 -->
 <div class="modalStory4 modals">
     <div id="modalStory4Page">
@@ -193,16 +196,11 @@
     </section>
 
 
-
-    <footer id="foot"></footer>
+    <th:block th:insert="/fix/chat.html :: sideFragment"/>
+    <th:block th:insert="/fix/footer.html :: footerFragment"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/chat.js"></script>
 <script src="/js/storywrite.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#header").load('../../templates/fix/header.html');
-        $("#foot").load('../../templates/fix/footer.html');
-    })
-</script>
-
 </html>
