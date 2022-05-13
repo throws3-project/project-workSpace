@@ -1,57 +1,45 @@
 package com.project.workspace.controller;
 
-
-import com.project.workspace.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/main/*")
-public class UserController {
+public class MainController {
+    @GetMapping("/admin")
+    public void admin(){
 
-    private final UserService userService;
-
+    }
     @GetMapping("/index")
     public void index(){
 
     }
-    @GetMapping("/privacyTerm")
-    public void privacyTerm(){
+
+    @GetMapping("/userDetail")
+    public void userDetail(){
 
     }
-    @GetMapping("/refundTerm")
-    public void refundTerm(){
+    @GetMapping("/userList")
+    public void userList(){
 
     }
-    @GetMapping("/serviceTerm")
-    public void serviceTerm(){
+    @GetMapping("/joinForm")
+    public void joinForm(){
 
     }
-    @GetMapping("/tradeTerm")
-    public void tradeTerm(){
+    @GetMapping("/joinPlus")
+    public void joinPlus(){
 
     }
+    @GetMapping("/joinSuccess")
+    public void joinSuccess(){
+
+    }
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
