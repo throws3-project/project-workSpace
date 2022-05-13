@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/main/*")
 public class MyPageController {
-    @GetMapping("myPage")
-    public void myPage(){
 
+    @GetMapping("/myPage")
+    public String myPage(){
+        return "/myPage/myPage";
     }
+
 }
