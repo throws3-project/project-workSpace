@@ -23,7 +23,6 @@ public class ProjectLikeVO {
     @ManyToOne
     @JoinColumn(name = "project_num")
     private ProjectVO projectVO;
-
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;

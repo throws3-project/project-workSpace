@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.util.List;
 @Getter
 @ToString(exclude = { "userVO", "skills", "persons", "references", "members", "likes" })
 @NoArgsConstructor
+@DynamicInsert
 public class ProjectVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,8 +66,7 @@ public class ProjectVO {
     private List<ProjectLikeVO> likes = new ArrayList<>();
 
     @Builder
-
-    public ProjectVO(String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal, Long projectReadCount, Long loginCount, UserVO userVO) {
+    public ProjectVO(String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal, Long loginCount, UserVO userVO) {
         this.projectName = projectName;
         this.projectPart = projectPart;
         this.projectLocation = projectLocation;
@@ -77,7 +78,6 @@ public class ProjectVO {
         this.projectImgUuid = projectImgUuid;
         this.projectImgPath = projectImgPath;
         this.projectTotal = projectTotal;
-        this.projectReadCount = projectReadCount;
         this.loginCount = loginCount;
         this.userVO = userVO;
     }
