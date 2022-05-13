@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.util.Date;
 @Getter
 @ToString(exclude = {"projectVO", "userVO"})
 @NoArgsConstructor
+@DynamicInsert
 public class ProjectMemberVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

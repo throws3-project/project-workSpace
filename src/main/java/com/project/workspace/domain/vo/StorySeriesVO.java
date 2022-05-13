@@ -20,7 +20,7 @@ public class StorySeriesVO {
     @Column(name = "series_num")
     private Long seriesNum;
     @Column(name = "series_name")
-    private Long seriesName;
+    private String seriesName;
 
     @ManyToOne
     @JoinColumn(name = "user_num")
@@ -30,7 +30,7 @@ public class StorySeriesVO {
     private StoryVO storyVO;
 
     @Builder
-    public StorySeriesVO(Long seriesName, UserVO userVO, StoryVO storyVO) {
+    public StorySeriesVO(String seriesName, UserVO userVO, StoryVO storyVO) {
         this.seriesName = seriesName;
         this.userVO = userVO;
         this.storyVO = storyVO;
