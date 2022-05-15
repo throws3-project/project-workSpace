@@ -12,6 +12,18 @@
 <!--    <script src="/js/mainPage.js"></script>-->
 </head>
 <body>
+<h1>Kakao Login Test</h1>
+<span th:if="${userId == null}">
+    <a href="https://kauth.kakao.com//oauth/authorize?client_id=fd3ba5c3c1994f15929fb85ba0dbe764&redirect_uri=http://localhost:7777/login&response_type=code">
+        <img src="/images/kakao_login_medium_narrow.png">
+    </a>
+</span>
+<span th:if="${userId != null}">
+    <form name="logout" action="http://localhost:7777/logout">
+        <input type="submit" value="logout">
+    </form>
+</span>
+
 <th:block th:insert="/fix/header.html :: headFragment"/>
     <section class="container">
         <div class="arrow prev">&lt;</div>
