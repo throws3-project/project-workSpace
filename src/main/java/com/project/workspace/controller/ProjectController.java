@@ -1,9 +1,14 @@
 package com.project.workspace.controller;
 
+import com.project.workspace.domain.repository.ProjectPersonRepository;
+import com.project.workspace.domain.repository.ProjectRepository;
+import com.project.workspace.domain.vo.ProjectPersonVO;
+import com.project.workspace.domain.vo.ProjectSkillVO;
 import com.project.workspace.domain.vo.ProjectVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,35 +34,59 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping("/project/*")
 public class ProjectController {
+    private final ProjectRepository projectRepository;
+
+    private final ProjectPersonRepository projectPersonRepository;
+
+
     @GetMapping("/projectDetail")
-    public void projectDetail() {
-        ;
-    }
+    public void projectDetail() {;}
 
     @GetMapping("/projectList")
-    public void projectList() {
-        ;
-    }
+    public void projectList() {;}
 
     @GetMapping("/projectRegister")
-    public void projectRegister() {
-        ;
-    }
+    public void projectRegister() {;}
 
     @PostMapping("/projectRegister")
-    public String projectRegister(ProjectVO projectVO) {
+    public String projectRegister(ProjectVO projectVO, ProjectPersonVO projectPerson, HttpServletRequest request) {
+        String[] count = request.getParameterValues("projectCount");
+        String[] main = request.getParameterValues("projectMainSkill");
+        String[] sub = request.getParameterValues("projectSubSkill");
+
+        ArrayList<ProjectPersonVO> projectPersons = new ArrayList<>();
+        Long projectTotal = 0L;
+        for (int i = 0; i<count.length; i++){
+            ProjectPersonVO project = new ProjectPersonVO();
+            project.setProjectMainSkill(main[i]);
+            project.setProjectSubSkill(sub[i]);
+            project.setProjectCount(Long.valueOf(count[i]));
+            projectPersons.add(project);
+            projectTotal+=Long.valueOf(count[i]);
+        }
+//        projectPersons.stream().map(ProjectPersonVO::toString).forEach(log::info);
+        projectVO.setProjectTotal(projectTotal);
         log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        log.info(projectVO.toString());
-        log.info("온오프" + projectVO.getProjectOnOff());
-        log.info("제목" + projectVO.getProjectName());
-        log.info("파트" + projectVO.getProjectPart());
-        log.info("플랫폼" + projectVO.getProjectPlatform());
-        log.info("내용" + projectVO.getProjectContent());
-        log.info("파일이름" + projectVO.getProjectImg());
-        log.info("파일경로" + projectVO.getProjectImgPath());
-        log.info("uuid" + projectVO.getProjectImgUuid());
+//        log.info(projectPerson.toString());
+//        log.info(projectVO.toString());
+//        log.info("온오프" + projectVO.getProjectOnOff());
+//        log.info("지역" + projectVO.getProjectLocation());
+//        log.info("제목" + projectVO.getProjectName());
+//        log.info("파트" + projectVO.getProjectPart());
+//        log.info("플랫폼" + projectVO.getProjectPlatform());
+//        log.info("내용" + projectVO.getProjectContent());
+//        log.info("파일이름" + projectVO.getProjectImg());
+//        log.info("파일경로" + projectVO.getProjectImgPath());
+//        log.info("uuid" + projectVO.getProjectImgUuid());
         log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        return "/project/projectRegister";
+//        projectRepository.save(projectVO);
+//
+//        for (ProjectPersonVO p : projectPersons){
+//            projectPersonRepository.save(p);
+//        }
+
+
+        return "/project/projectList";
     }
 
 

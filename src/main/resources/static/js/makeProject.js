@@ -6,6 +6,38 @@ $(".choice").each(function (i, radio) {
     })
 })
 
+function skillChange(){
+    $(".mainSkill").each(function (i,select) {
+        $(select).on("change",function () {
+            let person_a = ["UI/UX기획", "게임기획", "프로젝트 매니저", "하드웨어(제품) 기획"];
+            let person_b = ["그래픽디자인", "UI/UX디자인", "3D디자인", "하드웨어(제품) 디자인", "(디자인)기타"];
+            let person_c = ["IOS", "안드로이드", "웹프론트엔드", "웹퍼블리셔", "크로스플랫폼"];
+            let person_d = ["웹 서버", "블록체인", "AI", "DB/빅데이터/DS", "게임 서버"];
+            let person_e = ["사업기획", "마케팅", "영업", "재무/회계", "전략/컨설팅", "투자/고문", "(사업)그외"];
+            let person_f = ["작가/블로거", "인플루언서/스트리머", "작곡(사운드)", "영상", "운영", "QA", "기타"];
+
+            var d = "";
+
+            let target= document.getElementsByClassName("subSkill");
+
+            target[i].options.length = 0;
+            if ($(select).val() == "기획")  d = person_a;
+            else if ($(select).val() == "디자인")  d = person_b;
+            else if ($(select).val() == "프론트엔드개발")  d = person_c;
+            else if ($(select).val() == "백엔드개발")  d = person_d;
+            else if ($(select).val() == "사업")  d = person_e;
+            else if ($(select).val() == "기타")  d = person_f;
+
+            for (x in d) {
+                let opt = document.createElement("option");
+                opt.value = d[x];
+                opt.innerHTML = d[x];
+                target[i].appendChild(opt);
+            }
+        })
+    })
+}
+
 
 /*온오프라인 값 전달*/
 $("#projectOnOff").val($("#onOffSelect").val());
@@ -19,12 +51,19 @@ $("#platformResult").on("change", function () {
 
 $("#projectSubmit").on("click", function () {
     $("#projectContent").val(editor.getMarkdown());
+    $(".mainSkill").each(function (i,skill) {
+            let str="";
+            str+="<input type='hidden' name='projectMainSkill' id='projectMainSkill' value='"+$(skill).val()+"'>";
+            str+="<input type='hidden' name='projectSubSkill' id='projectSubSkill' value='"+$($(".subSkill").get(i)).val()+"'>";
+            str+="<input type='hidden' name='projectCount' id='projectCount' value='"+$($(".countNumber").get(i)).text()+"'>";
+            $("#projectSkillData").append(str);
+    })
+
     document.projectForm.submit();
 })
 
 $("#onOffResult").on("change",function () {
     $("#projectLocation").val($(this).val());
-    console.log($("#projectLocation").val())
 })
 
 //대표이미지 업로드 클릭
@@ -41,9 +80,9 @@ function onOffChange(e) {
     var onOff_off = ["서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
     var target = document.getElementById("onOffResult");
 
-    if (e.value == "both") var d = onOff_both;
-    else if (e.value == "on") var d = onOff_on;
-    else if (e.value == "off") var d = onOff_off;
+    if (e.value == "a") var d = onOff_both;
+    else if (e.value == "o") var d = onOff_on;
+    else if (e.value == "x") var d = onOff_off;
 
     target.options.length = 0;
 
@@ -76,37 +115,9 @@ function onOffChange2(e) {
 }
 
 
-//모집인원 선택
-function personChange(e) {
-    var person_a = ["UI/UX기획", "게임기획", "프로젝트 매니저", "하드웨어(제품) 기획"];
-    var person_b = ["그래픽디자인", "UI/UX디자인", "3D디자인", "하드웨어(제품) 디자인", "(디자인)기타"];
-    var person_c = ["IOS", "안드로이드", "웹프론트엔드", "웹퍼블리셔", "크로스플랫폼"];
-    var person_d = ["웹 서버", "블록체인", "AI", "DB/빅데이터/DS", "게임 서버"];
-    var person_e = ["사업기획", "마케팅", "영업", "재무/회계", "전략/컨설팅", "투자/고문", "(사업)그외"];
-    var person_f = ["작가/블로거", "인플루언서/스트리머", "작곡(사운드)", "영상", "운영", "QA", "기타"];
-    var target = document.getElementById("personResult");
-
-    if (e.value == "a") var d = person_a;
-    else if (e.value == "b") var d = person_b;
-    else if (e.value == "c") var d = person_c;
-    else if (e.value == "d") var d = person_d;
-    else if (e.value == "e") var d = person_e;
-    else if (e.value == "f") var d = person_f;
-
-    target.options.length = 0;
-
-    for (x in d) {
-        var opt = document.createElement("option");
-        opt.value = d[x];
-        opt.innerHTML = d[x];
-        target.appendChild(opt);
-    }
-}
 
 //모집인원 추가
 // let count = 1;
-
-
 $("#personAddBtn").click(function () {
     let length = $("#personWrap").children().length;
 
@@ -115,17 +126,17 @@ $("#personAddBtn").click(function () {
 
         str += "<div class='selectBoxWrap'>";
         str += "<div class='selectBox'>";
-        str += "<select onchange='personChange(this)'>";
-        str += "<option value='a'>기획</option>";
-        str += "<option value='b'>디자인</option>";
-        str += "<option value='c'>프론트엔드개발</option>";
-        str += "<option value='d'>백엔드개발</option>";
-        str += "<option value='e'>사업</option>";
-        str += "<option value='f'>기타</option>";
+        str += "<select class='mainSkill'>";
+        str += "<option value='기획'>기획</option>";
+        str += "<option value='디자인'>디자인</option>";
+        str += "<option value='프론트엔드개발'>프론트엔드개발</option>";
+        str += "<option value='백엔드개발'>백엔드개발</option>";
+        str += "<option value='사업'>사업</option>";
+        str += "<option value='기타'>기타</option>";
         str += "</select>";
         str += "</div>";
         str += "<div class='selectBox'>";
-        str += "<select id='personResult'>";
+        str += "<select class='subSkill personResult'>";
         str += "<option>UI/UX 기획</option>";
         str += "<option>게임 기획</option>";
         str += "<option>프로젝트 매니저</option>";
@@ -141,7 +152,12 @@ $("#personAddBtn").click(function () {
 
         $("#personWrap").append(str);
     }
+    skillChange();
 });
+
+
+
+
 
 //모집인원 삭제
 $("#personDeleteBtn").click(function () {
@@ -326,6 +342,9 @@ $(document).ready(function () {
     //     }
     //     return true;
     // }
+
+
+    skillChange();
 
 
     function showUploadFile(uploadResult) {

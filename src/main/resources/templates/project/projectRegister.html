@@ -246,9 +246,9 @@
                         <div class="selectBoxWrap">
                             <div class="selectBox">
                                 <select onchange="onOffChange(this)" id="onOffSelect">
-                                    <option value="both">온라인/오프라인 모두 가능</option>
-                                    <option value="on">온라인만 가능</option>
-                                    <option value="off">오프라인만 가능</option>
+                                    <option value="a">온라인/오프라인 모두 가능</option>
+                                    <option value="o">온라인만 가능</option>
+                                    <option value="x">오프라인만 가능</option>
                                 </select>
                             </div>
                             <div class="selectBox">
@@ -288,17 +288,17 @@
                     <div class="answer" id="personWrap">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select onchange="personChange(this)">
-                                    <option value="a">기획</option>
-                                    <option value="b">디자인</option>
-                                    <option value="c">프론트엔드개발</option>
-                                    <option value="d">백엔드개발</option>
-                                    <option value="e">사업</option>
-                                    <option value="f">기타</option>
+                                <select class="mainSkill">
+                                    <option value="기획">기획</option>
+                                    <option value="디자인">디자인</option>
+                                    <option value="프론트엔드개발">프론트엔드개발</option>
+                                    <option value="백엔드개발">백엔드개발</option>
+                                    <option value="사업">사업</option>
+                                    <option value="기타">기타</option>
                                 </select>
                             </div>
                             <div class="selectBox">
-                                <select id="personResult">
+                                <select class="subSkill personResult">
                                     <option>UI/UX 기획</option>
                                     <option>게임 기획</option>
                                     <option>프로젝트 매니저</option>
@@ -403,6 +403,9 @@
                     <input type="hidden" name="projectContent" id="projectContent">
                     <input type="hidden" name="projectLocation" id="projectLocation">
                     </div>
+                    <div id="projectSkillData">
+                    </div>
+
                 </form>
             </div>
 
