@@ -1,9 +1,6 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
@@ -11,13 +8,14 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Component
+@Entity
 @Table(name = "tbl_project")
 @Getter
+@Setter
 @ToString(exclude = { "userVO", "skills", "persons", "references", "members", "likes" })
-@NoArgsConstructor
 @DynamicInsert
+@AllArgsConstructor
 public class ProjectVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,19 +64,17 @@ public class ProjectVO {
     private List<ProjectLikeVO> likes = new ArrayList<>();
 
     @Builder
-    public ProjectVO(String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal, Long loginCount, UserVO userVO) {
+    public ProjectVO(String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal) {
         this.projectName = projectName;
         this.projectPart = projectPart;
         this.projectLocation = projectLocation;
         this.projectOnOff = projectOnOff;
         this.projectPlatform = projectPlatform;
         this.projectContent = projectContent;
-        this.projectStatus = projectStatus;
         this.projectImg = projectImg;
         this.projectImgUuid = projectImgUuid;
         this.projectImgPath = projectImgPath;
         this.projectTotal = projectTotal;
-        this.loginCount = loginCount;
-        this.userVO = userVO;
     }
+    public ProjectVO(){;}
 }

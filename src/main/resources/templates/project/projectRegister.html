@@ -95,8 +95,7 @@
 
             <!--  프로젝트 양식. -->
             <div class="make">
-                <form action="" name="projectForm" onsubmit="return false">
-
+                <form action="/project/projectRegister" id="projectForm" name="projectForm" method="post" onsubmit="return false" enctype="multipart/form-data">
                     <div class="question">
                         <p>
                             *
@@ -107,7 +106,7 @@
 
                     <div class="answer">
                         <div class="inputWrap">
-                            <input placeholder="3~20글자로 적어주세요 예)승차거부 신고앱" minlength="3" maxlength="20"
+                            <input placeholder="3~20글자로 적어주세요 예)승차거부 신고앱" name="projectName" minlength="3" maxlength="20"
                                    autocomplete="off">
                         </div>
                     </div>
@@ -125,82 +124,82 @@
                             <li class="checkBoxWrap selectPurpose">
                                 <label class="checkBox">
                                     <span class="txt">O2O</span>
-                                    <input type="radio" name="step2_radio" value="01">
+                                    <input type="radio" name="projectPart" value="O2O">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">공유서비스</span>
-                                    <input type="radio" name="step2_radio" value="02">
+                                    <input type="radio" name="projectPart" value="공유서비스">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">데이팅서비스</span>
-                                    <input type="radio" name="step2_radio" value="03">
+                                    <input type="radio" name="projectPart" value="데이팅서비스">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">여행</span>
-                                    <input type="radio" name="step2_radio" value="04">
+                                    <input type="radio" name="projectPart" value="여행">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">소셜네트워크</span>
-                                    <input type="radio" name="step2_radio" value="05">
+                                    <input type="radio" name="projectPart" value="소셜네트워크">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">뷰티/패션</span>
-                                    <input type="radio" name="step2_radio" value="06">
+                                    <input type="radio" name="projectPart" value="뷰티/패션">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">이커머스</span>
-                                    <input type="radio" name="step2_radio" value="07">
+                                    <input type="radio" name="projectPart" value="이커머스">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">엔터테인먼트</span>
-                                    <input type="radio" name="step2_radio" value="08">
+                                    <input type="radio" name="projectPart" value="엔터테인먼트">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">게임</span>
-                                    <input type="radio" name="step2_radio" value="09">
+                                    <input type="radio" name="projectPart" value="게임">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">헬스/스포츠</span>
-                                    <input type="radio" name="step2_radio" value="10">
+                                    <input type="radio" name="projectPart" value="헬스/스포츠">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">뉴스/정보</span>
-                                    <input type="radio" name="step2_radio" value="11">
+                                    <input type="radio" name="projectPart" value="뉴스/정보">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">유틸</span>
-                                    <input type="radio" name="step2_radio" value="12">
+                                    <input type="radio" name="projectPart" value="유틸">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">금융</span>
-                                    <input type="radio" name="step2_radio" value="13">
+                                    <input type="radio" name="projectPart" value="금융">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">부동산/인테리어</span>
-                                    <input type="radio" name="step2_radio" value="14">
+                                    <input type="radio" name="projectPart" value="부동산/인테리어">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">종교</span>
-                                    <input type="radio" name="step2_radio" value="15">
+                                    <input type="radio" name="projectPart" value="종교">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">우주/외계인</span>
-                                    <input type="radio" name="step2_radio" value="16">
+                                    <input type="radio" name="projectPart" value="우주/외계인">
                                     <span class="checkmark"></span>
                                 </label>
                             </li>
@@ -220,7 +219,7 @@
                                 <button type="button" id="imgUploadBtn"></button>
                                 <img class="thumbnailImage2"
                                      src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
-                                <input type="file" style="display: none;" id="imgUpload" name="imgUpload">
+                                <input type="file" style="display: none;" id="imgUpload"  >
                             </div>
                             <div class="uploadBox">
                                 <div>
@@ -246,7 +245,7 @@
                     <div class="answer">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select onchange="onOffChange(this)">
+                                <select onchange="onOffChange(this)" id="onOffSelect">
                                     <option value="both">온라인/오프라인 모두 가능</option>
                                     <option value="on">온라인만 가능</option>
                                     <option value="off">오프라인만 가능</option>
@@ -338,14 +337,14 @@
                                 <option value="5">설치형/SASS 솔루션</option>
                             </select>
                         </div>
-                        <div class="platformResult">
-                            <a class="platformResult1 results">미정(논의 후 확정) X </a>
-                            <a class="platformResult2 results">반응형 웹(PC/모바일) X </a>
-                            <a class="platformResult3 results">안드로이드 앱 X </a>
-                            <a class="platformResult4 results">IOS 앱 X </a>
-                            <a class="platformResult5 results">PC(윈도우/맥) 프로그램 X </a>
-                            <a class="platformResult6 results">설치형/SASS 솔루션 X </a>
-                        </div>
+<!--                        <div class="platformResult" >-->
+<!--                            <a class="platformResult1 results">미정(논의 후 확정) X </a>-->
+<!--                            <a class="platformResult2 results">반응형 웹(PC/모바일) X </a>-->
+<!--                            <a class="platformResult3 results">안드로이드 앱 X </a>-->
+<!--                            <a class="platformResult4 results">IOS 앱 X </a>-->
+<!--                            <a class="platformResult5 results">PC(윈도우/맥) 프로그램 X </a>-->
+<!--                            <a class="platformResult6 results">설치형/SASS 솔루션 X </a>-->
+<!--                        </div>-->
                     </div>
 
                     <div class="question">
@@ -357,10 +356,7 @@
                     </div>
 
                     <div class="answer">
-                        <form method="post">
-                            <!--                            <textarea id="summernote" name="editordata"></textarea>-->
                             <div id="editor"></div>
-                        </form>
                     </div>
 
 
@@ -389,7 +385,7 @@
 
                     <div class="answer" id="referenceWrap">
                         <div>
-                            <input type="text" placeholder="예) http://letspl.me">
+                            <input type="text" placeholder="예) http://workspace.me">
                         </div>
                     </div>
                     <div class="addMemberBtnWrap">
@@ -399,7 +395,13 @@
 
                     <div class="confirmBtnWrap btnWrap">
                         <button type="button" value="임시저장" class="grayBtn saveBtn">임시저장</button>
-                        <button type="button" value="완료" class="pinkBtn confirmBtn">작성완료</button>
+                        <button type="button" value="완료" class="pinkBtn confirmBtn" id="projectSubmit">작성완료</button>
+                    </div>
+                    <div id="projectData">
+                    <input type="hidden" name="projectOnOff" id="projectOnOff">
+                    <input type="hidden" name="projectPlatform" id="projectPlatform">
+                    <input type="hidden" name="projectContent" id="projectContent">
+                    <input type="hidden" name="projectLocation" id="projectLocation">
                     </div>
                 </form>
             </div>

@@ -1,10 +1,3 @@
-// 헤더 표시하기
-$(document).ready(function () {
-    $("#header").load('../../templates/fix/header.html');
-    $("#foot").load('../../templates/fix/footer.html');
-})
-
-
 // 프로젝트/스터디 양식 선택
 $(".choice").each(function (i, radio) {
     $(radio).on("click", function (e) {
@@ -13,6 +6,26 @@ $(".choice").each(function (i, radio) {
     })
 })
 
+
+/*온오프라인 값 전달*/
+$("#projectOnOff").val($("#onOffSelect").val());
+$("#onOffSelect").on("change", function () {
+    $("#projectOnOff").val($(this).val());
+})
+$("#platformResult").on("change", function () {
+    $("#projectPlatform").val($(this).val());
+})
+
+
+$("#projectSubmit").on("click", function () {
+    $("#projectContent").val(editor.getMarkdown());
+    document.projectForm.submit();
+})
+
+$("#onOffResult").on("change",function () {
+    $("#projectLocation").val($(this).val());
+    console.log($("#projectLocation").val())
+})
 
 //대표이미지 업로드 클릭
 $("#imgUploadBtn").on("click", function () {
@@ -91,7 +104,7 @@ function personChange(e) {
 }
 
 //모집인원 추가
-let count = 1;
+// let count = 1;
 
 
 $("#personAddBtn").click(function () {
@@ -225,19 +238,19 @@ $("#deleteReferenceBtn").click(function () {
 
 });
 
-//출시 플랫폼 추가
-$("#platformResult").change(function () {
-    let state = $("#platformResult option:selected").val();
-    $($(".results").get(state)).show();
-})
-
-
-//출시 플랫폼 삭제
-$("a.results").each(function (i, result) {
-    $(result).on("click", function () {
-        $(result).hide();
-    })
-})
+// //출시 플랫폼 추가
+// $("#platformResult").change(function () {
+//     let state = $("#platformResult option:selected").val();
+//     $($(".results").get(state)).show();
+// })
+//
+//
+// //출시 플랫폼 삭제
+// $("a.results").each(function (i, result) {
+//     $(result).on("click", function () {
+//         $(result).hide();
+//     })
+// })
 
 
 //토스트 에디터
@@ -262,7 +275,7 @@ const editor = new toastui.Editor({
         '-  2번까지의 내용을 포함할 수 있도록 작성해주세요(형식은 달라도 상관없습니다)\n' +
         '-  신청시 기타사항과 질문내용 등을 삭제한 후 답변만 등록해주세요. \n' +
         '   (그외의 내용은 자유롭게 기입해주세요(영상/이미지 포함) \n' +
-        '-  상세 검수가이드라인은 공지사항을 참고해주세요. https://letspl.me/notice/80'
+        '-  상세 검수가이드라인은 공지사항을 참고해주세요. https://workspace/notice/noticeDetail/1'
 });
 
 
@@ -294,12 +307,66 @@ $("#skill").on("keydown", input, function (e) {
 
 //스터디 분야 삭제
 $("div.skillResult").on("click", "a.skillTag", function () {
-        $(this).remove();
+    $(this).remove();
 })
 
 
+$(document).ready(function () {
+    // let regex = new RegExp("(.*?)\.(hwp|txt|exe|sh|zip|alz)$");
+    // let maxSize = 1024 * 1024 * 40;
+    //
+    // function checkFile(fileName, fileSize) {
+    //     if (regex.test(fileName)) {
+    //         alert("업로드할 수 없는 파일의 형식입니다.");
+    //         return false;
+    //     }
+    //     if (fileSize > maxSize) {
+    //         alert("파일 사이즈 초과");
+    //         return false;
+    //     }
+    //     return true;
+    // }
 
 
+    function showUploadFile(uploadResult) {
+        let str = "";
+        let projectImg = uploadResult.projectImg;
+        let projectImgPath = uploadResult.projectImgPath;
+        let projectImgUuid = uploadResult.projectImgUuid;
+
+        str+="<input type='hidden' name='projectImg' value='"+projectImg+"'>"
+        str+="<input type='hidden' name='projectImgPath' value='"+projectImgPath+"'>"
+        str+="<input type='hidden' name='projectImgUuid' value='"+projectImgUuid+"'>"
+
+        $("#projectData").append(str);
+        $(".thumbnailBox").css("background-image","url('/project/display?fileName="+projectImgPath+"/"+projectImgUuid+"_"+projectImg+"')");
+        $(".thumbnailBox").css("background-size","cover");
+        $(".thumbnailImage2").hide();
+    }
+
+    $("input[type='file']").change(function (e) {
+        let inputFile = $("input[name='projectImg']");
+        let files = e.target.files;
+        let formData = new FormData();
+        // if (!checkFile(files.name, files.size)) {
+        //     return;
+        // }
+        formData.append("uploadFile", files[0]);
+        $.ajax({
+            url: "/project/uploadAjaxAction",
+            data: formData,
+            type: "POST",
+            // 현재 설정된 헤더 설정을 기본 방식으로 변경하지 못하도록 false로 설정
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                showUploadFile(result);
+            }
+        });
+    });
+
+
+})
 
 
 
