@@ -1,9 +1,6 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
@@ -12,12 +9,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Entity
 @Component
+@Entity
 @Table(name = "tbl_lounge")
 @ToString(exclude = {"userVO", "replies", "likes"})
 @Getter
-@NoArgsConstructor
+@Setter
+@AllArgsConstructor
 @DynamicInsert
 public class LoungeVO {
     @Id
@@ -43,4 +41,6 @@ public class LoungeVO {
         this.loungeContent = loungeContent;
         this.userVO = userVO;
     }
+
+    public LoungeVO(){;}
 }

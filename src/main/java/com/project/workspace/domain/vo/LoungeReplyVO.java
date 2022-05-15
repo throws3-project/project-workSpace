@@ -37,6 +37,8 @@ public class LoungeReplyVO {
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+
+
     @Builder
     public LoungeReplyVO(String loungeReplyContent, String loungeReplyStatus, LoungeVO loungeVO, UserVO userVO) {
         this.loungeReplyContent = loungeReplyContent;
