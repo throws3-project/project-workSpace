@@ -1,5 +1,6 @@
 package com.project.workspace.service;
 
+import com.project.workspace.domain.vo.ProjectVO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,4 +11,5 @@ public interface ProjectService {
     public void insertProjectReference(Long projectNum, String projectUrl);
     public void insertProjectSkill(Long projectNum, String projectSkill);
     public void insertLikeProject(Long projectNum, Long userNum);
+//    public Long register(ProjectVO projectVO);
 }

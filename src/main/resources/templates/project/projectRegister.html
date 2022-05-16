@@ -29,7 +29,17 @@
         font-size: 13px;
     }
 
-    .skillResult a{
+    #skillResult a{
+        text-decoration: none;
+        cursor: pointer;
+        background-color: #336d47;
+        padding: 11px;
+        border-radius: 20px;
+        color: #fff;
+        margin-left: 2px;
+        font-size: 13px;
+    }
+    #skillResult2 a{
         text-decoration: none;
         cursor: pointer;
         background-color: #336d47;
@@ -368,10 +378,12 @@
                         </p>
                     </div>
 
-                    <div class="answer">
-                        <div>
-                            <input type="text" placeholder="예) java, react, figma, photoshop">
-                        </div>
+                    <div class="answer" id="skill">
+                        <input type="text" id="keyword" placeholder="예) java, react, figma, photoshop" minlength="3"
+                               maxlength="20" autocomplete="off">
+                    </div>
+                    <div id="skillResult">
+
                     </div>
 
                     <div class="question">
@@ -385,7 +397,7 @@
 
                     <div class="answer" id="referenceWrap">
                         <div>
-                            <input type="text" placeholder="예) http://workspace.me">
+                            <input type="text" class="projectUrl" name="projectUrl" placeholder="예) http://workspace.me">
                         </div>
                     </div>
                     <div class="addMemberBtnWrap">
@@ -403,7 +415,11 @@
                     <input type="hidden" name="projectContent" id="projectContent">
                     <input type="hidden" name="projectLocation" id="projectLocation">
                     </div>
+                    <div id="projectPersonData">
+                    </div>
                     <div id="projectSkillData">
+                    </div>
+                    <div id="projectUrlData">
                     </div>
 
                 </form>
@@ -412,7 +428,7 @@
 
             <!-- 스터디 양식 -->
             <div class="make" id="makeStudy">
-                <form action="" name="studyForm" onsubmit="return false">
+                <form action="/project/projectRegister" method="post" id="studyForm" name="studyForm" onsubmit="return false">
                     <div class="question">
                         <p>
                             *
@@ -423,7 +439,7 @@
 
                     <div class="answer">
                         <div class="inputWrap">
-                            <input placeholder="3~20글자로 적어주세요 예)블록체은 + 인공지능 스터디" minlength="3" maxlength="20"
+                            <input name="studyTitle" id="studyName" placeholder="3~20글자로 적어주세요 예)블록체은 + 인공지능 스터디" minlength="3" maxlength="20"
                                    autocomplete="off">
                         </div>
                     </div>
@@ -439,20 +455,20 @@
                     <div class="answer">
                         <div>
                             <div>
-                                <select name="" id="">
-                                    <option value="">기획</option>
-                                    <option value="">디자인</option>
-                                    <option value="">프론트엔드개발</option>
-                                    <option value="">백엔드개발</option>
-                                    <option value="">사업</option>
-                                    <option value="">기타</option>
+                                <select  id="studyPartSelect">
+                                    <option value="기획">기획</option>
+                                    <option value="디자인">디자인</option>
+                                    <option value="프론트엔드개발">프론트엔드개발</option>
+                                    <option value="백엔드개발">백엔드개발</option>
+                                    <option value="사업">사업</option>
+                                    <option value="기타">기타</option>
                                 </select>
                             </div>
-                            <div class="answer" id="skill">
-                                <input type="text" id="keyword" placeholder="예) java, react, figma, photoshop" minlength="3"
+                            <div class="answer" id="skill2">
+                                <input type="text" id="keyword2" placeholder="예) java, react, figma, photoshop" minlength="3"
                                        maxlength="20" autocomplete="off">
                             </div>
-                            <div class="skillResult">
+                            <div id="skillResult2">
 
                             </div>
                         </div>
@@ -469,10 +485,10 @@
                     <div class="answer">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select onchange="onOffChange2(this)">
-                                    <option value="both">온라인/오프라인 모두 가능</option>
-                                    <option value="on">온라인만 가능</option>
-                                    <option value="off">오프라인만 가능</option>
+                                <select onchange="onOffChange2(this)" id="studyOnOffSelect">
+                                    <option value="a">온라인/오프라인 모두 가능</option>
+                                    <option value="o">온라인만 가능</option>
+                                    <option value="x">오프라인만 가능</option>
                                 </select>
                             </div>
                             <div class="selectBox">
@@ -512,15 +528,15 @@
                     <div class="answer">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select>
-                                    <option>2명</option>
-                                    <option>3명</option>
-                                    <option>4명</option>
-                                    <option>5명</option>
-                                    <option>6명</option>
-                                    <option>7명</option>
-                                    <option>8명</option>
-                                    <option>9명</option>
+                                <select id="maxCount">
+                                    <option value="2">2명</option>
+                                    <option value="3">3명</option>
+                                    <option value="4">4명</option>
+                                    <option value="5">5명</option>
+                                    <option value="6">6명</option>
+                                    <option value="7">7명</option>
+                                    <option value="8">8명</option>
+                                    <option value="9">9명</option>
                                 </select>
                             </div>
                         </div>
@@ -535,7 +551,7 @@
                     </div>
 
                     <div class="answer">
-                                <textarea>●  스터디 목표 및 진행방식
+                                <textarea id="contents">●  스터디 목표 및 진행방식
 
 [목표] : ( 예: 제이쿼리를 마스터하고자 합니다)
 
@@ -558,7 +574,16 @@
 
                     <div class="confirmBtnWrap btnWrap">
                         <button value="임시저장" class="grayBtn saveBtn">임시저장</button>
-                        <button value="완료" class="pinkBtn confirmBtn">작성완료</button>
+                        <button value="완료" class="pinkBtn confirmBtn" id="studySubmit">작성완료</button>
+                    </div>
+                    <div id="keywordData">
+                    </div>
+                    <div id="studyData">
+                        <input type="hidden" name="studyOnOff" id="studyOnOff">
+                        <input type="hidden" name="studyLocation" id="studyLocation">
+                        <input type="hidden" name="studyPart" id="studyPart">
+                        <input type="hidden" name="studyMax" id="studyMax">
+                        <input type="hidden" name="studyContent" id="studyContent">
                     </div>
                 </form>
             </div>

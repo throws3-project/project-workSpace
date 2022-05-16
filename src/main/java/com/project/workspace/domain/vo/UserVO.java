@@ -1,9 +1,6 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +12,7 @@ import java.util.List;
 @Component
 @Table(name = "tbl_user")
 @Getter
+@Setter
 @ToString(exclude = {"ports", "tags", "alerts", "interests", "users", "projects", "projectMembers","projectLikes","stories","replies","series","storyReplies","studies","studyMembers","lounges","loungeLikes" ,"loungeReplies"})
 @NoArgsConstructor
 @DynamicInsert

@@ -1,5 +1,6 @@
 package com.project.workspace.mapper;
 
+import com.project.workspace.domain.vo.ProjectVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -10,4 +11,5 @@ public interface ProjectMapper {
     public void insertProjectReference(Long projectNum, String projectUrl);
     public void insertProjectSkill(Long projectNum, String projectSkill);
     public void insertLikeProject(Long projectNum, Long userNum);
+//    public void insertSelectProjectNum(ProjectVO projectVO);
 }

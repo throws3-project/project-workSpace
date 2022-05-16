@@ -6,9 +6,38 @@ $(".choice").each(function (i, radio) {
     })
 })
 
-function skillChange(){
-    $(".mainSkill").each(function (i,select) {
-        $(select).on("change",function () {
+$("#projectSubmit").on("click", function () {
+    $("#projectContent").val(editor.getHTML());
+    $(".mainSkill").each(function (i, skill) {
+        let str = "";
+        str += "<input type='hidden' name='projectMainSkill' id='projectMainSkill' value='" + $(skill).val() + "'>";
+        str += "<input type='hidden' name='projectSubSkill' id='projectSubSkill' value='" + $($(".subSkill").get(i)).val() + "'>";
+        str += "<input type='hidden' name='projectCount' id='projectCount' value='" + $($(".countNumber").get(i)).text() + "'>";
+        $("#projectPersonData").append(str);
+    })
+
+    $("#skillResult a").each(function (i, skill) {
+        let str = "";
+        if (skill.value.length!=0) {
+            str += "<input type='hidden' name='projectSkill' i ='projectSkill' value='" + $(skill).text() + "'>";
+            $("#projectSkillData").append(str);
+        }
+    })
+
+    $(".projectUrl").each(function (i, url) {
+        let str = "";
+        if (url.value.length!=0) {
+        str += "<input type='hidden' name='projectUrl' id='projectUrl' value='" + $(url).val() + "'>";
+        $("#projectUrlData").append(str);
+    }
+    })
+
+    document.projectForm.submit();
+})
+
+function skillChange() {
+    $(".mainSkill").each(function (i, select) {
+        $(select).on("change", function () {
             let person_a = ["UI/UX기획", "게임기획", "프로젝트 매니저", "하드웨어(제품) 기획"];
             let person_b = ["그래픽디자인", "UI/UX디자인", "3D디자인", "하드웨어(제품) 디자인", "(디자인)기타"];
             let person_c = ["IOS", "안드로이드", "웹프론트엔드", "웹퍼블리셔", "크로스플랫폼"];
@@ -18,15 +47,15 @@ function skillChange(){
 
             var d = "";
 
-            let target= document.getElementsByClassName("subSkill");
+            let target = document.getElementsByClassName("subSkill");
 
             target[i].options.length = 0;
-            if ($(select).val() == "기획")  d = person_a;
-            else if ($(select).val() == "디자인")  d = person_b;
-            else if ($(select).val() == "프론트엔드개발")  d = person_c;
-            else if ($(select).val() == "백엔드개발")  d = person_d;
-            else if ($(select).val() == "사업")  d = person_e;
-            else if ($(select).val() == "기타")  d = person_f;
+            if ($(select).val() == "기획") d = person_a;
+            else if ($(select).val() == "디자인") d = person_b;
+            else if ($(select).val() == "프론트엔드개발") d = person_c;
+            else if ($(select).val() == "백엔드개발") d = person_d;
+            else if ($(select).val() == "사업") d = person_e;
+            else if ($(select).val() == "기타") d = person_f;
 
             for (x in d) {
                 let opt = document.createElement("option");
@@ -49,20 +78,9 @@ $("#platformResult").on("change", function () {
 })
 
 
-$("#projectSubmit").on("click", function () {
-    $("#projectContent").val(editor.getMarkdown());
-    $(".mainSkill").each(function (i,skill) {
-            let str="";
-            str+="<input type='hidden' name='projectMainSkill' id='projectMainSkill' value='"+$(skill).val()+"'>";
-            str+="<input type='hidden' name='projectSubSkill' id='projectSubSkill' value='"+$($(".subSkill").get(i)).val()+"'>";
-            str+="<input type='hidden' name='projectCount' id='projectCount' value='"+$($(".countNumber").get(i)).text()+"'>";
-            $("#projectSkillData").append(str);
-    })
 
-    document.projectForm.submit();
-})
 
-$("#onOffResult").on("change",function () {
+$("#onOffResult").on("change", function () {
     $("#projectLocation").val($(this).val());
 })
 
@@ -72,6 +90,31 @@ $("#imgUploadBtn").on("click", function () {
     input.click();
 });
 
+// $("#onOffResult2").on("change",function(){
+//     $("#studyLocation").val($(this).val());
+// })
+// $("#studyOnOffSelect").on("change",function(){
+//     $("#studyOnOff").val($(this).val());
+// })
+// $("#studyPartSelect").on("change",function () {
+//     $("#studyPart").val($(this).val());
+// })
+
+$("#studySubmit").on("click", function () {
+    $("#studyLocation").val($("#onOffResult2").val());
+    $("#studyOnOff").val($("#studyOnOffSelect").val());
+    $("#studyPart").val($("#studyPartSelect").val());
+    $("#studyMax").val($("#maxCount").val());
+    $("#studyContent").val($("#contents").text());
+    $(".skillTag2").each(function (i,tag) {
+        let str="";
+        if (tag.value.length!=0) {
+            str+="<input type='hidden' name='studyKeyword' value='"+$(tag).text()+"'>"
+            $("#keywordData").append(str);
+        }
+    })
+    document.studyForm.submit();
+})
 
 // 모임지역 선택
 function onOffChange(e) {
@@ -100,9 +143,9 @@ function onOffChange2(e) {
     var onOff_off = ["서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
     var target = document.getElementById("onOffResult2");
 
-    if (e.value == "both") var d = onOff_both;
-    else if (e.value == "on") var d = onOff_on;
-    else if (e.value == "off") var d = onOff_off;
+    if (e.value == "a") var d = onOff_both;
+    else if (e.value == "o") var d = onOff_on;
+    else if (e.value == "x") var d = onOff_off;
 
     target.options.length = 0;
 
@@ -113,7 +156,6 @@ function onOffChange2(e) {
         target.appendChild(opt);
     }
 }
-
 
 
 //모집인원 추가
@@ -154,9 +196,6 @@ $("#personAddBtn").click(function () {
     }
     skillChange();
 });
-
-
-
 
 
 //모집인원 삭제
@@ -240,10 +279,12 @@ $("#addReferenceBtn").click(function () {
         let str = "";
 
         str += "<div>";
-        str += "<input type='text' placeholder='예) http://letspl.me'>";
+        str += "<input type='text' class='projectUrl' name='projectUrl' placeholder='예) http://workspace.me'>";
         str += "</div>";
 
         $("#referenceWrap").append(str);
+    }else{
+        alert("5개 까지만 가능합니다.")
     }
 });
 
@@ -297,52 +338,66 @@ const editor = new toastui.Editor({
 
 //스터디 분야 선택
 let input = $("#keyword");
+let input2 = $("#keyword2");
 
 $("#skill").on("keydown", input, function (e) {
     let check = false;
 
     if (e.keyCode == 13) {
         e.preventDefault();
-        $(".skillTag").each(function (i, tag) {
-            console.log(input.val());
-            console.log($(tag).text());
+        $(".skillTag1").each(function (i, tag) {
+
             if (input.val().toLowerCase() === $(tag).text()) {
                 alert("이미 등록한 키워드입니다.");
                 check = true;
             }
         })
         let str = "";
-        str += "<a class='skillTag'>" + input.val().toLowerCase() + "</a>";
+        str += "<a class='skillTag1'>" + input.val().toLowerCase() + "</a>";
 
         if (check == false) {
-            $(".skillResult").append(str);
+            $("#skillResult").append(str);
         }
         input.val("");
     }
 })
+$("#skill2").on("keydown", input2, function (e) {
+    let check = false;
+
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        if ($(".skillTag2").length > 10) {
+            alert("최대 10개만 입력 가능합니다.")
+            return;
+        } else {
+            $(".skillTag2").each(function (i, tag) {
+
+                if (input2.val().toLowerCase() === $(tag).text()) {
+                    alert("이미 등록한 키워드입니다.");
+                    check = true;
+                }
+            })
+            let str = "";
+            str += "<a class='skillTag2'>" + input2.val().toLowerCase() + "</a>";
+
+            if (check == false) {
+                $("#skillResult2").append(str);
+            }
+            input2.val("");
+        }
+    }
+})
 
 //스터디 분야 삭제
-$("div.skillResult").on("click", "a.skillTag", function () {
+$("#skillResult").on("click", "a.skillTag", function () {
+    $(this).remove();
+})
+$("#skillResult2").on("click", "a.skillTag2", function () {
     $(this).remove();
 })
 
 
 $(document).ready(function () {
-    // let regex = new RegExp("(.*?)\.(hwp|txt|exe|sh|zip|alz)$");
-    // let maxSize = 1024 * 1024 * 40;
-    //
-    // function checkFile(fileName, fileSize) {
-    //     if (regex.test(fileName)) {
-    //         alert("업로드할 수 없는 파일의 형식입니다.");
-    //         return false;
-    //     }
-    //     if (fileSize > maxSize) {
-    //         alert("파일 사이즈 초과");
-    //         return false;
-    //     }
-    //     return true;
-    // }
-
 
     skillChange();
 
@@ -353,13 +408,13 @@ $(document).ready(function () {
         let projectImgPath = uploadResult.projectImgPath;
         let projectImgUuid = uploadResult.projectImgUuid;
 
-        str+="<input type='hidden' name='projectImg' value='"+projectImg+"'>"
-        str+="<input type='hidden' name='projectImgPath' value='"+projectImgPath+"'>"
-        str+="<input type='hidden' name='projectImgUuid' value='"+projectImgUuid+"'>"
+        str += "<input type='hidden' name='projectImg' value='" + projectImg + "'>"
+        str += "<input type='hidden' name='projectImgPath' value='" + projectImgPath + "'>"
+        str += "<input type='hidden' name='projectImgUuid' value='" + projectImgUuid + "'>"
 
         $("#projectData").append(str);
-        $(".thumbnailBox").css("background-image","url('/project/display?fileName="+projectImgPath+"/"+projectImgUuid+"_"+projectImg+"')");
-        $(".thumbnailBox").css("background-size","cover");
+        $(".thumbnailBox").css("background-image", "url('/project/display?fileName=" + projectImgPath + "/" + projectImgUuid + "_" + projectImg + "')");
+        $(".thumbnailBox").css("background-size", "cover");
         $(".thumbnailImage2").hide();
     }
 

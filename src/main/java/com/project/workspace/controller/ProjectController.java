@@ -1,10 +1,9 @@
 package com.project.workspace.controller;
 
-import com.project.workspace.domain.repository.ProjectPersonRepository;
-import com.project.workspace.domain.repository.ProjectRepository;
-import com.project.workspace.domain.vo.ProjectPersonVO;
-import com.project.workspace.domain.vo.ProjectSkillVO;
-import com.project.workspace.domain.vo.ProjectVO;
+import com.project.workspace.domain.repository.*;
+import com.project.workspace.domain.vo.*;
+import com.project.workspace.service.ProjectService;
+import com.project.workspace.service.ProjectServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -28,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 @Controller
 @Slf4j
@@ -35,59 +36,66 @@ import java.util.UUID;
 @RequestMapping("/project/*")
 public class ProjectController {
     private final ProjectRepository projectRepository;
-
+    private final ProjectService projectService;
     private final ProjectPersonRepository projectPersonRepository;
+    private final ProjectSkillRepository projectSkillRepository;
+    private final ProjectReferenceRepository projectReferenceRepository;
+    private final StudyRepository studyRepository;
+    private final StudyKeywordRepository studyKeywordRepository;
 
 
     @GetMapping("/projectDetail")
-    public void projectDetail() {;}
+    public void projectDetail() {
+        ;
+    }
 
     @GetMapping("/projectList")
-    public void projectList() {;}
+    public void projectList() {
+        ;
+    }
 
     @GetMapping("/projectRegister")
-    public void projectRegister() {;}
+    public void projectRegister() {
+        ;
+    }
 
     @PostMapping("/projectRegister")
-    public String projectRegister(ProjectVO projectVO, ProjectPersonVO projectPerson, HttpServletRequest request) {
-        String[] count = request.getParameterValues("projectCount");
-        String[] main = request.getParameterValues("projectMainSkill");
-        String[] sub = request.getParameterValues("projectSubSkill");
+    public String projectRegister(ProjectVO projectVO, StudyVO studyVO,HttpServletRequest request) {
+        String type = request.getParameter("type");
+        if(type=="project") {
+            log.info("프로젝트");
 
-        ArrayList<ProjectPersonVO> projectPersons = new ArrayList<>();
-        Long projectTotal = 0L;
-        for (int i = 0; i<count.length; i++){
-            ProjectPersonVO project = new ProjectPersonVO();
-            project.setProjectMainSkill(main[i]);
-            project.setProjectSubSkill(sub[i]);
-            project.setProjectCount(Long.valueOf(count[i]));
-            projectPersons.add(project);
-            projectTotal+=Long.valueOf(count[i]);
+            String[] count = request.getParameterValues("projectCount");
+            String[] main = request.getParameterValues("projectMainSkill");
+            String[] sub = request.getParameterValues("projectSubSkill");
+
+            String[] urls = request.getParameterValues("projectUrl");
+
+            String[] skill = request.getParameterValues("projectSkill");
+
+            ProjectPersonMaker projectPersonMaker = new ProjectPersonMaker(count, main, sub);
+
+            projectVO.setProjectTotal(projectPersonMaker.getProjectMaxCount());
+            ProjectVO saveProjectVO = projectRepository.save(projectVO);
+
+            Stream.of(skill).forEach(it -> this.saveProjectSkill(it, saveProjectVO));
+            IntStream.range(0, count.length).forEach(index -> {
+                ProjectPersonVO projectPersonVO = projectPersonMaker.getProjectPersonVO(index);
+                projectPersonVO.setProjectVO(saveProjectVO);
+                projectPersonRepository.save(projectPersonVO);
+            });
+
+            Stream.of(urls).forEach(url -> this.saveProjectUrl(url, saveProjectVO));
+        }else{
+            String[] keywords = request.getParameterValues("studyKeyword");
+
+            StudyVO saveStudyVO = studyRepository.save(studyVO);
+            Stream.of(keywords).forEach(keyword -> this.saveStudyKeyword(keyword,saveStudyVO));
         }
-//        projectPersons.stream().map(ProjectPersonVO::toString).forEach(log::info);
-        projectVO.setProjectTotal(projectTotal);
-        log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//        log.info(projectPerson.toString());
-//        log.info(projectVO.toString());
-//        log.info("온오프" + projectVO.getProjectOnOff());
-//        log.info("지역" + projectVO.getProjectLocation());
-//        log.info("제목" + projectVO.getProjectName());
-//        log.info("파트" + projectVO.getProjectPart());
-//        log.info("플랫폼" + projectVO.getProjectPlatform());
-//        log.info("내용" + projectVO.getProjectContent());
-//        log.info("파일이름" + projectVO.getProjectImg());
-//        log.info("파일경로" + projectVO.getProjectImgPath());
-//        log.info("uuid" + projectVO.getProjectImgUuid());
-        log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//        projectRepository.save(projectVO);
-//
-//        for (ProjectPersonVO p : projectPersons){
-//            projectPersonRepository.save(p);
-//        }
-
-
         return "/project/projectList";
     }
+
+
 
 
     @PostMapping("/uploadAjaxAction")
@@ -120,7 +128,7 @@ public class ProjectController {
         projectVO.setProjectImgPath(uploadFolderPath);
 
         //저장할 경로와 파일의 이름을 File객체에 담는다.
-        File saveFile = new File(uploadPath, uuid.toString()+"_"+uploadFileName);
+        File saveFile = new File(uploadPath, uuid.toString() + "_" + uploadFileName);
 
         try {
             //설정한 경로에 해당 파일을 업로드한다.
@@ -135,7 +143,7 @@ public class ProjectController {
 
     @GetMapping("/display")
     @ResponseBody
-    public byte[] getFile(String fileName) throws IOException{
+    public byte[] getFile(String fileName) throws IOException {
         return FileCopyUtils.copyToByteArray(new File("C:/upload/" + fileName));
     }
 
@@ -156,5 +164,24 @@ public class ProjectController {
         return false;
     }
 
+    private void saveProjectSkill(String skill, ProjectVO projectVO) {
+        ProjectSkillVO projectSkill = new ProjectSkillVO();
+        projectSkill.setProjectSkill(skill);
+        projectSkill.setProjectVO(projectVO);
+        projectSkillRepository.save(projectSkill);
+    }
 
+    private void saveProjectUrl(String url, ProjectVO projectVO) {
+        ProjectReferenceVO projectReferenceVO = new ProjectReferenceVO();
+        projectReferenceVO.setProjectUrl(url);
+        projectReferenceVO.setProjectVO(projectVO);
+        projectReferenceRepository.save(projectReferenceVO);
+    }
+
+    private void saveStudyKeyword(String keyword, StudyVO studyVO) {
+        StudyKeywordVO studyKeywordVO = new StudyKeywordVO();
+        studyKeywordVO.setStudyKeyword(keyword);
+        studyKeywordVO.setStudyVO(studyVO);
+        studyKeywordRepository.save(studyKeywordVO);
+    }
 }
