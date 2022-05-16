@@ -13,6 +13,7 @@ public class KakaoController {
 
     KakaoAPI kakaoApi = new KakaoAPI();
 
+//    쿼리스트링 code의 값은 매개변수로 쉽게 받을 수 있다.
     @RequestMapping(value="/login")
     public ModelAndView login(@RequestParam("code") String code, HttpSession session) {
         ModelAndView mav = new ModelAndView();
