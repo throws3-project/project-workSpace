@@ -1,9 +1,13 @@
 package com.project.workspace.domain.dao;
 
+import com.project.workspace.domain.vo.LoungeLikeVO;
+import com.project.workspace.domain.vo.UserVO;
 import com.project.workspace.mapper.LoungeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor

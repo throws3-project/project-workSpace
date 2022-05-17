@@ -32,7 +32,6 @@ public class StoryController {
 
         log.info("-------------------------------");
         log.info(storyVO.toString());
-        log.info();
         log.info("-------------------------------");
     }
     @GetMapping("/storyModify")

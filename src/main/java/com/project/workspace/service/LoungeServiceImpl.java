@@ -33,9 +33,4 @@ public class LoungeServiceImpl implements LoungeService{
     public void insertLoungeReply(Long loungeNum, Long userNum, String loungeReplyContent) {
         loungeDAO.insertLoungeReply(loungeNum, userNum, loungeReplyContent);
     }
-
-    @Override
-    public List<UserVO> selectLikes() {
-        return loungeLikeRepository.selectByLoungeVO();
-    }
 }

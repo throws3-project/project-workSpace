@@ -1,5 +1,6 @@
 package com.project.workspace.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Component
 @Entity
 @Table(name = "tbl_lounge")
 @ToString(exclude = {"userVO", "replies", "likes"})
@@ -27,12 +27,16 @@ public class LoungeVO {
     @Column(name = "lounge_date")
     private Date loungeDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "loungeVO")
     private List<LoungeReplyVO> replies = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "loungeVO")
     private List<LoungeLikeVO> likes = new ArrayList<>();
 

@@ -483,6 +483,7 @@ textarea {
     transition: all .2s;
     font-size: .75rem;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 
