@@ -21,42 +21,48 @@
             <span class="bigTxt">회원 가입이 바로 완료됩니다</span>
             </h3>
             </div>
+            <form method="post" name="joinForm" action="/joinForm">
             <div class="form">
+                <input type="hidden" name="userMainSkill" class="userMainSkill">
+                <input type="hidden" name="userMainDetail" class="userMainDetail">
+                <input type="hidden" name="userMainLevel" class="userMainLevel">
+                <input type="hidden" name="userCode" th:value="${userCode}">
+                <input type="hidden" name="userImgName" th:value="${userProfileURL}">
                 <ul class="firstSignForm">
                     <li class="firstLi">
                         <label>이메일</label>
                         <div class="px414 emailWrap">
-                            <input type="text" value="받을 예정입니다." class="emailInput">
+                            <input type="text" name="userId" th:value="${userId}" class="emailInput">
                             <button class="emailButton" value="인증완료">인증완료</button>
                         </div>
                     </li>
                     <li class="secondLi">
                         <label>닉네임</label>
-                        <input type="text" class="nickInput" placeholder="3~10자리 이내로 적어주세요!" minlength="2" maxlength="10">
+                        <input type="text" class="nickInput" placeholder="3~10자리 이내로 적어주세요!" name="userNick_name" th:value="${userNickName}" minlength="2" maxlength="10">
                     </li>
                     <li class="thirdLi">
                         <label>본 캐릭터 설정</label>
                         <div class="settingWrapper">
-                            <select>
-                                <option selected value="02">기획</option>
-                                <option value="03">디자인</option>
-                                <option value="04">프론트엔드개발</option>
-                                <option value="05">백엔드개발</option>
-                                <option value="01">사업</option>
-                                <option value="06">기타</option>
+                            <select id="userMainSkill" onchange="selectBoxChange(this.value); personChange(this);">
+                                <option selected value="기획">기획</option>
+                                <option value="디자인">디자인</option>
+                                <option value="프론트엔드개발">프론트엔드개발</option>
+                                <option value="백엔드개발">백엔드개발</option>
+                                <option value="사업">사업</option>
+                                <option value="기타">기타</option>
                             </select>
-                            <select>
-                                <option selected value="0201">UI/UX기획</option>
-                                <option value="0202">게임기획</option>
-                                <option value="0203">프로젝트 매니저</option>
-                                <option value="0204">하드웨어(제품) 기획</option>
+                            <select id="userMainDetail" onchange="selectBoxChange2(this.value);">
+                                <option selected value="UI/UX기획">UI/UX기획</option>
+                                <option value="게임기획">게임기획</option>
+                                <option value="프로젝트 매니저">프로젝트 매니저</option>
+                                <option value="하드웨어(제품) 기획">하드웨어(제품) 기획</option>
                             </select>
-                            <select>
-                                <option value="0301">초심자</option>
-                                <option value="0302">초보</option>
-                                <option selected value="0303">중수</option>
-                                <option value="0304">고수</option>
-                                <option value="0305">구루</option>
+                            <select id="userMainLevel" onchange="selectBoxChange3(this.value);">
+                                <option value="초심자">초심자</option>
+                                <option value="초보">초보</option>
+                                <option selected value="중수">중수</option>
+                                <option value="고수">고수</option>
+                                <option value="구루">구루</option>
                             </select>
                         </div>
                     </li>
@@ -68,10 +74,12 @@
                         </div>
                     </li>
                 </ul>
+
                 <div class="joinCompleteWrapper">
                 <button class="joinComplete">가입완료</button>
                 </div>
             </div>
+            </form>
         </div>
     </section>
 <th:block th:insert="/fix/chat.html :: sideFragment"/>
@@ -81,4 +89,56 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
+<script>
+    // 인풋 히든에 셀렉트 벨류 값 집어넣기
+    // var selectBoxChange = function(value){
+    //     console.log("값 변경테스트: " + value);
+    //     $("input[name='userMainSkill']").val(value);
+    // };
+    //
+    // var selectBoxChange2 = function(value){
+    //     console.log("값 변경테스트: " + value);
+    //     $("input[name='userSubSkill']").val(value);
+    // };
+    //
+    // var selectBoxChange3 = function(value){
+    //     console.log("값 변경테스트: " + value);
+    //     $("input[name='userMainLevel']").val(value);
+    // };
+
+    // 메인 기술 선택시 세부 기술 변경
+    function personChange(e) {
+        let d = "";
+        let person_a = ["UI/UX기획", "게임기획", "프로젝트 매니저", "하드웨어(제품) 기획"];
+        let person_b = ["그래픽디자인", "UI/UX디자인", "3D디자인", "하드웨어(제품) 디자인", "(디자인)기타"];
+        let person_c = ["IOS", "안드로이드", "웹프론트엔드", "웹퍼블리셔", "크로스플랫폼"];
+        let person_d = ["웹 서버", "블록체인", "AI", "DB/빅데이터/DS", "게임 서버"];
+        let person_e = ["사업기획", "마케팅", "영업", "재무/회계", "전략/컨설팅", "투자/고문", "(사업)그외"];
+        let person_f = ["작가/블로거", "인플루언서/스트리머", "작곡(사운드)", "영상", "운영", "QA", "기타"];
+        let target = $(e).next();
+
+        if (e.value == "기획") d = person_a;
+        else if (e.value == "디자인") d = person_b;
+        else if (e.value == "프론트엔드개발") d = person_c;
+        else if (e.value == "백엔드개발") d = person_d;
+        else if (e.value == "사업") d = person_e;
+        else if (e.value == "기타") d = person_f;
+
+        target.html("");
+
+        $(d).each(function (i,opt) {
+            let str="";
+            str+="<option>"+opt+"</option>"
+            target.append(str);
+        })
+    }
+
+    $(".joinComplete").on("click",function (e) {
+        e.preventDefault();
+        $(".userMainSkill").val($("#userMainSkill").val());
+        $(".userMainDetail").val($("#userMainDetail").val());
+        $(".userMainLevel").val($("#userMainLevel").val());
+        document.joinForm.submit();
+    })
+</script>
 </html>
