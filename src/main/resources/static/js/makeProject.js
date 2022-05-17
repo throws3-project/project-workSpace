@@ -18,7 +18,7 @@ $("#projectSubmit").on("click", function () {
 
     $("#skillResult a").each(function (i, skill) {
         let str = "";
-        if (skill.value.length!=0) {
+        if ($(skill).text()) {
             str += "<input type='hidden' name='projectSkill' i ='projectSkill' value='" + $(skill).text() + "'>";
             $("#projectSkillData").append(str);
         }
@@ -26,12 +26,12 @@ $("#projectSubmit").on("click", function () {
 
     $(".projectUrl").each(function (i, url) {
         let str = "";
-        if (url.value.length!=0) {
+        if ($(url).val()) {
         str += "<input type='hidden' name='projectUrl' id='projectUrl' value='" + $(url).val() + "'>";
         $("#projectUrlData").append(str);
     }
     })
-
+    $("#type").val("project");
     document.projectForm.submit();
 })
 
@@ -108,11 +108,12 @@ $("#studySubmit").on("click", function () {
     $("#studyContent").val($("#contents").text());
     $(".skillTag2").each(function (i,tag) {
         let str="";
-        if (tag.value.length!=0) {
+        if ($(tag).text()) {
             str+="<input type='hidden' name='studyKeyword' value='"+$(tag).text()+"'>"
             $("#keywordData").append(str);
         }
     })
+    $("#type").val("study");
     document.studyForm.submit();
 })
 
@@ -422,9 +423,7 @@ $(document).ready(function () {
         let inputFile = $("input[name='projectImg']");
         let files = e.target.files;
         let formData = new FormData();
-        // if (!checkFile(files.name, files.size)) {
-        //     return;
-        // }
+
         formData.append("uploadFile", files[0]);
         $.ajax({
             url: "/project/uploadAjaxAction",

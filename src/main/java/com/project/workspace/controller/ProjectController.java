@@ -86,7 +86,7 @@ public class ProjectController {
             });
 
             Stream.of(urls).forEach(url -> this.saveProjectUrl(url, saveProjectVO));
-        }else{
+        }else if(type=="study"){
             String[] keywords = request.getParameterValues("studyKeyword");
 
             StudyVO saveStudyVO = studyRepository.save(studyVO);
