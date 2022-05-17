@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
 @Entity
 @Component
 @Table(name = "tbl_study")
@@ -17,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @DynamicInsert
+
 public class StudyVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

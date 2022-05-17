@@ -83,14 +83,14 @@
                     <div class="ccheck">
                         <label class="checkBox first">
                             <span class="txt">사이드(토이) 프로젝트</span>
-                            <input type="radio" class="choice" name="type" value="project" checked>
+                            <input type="radio" class="choice" name="choiceType" value="project" checked>
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="ccheck">
                         <label class="checkBox first">
                             <span class="txt">IT 스터디 & 네트워킹</span>
-                            <input type="radio" class="choice" name="type" value="study">
+                            <input type="radio" class="choice" name="choiceType" value="study">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -106,6 +106,7 @@
             <!--  프로젝트 양식. -->
             <div class="make">
                 <form action="/project/projectRegister" id="projectForm" name="projectForm" method="post" onsubmit="return false" enctype="multipart/form-data">
+                    <input type="hidden" name="type" id="type">
                     <div class="question">
                         <p>
                             *
