@@ -59,7 +59,7 @@
 
     <!----------------------------------------------------------------내 정보 수정--------------------------------------------------------------------->
     <section id="info" class="pageNav">
-        <form>
+        <form method="post" name="memberForm" id="frm" action="/modify">
             <div id="infoWrap" class="flex">
                 <div id="top">
 
@@ -76,18 +76,18 @@
                 <div id="bottom">
                     <div mailWrap>
                         <label>이메일
-                            <input type="text" disabled value="tkdgur1996@gmail.com">
+                            <input type="text" name="userId" th:value="${userVO.getUserId()}">
                         </label>
                     </div>
                     <div id="nickWrap" class="marginBottom">
                         <label>닉네임
-                            <input type="text" class="able" placeholder="3~10자리 이내로 적어주세요!" value="상냥이">
+                            <input type="text" class="able" placeholder="3~10자리 이내로 적어주세요!" th:value="${userVO.getUserNickName()}">
                         </label>
                         <p class="alert">사용 가능합니다.</p>
                     </div>
                     <div id="phoneWrap" class="marginBottom">
                         <label>휴대폰번호
-                            <input type="text" disabled value="01040625261">
+                            <input type="text" name="userPhone" th:value="${userVO.getUserPhone()}">
                         </label>
                         <p class="alert">인증완료</p>
                     </div>
@@ -98,7 +98,7 @@
                                 <option value="a">기획</option>
                                 <option value="b">디자인</option>
                                 <option value="c">프론트엔드개발</option>
-                                <option value="d">백엔드개발</option>
+                                <option value="d" selected>백엔드개발</option>
                                 <option value="e">사업</option>
                                 <option value="f">기타</option>
                             </select>
@@ -248,27 +248,29 @@
                                    maxlength="20" autocomplete="off">
                         </div>
                         <div class="skillResult">
-
+                            <th:block th:each="tag, i:${userTagVO}">
+                            <a class='skillTag' th:text="${tag.tagName}"></a>
+                            </th:block>
                         </div>
                     </div>
 
 
                     <div id="content" class="marginBottom">
                         <p>자세한 소개</p>
-                        <textarea name="content" class="able" rows="5" maxlength="200" placeholder="최대 200자 까지 작성 가능합니다."></textarea>
+
+                        <textarea name="content" th:text="${userVO.getUserContent()}" class="able" rows="5" maxlength="200"  placeholder="최대 200자 까지 작성 가능합니다."></textarea>
                     </div>
 
-
                     <div id="portfolio" class="marginBottom">
-                        <div id="url" class="flex a1">
-                            <input type="text" class="able" placeholder="URL을 입력해주세요">
+                        <div id="url" class="flex a1" th:each="portfolio, i: ${userPortfolioVO}">
+                            <input type="text" class="able" th:value="${portfolio.portUrl}" placeholder="URL을 입력해주세요">
                             <input id="plusUrl" type="button" class="able" value="추가">
                         </div>
                     </div>
 
                 </div>
             </div>
-            <button class="submit">업데이트</button>
+            <button class="submit" id="submit">업데이트</button>
         </form>
     </section>
 
@@ -279,11 +281,11 @@
                 <div>
                     <h3 class="titleMsg">지원 현황</h3>
                 </div>
-<!--                <div class="emptyBox">-->
-<!--                    <div>-->
-<!--                        <p>아직 완료된 프로젝트/스터디가 없습니다.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="emptyBox">-->
+                <!--                    <div>-->
+                <!--                        <p>아직 완료된 프로젝트/스터디가 없습니다.</p>-->
+                <!--                    </div>-->
+                <!--                </div>-->
                 <div class="projectGridWrap">
                     <div class="projectTopInfo">
                         <div class="topInfo">
@@ -390,50 +392,50 @@
                 <div class="myStoryWrap">
                     <div class="myStory">
                         <ul class="storyTimeUl">
-                        <li class="storyTimeLi">
-                            <div class="storyTimeLineLeft">
-                                <div class="storyTimeLineImg">
-                                    <img src="/images/썸네일6.png">
+                            <li class="storyTimeLi">
+                                <div class="storyTimeLineLeft">
+                                    <div class="storyTimeLineImg">
+                                        <img src="/images/썸네일6.png">
+                                    </div>
+                                    <div class="storyTimeLineContents">
+                                        <div class="timeLineTitWrap">
+                                            <span class="timeLintCategory">workspace-공식채널</span>
+                                            <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>
+                                        </div>
+                                        <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 3일 입니다.
+                                            여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다 Throws3팀의 멤버로는
+                                            팀장 배상혁 부팀장 한서현 팀원 박상아 홍승근 송준형으로 구성되어있는 팀 입니다.
+                                            각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D
+                                        </div>
+                                        <div class="timeLineTagWrap">
+                                            <span>#상아에요</span>
+                                            <span># 상아태그</span>
+                                            <span>#상혁준형</span>
+                                            <span>#서현승근</span>
+                                            <span>#화이팅</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="storyTimeLineContents">
-                                    <div class="timeLineTitWrap">
-                                        <span class="timeLintCategory">workspace-공식채널</span>
-                                        <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>
+                                <div class="storyTimeLineRight">
+                                    <!-- <div class="heartWrap">
+                                        <div class="favorite"></div>
+                                    </div> -->
+                                    <div class="TimeLineStatusWrap">
+                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                            <img class="storyTimeLineDivImg" src="/images/eye.png">
+                                            <span class="divFooterTxt">122</span>
+                                        </p>
+                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                            <img class="storyTimeLineDivImg" src="/images/msg.png">
+                                            <span class="divFooterTxt">0</span>
+                                        </p>
+                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                            <img class="storyTimeLineDivImg" src="/images/likeup.png">
+                                            <span class="divFooterTxt">4</span>
+                                        </p>
                                     </div>
-                                    <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 3일 입니다.
-                                        여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다 Throws3팀의 멤버로는
-                                        팀장 배상혁 부팀장 한서현 팀원 박상아 홍승근 송준형으로 구성되어있는 팀 입니다.
-                                        각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D
-                                    </div>
-                                    <div class="timeLineTagWrap">
-                                        <span>#상아에요</span>
-                                        <span># 상아태그</span>
-                                <span>#상혁준형</span>
-                                <span>#서현승근</span>
-                                <span>#화이팅</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="storyTimeLineRight">
-                        <!-- <div class="heartWrap">
-                            <div class="favorite"></div>
-                        </div> -->
-                        <div class="TimeLineStatusWrap">
-                            <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                <img class="storyTimeLineDivImg" src="/images/eye.png">
-                                <span class="divFooterTxt">122</span>
-                            </p>
-                             <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                <img class="storyTimeLineDivImg" src="/images/msg.png">
-                                <span class="divFooterTxt">0</span>
-                            </p>
-                            <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                <img class="storyTimeLineDivImg" src="/images/likeup.png">
-                                <span class="divFooterTxt">4</span>
-                            </p>
-                        </div>
-                    </div>
-                    </li>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -555,7 +557,7 @@
                                     </div>
                                     <a class="like"></a>
                                 </div>
-        
+
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
@@ -589,15 +591,15 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                             </div>
-        
+
                             <div class="userinfo">
                                 <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
                                 <div class="boo"><span class="info">[부캐]게임기획</span><span
                                         class="num">초보</span></div>
                             </div>
-        
+
                             <div class="usertag">
                                 <ul class="ulusertag">
                                     <li class="liusertag">#IT</li>
@@ -612,7 +614,7 @@
                                 <img class="btimg" src="/images/BBBB.png">
                                 <p class="btchat">BIt Chat</p>
                             </div>
-        
+
                         </li>
                         <!-- 여기까지 1번 -->
                         <li class="userGrid">
@@ -623,7 +625,7 @@
                                     </div>
                                     <a class="like"></a>
                                 </div>
-        
+
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
@@ -657,15 +659,15 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                             </div>
-        
+
                             <div class="userinfo">
                                 <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
                                 <div class="boo"><span class="info">[부캐]게임기획</span><span
                                         class="num">초보</span></div>
                             </div>
-        
+
                             <div class="usertag">
                                 <ul class="ulusertag">
                                     <li class="liusertag">#IT</li>
@@ -680,7 +682,7 @@
                                 <img class="btimg" src="/images/BBBB.png">
                                 <p class="btchat">BIt Chat</p>
                             </div>
-        
+
                         </li>
                         <!-- 2번 -->
                         <li class="userGrid">
@@ -691,75 +693,7 @@
                                     </div>
                                     <a class="like"></a>
                                 </div>
-        
-                                <div class="usertool">
-                                    <div class="user1">
-                                        <div class="userLvIcon">
-                                            <img  class="lvIcon" src="c/images/level_6.png">
-                                        </div>
-                                        <div class="userGridName">
-                                            <p class="ugname">박상아</p>
-                                        </div>
-                                        <div class="usercheckIcon">
-                                            <img class="checkIcon" src="/images/ic-certi-red.png">
-                                        </div>
-                                    </div>
-                                    <div class="userInn">
-                                        <div class="bitandheart">
-                                            <div class="bitdiv">
-                                                <div class="bitimg">
-                                                    <img src="/images/BBBB.png" class="bitIcon">
-                                                </div>
-                                                <div class="bittag">
-                                                    <p class="bitptag">3</p>
-                                                </div>
-                                            </div>
-                                            <div class="heartdiv">
-                                                <div class="heartimg">
-                                                    <img src="/images/ico_like.png"
-                                                         class="heartIcon"></div>
-                                                <div class="hearttag">
-                                                    <p class="heartptag">1</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                            </div>
-        
-                            <div class="userinfo">
-                                <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
-                                <div class="boo"><span class="info">[부캐]게임기획</span><span
-                                        class="num">초보</span></div>
-                            </div>
-        
-                            <div class="usertag">
-                                <ul class="ulusertag">
-                                    <li class="liusertag">#IT</li>
-                                    <li class="liusertag">#UIUX</li>
-                                    <li class="liusertag">#프론트</li>
-                                    <li class="liusertag">#디자인</li>
-                                    <li class="liusertag">#기획</li>
-                                </ul>
-                                <p class="join">진행중인 모임이 없습니다.</p>
-                            </div>
-                            <div class="userGridbottom">
-                                <img class="btimg" src="/images/BBBB.png">
-                                <p class="btchat">BIt Chat</p>
-                            </div>
-        
-                        </li>
-                        <!-- 3번 -->
-                        <li class="userGrid">
-                            <div class="userGridtop">
-                                <div class="userIn" style="display: flex;">
-                                    <div class="userGridimg">
-                                        <img src="/images/여.png" style="width: 50px; object-fit: cover;">
-                                    </div>
-                                    <a class="like"></a>
-                                </div>
-        
+
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
@@ -793,15 +727,15 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                             </div>
-        
+
                             <div class="userinfo">
                                 <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
                                 <div class="boo"><span class="info">[부캐]게임기획</span><span
                                         class="num">초보</span></div>
                             </div>
-        
+
                             <div class="usertag">
                                 <ul class="ulusertag">
                                     <li class="liusertag">#IT</li>
@@ -816,12 +750,80 @@
                                 <img class="btimg" src="/images/BBBB.png">
                                 <p class="btchat">BIt Chat</p>
                             </div>
-        
+
+                        </li>
+                        <!-- 3번 -->
+                        <li class="userGrid">
+                            <div class="userGridtop">
+                                <div class="userIn" style="display: flex;">
+                                    <div class="userGridimg">
+                                        <img src="/images/여.png" style="width: 50px; object-fit: cover;">
+                                    </div>
+                                    <a class="like"></a>
+                                </div>
+
+                                <div class="usertool">
+                                    <div class="user1">
+                                        <div class="userLvIcon">
+                                            <img  class="lvIcon" src="/images/level_6.png">
+                                        </div>
+                                        <div class="userGridName">
+                                            <p class="ugname">박상아</p>
+                                        </div>
+                                        <div class="usercheckIcon">
+                                            <img class="checkIcon" src="/images/ic-certi-red.png">
+                                        </div>
+                                    </div>
+                                    <div class="userInn">
+                                        <div class="bitandheart">
+                                            <div class="bitdiv">
+                                                <div class="bitimg">
+                                                    <img src="/images/BBBB.png" class="bitIcon">
+                                                </div>
+                                                <div class="bittag">
+                                                    <p class="bitptag">3</p>
+                                                </div>
+                                            </div>
+                                            <div class="heartdiv">
+                                                <div class="heartimg">
+                                                    <img src="/images/ico_like.png"
+                                                         class="heartIcon"></div>
+                                                <div class="hearttag">
+                                                    <p class="heartptag">1</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="userinfo">
+                                <div class="bon"><span class="info">[본캐]UI/UX기획</span><span class="num">중수</span></div>
+                                <div class="boo"><span class="info">[부캐]게임기획</span><span
+                                        class="num">초보</span></div>
+                            </div>
+
+                            <div class="usertag">
+                                <ul class="ulusertag">
+                                    <li class="liusertag">#IT</li>
+                                    <li class="liusertag">#UIUX</li>
+                                    <li class="liusertag">#프론트</li>
+                                    <li class="liusertag">#디자인</li>
+                                    <li class="liusertag">#기획</li>
+                                </ul>
+                                <p class="join">진행중인 모임이 없습니다.</p>
+                            </div>
+                            <div class="userGridbottom">
+                                <img class="btimg" src="/images/BBBB.png">
+                                <p class="btchat">BIt Chat</p>
+                            </div>
+
                         </li>
                         <!-- 4번 -->
-        </ul>
+                    </ul>
                 </div>
-        
+
             </div>
         </div>
     </section>
@@ -1160,5 +1162,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
+<script th:inline="javascript"> let interests = [[${interests}]]; </script>
 <script src="/js/myPage.js"></script>
 </html>
