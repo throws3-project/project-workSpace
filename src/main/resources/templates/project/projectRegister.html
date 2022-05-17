@@ -106,7 +106,7 @@
             <!--  프로젝트 양식. -->
             <div class="make">
                 <form action="/project/projectRegister" id="projectForm" name="projectForm" method="post" onsubmit="return false" enctype="multipart/form-data">
-                    <input type="hidden" name="type" id="type">
+                    <input type="hidden" id="type" name="type">
                     <div class="question">
                         <p>
                             *
@@ -257,9 +257,9 @@
                         <div class="selectBoxWrap">
                             <div class="selectBox">
                                 <select onchange="onOffChange(this)" id="onOffSelect">
-                                    <option value="a">온라인/오프라인 모두 가능</option>
-                                    <option value="o">온라인만 가능</option>
-                                    <option value="x">오프라인만 가능</option>
+                                    <option>온라인/오프라인 모두 가능</option>
+                                    <option>온라인만 가능</option>
+                                    <option>오프라인만 가능</option>
                                 </select>
                             </div>
                             <div class="selectBox">
@@ -300,12 +300,12 @@
                         <div class="selectBoxWrap">
                             <div class="selectBox">
                                 <select class="mainSkill">
-                                    <option value="기획">기획</option>
-                                    <option value="디자인">디자인</option>
-                                    <option value="프론트엔드개발">프론트엔드개발</option>
-                                    <option value="백엔드개발">백엔드개발</option>
-                                    <option value="사업">사업</option>
-                                    <option value="기타">기타</option>
+                                    <option>기획</option>
+                                    <option>디자인</option>
+                                    <option>프론트엔드개발</option>
+                                    <option>백엔드개발</option>
+                                    <option>사업</option>
+                                    <option>기타</option>
                                 </select>
                             </div>
                             <div class="selectBox">
@@ -340,22 +340,14 @@
                         <div>
                             <select id="platformResult">
                                 <option>출시 플랫폼을 하나 이상 선택해주세요</option>
-                                <option value="0">미정(논의 후 확정)</option>
-                                <option value="1">반응형 웹(PC/모바일)</option>
-                                <option value="2">안드로이드 앱</option>
-                                <option value="3">IOS 앱</option>
-                                <option value="4">PC(윈도우/맥) 프로그램</option>
-                                <option value="5">설치형/SASS 솔루션</option>
+                                <option>미정(논의 후 확정)</option>
+                                <option>반응형 웹(PC/모바일)</option>
+                                <option>안드로이드 앱</option>
+                                <option>IOS 앱</option>
+                                <option>PC(윈도우/맥) 프로그램</option>
+                                <option>설치형/SASS 솔루션</option>
                             </select>
                         </div>
-<!--                        <div class="platformResult" >-->
-<!--                            <a class="platformResult1 results">미정(논의 후 확정) X </a>-->
-<!--                            <a class="platformResult2 results">반응형 웹(PC/모바일) X </a>-->
-<!--                            <a class="platformResult3 results">안드로이드 앱 X </a>-->
-<!--                            <a class="platformResult4 results">IOS 앱 X </a>-->
-<!--                            <a class="platformResult5 results">PC(윈도우/맥) 프로그램 X </a>-->
-<!--                            <a class="platformResult6 results">설치형/SASS 솔루션 X </a>-->
-<!--                        </div>-->
                     </div>
 
                     <div class="question">
