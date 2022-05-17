@@ -1,8 +1,10 @@
 package com.project.workspace.service;
 
 import com.project.workspace.domain.dao.ProjectDAO;
+import com.project.workspace.domain.vo.ProjectVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -38,4 +40,11 @@ public class ProjectServiceImpl implements ProjectService{
     public void insertLikeProject(Long projectNum, Long userNum) {
         projectDAO.insertLikeProject(projectNum, userNum);
     }
+
+//    @Transactional
+//    @Override
+//    public Long register(ProjectVO projectVO) {
+//        projectDAO.insertSelectProjectNum(projectVO);
+//        return projectVO.getProjectNum();
+//    }
 }

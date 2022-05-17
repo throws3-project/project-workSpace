@@ -1,9 +1,6 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +11,10 @@ import java.util.List;
 @Entity
 @Component
 @Table(name = "tbl_study")
+@Setter
 @Getter
 @ToString(exclude = {"userVO", "keywords", "members" })
+@AllArgsConstructor
 @NoArgsConstructor
 @DynamicInsert
 public class StudyVO {
@@ -50,7 +49,7 @@ public class StudyVO {
     private List<StudyMemberVO> members = new ArrayList<>();
 
     @Builder
-    public StudyVO(String studyTitle, String studyPart, String studyLocation, String studyOnOff, Long studyMax, String studyContent, String studyStatus, UserVO userVO) {
+    public StudyVO(String studyTitle, String studyPart, String studyLocation, String studyOnOff, Long studyMax, String studyContent, String studyStatus) {
         this.studyTitle = studyTitle;
         this.studyPart = studyPart;
         this.studyLocation = studyLocation;
@@ -58,6 +57,5 @@ public class StudyVO {
         this.studyMax = studyMax;
         this.studyContent = studyContent;
         this.studyStatus = studyStatus;
-        this.userVO = userVO;
     }
 }

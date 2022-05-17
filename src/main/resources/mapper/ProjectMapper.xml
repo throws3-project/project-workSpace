@@ -6,6 +6,19 @@
         (user_num, project_name, project_part, project_location, project_on_off, project_platform, project_content, project_img, project_img_uuid, project_img_path, project_total)
         values(#{userNum}, #{projectName}, #{projectPart}, #{projectLocation}, #{projectOnOff}, #{projectPlatform}, #{projectContent}, #{projectImg}, #{projectImgUuid}, #{projectImgPath}, #{projectTotal});
     </insert>
+
+<!--    <insert id="insertSelectProjectNum">-->
+<!--        <selectKey keyProperty="projectNum" order="BEFORE" resultType="long">-->
+<!--            select auto_increment+1 from information_schema.tables-->
+<!--            where table_schema = 'workspace' and table_name='tbl_project';-->
+<!--        </selectKey>-->
+<!--        insert into tbl_project-->
+<!--        (user_num, project_name, project_part, project_location, project_on_off, project_platform, project_content, project_img,-->
+<!--        project_img_uuid, project_img_path)-->
+<!--        values(#{userNum}, #{projectName}, #{projectPart}, #{projectLocation}, #{projectOnOff}, #{projectPlatform},-->
+<!--        #{projectContent}, #{projectImg}, #{projectImgUuid}, #{projectImgPath});-->
+<!--    </insert>-->
+
     <insert id="insertProjectMember">
        insert into tbl_project_member
         (project_num, user_num, project_part, project_motive)

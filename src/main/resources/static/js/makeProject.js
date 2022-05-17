@@ -1,10 +1,3 @@
-// 헤더 표시하기
-$(document).ready(function () {
-    $("#header").load('../../templates/fix/header.html');
-    $("#foot").load('../../templates/fix/footer.html');
-})
-
-
 // 프로젝트/스터디 양식 선택
 $(".choice").each(function (i, radio) {
     $(radio).on("click", function (e) {
@@ -13,6 +6,83 @@ $(".choice").each(function (i, radio) {
     })
 })
 
+$("#projectSubmit").on("click", function () {
+    $("#projectContent").val(editor.getHTML());
+    $(".mainSkill").each(function (i, skill) {
+        let str = "";
+        str += "<input type='hidden' name='projectMainSkill' id='projectMainSkill' value='" + $(skill).val() + "'>";
+        str += "<input type='hidden' name='projectSubSkill' id='projectSubSkill' value='" + $($(".subSkill").get(i)).val() + "'>";
+        str += "<input type='hidden' name='projectCount' id='projectCount' value='" + $($(".countNumber").get(i)).text() + "'>";
+        $("#projectPersonData").append(str);
+    })
+
+    $("#skillResult a").each(function (i, skill) {
+        let str = "";
+        if (skill.value.length!=0) {
+            str += "<input type='hidden' name='projectSkill' i ='projectSkill' value='" + $(skill).text() + "'>";
+            $("#projectSkillData").append(str);
+        }
+    })
+
+    $(".projectUrl").each(function (i, url) {
+        let str = "";
+        if (url.value.length!=0) {
+        str += "<input type='hidden' name='projectUrl' id='projectUrl' value='" + $(url).val() + "'>";
+        $("#projectUrlData").append(str);
+    }
+    })
+
+    document.projectForm.submit();
+})
+
+function skillChange() {
+    $(".mainSkill").each(function (i, select) {
+        $(select).on("change", function () {
+            let person_a = ["UI/UX기획", "게임기획", "프로젝트 매니저", "하드웨어(제품) 기획"];
+            let person_b = ["그래픽디자인", "UI/UX디자인", "3D디자인", "하드웨어(제품) 디자인", "(디자인)기타"];
+            let person_c = ["IOS", "안드로이드", "웹프론트엔드", "웹퍼블리셔", "크로스플랫폼"];
+            let person_d = ["웹 서버", "블록체인", "AI", "DB/빅데이터/DS", "게임 서버"];
+            let person_e = ["사업기획", "마케팅", "영업", "재무/회계", "전략/컨설팅", "투자/고문", "(사업)그외"];
+            let person_f = ["작가/블로거", "인플루언서/스트리머", "작곡(사운드)", "영상", "운영", "QA", "기타"];
+
+            var d = "";
+
+            let target = document.getElementsByClassName("subSkill");
+
+            target[i].options.length = 0;
+            if ($(select).val() == "기획") d = person_a;
+            else if ($(select).val() == "디자인") d = person_b;
+            else if ($(select).val() == "프론트엔드개발") d = person_c;
+            else if ($(select).val() == "백엔드개발") d = person_d;
+            else if ($(select).val() == "사업") d = person_e;
+            else if ($(select).val() == "기타") d = person_f;
+
+            for (x in d) {
+                let opt = document.createElement("option");
+                opt.value = d[x];
+                opt.innerHTML = d[x];
+                target[i].appendChild(opt);
+            }
+        })
+    })
+}
+
+
+/*온오프라인 값 전달*/
+$("#projectOnOff").val($("#onOffSelect").val());
+$("#onOffSelect").on("change", function () {
+    $("#projectOnOff").val($(this).val());
+})
+$("#platformResult").on("change", function () {
+    $("#projectPlatform").val($(this).val());
+})
+
+
+
+
+$("#onOffResult").on("change", function () {
+    $("#projectLocation").val($(this).val());
+})
 
 //대표이미지 업로드 클릭
 $("#imgUploadBtn").on("click", function () {
@@ -20,6 +90,31 @@ $("#imgUploadBtn").on("click", function () {
     input.click();
 });
 
+// $("#onOffResult2").on("change",function(){
+//     $("#studyLocation").val($(this).val());
+// })
+// $("#studyOnOffSelect").on("change",function(){
+//     $("#studyOnOff").val($(this).val());
+// })
+// $("#studyPartSelect").on("change",function () {
+//     $("#studyPart").val($(this).val());
+// })
+
+$("#studySubmit").on("click", function () {
+    $("#studyLocation").val($("#onOffResult2").val());
+    $("#studyOnOff").val($("#studyOnOffSelect").val());
+    $("#studyPart").val($("#studyPartSelect").val());
+    $("#studyMax").val($("#maxCount").val());
+    $("#studyContent").val($("#contents").text());
+    $(".skillTag2").each(function (i,tag) {
+        let str="";
+        if (tag.value.length!=0) {
+            str+="<input type='hidden' name='studyKeyword' value='"+$(tag).text()+"'>"
+            $("#keywordData").append(str);
+        }
+    })
+    document.studyForm.submit();
+})
 
 // 모임지역 선택
 function onOffChange(e) {
@@ -28,9 +123,9 @@ function onOffChange(e) {
     var onOff_off = ["서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
     var target = document.getElementById("onOffResult");
 
-    if (e.value == "both") var d = onOff_both;
-    else if (e.value == "on") var d = onOff_on;
-    else if (e.value == "off") var d = onOff_off;
+    if (e.value == "a") var d = onOff_both;
+    else if (e.value == "o") var d = onOff_on;
+    else if (e.value == "x") var d = onOff_off;
 
     target.options.length = 0;
 
@@ -48,9 +143,9 @@ function onOffChange2(e) {
     var onOff_off = ["서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
     var target = document.getElementById("onOffResult2");
 
-    if (e.value == "both") var d = onOff_both;
-    else if (e.value == "on") var d = onOff_on;
-    else if (e.value == "off") var d = onOff_off;
+    if (e.value == "a") var d = onOff_both;
+    else if (e.value == "o") var d = onOff_on;
+    else if (e.value == "x") var d = onOff_off;
 
     target.options.length = 0;
 
@@ -62,38 +157,9 @@ function onOffChange2(e) {
     }
 }
 
-
-//모집인원 선택
-function personChange(e) {
-    var person_a = ["UI/UX기획", "게임기획", "프로젝트 매니저", "하드웨어(제품) 기획"];
-    var person_b = ["그래픽디자인", "UI/UX디자인", "3D디자인", "하드웨어(제품) 디자인", "(디자인)기타"];
-    var person_c = ["IOS", "안드로이드", "웹프론트엔드", "웹퍼블리셔", "크로스플랫폼"];
-    var person_d = ["웹 서버", "블록체인", "AI", "DB/빅데이터/DS", "게임 서버"];
-    var person_e = ["사업기획", "마케팅", "영업", "재무/회계", "전략/컨설팅", "투자/고문", "(사업)그외"];
-    var person_f = ["작가/블로거", "인플루언서/스트리머", "작곡(사운드)", "영상", "운영", "QA", "기타"];
-    var target = document.getElementById("personResult");
-
-    if (e.value == "a") var d = person_a;
-    else if (e.value == "b") var d = person_b;
-    else if (e.value == "c") var d = person_c;
-    else if (e.value == "d") var d = person_d;
-    else if (e.value == "e") var d = person_e;
-    else if (e.value == "f") var d = person_f;
-
-    target.options.length = 0;
-
-    for (x in d) {
-        var opt = document.createElement("option");
-        opt.value = d[x];
-        opt.innerHTML = d[x];
-        target.appendChild(opt);
-    }
-}
 
 //모집인원 추가
-let count = 1;
-
-
+// let count = 1;
 $("#personAddBtn").click(function () {
     let length = $("#personWrap").children().length;
 
@@ -102,17 +168,17 @@ $("#personAddBtn").click(function () {
 
         str += "<div class='selectBoxWrap'>";
         str += "<div class='selectBox'>";
-        str += "<select onchange='personChange(this)'>";
-        str += "<option value='a'>기획</option>";
-        str += "<option value='b'>디자인</option>";
-        str += "<option value='c'>프론트엔드개발</option>";
-        str += "<option value='d'>백엔드개발</option>";
-        str += "<option value='e'>사업</option>";
-        str += "<option value='f'>기타</option>";
+        str += "<select class='mainSkill'>";
+        str += "<option value='기획'>기획</option>";
+        str += "<option value='디자인'>디자인</option>";
+        str += "<option value='프론트엔드개발'>프론트엔드개발</option>";
+        str += "<option value='백엔드개발'>백엔드개발</option>";
+        str += "<option value='사업'>사업</option>";
+        str += "<option value='기타'>기타</option>";
         str += "</select>";
         str += "</div>";
         str += "<div class='selectBox'>";
-        str += "<select id='personResult'>";
+        str += "<select class='subSkill personResult'>";
         str += "<option>UI/UX 기획</option>";
         str += "<option>게임 기획</option>";
         str += "<option>프로젝트 매니저</option>";
@@ -128,7 +194,9 @@ $("#personAddBtn").click(function () {
 
         $("#personWrap").append(str);
     }
+    skillChange();
 });
+
 
 //모집인원 삭제
 $("#personDeleteBtn").click(function () {
@@ -211,10 +279,12 @@ $("#addReferenceBtn").click(function () {
         let str = "";
 
         str += "<div>";
-        str += "<input type='text' placeholder='예) http://letspl.me'>";
+        str += "<input type='text' class='projectUrl' name='projectUrl' placeholder='예) http://workspace.me'>";
         str += "</div>";
 
         $("#referenceWrap").append(str);
+    }else{
+        alert("5개 까지만 가능합니다.")
     }
 });
 
@@ -225,19 +295,19 @@ $("#deleteReferenceBtn").click(function () {
 
 });
 
-//출시 플랫폼 추가
-$("#platformResult").change(function () {
-    let state = $("#platformResult option:selected").val();
-    $($(".results").get(state)).show();
-})
-
-
-//출시 플랫폼 삭제
-$("a.results").each(function (i, result) {
-    $(result).on("click", function () {
-        $(result).hide();
-    })
-})
+// //출시 플랫폼 추가
+// $("#platformResult").change(function () {
+//     let state = $("#platformResult option:selected").val();
+//     $($(".results").get(state)).show();
+// })
+//
+//
+// //출시 플랫폼 삭제
+// $("a.results").each(function (i, result) {
+//     $(result).on("click", function () {
+//         $(result).hide();
+//     })
+// })
 
 
 //토스트 에디터
@@ -262,44 +332,115 @@ const editor = new toastui.Editor({
         '-  2번까지의 내용을 포함할 수 있도록 작성해주세요(형식은 달라도 상관없습니다)\n' +
         '-  신청시 기타사항과 질문내용 등을 삭제한 후 답변만 등록해주세요. \n' +
         '   (그외의 내용은 자유롭게 기입해주세요(영상/이미지 포함) \n' +
-        '-  상세 검수가이드라인은 공지사항을 참고해주세요. https://letspl.me/notice/80'
+        '-  상세 검수가이드라인은 공지사항을 참고해주세요. https://workspace/notice/noticeDetail/1'
 });
 
 
 //스터디 분야 선택
 let input = $("#keyword");
+let input2 = $("#keyword2");
 
 $("#skill").on("keydown", input, function (e) {
     let check = false;
 
     if (e.keyCode == 13) {
         e.preventDefault();
-        $(".skillTag").each(function (i, tag) {
-            console.log(input.val());
-            console.log($(tag).text());
+        $(".skillTag1").each(function (i, tag) {
+
             if (input.val().toLowerCase() === $(tag).text()) {
                 alert("이미 등록한 키워드입니다.");
                 check = true;
             }
         })
         let str = "";
-        str += "<a class='skillTag'>" + input.val().toLowerCase() + "</a>";
+        str += "<a class='skillTag1'>" + input.val().toLowerCase() + "</a>";
 
         if (check == false) {
-            $(".skillResult").append(str);
+            $("#skillResult").append(str);
         }
         input.val("");
     }
 })
+$("#skill2").on("keydown", input2, function (e) {
+    let check = false;
+
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        if ($(".skillTag2").length > 10) {
+            alert("최대 10개만 입력 가능합니다.")
+            return;
+        } else {
+            $(".skillTag2").each(function (i, tag) {
+
+                if (input2.val().toLowerCase() === $(tag).text()) {
+                    alert("이미 등록한 키워드입니다.");
+                    check = true;
+                }
+            })
+            let str = "";
+            str += "<a class='skillTag2'>" + input2.val().toLowerCase() + "</a>";
+
+            if (check == false) {
+                $("#skillResult2").append(str);
+            }
+            input2.val("");
+        }
+    }
+})
 
 //스터디 분야 삭제
-$("div.skillResult").on("click", "a.skillTag", function () {
-        $(this).remove();
+$("#skillResult").on("click", "a.skillTag", function () {
+    $(this).remove();
+})
+$("#skillResult2").on("click", "a.skillTag2", function () {
+    $(this).remove();
 })
 
 
+$(document).ready(function () {
+
+    skillChange();
 
 
+    function showUploadFile(uploadResult) {
+        let str = "";
+        let projectImg = uploadResult.projectImg;
+        let projectImgPath = uploadResult.projectImgPath;
+        let projectImgUuid = uploadResult.projectImgUuid;
+
+        str += "<input type='hidden' name='projectImg' value='" + projectImg + "'>"
+        str += "<input type='hidden' name='projectImgPath' value='" + projectImgPath + "'>"
+        str += "<input type='hidden' name='projectImgUuid' value='" + projectImgUuid + "'>"
+
+        $("#projectData").append(str);
+        $(".thumbnailBox").css("background-image", "url('/project/display?fileName=" + projectImgPath + "/" + projectImgUuid + "_" + projectImg + "')");
+        $(".thumbnailBox").css("background-size", "cover");
+        $(".thumbnailImage2").hide();
+    }
+
+    $("input[type='file']").change(function (e) {
+        let inputFile = $("input[name='projectImg']");
+        let files = e.target.files;
+        let formData = new FormData();
+        // if (!checkFile(files.name, files.size)) {
+        //     return;
+        // }
+        formData.append("uploadFile", files[0]);
+        $.ajax({
+            url: "/project/uploadAjaxAction",
+            data: formData,
+            type: "POST",
+            // 현재 설정된 헤더 설정을 기본 방식으로 변경하지 못하도록 false로 설정
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                showUploadFile(result);
+            }
+        });
+    });
+
+
+})
 
 
 

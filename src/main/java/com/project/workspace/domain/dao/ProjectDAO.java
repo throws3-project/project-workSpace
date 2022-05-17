@@ -1,5 +1,6 @@
 package com.project.workspace.domain.dao;
 
+import com.project.workspace.domain.vo.ProjectVO;
 import com.project.workspace.mapper.ProjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,4 +18,5 @@ public class ProjectDAO {
     public void insertProjectReference(Long projectNum, String projectUrl){projectMapper.insertProjectReference(projectNum, projectUrl);};
     public void insertProjectSkill(Long projectNum, String projectSkill){projectMapper.insertProjectSkill(projectNum, projectSkill);};
     public void insertLikeProject(Long projectNum, Long userNum){projectMapper.insertLikeProject(projectNum, userNum);};
+//    public void insertSelectProjectNum(ProjectVO projectVO){projectMapper.insertSelectProjectNum(projectVO);}
 }
