@@ -1,9 +1,7 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +11,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Component
 @Table(name = "tbl_lounge")
 @ToString(exclude = {"userVO", "replies", "likes"})
 @Getter
-@NoArgsConstructor
+@Setter
+@AllArgsConstructor
 @DynamicInsert
 public class LoungeVO {
     @Id
@@ -29,12 +27,16 @@ public class LoungeVO {
     @Column(name = "lounge_date")
     private Date loungeDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "loungeVO")
     private List<LoungeReplyVO> replies = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "loungeVO")
     private List<LoungeLikeVO> likes = new ArrayList<>();
 
@@ -43,4 +45,6 @@ public class LoungeVO {
         this.loungeContent = loungeContent;
         this.userVO = userVO;
     }
+
+    public LoungeVO(){;}
 }

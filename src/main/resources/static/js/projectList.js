@@ -1,7 +1,3 @@
-$(document).ready(function () {
-    $("#header").load('../../templates/fix/header.html');
-    $("#footer").load('../../templates/fix/footer.html');
-});
 // banner-button
 let arrows = document.querySelectorAll("button.banner-button");
 let li = document.querySelectorAll("li.slide");

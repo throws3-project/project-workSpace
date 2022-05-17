@@ -1,20 +1,18 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Component
 @Table(name = "tbl_lounge_reply")
 @ToString(exclude = {"loungeVO", "userVO"})
-@Getter
+@Getter @Setter
 @NoArgsConstructor
 @DynamicInsert
 public class LoungeReplyVO {
@@ -25,22 +23,24 @@ public class LoungeReplyVO {
     @Column(name = "lounge_reply_content")
     private String loungeReplyContent;
     @Column(name = "lounge_reply_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date loungeReplyDate;
     @Column(name = "lounge_reply_status")
     private String loungeReplyStatus;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "lounge_num")
     private LoungeVO loungeVO;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
     @Builder
-    public LoungeReplyVO(String loungeReplyContent, String loungeReplyStatus, LoungeVO loungeVO, UserVO userVO) {
+    public LoungeReplyVO(String loungeReplyContent, LoungeVO loungeVO, UserVO userVO) {
         this.loungeReplyContent = loungeReplyContent;
-        this.loungeReplyStatus = loungeReplyStatus;
         this.loungeVO = loungeVO;
         this.userVO = userVO;
     }
