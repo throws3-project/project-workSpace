@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,8 +52,10 @@ public class ProjectController {
     }
 
     @GetMapping("/projectList")
-    public void projectList() {
-        ;
+    public void projectList(Model model) {
+        List<ProjectVO> projectTop4 = projectRepository.findTop4ByOrderByProjectNum();
+
+        model.addAttribute("projectList",projectTop4);
     }
 
     @GetMapping("/projectRegister")
@@ -60,10 +64,11 @@ public class ProjectController {
     }
 
     @PostMapping("/projectRegister")
+    @Transactional
     public String projectRegister(ProjectVO projectVO, StudyVO studyVO,HttpServletRequest request) {
         String type = request.getParameter("type");
-        if(type=="project") {
-            log.info("프로젝트");
+        log.info(type);
+        if(type.equals("project")) {
 
             String[] count = request.getParameterValues("projectCount");
             String[] main = request.getParameterValues("projectMainSkill");
@@ -72,7 +77,6 @@ public class ProjectController {
             String[] urls = request.getParameterValues("projectUrl");
 
             String[] skill = request.getParameterValues("projectSkill");
-
             ProjectPersonMaker projectPersonMaker = new ProjectPersonMaker(count, main, sub);
 
             projectVO.setProjectTotal(projectPersonMaker.getProjectMaxCount());
@@ -86,7 +90,7 @@ public class ProjectController {
             });
 
             Stream.of(urls).forEach(url -> this.saveProjectUrl(url, saveProjectVO));
-        }else if(type=="study"){
+        }else if(type.equals("study")){
             String[] keywords = request.getParameterValues("studyKeyword");
 
             StudyVO saveStudyVO = studyRepository.save(studyVO);

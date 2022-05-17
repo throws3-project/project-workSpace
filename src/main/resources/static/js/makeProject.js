@@ -8,6 +8,9 @@ $(".choice").each(function (i, radio) {
 
 $("#projectSubmit").on("click", function () {
     $("#projectContent").val(editor.getHTML());
+    $("#projectOnOff").val($("#onOffSelect").val());
+    $("#projectLocation").val($("#onOffResult").val());
+    $("#projectPlatform").val($("#platformResult").val());
     $(".mainSkill").each(function (i, skill) {
         let str = "";
         str += "<input type='hidden' name='projectMainSkill' id='projectMainSkill' value='" + $(skill).val() + "'>";
@@ -17,19 +20,10 @@ $("#projectSubmit").on("click", function () {
     })
 
     $("#skillResult a").each(function (i, skill) {
-        let str = "";
         if ($(skill).text()) {
-            str += "<input type='hidden' name='projectSkill' i ='projectSkill' value='" + $(skill).text() + "'>";
+            let str = "<input type='hidden' name='projectSkill' id ='projectSkill' value='" + $(skill).text() + "'>";
             $("#projectSkillData").append(str);
         }
-    })
-
-    $(".projectUrl").each(function (i, url) {
-        let str = "";
-        if ($(url).val()) {
-        str += "<input type='hidden' name='projectUrl' id='projectUrl' value='" + $(url).val() + "'>";
-        $("#projectUrlData").append(str);
-    }
     })
     $("#type").val("project");
     document.projectForm.submit();
@@ -68,21 +62,8 @@ function skillChange() {
 }
 
 
-/*온오프라인 값 전달*/
-$("#projectOnOff").val($("#onOffSelect").val());
-$("#onOffSelect").on("change", function () {
-    $("#projectOnOff").val($(this).val());
-})
-$("#platformResult").on("change", function () {
-    $("#projectPlatform").val($(this).val());
-})
 
 
-
-
-$("#onOffResult").on("change", function () {
-    $("#projectLocation").val($(this).val());
-})
 
 //대표이미지 업로드 클릭
 $("#imgUploadBtn").on("click", function () {
@@ -124,9 +105,9 @@ function onOffChange(e) {
     var onOff_off = ["서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
     var target = document.getElementById("onOffResult");
 
-    if (e.value == "a") var d = onOff_both;
-    else if (e.value == "o") var d = onOff_on;
-    else if (e.value == "x") var d = onOff_off;
+    if (e.value == "온라인/오프라인 모두 가능") var d = onOff_both;
+    else if (e.value == "온라인만 가능") var d = onOff_on;
+    else if (e.value == "오프라인만 가능") var d = onOff_off;
 
     target.options.length = 0;
 
@@ -144,9 +125,9 @@ function onOffChange2(e) {
     var onOff_off = ["서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
     var target = document.getElementById("onOffResult2");
 
-    if (e.value == "a") var d = onOff_both;
-    else if (e.value == "o") var d = onOff_on;
-    else if (e.value == "x") var d = onOff_off;
+    if (e.value == "온라인/오프라인 모두 가능") var d = onOff_both;
+    else if (e.value == "온라인만 가능") var d = onOff_on;
+    else if (e.value == "오프라인만 가능") var d = onOff_off;
 
     target.options.length = 0;
 

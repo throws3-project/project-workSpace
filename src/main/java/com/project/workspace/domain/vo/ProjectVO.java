@@ -16,6 +16,7 @@ import java.util.List;
 @ToString(exclude = { "userVO", "skills", "persons", "references", "members", "likes" })
 @DynamicInsert
 @AllArgsConstructor
+@NoArgsConstructor
 public class ProjectVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,5 +77,4 @@ public class ProjectVO {
         this.projectImgPath = projectImgPath;
         this.projectTotal = projectTotal;
     }
-    public ProjectVO(){;}
 }
