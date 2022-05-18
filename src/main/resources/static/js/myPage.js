@@ -39,7 +39,7 @@ $("#portfolio").on("click", "#plusUrl", function () {
         let input = $($(this).parent().children()[0]);
         let str = "";
         str += "<div id=\"url\" class=\"flex\">"
-        str += "<input type='text' class='able' placeholder='URL을 입력해주세요' value='" + input.val() + "'>";
+        str += "<input type='text' name='portUrl' class='able' placeholder='URL을 입력해주세요' value='" + input.val() + "'>";
         str += "<input id='deleteUrl' type='button' class='able a" + counts + "' value='삭제'>";
         str += "</div>"
         $("div#portfolio").append(str);
@@ -58,7 +58,7 @@ $("#portfolio").on("click", "#deleteUrl", function () {
         counts++
         let str = "";
         str += "<div id=\"url\" class=\"flex\">"
-        str += "<input type='text' class='able' placeholder='URL을 입력해주세요' value=''>";
+        str += "<input type='text' name='portUrl' class='able' placeholder='URL을 입력해주세요' value=''>";
         str += "<input id='plusUrl' type='button' class='able a" + counts + "' value='추가'>";
         str += "</div>"
         $("div#portfolio").append(str);
@@ -75,7 +75,7 @@ $("#skill").on("keydown", $("#keyword"), function (e) {
     if(e.keyCode == 13) {
         e.preventDefault();
         if ($("a.skillTag").length ==5) {
-            alert("5개초과");
+            alert("5개까지 등록가능합니다.");
         }else{
         $(".skillTag").each(function (i, tag) {
             if ($("#keyword").val().toLowerCase() === $(tag).text()) {
@@ -169,9 +169,40 @@ $("div#interestWrap p").each(function (i, tag) {
     })
 })
 
-// window.onload = function() {
-//     document.getElementById('submit').onclick = function() {
-//         document.getElementById('frm').submit();
-//         return false;
-//     };
-// };
+$("button#sss").on("click", function (e) {
+    e.preventDefault();
+    $(".skillTag").each(function (i,tag) {
+        let str="";
+        if ($(tag).text()) {
+            str = "<input type='hidden' name='tagName' value='"+$(tag).text()+"'>"
+            $("#frm").append(str);
+        }
+    })
+
+    $("p.active").each(function (i, p) {
+        let str="";
+        if ($(p).text()) {
+            str = "<input type='hidden' name='userInterest' value='"+$(p).text()+"'>"
+            $("#frm").append(str);
+
+        }
+    })
+
+
+    $("input[name='userMainSkill']").val($("select#mainSkill2").val());
+    $("input[name='userLocation']").val($("select#sido").val());
+    $("input[name='userMainDetail']").val($("select#mainDetail2").val());
+    $("input[name='userMainLevel']").val($("select#skillLevel2").val());
+    $("input[name='userSubSkill']").val($("select#mainSkill3").val());
+    $("input[name='userSubDetail']").val($("select#subSkill3").val());
+    $("input[name='userSubLevel']").val($("select#skillLevel3").val());
+    $("input[name='userOnOff']").val($("select#onOff").val());
+    $("input[name='userPoint']").val($("select#valPoint").val());
+    $("input[name='userTime']").val($("select#week").val());
+    $("input[name='userContent']").val($("textarea#contents").val());
+
+    // $('#frm').submit();
+
+})
+
+

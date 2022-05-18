@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface UserPortfolioRepository extends JpaRepository<UserPortfolioVO, Long> {
     public List<UserPortfolioVO> findByUserVO(UserVO userVO);
+    public void deleteByUserVO(UserVO userVO);
 }

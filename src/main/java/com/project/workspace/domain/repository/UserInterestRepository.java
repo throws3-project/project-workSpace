@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface UserInterestRepository extends JpaRepository<UserInterestVO, Long> {
     public List<UserInterestVO> findByUserVO(UserVO userVO);
+    public void deleteByUserVO(UserVO userVO);
 }
