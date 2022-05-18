@@ -79,7 +79,4 @@ public class UserServiceImpl implements UserService {
     public List<UserAlertVO> getAlertList() {
         return userDAO.getAlertList();
     }
-
-    @Override
-    public void kakaoJoin(UserVO userVO){userDAO.kakaoJoin(userVO);}
 }

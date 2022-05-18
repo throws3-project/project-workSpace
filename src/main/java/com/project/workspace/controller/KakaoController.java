@@ -7,9 +7,6 @@ import com.project.workspace.domain.repository.UserRepository;
 import com.project.workspace.domain.vo.KakaoProfile;
 import com.project.workspace.domain.vo.OAuthToken;
 import com.project.workspace.domain.vo.UserVO;
-import com.project.workspace.service.UserService;
-import com.project.workspace.service.UserServiceImpl;
-import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -28,12 +25,9 @@ import java.util.stream.Stream;
 
 //@RestController
 @Controller
-@RequiredArgsConstructor
 public class KakaoController {
 
-    private final UserRepository userRepository;
-
-//    private final UserService userService;
+    public UserRepository userRepository;
 
 
 //    KakaoAPI kakaoApi = new KakaoAPI();
