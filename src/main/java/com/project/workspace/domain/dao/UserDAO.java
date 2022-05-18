@@ -3,6 +3,7 @@ package com.project.workspace.domain.dao;
 import com.project.workspace.domain.vo.*;
 import com.project.workspace.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,5 +34,5 @@ public class UserDAO {
     public List<UserAlertVO> getAlertList(){return userMapper.getAlertList();}
     public void insertAlert(Long userNum, String alertPart, Long numbers, String alertType){userMapper.insertAlert(userNum,alertPart,numbers,alertType);}
 
-    public void kakaoJoin(String userId, String userNickName, String userMainSkill, String userMainDetail, String userCode, String userImgName){userMapper.kakaoJoin();}
+    public void kakaoJoin(UserVO userVO){userMapper.kakaoJoin(userVO);}
 }

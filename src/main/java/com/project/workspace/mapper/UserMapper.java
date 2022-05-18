@@ -28,4 +28,6 @@ public interface UserMapper {
 
     public void insertAlert(Long userNum , String alertPart, Long numbers, String alertType);
     public List<UserAlertVO> getAlertList();
+
+    public void kakaoJoin(UserVO userVO);
 }
