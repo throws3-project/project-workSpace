@@ -53,9 +53,23 @@ public class ProjectController {
 
     @GetMapping("/projectList")
     public void projectList(Model model) {
-        List<ProjectVO> projectTop4 = projectRepository.findTop4ByOrderByProjectNum();
+        List<ProjectVO> projectTop4 = projectRepository.findTop4ByOrderByProjectNumDesc();
+        List<ProjectVO> projectList = projectRepository.findAllByOrderByProjectNumDesc();
 
-        model.addAttribute("projectList",projectTop4);
+
+//        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
+        model.addAttribute("projectTop4",projectTop4);
+        model.addAttribute("projectList",projectList);
+    }
+
+    @PostMapping("/projectFilter")
+    @ResponseBody
+    public List<ProjectVO> projectFilter(ProjectFilter projectFilter) {
+
+        List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
+
+        projectList.stream().map(projectVO -> toString()).forEach(log::info);
+        return projectList;
     }
 
     @GetMapping("/projectRegister")
@@ -155,17 +169,6 @@ public class ProjectController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         Date today = new Date();
         return sdf.format(today);
-    }
-
-    private boolean checkImageType(File file) {
-        try {
-            //헤더에 담긴 파일의 ContentType을 가져온다.
-            //startsWith()를 사용해서 image라는 문자열로 시작한다면 true리턴, 아니면 false리턴
-            return Files.probeContentType(file.toPath()).startsWith("image");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     private void saveProjectSkill(String skill, ProjectVO projectVO) {
