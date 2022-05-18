@@ -520,6 +520,19 @@ ul.hoverUl li a:hover {
 }
 
 
+textarea.modify{
+    box-sizing: border-box;
+    flex: 1 1;
+    padding: 13px 16px;
+    background: #fff;
+    border: 1px solid #c9c9d9;
+    font-size: .875rem;
+    border-radius: 4px;
+    height: 100%;
+    resize: none;
+    cursor: auto;
+}
+
 /* 미디어쿼리 */
 @media screen and (max-width: 414px){
     .loungeLank {

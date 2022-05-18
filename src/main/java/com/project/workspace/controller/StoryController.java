@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -28,11 +29,7 @@ public class StoryController {
     }
     @GetMapping("/storyList")
     public void storyList(){
-        List<StoryVO> storyVO = storyRepository.findAll();
-
-        log.info("-------------------------------");
-        log.info(storyVO.toString());
-        log.info("-------------------------------");
+        List<StoryVO> storyVO = storyRepository.findAll().stream().limit(4).collect(Collectors.toList());
     }
     @GetMapping("/storyModify")
     public void storyModify(){

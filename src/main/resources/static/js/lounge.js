@@ -67,7 +67,7 @@ function lounge(){
         str += '</div>';
     }
 
-    $("div.loungeTool").append(str);
+    $("div.inputText").html(str);
 }
 
 
@@ -318,9 +318,10 @@ $(".loungeBtn1").on("click", function (e) {
         alert("글을 입력하세요");
     }else{
         loungeService.insertLounge({
-            loungeContent:loungeContent, userNum:3
+            loungeContent:loungeContent, userNum:1
         }, function (result) {
             alert(result);
+           location.reload();
         })
     }
 })
@@ -342,6 +343,39 @@ $(".loungeTool").on("click", ".activeInputBtn" , function (e) {
         })
     }
 })
+
+// 라운지 삭제
+$("p.remove").on("click",function () {
+    let loungeNum = $(this).parents(".replySection").data("reply");
+    loungeService.deleteLounge(
+        loungeNum
+    , function (result) {
+        alert(result);
+        location.reload();
+    })
+})
+
+// 라운지 수정
+$("p.modify").on("click", function(){
+    $(this).parents("div.replyBtnWrap").prev().attr("readonly", false);
+    $(this).parents("div.replyBtnWrap").prev().addClass("modify");
+})
+
+// 임시 수정 버튼
+
+// $("div.replyBottom").on("mouseover", function(){
+//     let loungeContent = $(this).prev().find("textarea").val();
+//     let loungeNum = $(this).parents("div.replySection").data("reply");
+//     console.log(loungeContent);
+//     console.log(loungeNum);
+//     loungeService.updateLounge({
+//         loungeNum:loungeNum,loungeContent:loungeContent
+//     }, function (result) {
+//         alert(result);
+//         location.reload();
+//     })
+//
+// })
 
 
 
