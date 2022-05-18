@@ -33,5 +33,4 @@ public class UserDAO {
     public List<UserAlertVO> getAlertList(){return userMapper.getAlertList();}
     public void insertAlert(Long userNum, String alertPart, Long numbers, String alertType){userMapper.insertAlert(userNum,alertPart,numbers,alertType);}
 
-    public void kakaoJoin(String userId, String userNickName, String userMainSkill, String userMainDetail, String userCode, String userImgName){userMapper.kakaoJoin();}
 }
