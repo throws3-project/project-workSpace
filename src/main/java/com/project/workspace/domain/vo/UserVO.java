@@ -31,7 +31,7 @@ public class UserVO {
     @Column(name = "user_location")
     private String userLocation;
     @Column(name = "user_nick_name")
-    private String userNickName;
+    private String userNickname;
     @Column(name = "user_phone")
     private String userPhone;
     @Column(name = "user_main_skill")
@@ -113,7 +113,7 @@ public class UserVO {
         this.userContent = userContent;
         this.userGender = userGender;
         this.userLocation = userLocation;
-        this.userNickName = userNickName;
+        this.userNickname = userNickName;
         this.userPhone = userPhone;
         this.userMainSkill = userMainSkill;
         this.userMainDetail = userMainDetail;

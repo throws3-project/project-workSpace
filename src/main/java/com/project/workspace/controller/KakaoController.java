@@ -3,10 +3,13 @@ package com.project.workspace.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.workspace.domain.repository.UserInterestRepository;
 import com.project.workspace.domain.repository.UserRepository;
 import com.project.workspace.domain.vo.KakaoProfile;
 import com.project.workspace.domain.vo.OAuthToken;
 import com.project.workspace.domain.vo.UserVO;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -21,13 +24,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 //@RestController
 @Controller
+@RequiredArgsConstructor // 컨트롤러 만들때 꼭 넣어주는걸로 합시다.
+@Slf4j
 public class KakaoController {
 
-    public UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final UserInterestRepository userInterestRepository;
 
 
 //    KakaoAPI kakaoApi = new KakaoAPI();
@@ -183,11 +190,31 @@ public class KakaoController {
     }
 
     @PostMapping("/joinForm")
-    public String join(UserVO userVO){
+    public String join(UserVO userVO, Model model){
         System.out.println(userVO.toString());
         userRepository.save(userVO);
+        List<Long> userNumList = userRepository.findAll().stream().map(UserVO::getUserNum).collect(Collectors.toList());
+        Collections.reverse(userNumList);
+        Long userNum = userNumList.get(0);
+//        log.info(userNum.toString());
+//        log.info(userNumList.toString());
 
-       return "user/joinPlus";
+        model.addAttribute("userNum", userNum);
+
+        return "user/joinSuccess";
+    }
+
+    @PostMapping("/joinSuccess")
+    public String joinUpdate(Long userNum, String userLocation){
+        log.info("유저넘버입니다~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+userNum);
+
+        UserVO userVO = userRepository.findById(userNum).get();
+//        userVO.setUserLocation();
+//        userVO.setUserTime();
+
+
+
+        return "user/joinPlus";
     }
 
 

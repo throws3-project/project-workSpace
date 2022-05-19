@@ -38,12 +38,12 @@
                     </li>
                     <li class="secondLi">
                         <label>닉네임</label>
-                        <input type="text" class="nickInput" placeholder="3~10자리 이내로 적어주세요!" name="userNick_name" th:value="${userNickName}" minlength="2" maxlength="10">
+                        <input type="text" class="nickInput" placeholder="3~10자리 이내로 적어주세요!" name="userNickname" th:value="${userNickName}" minlength="2" maxlength="10">
                     </li>
                     <li class="thirdLi">
                         <label>본 캐릭터 설정</label>
                         <div class="settingWrapper">
-                            <select id="userMainSkill" onchange="selectBoxChange(this.value); personChange(this);">
+                            <select id="userMainSkill" onchange="personChange(this);">
                                 <option selected value="기획">기획</option>
                                 <option value="디자인">디자인</option>
                                 <option value="프론트엔드개발">프론트엔드개발</option>
@@ -51,18 +51,18 @@
                                 <option value="사업">사업</option>
                                 <option value="기타">기타</option>
                             </select>
-                            <select id="userMainDetail" onchange="selectBoxChange2(this.value);">
+                            <select id="userMainDetail">
                                 <option selected value="UI/UX기획">UI/UX기획</option>
                                 <option value="게임기획">게임기획</option>
                                 <option value="프로젝트 매니저">프로젝트 매니저</option>
                                 <option value="하드웨어(제품) 기획">하드웨어(제품) 기획</option>
                             </select>
-                            <select id="userMainLevel" onchange="selectBoxChange3(this.value);">
-                                <option value="초심자">초심자</option>
-                                <option value="초보">초보</option>
-                                <option selected value="중수">중수</option>
-                                <option value="고수">고수</option>
-                                <option value="구루">구루</option>
+                            <select id="userMainLevel">
+                                <option value="1">초심자</option>
+                                <option value="2">초보</option>
+                                <option selected value="3">중수</option>
+                                <option value="4">고수</option>
+                                <option value="5">구루</option>
                             </select>
                         </div>
                     </li>
