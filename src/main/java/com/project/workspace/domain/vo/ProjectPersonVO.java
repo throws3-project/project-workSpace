@@ -1,19 +1,19 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-@Entity
 @Component
+@Entity
 @Table(name = "tbl_project_person")
 @Getter
+@Setter
 @ToString(exclude = {"projectVO"})
-@NoArgsConstructor
+@DynamicInsert
+@AllArgsConstructor
 public class ProjectPersonVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +31,11 @@ public class ProjectPersonVO {
     private ProjectVO projectVO;
 
     @Builder
-    public ProjectPersonVO(String projectMainSkill, String projectSubSkill, Long projectCount, ProjectVO projectVO) {
+    public ProjectPersonVO(String projectMainSkill, String projectSubSkill, Long projectCount) {
         this.projectMainSkill = projectMainSkill;
         this.projectSubSkill = projectSubSkill;
         this.projectCount = projectCount;
-        this.projectVO = projectVO;
     }
+
+    public ProjectPersonVO(){;}
 }

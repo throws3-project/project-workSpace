@@ -27,7 +27,7 @@ public class LoungeRepositoryTests {
 //    @Test
 //    public void insertTest(){
 //        UserVO userVO = userRepository.findById(1L).get();
-//        loungeRepository.save(LoungeVO.builder().loungeContent("1").userVO(userVO).build());
+//        loungeRepository.save(LoungeVO.builder().loungeContent("2").userVO(userVO).build());
 //    }
 //    @Test
 //    @Transactional
@@ -37,12 +37,12 @@ public class LoungeRepositoryTests {
 
     // 라운지 좋아요
 
-//    @Test
-//    public void insertTest(){
-//        UserVO userVO = userRepository.findById(1L).get();
-//        LoungeVO loungeVO = loungeRepository.findById(1L).get();
-//        loungeLikeRepository.save(LoungeLikeVO.builder().loungeVO(loungeVO).userVO(userVO).build());
-//    }
+    @Test
+    public void insertTest(){
+        UserVO userVO = userRepository.findById(2L).get();
+        LoungeVO loungeVO = loungeRepository.findById(1L).get();
+        loungeLikeRepository.save(LoungeLikeVO.builder().loungeVO(loungeVO).userVO(userVO).build());
+    }
 //    @Test
 //    @Transactional
 //    public void selectTest() {
