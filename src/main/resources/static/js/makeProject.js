@@ -151,12 +151,12 @@ $("#personAddBtn").click(function () {
         str += "<div class='selectBoxWrap'>";
         str += "<div class='selectBox'>";
         str += "<select class='mainSkill'>";
-        str += "<option value='기획'>기획</option>";
-        str += "<option value='디자인'>디자인</option>";
-        str += "<option value='프론트엔드개발'>프론트엔드개발</option>";
-        str += "<option value='백엔드개발'>백엔드개발</option>";
-        str += "<option value='사업'>사업</option>";
-        str += "<option value='기타'>기타</option>";
+        str += "<option>기획</option>";
+        str += "<option>디자인</option>";
+        str += "<option>프론트엔드개발</option>";
+        str += "<option>백엔드개발</option>";
+        str += "<option>사업</option>";
+        str += "<option>기타</option>";
         str += "</select>";
         str += "</div>";
         str += "<div class='selectBox'>";
@@ -421,15 +421,6 @@ $(document).ready(function () {
 
 
 })
-
-
-
-
-
-
-
-
-
 
 
 
