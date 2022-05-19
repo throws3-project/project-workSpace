@@ -27,7 +27,7 @@
                 <input type="hidden" name="userMainDetail" class="userMainDetail">
                 <input type="hidden" name="userMainLevel" class="userMainLevel">
                 <input type="hidden" name="userCode" th:value="${userCode}">
-                <input type="hidden" name="userImgName" th:value="${userProfileURL}">
+<!--                <input type="hidden" id="userImgName" name="userImgName" th:value="${userProfileURL}">-->
                 <ul class="firstSignForm">
                     <li class="firstLi">
                         <label>이메일</label>
@@ -89,7 +89,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
-<script>
+<script th:inline="javascript">
     // 인풋 히든에 셀렉트 벨류 값 집어넣기
     // var selectBoxChange = function(value){
     //     console.log("값 변경테스트: " + value);
@@ -105,6 +105,28 @@
     //     console.log("값 변경테스트: " + value);
     //     $("input[name='userMainLevel']").val(value);
     // };
+
+// console.log($("#userImgName")[0].defaultValue.files);
+
+    // imgUpload();
+    // function imgUpload() {
+    //     let inputFile = $("#userImgName");
+    //     let files = e.target.files;
+    //     let formData = new FormData();
+    //
+    //     formData.append("uploadFile", files[0]);
+    //     $.ajax({
+    //         url: "/uploadAjaxAction",
+    //         data: formData,
+    //         type: "POST",
+    //         // 현재 설정된 헤더 설정을 기본 방식으로 변경하지 못하도록 false로 설정
+    //         processData: false,
+    //         contentType: false,
+    //         success: function (result) {
+    //            console.log(result.toString());
+    //         }
+    //     });
+    // }
 
     // 메인 기술 선택시 세부 기술 변경
     function personChange(e) {
@@ -140,5 +162,13 @@
         $(".userMainLevel").val($("#userMainLevel").val());
         document.joinForm.submit();
     })
+
+    $(".emailButton").on("click", function(e){
+        e.preventDefault();
+    });
+
+    $(".codeButton").on("click", function(e){
+        e.preventDefault();
+    });
 </script>
 </html>

@@ -26,3 +26,4 @@ $("div#interestWrap p").each(function (i,tag) {
         }
     })
 })
+

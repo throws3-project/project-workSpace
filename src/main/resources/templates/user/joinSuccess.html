@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>workSpace-join2</title>
     <link rel="stylesheet" href="/css/join2.css" type="text/css">
     <link rel="stylesheet" href="/css/header.css" type="text/css">
@@ -30,89 +30,98 @@
 <section>
     <div class="joinWrapper">
         <div class="h3Good">
-        <h3>
-            <span class="smTxt">관심분야/장소/시간 설정</span>
-            <span class="bigTxt">지금 완료시, 렛플력 200을 획득합니다.</span>
-        </h3>
-    </div>
-        <form method="post" name="joinSuccess" action="/joinSuccess">
+            <h3>
+                <span class="smTxt">관심분야/장소/시간 설정</span>
+                <span class="bigTxt">지금 완료시, 렛플력 200을 획득합니다.</span>
+            </h3>
+        </div>
+        <form method="post" name="joinSuccess" id="frm" action="/joinSuccess">
         <div class="form">
-            <ul class="firstSignForm">
+
+
+                <ul class="firstSignForm">
+                    <input type="hidden" name="userOnOff" class="userOnOff">
+                    <input type="hidden" name="userLocation" class="userLocation">
+                    <input type="hidden" name="userTime" class="userTime">
                     <input type="hidden" name="userNum" th:value="${userNum}">
-                <li class="secondLi">
-                    <label>선호 장소</label>
-                    <div class="settingWrapper2">
-                        <select class="twoSelect" onchange="personChange(this);">
-                            <option selected value="2">온라인/오프라인 모두 가능</option>
-                            <option value="0">온라인만 가능</option>
-                            <option value="1">오프라인만 가능</option>
-                        </select>
-                        <select class="twoSelect">
-                            <option selected value="상관없음">상관없음</option>
-                            <option value="서울특별시">서울특별시</option>
-                            <option value="경기도">경기도</option>
-                            <option value="부산광역시">부산광역시</option>
-                            <option value="인천광역시">인천광역시</option>
-                            <option value="대구광역시">대구광역시</option>
-                            <option value="경상남도">경상남도</option>
-                            <option value="경상북도">경상북도</option>
-                            <option value="대전광역시">대전광역시</option>
-                            <option value="충청남도">충청남도</option>
-                            <option value="충청북도">충청북도</option>
-                            <option value="전라남도">전라남도</option>
-                            <option value="전라북도">전라북도</option>
-                            <option value="광주광역시">광주광역시</option>
-                            <option value="강원도">강원도</option>
-                            <option value="울산광역시">울산광역시</option>
-                            <option value="제주특별자치도">제주특별자치도</option>
-                            <option value="세종특별자치시">세종특별자치시</option>
-                        </select>
-                    </div>
-                </li>
-                <li class="thirdLi">
-                    <label>선호 시간대</label>
-                    <div class="settingWrapper2">
-                        <select class="twoSelect">
-                            <option selected value="4">상관 없음</option>
-                            <option value="0">평일 오전</option>
-                            <option value="1">평일 오후</option>
-                            <option value="2">주말 오전</option>
-                            <option value="3">주말 오후</option>
-                        </select>
-                    </div>
-                </li>
-                <li class="firstLi">
-                    <label>관심 분야<br>(최대 5개)</label>
-                    <div class="searchTagWrapper2">
-                        <div id="labelTag">
-                            <div id="interestWrap">
-                                <p>O2O</p>
-                                <p>공유서비스</p>
-                                <p>데이팅서비스</p>
-                                <p>여행</p>
-                                <p>소셜네트워크</p>
-                                <p>뷰티/패션</p>
-                                <p>이커머스</p>
-                                <p>엔터테인먼트</p>
-                                <p>게임</p>
-                                <p>헬스/스포츠</p>
-                                <p>뉴스/정보</p>
-                                <p>유틸</p>
-                                <p>금융</p>
-                                <p>부동산/인테리어</p>
-                                <p>종교</p>
-                                <p>우주/외계인</p>
+                    <li class="secondLi">
+                        <label>선호 장소</label>
+                        <div class="settingWrapper2">
+                            <select class="twoSelect" id="userOnOff" onchange="personChange(this);">
+                                <option selected value="2">온라인/오프라인 모두 가능</option>
+                                <option value="0">온라인만 가능</option>
+                                <option value="1">오프라인만 가능</option>
+                            </select>
+                            <select class="twoSelect" id="userLocation">
+                                <option selected value="상관 없음">상관 없음</option>
+                                <option value="서울특별시">서울특별시</option>
+                                <option value="경기도">경기도</option>
+                                <option value="부산광역시">부산광역시</option>
+                                <option value="인천광역시">인천광역시</option>
+                                <option value="대구광역시">대구광역시</option>
+                                <option value="경상남도">경상남도</option>
+                                <option value="경상북도">경상북도</option>
+                                <option value="대전광역시">대전광역시</option>
+                                <option value="충청남도">충청남도</option>
+                                <option value="충청북도">충청북도</option>
+                                <option value="전라남도">전라남도</option>
+                                <option value="전라북도">전라북도</option>
+                                <option value="광주광역시">광주광역시</option>
+                                <option value="강원도">강원도</option>
+                                <option value="울산광역시">울산광역시</option>
+                                <option value="제주특별자치도">제주특별자치도</option>
+                                <option value="세종특별자치시">세종특별자치시</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="thirdLi">
+                        <label>선호 시간대</label>
+                        <div class="settingWrapper2">
+                            <select class="twoSelect" id="userTime">
+                                <option selected value="4">상관 없음</option>
+                                <option value="0">평일 오전</option>
+                                <option value="1">평일 오후</option>
+                                <option value="2">주말 오전</option>
+                                <option value="3">주말 오후</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="firstLi">
+                        <label>관심 분야<br>(최대 5개)</label>
+                        <div class="searchTagWrapper2">
+                            <div id="labelTag">
+                                <div id="interestWrap">
+                                    <p>O2O</p>
+                                    <p>공유서비스</p>
+                                    <p>데이팅서비스</p>
+                                    <p>여행</p>
+                                    <p>소셜네트워크</p>
+                                    <p>뷰티/패션</p>
+                                    <p>이커머스</p>
+                                    <p>엔터테인먼트</p>
+                                    <p>게임</p>
+                                    <p>헬스/스포츠</p>
+                                    <p>뉴스/정보</p>
+                                    <p>유틸</p>
+                                    <p>금융</p>
+                                    <p>부동산/인테리어</p>
+                                    <p>종교</p>
+                                    <p>우주/외계인</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-            </ul>
+                </ul>
             <div class="joinCompleteWrapper">
-                <button class="joinComplete">나중에</button>
+                <button class="joinCompleteLater" id="joinLater">나중에</button>
                 <button class="joinComplete">완료</button>
             </div>
         </div>
+        </form>
+
+        <form action="/joinLater" method="get" name="laterForm">
+            <input type="hidden" name="userNum" th:value="${userNum}">
         </form>
     </div>
 </section>
@@ -137,11 +146,38 @@
 
         target.html("");
 
-        $(d).each(function (i,opt) {
-            let str="";
-            str+="<option>"+opt+"</option>"
+        $(d).each(function (i, opt) {
+            let str = "";
+            str += "<option>" + opt + "</option>"
             target.append(str);
         })
     }
+
+
+    $(".joinComplete").on("click", function (e) {
+        e.preventDefault();
+        $(".userOnOff").val($("#userOnOff").val());
+        $(".userLocation").val($("#userLocation").val());
+        $(".userTime").val($("#userTime").val());
+
+        $("p.active").each(function (i, tag) {
+            let str = "";
+            if ($(tag).text()) {
+                str = "<input type='hidden' id='interest' name='interest' value='" + $(tag).text() + "'>"
+                $("#frm").append(str);
+            }
+        })
+
+        if (!$("input[name='interest']").val()) {
+            alert("한 가지 이상 필수로 선택해주세요.");
+            return;
+        }
+        document.joinSuccess.submit();
+    })
+
+    $("#joinLater").on("click", function (e) {
+        e.preventDefault();
+        document.laterForm.submit();
+    })
 </script>
 </html>

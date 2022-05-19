@@ -4,10 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.workspace.domain.repository.UserInterestRepository;
+import com.project.workspace.domain.repository.UserPortfolioRepository;
 import com.project.workspace.domain.repository.UserRepository;
-import com.project.workspace.domain.vo.KakaoProfile;
-import com.project.workspace.domain.vo.OAuthToken;
-import com.project.workspace.domain.vo.UserVO;
+import com.project.workspace.domain.vo.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.User;
@@ -18,11 +17,19 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -35,6 +42,7 @@ public class KakaoController {
 
     private final UserRepository userRepository;
     private final UserInterestRepository userInterestRepository;
+    private final UserPortfolioRepository userPortfolioRepository;
 
 
 //    KakaoAPI kakaoApi = new KakaoAPI();
@@ -205,10 +213,23 @@ public class KakaoController {
     }
 
     @PostMapping("/joinSuccess")
-    public String joinUpdate(Long userNum, String userLocation){
+    public String joinUpdate(Long userNum, String userLocation, String userOnOff, String userTime, String interest, Model model){
         log.info("유저넘버입니다~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+userNum);
-
+        log.info("유저관심사입니다~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + interest);
         UserVO userVO = userRepository.findById(userNum).get();
+        log.info("유저브이오 투스트링입니다~~~~~~~~~~~~~~~" + userVO.toString());
+        userVO.setUserLocation(userLocation);
+        userVO.setUserOnOff(userOnOff);
+        userVO.setUserTime(userTime);
+        userVO.setUserPoint(200l);
+        userRepository.save(userVO);
+        String[] interestAr = interest.split(",");
+        for (int i = 0; i<interestAr.length; i++) {
+            userInterestRepository.save(UserInterestVO.builder().interest(interestAr[i]).userVO(userVO).build());
+        }
+
+        model.addAttribute("userNum", userNum);
+
 //        userVO.setUserLocation();
 //        userVO.setUserTime();
 
@@ -217,5 +238,95 @@ public class KakaoController {
         return "user/joinPlus";
     }
 
+    @PostMapping("/joinPlus")
+    public String joinUpdateFinal(Long userNum, String userSubSkill, String userSubDetail, String userSubLevel, Long userPrice, String userContent, String portUrl, HttpServletRequest req){
+        UserVO userVO = userRepository.findById(userNum).get();
+        log.info("유저 서브 스킬~~~~~~~" + userSubSkill);
+        log.info("유저 서브 디테일~~~~~~~" + userSubDetail);
+        log.info("유저 서브 레벨~~~~~~~" + userSubLevel);
+        log.info("유저 프라이스~~~~~~~" + userPrice);
+        log.info("유저 컨텐트~~~~~~~" + userContent);
+        log.info("유저 포트폴리오~~~~~~~" + portUrl);
+        userVO.setUserSubSkill(userSubSkill);
+        userVO.setUserSubDetail(userSubDetail);
+        userVO.setUserSubLevel(userSubLevel);
+        userVO.setUserPrice(userPrice);
+        userVO.setUserContent(userContent);
+        userVO.setUserPoint(400l);
+        userVO.setSocialType("0");
+        userRepository.save(userVO);
 
+        String[] portUrlAr = portUrl.split(",");
+        for (int i = 0; i<portUrlAr.length; i++) {
+            log.info(portUrlAr[i]);
+            userPortfolioRepository.save(UserPortfolioVO.builder().portUrl(portUrlAr[i]).userVO(userVO).build());
+        }
+
+        HttpSession session = req.getSession();
+        session.setAttribute("userNum",userNum);
+
+        return "main/index";
+    }
+
+    @GetMapping("/joinLater")
+    public RedirectView joinLater(Long userNum, HttpServletRequest req){
+        HttpSession session = req.getSession();
+        session.setAttribute("userNum",userNum);
+        return new RedirectView("main/index");
+    }
+
+
+//    @PostMapping("/uploadAjaxAction")
+//    @ResponseBody
+//    public UserVO uploadAjaxPost(MultipartFile uploadFile) {
+//        String uploadFolder = "C:/upload";
+//        UserVO userVO = new UserVO();
+////        UUID(Universally unique identifier) : 범용 고유 식별자
+////        네트워크 상에서 각각의 개체들을 식별하기 위하여 사용되었다.
+////        중복될 가능성이 거의 없다고 인정되기 때문에 많이 사용된다.
+////        UUID의 개수는 10의 38승입니다.
+//
+//        UUID uuid = UUID.randomUUID();
+//        String uploadFileName = null;
+//
+//        String uploadFolderPath = getPath();
+//        File uploadPath = new File(uploadFolder, uploadFolderPath);
+//        if (!uploadPath.exists()) {
+//            uploadPath.mkdirs();
+//        }
+//        log.info("-------------------------");
+//        log.info("Upload File Name : " + uploadFile.getOriginalFilename());
+//        log.info("Upload File Path : " + uploadFolderPath);
+//        log.info("Upload File Size : " + uploadFile.getSize());
+//
+//        uploadFileName = uploadFile.getOriginalFilename();
+//
+//        userVO.setUserImgName(uploadFileName);
+//        userVO.setUserImgUuid(uuid.toString());
+//        userVO.setUserImgPath(uploadFolderPath);
+//
+//        //저장할 경로와 파일의 이름을 File객체에 담는다.
+//        File saveFile = new File(uploadPath, uuid.toString() + "_" + uploadFileName);
+//
+//        try {
+//            //설정한 경로에 해당 파일을 업로드한다.
+//            uploadFile.transferTo(saveFile);
+//
+//        } catch (IOException e) {
+//            log.error(e.getMessage());
+//        }
+//        return userVO;
+//    }
+//
+//    @GetMapping("/display")
+//    @ResponseBody
+//    public byte[] getFile(String fileName) throws IOException {
+//        return FileCopyUtils.copyToByteArray(new File("C:/upload/" + fileName));
+//    }
+//
+//    private String getPath() {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//        Date today = new Date();
+//        return sdf.format(today);
+//    }
 }
