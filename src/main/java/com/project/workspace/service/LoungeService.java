@@ -1,6 +1,11 @@
 package com.project.workspace.service;
 
+import com.project.workspace.domain.vo.LoungeLikeVO;
+import com.project.workspace.domain.vo.LoungeVO;
+import com.project.workspace.domain.vo.UserVO;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface LoungeService {

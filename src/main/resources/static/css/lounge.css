@@ -7,7 +7,8 @@ textarea {
 }
 /* 총 section */
 .loungeSection{
-   width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     margin-top: 76px;
     /* transform: scale(0.9); */
@@ -18,7 +19,7 @@ textarea {
     justify-content: space-between;
 } */
 .loungeTool{
-    width:100%;
+    width: 85%;
 }
 
 /* 상단 라운지 */
@@ -482,6 +483,7 @@ textarea {
     transition: all .2s;
     font-size: .75rem;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 

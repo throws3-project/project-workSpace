@@ -94,4 +94,11 @@
     (user_num, point_date, point_value, point_history, point_status)
     values(#{userNum}, #{pointDate}, #{pointValue}, #{pointHistory},#{pointStatus})
     </insert>
+    <!--  kakao로 받아온 정보 userVO에 넣기-->
+    <insert id="kakaoJoin">
+        insert into tbl_user
+        (user_id, user_nick_name, user_main_skill, user_main_detail, user_main_level, user_code, user_img_name)
+        VALUES(#{userId},#{userNickName},#{userMainSkill},#{userMainDetail},#{userMainLevel},#{userCode},#{userImgName})
+    </insert>
+
 </mapper>

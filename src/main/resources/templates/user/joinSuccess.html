@@ -14,7 +14,7 @@
 <!--헤더-->
 <th:block th:insert="/fix/header.html :: headFragment"/>
 <!-- 모달 -->
-<div class="modalWindow">
+<div class="modalWindowSuccess">
     <div id="my_modalPage">
         <div class="divImage">
             <img src="/images/pokjuk.png" class="pokjukPng">
@@ -35,34 +35,37 @@
             <span class="bigTxt">지금 완료시, 렛플력 200을 획득합니다.</span>
         </h3>
     </div>
+        <form method="post" name="joinSuccess" action="/joinSuccess">
         <div class="form">
             <ul class="firstSignForm">
+                    <input type="hidden" name="userNum" th:value="${userNum}">
                 <li class="secondLi">
                     <label>선호 장소</label>
                     <div class="settingWrapper2">
-                        <select class="twoSelect">
-                            <option value="01">온라인/오프라인 모두 가능</option>
-                            <option selected value="02">온라인만 가능</option>
-                            <option value="03">오프라인만 가능</option>
+                        <select class="twoSelect" onchange="personChange(this);">
+                            <option selected value="2">온라인/오프라인 모두 가능</option>
+                            <option value="0">온라인만 가능</option>
+                            <option value="1">오프라인만 가능</option>
                         </select>
                         <select class="twoSelect">
-                            <option selected value="0201">서울특별시</option>
-                            <option value="0202">경기도</option>
-                            <option value="0203">부산광역시</option>
-                            <option value="0204">인천광역시</option>
-                            <option value="0205">대구광역시</option>
-                            <option value="0206">경상남도</option>
-                            <option value="0207">경상북도</option>
-                            <option value="0208">대전광역시</option>
-                            <option value="0209">충청남도</option>
-                            <option value="0210">충청북도</option>
-                            <option value="0211">전라남도</option>
-                            <option value="0212">전라북도</option>
-                            <option value="0213">광주광역시</option>
-                            <option value="0214">강원도</option>
-                            <option value="0215">울산광역시</option>
-                            <option value="0216">제주특별자치도</option>
-                            <option value="0217">세종특별자치시</option>
+                            <option selected value="상관없음">상관없음</option>
+                            <option value="서울특별시">서울특별시</option>
+                            <option value="경기도">경기도</option>
+                            <option value="부산광역시">부산광역시</option>
+                            <option value="인천광역시">인천광역시</option>
+                            <option value="대구광역시">대구광역시</option>
+                            <option value="경상남도">경상남도</option>
+                            <option value="경상북도">경상북도</option>
+                            <option value="대전광역시">대전광역시</option>
+                            <option value="충청남도">충청남도</option>
+                            <option value="충청북도">충청북도</option>
+                            <option value="전라남도">전라남도</option>
+                            <option value="전라북도">전라북도</option>
+                            <option value="광주광역시">광주광역시</option>
+                            <option value="강원도">강원도</option>
+                            <option value="울산광역시">울산광역시</option>
+                            <option value="제주특별자치도">제주특별자치도</option>
+                            <option value="세종특별자치시">세종특별자치시</option>
                         </select>
                     </div>
                 </li>
@@ -70,15 +73,11 @@
                     <label>선호 시간대</label>
                     <div class="settingWrapper2">
                         <select class="twoSelect">
-                            <option value="0301">주중/주말 모두가능</option>
-                            <option selected value="0302">주중만 가능</option>
-                            <option value="0303">주말만 가능</option>
-                        </select>
-                        <select class="twoSelect">
-                            <option selected value="0401">상관없음</option>
-                            <option value="0402">오전 위주</option>
-                            <option value="0403">오후 위주</option>
-                            <option value="0404">저녁 위주</option>
+                            <option selected value="4">상관 없음</option>
+                            <option value="0">평일 오전</option>
+                            <option value="1">평일 오후</option>
+                            <option value="2">주말 오전</option>
+                            <option value="3">주말 오후</option>
                         </select>
                     </div>
                 </li>
@@ -107,12 +106,14 @@
                         </div>
                     </div>
                 </li>
+
             </ul>
             <div class="joinCompleteWrapper">
                 <button class="joinComplete">나중에</button>
                 <button class="joinComplete">완료</button>
             </div>
         </div>
+        </form>
     </div>
 </section>
 <th:block th:insert="/fix/chat.html :: sideFragment"/>
@@ -123,4 +124,24 @@
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
 <script src="/js/join2.js"></script>
+<script>
+    function personChange(e) {
+        let d = "";
+        let person_a = ["상관 없음"];
+        let person_b = ["상관 없음", "서울특별시", "경기도", "부산광역시", "인천광역시", "대구광역시", "경상남도", "경상북도", "대전광역시", "충청남도", "충청북도", "전라남도", "전라북도", "광주광역시", "강원도", "울산광역시", "제주특별자치도", "세종특별자치시"];
+        let target = $(e).next();
+
+        if (e.value == "2") d = person_b;
+        else if (e.value == "1") d = person_b;
+        else if (e.value == "0") d = person_a;
+
+        target.html("");
+
+        $(d).each(function (i,opt) {
+            let str="";
+            str+="<option>"+opt+"</option>"
+            target.append(str);
+        })
+    }
+</script>
 </html>

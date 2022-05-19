@@ -447,13 +447,13 @@ button.complete{
 
 /* 디스플레이 조절*/
 
-/*div.profileWrap{*/
-/*    display: none;*/
-/*}*/
-
-div.loginWrap{
+div.profileWrap{
     display: none;
 }
+
+/*div.loginWrap{*/
+/*    display: none;*/
+/*}*/
 
 ul.mobileBar{
     display: none;
