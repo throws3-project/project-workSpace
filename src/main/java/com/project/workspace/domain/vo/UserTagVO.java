@@ -1,9 +1,6 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -11,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Component
 @Table(name = "tbl_userTag")
-@Getter
+@Getter @Setter
 @ToString(of = {"tagNum","tagName"})
 @NoArgsConstructor
 public class UserTagVO {

@@ -59,7 +59,7 @@
 
     <!----------------------------------------------------------------내 정보 수정--------------------------------------------------------------------->
     <section id="info" class="pageNav">
-        <form method="post" name="memberForm" id="frm" action="/modify">
+        <form method="POST" name="userForm" id="frm" action="/modify">
             <div id="infoWrap" class="flex">
                 <div id="top">
 
@@ -69,7 +69,7 @@
                         </label>
                     </div>
                     <label for="thumbNail">
-                        <button id="profileChange"></button>
+                        <button id="profileChange" type="button"></button>
                     </label>
                     <input type="file" name="profileImg" id="thumbNail">
                 </div>
@@ -81,7 +81,7 @@
                     </div>
                     <div id="nickWrap" class="marginBottom">
                         <label>닉네임
-                            <input type="text" class="able" placeholder="3~10자리 이내로 적어주세요!" th:value="${userVO.getUserNickName()}">
+                            <input type="text"  name="userNickName" class="able" placeholder="3~10자리 이내로 적어주세요!" th:value="${userVO.getUserNickName()}">
                         </label>
                         <p class="alert">사용 가능합니다.</p>
                     </div>
@@ -94,21 +94,21 @@
                     <div id="mainSkill" class="marginBottom">
                         <p>메인 직무/ 상세 직무 / 능력치</p>
                         <div class="flex">
-                            <select class="able first" name="mainSkill" onchange="personChange(this)">
-                                <option value="a">기획</option>
-                                <option value="b">디자인</option>
-                                <option value="c">프론트엔드개발</option>
-                                <option value="d" selected>백엔드개발</option>
-                                <option value="e">사업</option>
-                                <option value="f">기타</option>
+                            <select class="able first" id="mainSkill2" onchange="personChange(this)" th:value="${userVO.getUserMainSkill()}">
+                                <option>기획</option>
+                                <option>디자인</option>
+                                <option>프론트엔드개발</option>
+                                <option>백엔드개발</option>
+                                <option>사업</option>
+                                <option>기타</option>
                             </select>
-                            <select class="able second" name="subSkill">
+                            <select class="able second" id="mainDetail2" th:value="${userVO.getUserMainDetail()}">
                                 <option>UI/UX 기획</option>
                                 <option>게임 기획</option>
                                 <option>프로젝트 매니저</option>
                                 <option>하드웨어(제품) 기획</option>
                             </select>
-                            <select class="able third" name="skillLevel">
+                            <select class="able third" id="skillLevel2" th:value="${userVO.getUserMainLevel()}">
                                 <option value="1">초심자</option>
                                 <option value="2">초보</option>
                                 <option value="3">중수</option>
@@ -121,21 +121,21 @@
                     <div id="subSkill" class="marginBottom">
                         <p>서브 직무/ 상세 직무 / 능력치</p>
                         <div class="flex">
-                            <select class="able first" name="mainSkill" onchange="personChange(this)">
-                                <option value="a">기획</option>
-                                <option value="b">디자인</option>
-                                <option value="c">프론트엔드개발</option>
-                                <option value="d">백엔드개발</option>
-                                <option value="e">사업</option>
-                                <option value="f">기타</option>
+                            <select class="able first" id="mainSkill3" onchange="personChange(this)" th:value="${userVO.getUserSubSkill()}">
+                                <option>기획</option>
+                                <option>디자인</option>
+                                <option>프론트엔드개발</option>
+                                <option>백엔드개발</option>
+                                <option>사업</option>
+                                <option>기타</option>
                             </select>
-                            <select class="able second" name="subSkill">
+                            <select class="able second" id="subSkill3" th:value="${userVO.getUserSubDetail()}">
                                 <option>UI/UX 기획</option>
                                 <option>게임 기획</option>
                                 <option>프로젝트 매니저</option>
                                 <option>하드웨어(제품) 기획</option>
                             </select>
-                            <select class="able third" name="skillLevel">
+                            <select class="able third" id="skillLevel3" th:value="${userVO.getUserSubLevel()}">
                                 <option value="1">초심자</option>
                                 <option value="2">초보</option>
                                 <option value="3">중수</option>
@@ -148,7 +148,7 @@
                     <div id="price" class="marginBottom">
                         <p>대화 포인트</p>
                         <div class="flex">
-                            <select class="able first" name="price">
+                            <select class="able first" id="valPoint" th:value="${userVO.getUserPoint()}">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -168,30 +168,30 @@
                     <div id="location" class="marginBottom">
                         <p>지역 설정</p>
                         <div class="flex">
-                            <select class="able first" name="price" onchange="onOffChange(this)">
+                            <select class="able first" id="onOff" onchange="onOffChange(this)" th:value="${userVO.getUserOnOff()}">
                                 <option value="a">온라인/오프라인 모두 가능</option>
                                 <option value="b">온라인만 가능</option>
                                 <option value="c">오프라인만 가능</option>
                             </select>
-                            <select class="able second" name="price">
-                                <option value="z">상관없음</option>
-                                <option value="a">서울특별시</option>
-                                <option value="b">경기도</option>
-                                <option value="c">부산광역시</option>
-                                <option value="d">인천광역시</option>
-                                <option value="e">대구관역시</option>
-                                <option value="f">경상남도</option>
-                                <option value="g">경상북도</option>
-                                <option value="h">대전광역시</option>
-                                <option value="i">충청남도</option>
-                                <option value="j">충청북도</option>
-                                <option value="k">전라남도</option>
-                                <option value="l">전라북도</option>
-                                <option value="m">광주광역시</option>
-                                <option value="n">강원도</option>
-                                <option value="o">울산광역시</option>
-                                <option value="p">제주특별자치도</option>
-                                <option value="q">세종특별자치시</option>
+                            <select class="able second" id="sido" th:value="${userVO.getUserLocation()}">
+                                <option>상관없음</option>
+                                <option>서울특별시</option>
+                                <option>경기도</option>
+                                <option>부산광역시</option>
+                                <option>인천광역시</option>
+                                <option>대구관역시</option>
+                                <option>경상남도</option>
+                                <option>경상북도</option>
+                                <option>대전광역시</option>
+                                <option>충청남도</option>
+                                <option>충청북도</option>
+                                <option>전라남도</option>
+                                <option>전라북도</option>
+                                <option>광주광역시</option>
+                                <option>강원도</option>
+                                <option>울산광역시</option>
+                                <option>제주특별자치도</option>
+                                <option>세종특별자치시</option>
                             </select>
                             <select class="able third hidden">
                                 <option></option>
@@ -202,17 +202,18 @@
                     <div id="time" class="marginBottom">
                         <p>시간 설정</p>
                         <div class="flex">
-                            <select class="able first" name="price">
-                                <option value="1">주중/주말 모두 가능</option>
-                                <option value="2">주중만 가능</option>
-                                <option value="3">주말만 가능</option>
+                            <select class="able first" id="week"  th:value="${userVO.getUserTime()}">
+                                <option value="1">평일오전</option>
+                                <option value="2">평일오후</option>
+                                <option value="3">주말오전</option>
+                                <option value="4">주말오후</option>
                             </select>
-                            <select class="able second" name="price">
-                                <option value="1">상관없음</option>
-                                <option value="2">오전 위주</option>
-                                <option value="3">오후 위주</option>
-                                <option value="4">저녁 위주</option>
-                            </select>
+<!--                            <select class="able second" name="times">-->
+<!--                                <option value="1">상관없음</option>-->
+<!--                                <option value="2">오전 위주</option>-->
+<!--                                <option value="3">오후 위주</option>-->
+<!--                                <option value="4">저녁 위주</option>-->
+<!--                            </select>-->
                             <select class="able third hidden">
                                 <option></option>
                             </select>
@@ -247,10 +248,11 @@
                             <input type="text" class="able" id="keyword" placeholder="태그는 최대 5개 가능합니다" minlength="3"
                                    maxlength="20" autocomplete="off">
                         </div>
-                        <div class="skillResult">
+                        <div class="skillResult" >
                             <th:block th:each="tag, i:${userTagVO}">
                             <a class='skillTag' th:text="${tag.tagName}"></a>
                             </th:block>
+
                         </div>
                     </div>
 
@@ -258,19 +260,32 @@
                     <div id="content" class="marginBottom">
                         <p>자세한 소개</p>
 
-                        <textarea name="content" th:text="${userVO.getUserContent()}" class="able" rows="5" maxlength="200"  placeholder="최대 200자 까지 작성 가능합니다."></textarea>
+                        <textarea id="contents" name="content" th:text="${userVO.getUserContent()}" class="able" rows="5" maxlength="200"  placeholder="최대 200자 까지 작성 가능합니다."></textarea>
                     </div>
 
                     <div id="portfolio" class="marginBottom">
                         <div id="url" class="flex a1" th:each="portfolio, i: ${userPortfolioVO}">
-                            <input type="text" class="able" th:value="${portfolio.portUrl}" placeholder="URL을 입력해주세요">
+                            <input type="text" class="able" name="portUrl" th:value="${portfolio.portUrl}" placeholder="URL을 입력해주세요">
                             <input id="plusUrl" type="button" class="able" value="추가">
                         </div>
                     </div>
 
                 </div>
             </div>
-            <button class="submit" id="submit">업데이트</button>
+            <button class="submit" id="sss" type="button">업데이트</button>
+            <input type="hidden" name="userMainSkill">
+            <input type="hidden" name="userLocation">
+            <input type="hidden" name="userMainDetail">
+            <input type="hidden" name="userMainLevel">
+            <input type="hidden" name="userSubSkill">
+            <input type="hidden" name="userSubDetail">
+            <input type="hidden" name="userSubLevel">
+            <input type="hidden" name="userOnOff">
+            <input type="hidden" name="userPoint">
+<!--            <input type="hidden" name="userPrice">-->
+            <input type="hidden" name="userTime">
+<!--            <input type="hidden" name="userInterest">-->
+            <input type="hidden" name="userContent">
         </form>
     </section>
 
@@ -898,6 +913,10 @@
         </div>
     </section>
     <!-----------------------------------------------------------------------포인트 !!-------------------------------------------------------------------->
+<!--    <th:block th:each="tag, i:${userTagVO}">-->
+<!--        <a class='skillTag' th:text="${tag.tagName}"></a>
+th:value="${userVO.getUserSubLevel()}"-->
+<!--    </th:block>-->
     <section id="point" class="pageNav">
         <div>
             <div>
@@ -913,10 +932,12 @@
                 <table id="pointTable" class="pointTable">
                     <thead>
                     <tr>
-                        <th class="firstCell">날짜</th>
-                        <th class="secondCell">포인트</th>
-                        <th>상세</th>
-                        <th class="lastCell">비고</th>
+                        <th:block th:each="points, i:${userPointVO}">
+                        <th class="firstCell" th:value="${points.pointDate}">날짜</th>
+                        <th class="secondCell" th:value="${points.pointValue}">포인트</th>
+                        <th th:value="${points.getPointHistory()}">상세</th>
+                        <th class="lastCell" th:value="${points.pointStatus}">비고</th>
+                        </th:block>
                     </tr>
                     </thead>
                     <tr>
