@@ -547,6 +547,7 @@ div.projectImg {
     display: inline-flex;
     max-height: 120px;
     height: 100%;
+    width: 100%;
 }
 
 div.projectImg img {

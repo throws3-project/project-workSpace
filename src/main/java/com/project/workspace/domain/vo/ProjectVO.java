@@ -1,5 +1,6 @@
 package com.project.workspace.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
@@ -49,18 +50,28 @@ public class ProjectVO {
     @Column(name = "login_count")
     private Long loginCount;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectSkillVO> skills = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectPersonVO> persons = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectReferenceVO> references = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectMemberVO> members = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectLikeVO> likes = new ArrayList<>();
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -60,6 +61,7 @@ public class ProjectController {
 //        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
         model.addAttribute("projectTop4",projectTop4);
         model.addAttribute("projectList",projectList);
+
     }
 
     @PostMapping("/projectFilter")
@@ -68,7 +70,7 @@ public class ProjectController {
 
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
 
-        projectList.stream().map(projectVO -> toString()).forEach(log::info);
+//        projectList.stream().map(projectVO -> toString()).forEach(log::info);
         return projectList;
     }
 
@@ -79,7 +81,7 @@ public class ProjectController {
 
     @PostMapping("/projectRegister")
     @Transactional
-    public String projectRegister(ProjectVO projectVO, StudyVO studyVO,HttpServletRequest request) {
+    public RedirectView projectRegister(ProjectVO projectVO, StudyVO studyVO, HttpServletRequest request) {
         String type = request.getParameter("type");
         log.info(type);
         if(type.equals("project")) {
@@ -110,7 +112,7 @@ public class ProjectController {
             StudyVO saveStudyVO = studyRepository.save(studyVO);
             Stream.of(keywords).forEach(keyword -> this.saveStudyKeyword(keyword,saveStudyVO));
         }
-        return "/project/projectList";
+        return new RedirectView("projectList");
     }
 
 
