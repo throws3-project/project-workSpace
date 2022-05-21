@@ -37,16 +37,15 @@
     <select id="getProjectList" resultType="projectVO">
         select p.* from tbl_project p join tbl_project_person s
         on p.project_num = s.project_num
-            <if test="locationFilter!=null">
+            <if test="locationFilter!=''">
                 and p.project_location = #{locationFilter}
             </if>
             <if test="skillFilter!=''">
                 and s.project_sub_skill = #{skillFilter}
             </if>
-            <if test="statusFilter!=null">
                 and p.project_status = #{statusFilter}
-            </if>
             group by p.project_num
+            order by p.project_num desc
     </select>
 
 

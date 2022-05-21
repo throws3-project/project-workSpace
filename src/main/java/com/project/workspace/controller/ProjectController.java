@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -25,10 +26,7 @@ import java.io.IOException;
 import java.net.http.HttpRequest;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -53,13 +51,16 @@ public class ProjectController {
 
     @GetMapping("/projectList")
     public void projectList(Model model) {
-        List<ProjectVO> projectTop4 = projectRepository.findTop4ByOrderByProjectNumDesc();
+        List<ProjectVO> newProjectList = projectRepository.findTop4ByOrderByProjectNumDesc();
+        List<ProjectVO> projectTop3 = projectRepository.findTop3ByOrderByProjectReadCountDesc();
         List<ProjectVO> projectList = projectRepository.findAllByOrderByProjectNumDesc();
 
 
 //        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
-        model.addAttribute("projectTop4",projectTop4);
-        model.addAttribute("projectList",projectList);
+        model.addAttribute("newProjectList", newProjectList);
+        model.addAttribute("projectTop3", projectTop3);
+        model.addAttribute("projectList", projectList);
+
     }
 
     @PostMapping("/projectFilter")
@@ -68,7 +69,8 @@ public class ProjectController {
 
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
 
-        projectList.stream().map(projectVO -> toString()).forEach(log::info);
+
+//        projectList.stream().map(projectVO -> toString()).forEach(log::info);
         return projectList;
     }
 
@@ -79,10 +81,10 @@ public class ProjectController {
 
     @PostMapping("/projectRegister")
     @Transactional
-    public String projectRegister(ProjectVO projectVO, StudyVO studyVO,HttpServletRequest request) {
+    public RedirectView projectRegister(ProjectVO projectVO, StudyVO studyVO, HttpServletRequest request) {
         String type = request.getParameter("type");
         log.info(type);
-        if(type.equals("project")) {
+        if (type.equals("project")) {
 
             String[] count = request.getParameterValues("projectCount");
             String[] main = request.getParameterValues("projectMainSkill");
@@ -94,7 +96,7 @@ public class ProjectController {
             ProjectPersonMaker projectPersonMaker = new ProjectPersonMaker(count, main, sub);
 
             projectVO.setProjectTotal(projectPersonMaker.getProjectMaxCount());
-            ProjectVO saveProjectVO = projectRepository.save(projectVO);
+            ProjectVO saveProjectVO = projectRepository.save(defaultImg(projectVO));
 
             Stream.of(skill).forEach(it -> this.saveProjectSkill(it, saveProjectVO));
             IntStream.range(0, count.length).forEach(index -> {
@@ -104,16 +106,14 @@ public class ProjectController {
             });
 
             Stream.of(urls).forEach(url -> this.saveProjectUrl(url, saveProjectVO));
-        }else if(type.equals("study")){
+        } else if (type.equals("study")) {
             String[] keywords = request.getParameterValues("studyKeyword");
 
             StudyVO saveStudyVO = studyRepository.save(studyVO);
-            Stream.of(keywords).forEach(keyword -> this.saveStudyKeyword(keyword,saveStudyVO));
+            Stream.of(keywords).forEach(keyword -> this.saveStudyKeyword(keyword, saveStudyVO));
         }
-        return "/project/projectList";
+        return new RedirectView("projectList");
     }
-
-
 
 
     @PostMapping("/uploadAjaxAction")
@@ -190,5 +190,15 @@ public class ProjectController {
         studyKeywordVO.setStudyKeyword(keyword);
         studyKeywordVO.setStudyVO(studyVO);
         studyKeywordRepository.save(studyKeywordVO);
+    }
+
+    private ProjectVO defaultImg(ProjectVO projectVO) {
+        Random r = new Random();
+        if (projectVO.getProjectImgPath() == null) {
+            int index = r.nextInt(7) + 1;
+            projectVO.setProjectImg("thumb" + index + ".png");
+        }
+        return projectVO;
+
     }
 }

@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface ProjectRepository extends JpaRepository<ProjectVO,Long> {
     public List<ProjectVO> findTop4ByOrderByProjectNumDesc();
+    public List<ProjectVO> findTop3ByOrderByProjectReadCountDesc();
     public List<ProjectVO> findAllByOrderByProjectNumDesc();
 }

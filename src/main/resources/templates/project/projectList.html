@@ -295,12 +295,14 @@
             </div>
             <div class="projectView-rightWrap">
                 <h3>주목할만한 프로젝트/스터디</h3>
+                <th:block th:each="project:${projectTop3}">
                 <div class="projectList">
                     <div class="listImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/38/images/%EA%B3%A8%EB%93%A0%EC%8D%A8%ED%81%B4.jpg">
+                        <img th:if="${project.projectImgPath == ''}" th:src="/images/${project.projectImg}">
+                        <img th:unless="${project.projectImgPath == ''}" th:src="'/project/display?fileName='+ ${project.projectImgPath} + '/' + ${project.projectImgUuid} + '_' + ${project.projectImg}">
                     </div>
                     <div class="listCategory">
-                        <p class="categoryText">소셜트립 플랫폼</p>
+                        <p class="categoryText" th:text="${project.projectName}"></p>
                         <p class="recruitText">﻿아이템 및 팀 구성아이템 소개저희는 현재 C2C 기반의여행 및 여가 황동 등을 함께 할 수 있도록 매칭하는 플랫폼을기획하고
                             개발중에 있습니다.본 프로젝트는 2030대의 지친 일상을 풀어줄 수 있는 멋진 리더들과 참여자간의 검증된 상세 프로필을 확인할 수 있으며다양한 일상을 함께 공유하고
                             소규모로 경험할 수 있는 안전하고 건전한 활동을 돕습니다.현재 2030대가 타켓오디언스인만큼 동행 관련 SNS 및 커뮤니티의 버즈들을 분석하고8명의 여행객 인터뷰,
@@ -310,57 +312,15 @@
                             또는 업무 경력이 있으신 분비즈니스 영역에서 다양한 의견 공유가 가능한 인사이트가 있으신 분여행을 사랑하는 분업무 안내자택근무 가능 / 주1회 전체 회의 f리워드에
                             대한 부분은 충분히 함께 논의하고 말씀 나누면 좋을 것 같습니다. 재택근무와 화상회의로 업무를 진행하고 필요하다면 사당역 근처에 있는 사무실에서 함께 근무
                             가능합니다. 모집에 대한 문의 사항은 렛플을 통해 연락 주시면 답변드리겠습니다.감사합니다.</p>
-                        <p class="text">[모집] 크로스플랫폼</p>
+                        <p class="text" th:if="${project.projectStatus=='1'}" th:text="'[모집중] '+${project.projectPart}"></p>
+                        <p class="text" th:if="${project.projectStatus=='2'}" th:text="'[모집완료] '+${project.projectPart}"></p>
                     </div>
                     <div class="heart">
                         <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                        <span class="heartCount">0</span>
+                        <span class="heartCount" th:text="${project.projectReadCount}"></span>
                     </div>
                 </div>
-                <div class="projectList">
-                    <div class="listImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/38/images/%EA%B3%A8%EB%93%A0%EC%8D%A8%ED%81%B4.jpg">
-                    </div>
-                    <div class="listCategory">
-                        <p class="categoryText">소셜트립 플랫폼</p>
-                        <p class="recruitText">﻿아이템 및 팀 구성아이템 소개저희는 현재 C2C 기반의여행 및 여가 황동 등을 함께 할 수 있도록 매칭하는 플랫폼을기획하고
-                            개발중에 있습니다.본 프로젝트는 2030대의 지친 일상을 풀어줄 수 있는 멋진 리더들과 참여자간의 검증된 상세 프로필을 확인할 수 있으며다양한 일상을 함께 공유하고
-                            소규모로 경험할 수 있는 안전하고 건전한 활동을 돕습니다.현재 2030대가 타켓오디언스인만큼 동행 관련 SNS 및 커뮤니티의 버즈들을 분석하고8명의 여행객 인터뷰,
-                            200명 대상의 국내 여행 실태조사 등을 통해 니즈와 문제점을 정의하여이를 기반으로 컨셉 및 MVP를 기획하였습니다.이 외 본 프로젝트에 대한 자세한 설명은 미팅 시
-                            말씀드리겠습니다 :)현재 팀원 구성영업 및 마케팅 1인UI 디자인 및 서비스 기획 1인백엔드 개발자 1인모집 사항백엔드 개발자 (모집완료)프론트 개발자 (1명)사용
-                            기술react native, android os, iOS, html5, css, javascript주요 업무앱 프론트 개발 리드경력2년 이상우대 사항스타트업 창업
-                            또는 업무 경력이 있으신 분비즈니스 영역에서 다양한 의견 공유가 가능한 인사이트가 있으신 분여행을 사랑하는 분업무 안내자택근무 가능 / 주1회 전체 회의 f리워드에
-                            대한 부분은 충분히 함께 논의하고 말씀 나누면 좋을 것 같습니다. 재택근무와 화상회의로 업무를 진행하고 필요하다면 사당역 근처에 있는 사무실에서 함께 근무
-                            가능합니다. 모집에 대한 문의 사항은 렛플을 통해 연락 주시면 답변드리겠습니다.감사합니다.</p>
-                        <p class="text">[모집] 크로스플랫폼</p>
-                    </div>
-                    <div class="heart">
-                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                        <span class="heartCount">0</span>
-                    </div>
-                </div>
-                <div class="projectList">
-                    <div class="listImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/38/images/%EA%B3%A8%EB%93%A0%EC%8D%A8%ED%81%B4.jpg">
-                    </div>
-                    <div class="listCategory">
-                        <p class="categoryText">소셜트립 플랫폼</p>
-                        <p class="recruitText">﻿아이템 및 팀 구성아이템 소개저희는 현재 C2C 기반의여행 및 여가 황동 등을 함께 할 수 있도록 매칭하는 플랫폼을기획하고
-                            개발중에 있습니다.본 프로젝트는 2030대의 지친 일상을 풀어줄 수 있는 멋진 리더들과 참여자간의 검증된 상세 프로필을 확인할 수 있으며다양한 일상을 함께 공유하고
-                            소규모로 경험할 수 있는 안전하고 건전한 활동을 돕습니다.현재 2030대가 타켓오디언스인만큼 동행 관련 SNS 및 커뮤니티의 버즈들을 분석하고8명의 여행객 인터뷰,
-                            200명 대상의 국내 여행 실태조사 등을 통해 니즈와 문제점을 정의하여이를 기반으로 컨셉 및 MVP를 기획하였습니다.이 외 본 프로젝트에 대한 자세한 설명은 미팅 시
-                            말씀드리겠습니다 :)현재 팀원 구성영업 및 마케팅 1인UI 디자인 및 서비스 기획 1인백엔드 개발자 1인모집 사항백엔드 개발자 (모집완료)프론트 개발자 (1명)사용
-                            기술react native, android os, iOS, html5, css, javascript주요 업무앱 프론트 개발 리드경력2년 이상우대 사항스타트업 창업
-                            또는 업무 경력이 있으신 분비즈니스 영역에서 다양한 의견 공유가 가능한 인사이트가 있으신 분여행을 사랑하는 분업무 안내자택근무 가능 / 주1회 전체 회의 f리워드에
-                            대한 부분은 충분히 함께 논의하고 말씀 나누면 좋을 것 같습니다. 재택근무와 화상회의로 업무를 진행하고 필요하다면 사당역 근처에 있는 사무실에서 함께 근무
-                            가능합니다. 모집에 대한 문의 사항은 렛플을 통해 연락 주시면 답변드리겠습니다.감사합니다.</p>
-                        <p class="text">[모집] 크로스플랫폼</p>
-                    </div>
-                    <div class="heart">
-                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                        <span class="heartCount">0</span>
-                    </div>
-                </div>
+                </th:block>
             </div>
         </div>
     </div>
@@ -392,7 +352,7 @@
                 <option>스터디</option>
             </select>
             <select class="smSelect filters">
-                <option value="" selected>모집분야</option>
+                <option value="" selected>상관없음</option>
                 <optgroup label=" 기획">
                     <option>UI/UX기획</option>
                     <option>게임기획</option>
@@ -480,7 +440,6 @@
                         <div class="right">
                             <div>
                                 <span>89</span>
-                                <span> (-)</span>
                             </div>
                         </div>
                     </div>
@@ -627,6 +586,9 @@
 <th:block th:insert="/fix/chat.html :: sideFragment"/>
 <th:block th:insert="/fix/footer.html :: footerFragment"/>
 </body>
+<script th:inline="javascript">
+    let projects = [[${projectList}]];
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>

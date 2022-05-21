@@ -92,7 +92,7 @@ $(filter).on("change",function () {
         processData: false,
         contentType: false,
         success: function (result) {
-            console.log(result)
+            projectList(result);
         }
     });
 })
@@ -101,3 +101,82 @@ $(filter).on("change",function () {
 // String locationFilter;
 // String skillFilter;
 // Long statusFilter;
+// console.log(projects);
+projectList(projects);
+
+function projectList(result) {
+    let str = '';
+if(!result.length){ $(".projectGridView").html("");}
+else if(result.length) {
+    $(result).each(function (i, project) {
+        let imgName = "";
+        if(project.projectImgPath){
+            imgName= '/project/display?fileName=' + project.projectImgPath + '/' + project.projectImgUuid + '_' + project.projectImg;
+        }else if(!project.projectImgPath){imgName='/images/'+project.projectImg; }
+
+        let status = "";
+        if(project.projectStatus==1){status="모집중";}
+        else if(project.projectStatus==2){status="모집완료";}
+
+        str += '<div class="projectGridWrap" data-num="' + project.projectNum + '">'
+        str += '<div class="projectTopInfo">'
+        str += '<div class="topInfo">'
+        str += '<div class="box-wrap">'
+        str += '<div class="box green">'
+        str += '<span>NEW</span>'
+        str += '</div>'
+        str += '<div class="box black">'
+        str += '<span>사이드프로젝트</span>'
+        str += '</div>'
+        str += '</div>'
+        str += '<div class="favorite"></div>'
+        str += '</div>'
+        str += '<div class="projectImg">'
+        str += '<img src="'+imgName+'">'
+        str += '</div>'
+        str += '</div>'
+        str += '<div class="projectMiddleInfo"> '
+        str += '<p class="category">' + project.projectPart + '</p> '
+        str += '<p class="categoryText">[' + project.projectLocation + '] ' + project.projectName + '</p>'
+        str += '</div>'
+        str += '<div class="projectBottomInfo">'
+        str += '<div class="middleWrap">'
+        str += '<div class="left">'
+        str += '<div class="heart">'
+        str += '<img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">'
+        str += '<span class="heartCount">0</span>'
+        str += '</div>'
+        str += '</div>'
+        str += '<div class="right">'
+        str += '<div>'
+        str += '<span>' + project.projectReadCount + '</span>'
+        str += '</div>'
+        str += '</div>'
+        str += '</div>'
+        str += '<div class="bottomWrap"> '
+        str += '<div class="recruit"> '
+        str += '<div class="recruitStatus"> '
+        str += '<span>' + status + '</span>'
+        str += '<span>0/' + project.projectTotal + '</span>'
+        str += '<div>'
+        str += '<img src="https://letspl.me/assets/images/ic-arrow-up.svg">'
+        str += '</div>'
+        str += '</div>'
+        str += '<div class="recruitModel">'
+        str += '<ul>'
+        str += '<li>'
+        str += '<span>UI/UX기획</span>'
+        str += '<span>1명</span>'
+        str += '</li>'
+        str += '</ul>'
+        str += '</div>'
+        str += '</div>'
+        str += '</div>'
+        str += '</div>'
+        str += '</div>'
+
+        // console.log(str);
+        $(".projectGridView").html(str);
+    })
+}
+}
