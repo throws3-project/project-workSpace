@@ -3,28 +3,19 @@ package com.project.workspace.controller;
 import com.project.workspace.domain.repository.*;
 import com.project.workspace.domain.vo.*;
 import com.project.workspace.service.ProjectService;
-import com.project.workspace.service.ProjectServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.coobird.thumbnailator.Thumbnailator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.http.HttpRequest;
-import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.IntStream;
@@ -44,9 +35,28 @@ public class ProjectController {
     private final StudyKeywordRepository studyKeywordRepository;
 
 
-    @GetMapping("/projectDetail")
-    public void projectDetail() {
-        ;
+    @GetMapping("/projectDetail/project/{projectNum}")
+    public String projectDetail(@PathVariable("projectNum") Long projectNum, Model model) {
+        ProjectVO project = projectRepository.getById(projectNum);
+        UserVO user = project.getUserVO();
+        List<ProjectSkillVO> projectSkillList = projectSkillRepository.getAllByProjectVO(project);
+        List<ProjectReferenceVO> projectReferenceList = projectReferenceRepository.getAllByProjectVO(project);
+        List<ProjectPersonVO> projectPersonList = projectPersonRepository.getAllByProjectVO(project);
+
+
+        model.addAttribute("project",project);
+        model.addAttribute("user",user);
+        model.addAttribute("projectSkillList",projectSkillList);
+        model.addAttribute("projectReferenceList",projectReferenceList);
+        model.addAttribute("projectPersonList",projectPersonList);
+
+        return "project/projectDetail";
+    }
+
+    @GetMapping("/projectDetail/study/{studyNum}")
+    public String studyDetail(@PathVariable("studyNum") Long studyNum) {
+
+        return "project/projectDetail";
     }
 
     @GetMapping("/projectList")
@@ -57,14 +67,9 @@ public class ProjectController {
 
 
 //        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
-<<<<<<< HEAD
         model.addAttribute("newProjectList", newProjectList);
         model.addAttribute("projectTop3", projectTop3);
         model.addAttribute("projectList", projectList);
-=======
-        model.addAttribute("projectTop4",projectTop4);
-        model.addAttribute("projectList",projectList);
->>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
 
     }
 
@@ -74,11 +79,7 @@ public class ProjectController {
 
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
 
-<<<<<<< HEAD
 
-=======
->>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
-//        projectList.stream().map(projectVO -> toString()).forEach(log::info);
         return projectList;
     }
 
@@ -129,10 +130,6 @@ public class ProjectController {
     public ProjectVO uploadAjaxPost(MultipartFile uploadFile) {
         String uploadFolder = "C:/upload";
         ProjectVO projectVO = new ProjectVO();
-//        UUID(Universally unique identifier) : 범용 고유 식별자
-//        네트워크 상에서 각각의 개체들을 식별하기 위하여 사용되었다.
-//        중복될 가능성이 거의 없다고 인정되기 때문에 많이 사용된다.
-//        UUID의 개수는 10의 38승입니다.
 
         UUID uuid = UUID.randomUUID();
         String uploadFileName = null;
@@ -153,11 +150,9 @@ public class ProjectController {
         projectVO.setProjectImgUuid(uuid.toString());
         projectVO.setProjectImgPath(uploadFolderPath);
 
-        //저장할 경로와 파일의 이름을 File객체에 담는다.
         File saveFile = new File(uploadPath, uuid.toString() + "_" + uploadFileName);
 
         try {
-            //설정한 경로에 해당 파일을 업로드한다.
             uploadFile.transferTo(saveFile);
 
         } catch (IOException e) {
