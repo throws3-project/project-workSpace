@@ -109,6 +109,10 @@ function projectList(result) {
 if(!result.length){ $(".projectGridView").html("");}
 else if(result.length) {
     $(result).each(function (i, project) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f8741fb966863cac80c2fa14b520b6ebaafb2f9b
         let imgName = "";
         if(project.projectImgPath){
             imgName= '/project/display?fileName=' + project.projectImgPath + '/' + project.projectImgUuid + '_' + project.projectImg;
@@ -117,6 +121,11 @@ else if(result.length) {
         let status = "";
         if(project.projectStatus==1){status="모집중";}
         else if(project.projectStatus==2){status="모집완료";}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
+>>>>>>> f8741fb966863cac80c2fa14b520b6ebaafb2f9b
 
         str += '<div class="projectGridWrap">'
         str += '<a href="/project/projectDetail/project/'+project.projectNum+'">'
@@ -133,7 +142,15 @@ else if(result.length) {
         str += '<div class="favorite"></div>'
         str += '</div>'
         str += '<div class="projectImg">'
+<<<<<<< HEAD
         str += '<img src="'+imgName+'">'
+=======
+<<<<<<< HEAD
+        str += '<img src="'+imgName+'">'
+=======
+        str += '<img src="/project/display?fileName=' + project.projectImgPath + '/' + project.projectImgUuid + '_' + project.projectImg + '">'
+>>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
+>>>>>>> f8741fb966863cac80c2fa14b520b6ebaafb2f9b
         str += '</div>'
         str += '</div>'
         str += '<div class="projectMiddleInfo"> '
@@ -151,6 +168,13 @@ else if(result.length) {
         str += '<div class="right">'
         str += '<div>'
         str += '<span>' + project.projectReadCount + '</span>'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        str += '<span> (-)</span>'
+>>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
+>>>>>>> f8741fb966863cac80c2fa14b520b6ebaafb2f9b
         str += '</div>'
         str += '</div>'
         str += '</div>'
@@ -158,7 +182,15 @@ else if(result.length) {
         str += '<div class="bottomWrap"> '
         str += '<div class="recruit"> '
         str += '<div class="recruitStatus"> '
+<<<<<<< HEAD
         str += '<span>' + status + '</span>'
+=======
+<<<<<<< HEAD
+        str += '<span>' + status + '</span>'
+=======
+        str += '<span>' + project.projectStatus + '</span>'
+>>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
+>>>>>>> f8741fb966863cac80c2fa14b520b6ebaafb2f9b
         str += '<span>0/' + project.projectTotal + '</span>'
         str += '<div>'
         str += '<img src="https://letspl.me/assets/images/ic-arrow-up.svg">'
