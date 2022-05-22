@@ -57,9 +57,14 @@ public class ProjectController {
 
 
 //        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
+<<<<<<< HEAD
         model.addAttribute("newProjectList", newProjectList);
         model.addAttribute("projectTop3", projectTop3);
         model.addAttribute("projectList", projectList);
+=======
+        model.addAttribute("projectTop4",projectTop4);
+        model.addAttribute("projectList",projectList);
+>>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
 
     }
 
@@ -69,7 +74,10 @@ public class ProjectController {
 
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bfefbe6824a32bdf017087c830f8bf4de1206dcd
 //        projectList.stream().map(projectVO -> toString()).forEach(log::info);
         return projectList;
     }
