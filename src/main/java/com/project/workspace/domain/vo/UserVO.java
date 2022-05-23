@@ -2,6 +2,7 @@ package com.project.workspace.domain.vo;
 
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -13,10 +14,11 @@ import java.util.List;
 @Table(name = "tbl_user")
 @Getter
 @Setter
-@ToString(exclude = {"ports", "tags", "alerts", "interests", "users", "projects", "projectMembers","projectLikes","stories","replies","series","storyReplies","studies","studyMembers","lounges","loungeLikes" ,"loungeReplies"})
+@ToString(exclude = {"ports", "tags", "alerts", "interests", "users", "projects", "projectMembers","projectLikes","stories","replies","series","storyReplies","studies","studyMembers","lounges","loungeLikes" ,"loungeReplies","exps","points"})
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamicInsert
+@DynamicUpdate
 public class UserVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +33,7 @@ public class UserVO {
     @Column(name = "user_location")
     private String userLocation;
     @Column(name = "user_nick_name")
-    private String userNickname;
+    private String userNickName;
     @Column(name = "user_phone")
     private String userPhone;
     @Column(name = "user_main_skill")
@@ -106,14 +108,18 @@ public class UserVO {
     private List<LoungeLikeVO> loungeLikes = new ArrayList<>();
     @OneToMany(mappedBy = "userVO")
     private List<LoungeReplyVO> loungeReplies = new ArrayList<>();
+    @OneToMany(mappedBy = "userVO")
+    private List<UserExpVO> exps = new ArrayList<>();
+    @OneToMany(mappedBy = "userVO")
+    private List<UserPointVO> points = new ArrayList<>();
 
     @Builder
-    public UserVO(String userId, String userContent, String userGender, String userLocation, String userNickname, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
+    public UserVO(String userId, String userContent, String userGender, String userLocation, String userNickName, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath, String userCode) {
         this.userId = userId;
         this.userContent = userContent;
         this.userGender = userGender;
         this.userLocation = userLocation;
-        this.userNickname = userNickname;
+        this.userNickName = userNickName;
         this.userPhone = userPhone;
         this.userMainSkill = userMainSkill;
         this.userMainDetail = userMainDetail;
@@ -123,12 +129,13 @@ public class UserVO {
         this.userSubLevel = userSubLevel;
         this.userOnOff = userOnOff;
         this.userTime = userTime;
-        this.userCode = userCode;
         this.userPrice = userPrice;
         this.socialType = socialType;
         this.userStatus = userStatus;
         this.userImgUuid = userImgUuid;
         this.userImgName = userImgName;
         this.userImgPath = userImgPath;
+        this.userCode = userCode;
     }
+
 }

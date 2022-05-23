@@ -6,6 +6,7 @@
         (user_num, project_name, project_part, project_location, project_on_off, project_platform, project_content, project_img, project_img_uuid, project_img_path, project_total)
         values(#{userNum}, #{projectName}, #{projectPart}, #{projectLocation}, #{projectOnOff}, #{projectPlatform}, #{projectContent}, #{projectImg}, #{projectImgUuid}, #{projectImgPath}, #{projectTotal});
     </insert>
+
     <insert id="insertProjectMember">
        insert into tbl_project_member
         (project_num, user_num, project_part, project_motive)
@@ -31,5 +32,23 @@
         (project_num, user_num)
         values(#{projectNum}, #{userNum});
     </insert>
+
+
+    <select id="getProjectList" resultType="projectVO">
+        select p.* from tbl_project p join tbl_project_person s
+        on p.project_num = s.project_num
+            <if test="locationFilter!=null">
+                and p.project_location = #{locationFilter}
+            </if>
+            <if test="skillFilter!=''">
+                and s.project_sub_skill = #{skillFilter}
+            </if>
+            <if test="statusFilter!=null">
+                and p.project_status = #{statusFilter}
+            </if>
+            group by p.project_num
+    </select>
+
+
 
 </mapper>

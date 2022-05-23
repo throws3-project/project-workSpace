@@ -29,7 +29,17 @@
         font-size: 13px;
     }
 
-    .skillResult a{
+    #skillResult a{
+        text-decoration: none;
+        cursor: pointer;
+        background-color: #336d47;
+        padding: 11px;
+        border-radius: 20px;
+        color: #fff;
+        margin-left: 2px;
+        font-size: 13px;
+    }
+    #skillResult2 a{
         text-decoration: none;
         cursor: pointer;
         background-color: #336d47;
@@ -73,14 +83,14 @@
                     <div class="ccheck">
                         <label class="checkBox first">
                             <span class="txt">사이드(토이) 프로젝트</span>
-                            <input type="radio" class="choice" name="type" value="project" checked>
+                            <input type="radio" class="choice" name="choiceType" value="project" checked>
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="ccheck">
                         <label class="checkBox first">
                             <span class="txt">IT 스터디 & 네트워킹</span>
-                            <input type="radio" class="choice" name="type" value="study">
+                            <input type="radio" class="choice" name="choiceType" value="study">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -95,8 +105,8 @@
 
             <!--  프로젝트 양식. -->
             <div class="make">
-                <form action="" name="projectForm" onsubmit="return false">
-
+                <form action="/project/projectRegister" id="projectForm" name="projectForm" method="post" onsubmit="return false" enctype="multipart/form-data">
+                    <input type="hidden" id="type" name="type">
                     <div class="question">
                         <p>
                             *
@@ -107,7 +117,7 @@
 
                     <div class="answer">
                         <div class="inputWrap">
-                            <input placeholder="3~20글자로 적어주세요 예)승차거부 신고앱" minlength="3" maxlength="20"
+                            <input placeholder="3~20글자로 적어주세요 예)승차거부 신고앱" name="projectName" minlength="3" maxlength="20"
                                    autocomplete="off">
                         </div>
                     </div>
@@ -125,82 +135,82 @@
                             <li class="checkBoxWrap selectPurpose">
                                 <label class="checkBox">
                                     <span class="txt">O2O</span>
-                                    <input type="radio" name="step2_radio" value="01">
+                                    <input type="radio" name="projectPart" value="O2O">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">공유서비스</span>
-                                    <input type="radio" name="step2_radio" value="02">
+                                    <input type="radio" name="projectPart" value="공유서비스">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">데이팅서비스</span>
-                                    <input type="radio" name="step2_radio" value="03">
+                                    <input type="radio" name="projectPart" value="데이팅서비스">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">여행</span>
-                                    <input type="radio" name="step2_radio" value="04">
+                                    <input type="radio" name="projectPart" value="여행">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">소셜네트워크</span>
-                                    <input type="radio" name="step2_radio" value="05">
+                                    <input type="radio" name="projectPart" value="소셜네트워크">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">뷰티/패션</span>
-                                    <input type="radio" name="step2_radio" value="06">
+                                    <input type="radio" name="projectPart" value="뷰티/패션">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">이커머스</span>
-                                    <input type="radio" name="step2_radio" value="07">
+                                    <input type="radio" name="projectPart" value="이커머스">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">엔터테인먼트</span>
-                                    <input type="radio" name="step2_radio" value="08">
+                                    <input type="radio" name="projectPart" value="엔터테인먼트">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">게임</span>
-                                    <input type="radio" name="step2_radio" value="09">
+                                    <input type="radio" name="projectPart" value="게임">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">헬스/스포츠</span>
-                                    <input type="radio" name="step2_radio" value="10">
+                                    <input type="radio" name="projectPart" value="헬스/스포츠">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">뉴스/정보</span>
-                                    <input type="radio" name="step2_radio" value="11">
+                                    <input type="radio" name="projectPart" value="뉴스/정보">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">유틸</span>
-                                    <input type="radio" name="step2_radio" value="12">
+                                    <input type="radio" name="projectPart" value="유틸">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">금융</span>
-                                    <input type="radio" name="step2_radio" value="13">
+                                    <input type="radio" name="projectPart" value="금융">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">부동산/인테리어</span>
-                                    <input type="radio" name="step2_radio" value="14">
+                                    <input type="radio" name="projectPart" value="부동산/인테리어">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">종교</span>
-                                    <input type="radio" name="step2_radio" value="15">
+                                    <input type="radio" name="projectPart" value="종교">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="checkBox">
                                     <span class="txt">우주/외계인</span>
-                                    <input type="radio" name="step2_radio" value="16">
+                                    <input type="radio" name="projectPart" value="우주/외계인">
                                     <span class="checkmark"></span>
                                 </label>
                             </li>
@@ -220,7 +230,7 @@
                                 <button type="button" id="imgUploadBtn"></button>
                                 <img class="thumbnailImage2"
                                      src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
-                                <input type="file" style="display: none;" id="imgUpload" name="imgUpload">
+                                <input type="file" style="display: none;" id="imgUpload"  >
                             </div>
                             <div class="uploadBox">
                                 <div>
@@ -246,10 +256,10 @@
                     <div class="answer">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select onchange="onOffChange(this)">
-                                    <option value="both">온라인/오프라인 모두 가능</option>
-                                    <option value="on">온라인만 가능</option>
-                                    <option value="off">오프라인만 가능</option>
+                                <select onchange="onOffChange(this)" id="onOffSelect">
+                                    <option>온라인/오프라인 모두 가능</option>
+                                    <option>온라인만 가능</option>
+                                    <option>오프라인만 가능</option>
                                 </select>
                             </div>
                             <div class="selectBox">
@@ -289,17 +299,17 @@
                     <div class="answer" id="personWrap">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select onchange="personChange(this)">
-                                    <option value="a">기획</option>
-                                    <option value="b">디자인</option>
-                                    <option value="c">프론트엔드개발</option>
-                                    <option value="d">백엔드개발</option>
-                                    <option value="e">사업</option>
-                                    <option value="f">기타</option>
+                                <select class="mainSkill">
+                                    <option>기획</option>
+                                    <option>디자인</option>
+                                    <option>프론트엔드개발</option>
+                                    <option>백엔드개발</option>
+                                    <option>사업</option>
+                                    <option>기타</option>
                                 </select>
                             </div>
                             <div class="selectBox">
-                                <select id="personResult">
+                                <select class="subSkill personResult">
                                     <option>UI/UX 기획</option>
                                     <option>게임 기획</option>
                                     <option>프로젝트 매니저</option>
@@ -330,21 +340,13 @@
                         <div>
                             <select id="platformResult">
                                 <option>출시 플랫폼을 하나 이상 선택해주세요</option>
-                                <option value="0">미정(논의 후 확정)</option>
-                                <option value="1">반응형 웹(PC/모바일)</option>
-                                <option value="2">안드로이드 앱</option>
-                                <option value="3">IOS 앱</option>
-                                <option value="4">PC(윈도우/맥) 프로그램</option>
-                                <option value="5">설치형/SASS 솔루션</option>
+                                <option>미정(논의 후 확정)</option>
+                                <option>반응형 웹(PC/모바일)</option>
+                                <option>안드로이드 앱</option>
+                                <option>IOS 앱</option>
+                                <option>PC(윈도우/맥) 프로그램</option>
+                                <option>설치형/SASS 솔루션</option>
                             </select>
-                        </div>
-                        <div class="platformResult">
-                            <a class="platformResult1 results">미정(논의 후 확정) X </a>
-                            <a class="platformResult2 results">반응형 웹(PC/모바일) X </a>
-                            <a class="platformResult3 results">안드로이드 앱 X </a>
-                            <a class="platformResult4 results">IOS 앱 X </a>
-                            <a class="platformResult5 results">PC(윈도우/맥) 프로그램 X </a>
-                            <a class="platformResult6 results">설치형/SASS 솔루션 X </a>
                         </div>
                     </div>
 
@@ -357,10 +359,7 @@
                     </div>
 
                     <div class="answer">
-                        <form method="post">
-                            <!--                            <textarea id="summernote" name="editordata"></textarea>-->
                             <div id="editor"></div>
-                        </form>
                     </div>
 
 
@@ -372,10 +371,12 @@
                         </p>
                     </div>
 
-                    <div class="answer">
-                        <div>
-                            <input type="text" placeholder="예) java, react, figma, photoshop">
-                        </div>
+                    <div class="answer" id="skill">
+                        <input type="text" id="keyword" placeholder="예) java, react, figma, photoshop" minlength="3"
+                               maxlength="20" autocomplete="off">
+                    </div>
+                    <div id="skillResult">
+
                     </div>
 
                     <div class="question">
@@ -389,7 +390,7 @@
 
                     <div class="answer" id="referenceWrap">
                         <div>
-                            <input type="text" placeholder="예) http://letspl.me">
+                            <input type="text" class="projectUrl" name="projectUrl" placeholder="예) http://workspace.me">
                         </div>
                     </div>
                     <div class="addMemberBtnWrap">
@@ -399,15 +400,28 @@
 
                     <div class="confirmBtnWrap btnWrap">
                         <button type="button" value="임시저장" class="grayBtn saveBtn">임시저장</button>
-                        <button type="button" value="완료" class="pinkBtn confirmBtn">작성완료</button>
+                        <button type="button" value="완료" class="pinkBtn confirmBtn" id="projectSubmit">작성완료</button>
                     </div>
+                    <div id="projectData">
+                    <input type="hidden" name="projectOnOff" id="projectOnOff">
+                    <input type="hidden" name="projectPlatform" id="projectPlatform">
+                    <input type="hidden" name="projectContent" id="projectContent">
+                    <input type="hidden" name="projectLocation" id="projectLocation">
+                    </div>
+                    <div id="projectPersonData">
+                    </div>
+                    <div id="projectSkillData">
+                    </div>
+                    <div id="projectUrlData">
+                    </div>
+
                 </form>
             </div>
 
 
             <!-- 스터디 양식 -->
             <div class="make" id="makeStudy">
-                <form action="" name="studyForm" onsubmit="return false">
+                <form action="/project/projectRegister" method="post" id="studyForm" name="studyForm" onsubmit="return false">
                     <div class="question">
                         <p>
                             *
@@ -418,7 +432,7 @@
 
                     <div class="answer">
                         <div class="inputWrap">
-                            <input placeholder="3~20글자로 적어주세요 예)블록체은 + 인공지능 스터디" minlength="3" maxlength="20"
+                            <input name="studyTitle" id="studyName" placeholder="3~20글자로 적어주세요 예)블록체은 + 인공지능 스터디" minlength="3" maxlength="20"
                                    autocomplete="off">
                         </div>
                     </div>
@@ -434,20 +448,20 @@
                     <div class="answer">
                         <div>
                             <div>
-                                <select name="" id="">
-                                    <option value="">기획</option>
-                                    <option value="">디자인</option>
-                                    <option value="">프론트엔드개발</option>
-                                    <option value="">백엔드개발</option>
-                                    <option value="">사업</option>
-                                    <option value="">기타</option>
+                                <select  id="studyPartSelect">
+                                    <option value="기획">기획</option>
+                                    <option value="디자인">디자인</option>
+                                    <option value="프론트엔드개발">프론트엔드개발</option>
+                                    <option value="백엔드개발">백엔드개발</option>
+                                    <option value="사업">사업</option>
+                                    <option value="기타">기타</option>
                                 </select>
                             </div>
-                            <div class="answer" id="skill">
-                                <input type="text" id="keyword" placeholder="예) java, react, figma, photoshop" minlength="3"
+                            <div class="answer" id="skill2">
+                                <input type="text" id="keyword2" placeholder="예) java, react, figma, photoshop" minlength="3"
                                        maxlength="20" autocomplete="off">
                             </div>
-                            <div class="skillResult">
+                            <div id="skillResult2">
 
                             </div>
                         </div>
@@ -464,10 +478,10 @@
                     <div class="answer">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select onchange="onOffChange2(this)">
-                                    <option value="both">온라인/오프라인 모두 가능</option>
-                                    <option value="on">온라인만 가능</option>
-                                    <option value="off">오프라인만 가능</option>
+                                <select onchange="onOffChange2(this)" id="studyOnOffSelect">
+                                    <option value="a">온라인/오프라인 모두 가능</option>
+                                    <option value="o">온라인만 가능</option>
+                                    <option value="x">오프라인만 가능</option>
                                 </select>
                             </div>
                             <div class="selectBox">
@@ -507,15 +521,15 @@
                     <div class="answer">
                         <div class="selectBoxWrap">
                             <div class="selectBox">
-                                <select>
-                                    <option>2명</option>
-                                    <option>3명</option>
-                                    <option>4명</option>
-                                    <option>5명</option>
-                                    <option>6명</option>
-                                    <option>7명</option>
-                                    <option>8명</option>
-                                    <option>9명</option>
+                                <select id="maxCount">
+                                    <option value="2">2명</option>
+                                    <option value="3">3명</option>
+                                    <option value="4">4명</option>
+                                    <option value="5">5명</option>
+                                    <option value="6">6명</option>
+                                    <option value="7">7명</option>
+                                    <option value="8">8명</option>
+                                    <option value="9">9명</option>
                                 </select>
                             </div>
                         </div>
@@ -530,7 +544,7 @@
                     </div>
 
                     <div class="answer">
-                                <textarea>●  스터디 목표 및 진행방식
+                                <textarea id="contents">●  스터디 목표 및 진행방식
 
 [목표] : ( 예: 제이쿼리를 마스터하고자 합니다)
 
@@ -553,7 +567,16 @@
 
                     <div class="confirmBtnWrap btnWrap">
                         <button value="임시저장" class="grayBtn saveBtn">임시저장</button>
-                        <button value="완료" class="pinkBtn confirmBtn">작성완료</button>
+                        <button value="완료" class="pinkBtn confirmBtn" id="studySubmit">작성완료</button>
+                    </div>
+                    <div id="keywordData">
+                    </div>
+                    <div id="studyData">
+                        <input type="hidden" name="studyOnOff" id="studyOnOff">
+                        <input type="hidden" name="studyLocation" id="studyLocation">
+                        <input type="hidden" name="studyPart" id="studyPart">
+                        <input type="hidden" name="studyMax" id="studyMax">
+                        <input type="hidden" name="studyContent" id="studyContent">
                     </div>
                 </form>
             </div>
