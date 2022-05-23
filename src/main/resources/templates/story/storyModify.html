@@ -82,27 +82,28 @@
                                 <li class="checkBoxWrap selectPurpose">
                                     <label class="checkBox">
                                         <span class="txt">정보</span>
-                                        <input type="radio" name="step2_radio" value="01">
+                                        <input th:if="${storyVO.getStoryPart() eq '정보'}" type="radio" name="step2_radio" value="정보" checked>
+                                        <input th:unless="${storyVO.getStoryPart() eq '정보'}" type="radio" name="step2_radio" value="정보" checked>
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
-                                        <span class="txt">노하우</span>
-                                        <input type="radio" name="step2_radio" value="02">
+                                        <span th:if="${storyVO.getStoryPart() eq '노하우'}" class="txt">노하우</span>
+                                        <input th:unless="${storyVO.getStoryPart() eq '노하우'}" type="radio" name="step2_radio" value="노하우">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
-                                        <span class="txt">테스터 모집</span>
-                                        <input type="radio" name="step2_radio" value="03">
+                                        <span th:if="${storyVO.getStoryPart() eq '테스터 모집'}" class="txt">테스터 모집</span>
+                                        <input th:unless="${storyVO.getStoryPart() eq '테스터 모집'}" type="radio" name="step2_radio" value="테스터 모집">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
-                                        <span class="txt">이벤트</span>
-                                        <input type="radio" name="step2_radio" value="04">
+                                        <span th:if="${storyVO.getStoryPart() eq '이벤트'}" class="txt">이벤트</span>
+                                        <input th:unless="${storyVO.getStoryPart() eq '이벤트'}" type="radio" name="step2_radio" value="이벤트">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">출시/업데이트</span>
-                                        <input type="radio" name="step2_radio" value="05">
+                                        <input th:unless="${storyVO.getStoryPart() eq '출시/업데이트'}" type="radio" name="step2_radio" value="출시/업데이트">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>

@@ -46,30 +46,28 @@
         </div>
         <div class="storyBannerTxtWrap">
             <div class="storyBannerTagWrap">
-                <span class="storyBannerTag pink">워크피플</span>
-                <span class="storyBannerTag blue">정보</span>
+                <span class="storyBannerTag blue" th:text="${storyVO.storyPart}"></span>
             </div>
-            <h2>상아의 CSS 공부 1탄 :D (a.k.a 상아야)</h2>
+            <h2 th:text="${storyVO.storyTitle}"></h2>
             <div class="storyBannerHashTag">
-                <span>#정보</span>
-                <span>#공유</span>
-                <span>#코딩</span>
-                <span>#개발</span>
+                <th:block th:each="tag, i:${storyVO.getTags()}">
+                    <span th:text="|#${tag.getTagName()}"|></span>
+                </th:block>
             </div>
             <div class="storyBannerBottomWrap">
-                <span class="bannerDateTxt">작성일 : 22.01.24 09:20</span>
+                <span class="bannerDateTxt" th:text="|작성일 : ${storyVO.storyDate}|"></span>
                 <div class="bannerStatusWrap">
                     <p class="bannerStatusViewDiv" style="margin-right: 16px !important;">
                         <img class="bannerStatusImg" src="/images/eyes.png">
-                        <span class="bannerStatusTxt">440</span>
+                        <span class="bannerStatusTxt" th:text="${storyVO.storyReadCount}"></span>
                     </p>
                         <p class="bannerStatusMsgDiv" style="margin-right: 16px !important;">
                         <img class="bannerStatusImg" src="/images/msg.png">
-                        <span class="bannerStatusTxt">0</span>
+                        <span class="bannerStatusTxt" th:text="${storyVO.getReplies().size()}"></span>
                         </p>
                          <p class="bannerStatusLikeDiv" style="margin-right: 16px !important;">
                             <img class="bannerStatusImg" src="/images/likeup.png">
-                            <span class="bannerStatusTxt">5</span>
+                            <span class="bannerStatusTxt" th:text="${storyVO.getLikes.size()}"></span>
                          </p>
                 </div>
             </div>
@@ -78,7 +76,7 @@
     <!-- 여기까지 상단배너 -->
 
     <!-- 내용 -->
-    <section class="storyViewWrap">
+    <div class="storyViewWrap">
         <!-- 콘텐츠 전체 -->
         <div class="storyViewContentsWrap">
             <!-- 콘텐츠 상단 프로필 -->
@@ -93,19 +91,26 @@
                 </div>
                 <!-- 프로필 내용 -->
                 <div class="contentsProfile">
-                    <p class="contentsProName contentsProNamePtag">상아야
-                        <span class="contentsPro">본캐 : 그래픽디자인 / 중수</span>
-                        <span class="contentsPro">관심분야 : 공유서비스, 게임, 유틸</span>
-                    </p>
+                    <p class="contentsProName contentsProNamePtag" th:text="${storyVO.getUserVO().getUserNickName()}"></p>
+                    <span class="contentsPro" th:text="|본캐 : 그래픽디자인 /${storyVO.getUserVO().getUserMainLevel()}|"></span>
+                    <span style="display:flex">
+                    <span class="contentsPro">관심분야 : </span>
+                    <span class="contentsPro">
+                       <th:block th:each="tag, i:${storyVO.getUserVO().getTags()}">
+                            <span th:if="${i.index == tag.size() - 1}" th:text="${tag}"></span>
+                            <span th:unless="${i.index == tag.size() - 1}" th:text="|${tag}, |"></span>
+                       </th:block>
+                    </span>
+                    </span>
                     <!-- 프로필 하단 -->
                     <div class="contentsProStatus">
                         <p class="contentsProDiv" style="margin-right: 16px !important;">
                             <img class="contentsStatusImg" src="/images/ico_like.png">
-                            <span class="contentsProTxt">7</span>
+                            <span class="contentsProTxt" th:text="${storyVO.getUserVO().getUsers().size()}"></span>
                         </p>
                          <p class="contentsProDiv" style="margin-right: 16px !important;">
                              <img class="contentsStatusImg" src="/images/smile.png">
-                             <span class="contentsProTxt">L10</span>
+                             <span class="contentsProTxt" th:text="|L${storyVO.getUserVO().getUserLevel()}|"></span>
                          </p>
                     </div>
                 </div>
@@ -113,8 +118,7 @@
             <!-- 여기까지 콘텐츠 프로필 -->
             <!-- 콘텐츠 내용 -->
             <div class="storyViewContentsTxt">
-                <div class="contentsTxtWrap">
-                    <textarea class="contentsTextArea" maxlength="500" placeholder="콘텐츠 내용입니다." rows="10" readonly></textarea>
+                <div class="contentsTxtWrap" th:utext="${storyVO.getStoryContent()}">
                 </div>
             </div>
             <div class="contentsBtnReplyWrap">
@@ -196,6 +200,45 @@
         <div class="myStoryWrap">
             <div class="myStory">
                 <ul class="storyTimeUl">
+                    <li class="storyTimeLi" th:each="list:${myList}">
+                        <div class="storyTimeLineLeft">
+                            <a th:href="@{/story/storyDetail(storyNum=${list.getStoryNum()})}">
+                            <div class="storyTimeLineImg">
+                                <img th:src="@{/story/displayTh(storyImgPath=${list.getStoryImgPath()}, storyImgUuid=${list.getStoryImgUuid()}, storyImgName=${list.getStoryImgName()})}">
+                            </div>
+                            </a>
+                            <a th:href="@{/story/storyDetail(storyNum=${list.getStoryNum()})}">
+                            <div class="storyTimeLineContents">
+                                <div class="timeLineTitWrap">
+                                    <span class="timeLintCategory" th:text="${list.getUserVO().getUserNickName()}"></span>
+                                    <p class="timeLineTit" th:text="${list.getStoryTitle()}"></p>
+                                </div>
+                                <div class="timeLineTxt">[[${list.getStoryContent()}]]</div>
+                               <div class="timeLineTagWrap">
+                                <th:block th:each="tag:${list.getTags()}">
+                                    <span th:text="|#${tag.getTagName()}|"></span>
+                                </th:block>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="storyTimeLineRight">
+                            <div class="TimeLineStatusWrap">
+                                <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                    <img class="storyTimeLineDivImg" src="/images/eye.png">
+                                    <span class="divFooterTxt" th:text="${list.getStoryReadCount()}"></span>
+                                </p>
+                                <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                    <img class="storyTimeLineDivImg" src="/images/msg.png">
+                                    <span class="divFooterTxt" th:text="${list.getReplies().size()}"></span>
+                                </p>
+                                <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                    <img class="storyTimeLineDivImg" src="/images/likeup.png">
+                                    <span class="divFooterTxt" th:text="${list.getLikes().size()}"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
                     <li class="storyTimeLi">
                         <div class="storyTimeLineLeft">
                             <div class="storyTimeLineImg">
@@ -242,6 +285,7 @@
                     </div>
                 </div>
                 </li>
+
 
                 <li class="storyTimeLi">
                     <div class="storyTimeLineLeft">
@@ -295,6 +339,16 @@
             <h3>재미있는 다른 스토리도 추천해드려요</h3>
             <div class="seriesScroll">
                 <ul class="seriesUl">
+
+                    <li class="seriesLi" th:each="recommend:${recommendList}">
+                        <a th:href="@{/story/storyDetail(storyNum=${recommend.getStoryNum()})}">
+                            <div class="seriesImg">
+                                <img th:src="@{/story/displayTh(storyImgPath=${recommend.getStoryImgPath()}, storyImgUuid=${recommend.getStoryImgUuid}, storyImgName=${recommend.getStoryImgName})}">
+                            </div>
+                            <span class="storySubTit" th:text="${recommend.getStoryTitle()}"></span>
+                        </a>
+                    </li>
+
                     <li class="seriesLi">
                         <a href="#">
                             <div class="seriesImg">

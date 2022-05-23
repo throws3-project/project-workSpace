@@ -49,10 +49,10 @@ public class LoungeReplyVO {
 
     @Builder
     public LoungeReplyVO(String loungeReplyContent, String loungeReplyDate, LoungeVO loungeVO, UserVO userVO) {
-        SimpleDateFormat sdf = new SimpleDateFormat();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         this.loungeReplyContent = loungeReplyContent;
         try {
-            this.loungeReplyDate = sdf.parse(loungeReplyDate);
+            if(loungeReplyDate!=null){this.loungeReplyDate = sdf.parse(loungeReplyDate);}
         } catch (ParseException e) {
             e.printStackTrace();
         }

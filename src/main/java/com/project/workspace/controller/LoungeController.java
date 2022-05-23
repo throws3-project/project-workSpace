@@ -38,24 +38,24 @@ public class LoungeController {
 
     @GetMapping("/lounge")
     public String lounge(Model model) {
-        List<LoungeVO> loungeVOs = loungeRepository.findAll();
+        List<LoungeVO> loungeVOs = loungeService.findLoungeAll();
 
         List<String> loungeUserNickNames = loungeVOs.stream()
-                .map(loungeVO -> loungeVO.getUserVO().getUserNickname())
+                .map(loungeVO -> loungeVO.getUserVO().getUserNickName())
                 .collect(Collectors.toList());
 
         List<String> userLikeNickNames = loungeVOs.stream()
                 .sorted(comparing(this::getLikeSize).reversed())
                 .filter(loungeVO -> loungeVO.getLikes().size() > 0)
                 .limit(3)
-                .map(loungeVO -> loungeVO.getUserVO().getUserNickname())
+                .map(loungeVO -> loungeVO.getUserVO().getUserNickName())
                 .collect(Collectors.toList());
 
         List<String> userReplyNickNames = loungeVOs.stream()
                 .sorted(comparing(this::getReplySize).reversed())
                 .filter(loungeVO -> loungeVO.getReplies().size() > 0)
                 .limit(3)
-                .map(loungeVO -> loungeVO.getUserVO().getUserNickname())
+                .map(loungeVO -> loungeVO.getUserVO().getUserNickName())
                 .collect(Collectors.toList());
 
         List<Integer> loungeLikesNum = loungeVOs.stream().map(loungeVO -> loungeVO.getLikes().size())
@@ -99,50 +99,42 @@ public class LoungeController {
     @ResponseBody
     @GetMapping("/lounge/reply/{loungeNum}")
     public LoungeReplyDTO likeAndReply(@PathVariable("loungeNum") Long loungeNum) {
-        LoungeVO loungeVO = loungeRepository.findById(loungeNum).get();
+        LoungeVO loungeVO = loungeService.findId(loungeNum);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<LoungeReplyVO> replies = loungeVO.getReplies();
-        List<String> userNickNames = replies.stream().map(UserVO -> UserVO.getUserVO().getUserNickname()).collect(Collectors.toList());
+        List<String> UserNickNames = replies.stream().map(UserVO -> UserVO.getUserVO().getUserNickName()).collect(Collectors.toList());
         log.info(replies.toString());
-        log.info(userNickNames.toString());
+        log.info(UserNickNames.toString());
         //service 집에서 하기
 
-        return new LoungeReplyDTO(userNickNames,replies);
+        return new LoungeReplyDTO(UserNickNames,replies);
     }
 
     // 라운지 글작성
     @ResponseBody
     @GetMapping("/lounge/{loungeContent}/{userNum}")
     public String insertLounge(@PathVariable("loungeContent") String loungeContent, @PathVariable("userNum") UserVO userNum){
-        loungeRepository.save(LoungeVO.builder().userVO(userNum).loungeContent(loungeContent).build());
-        return "success";
+        return loungeService.insertLounge(loungeContent, userNum);
     }
 
     // 댓글 작성
     @ResponseBody
     @GetMapping("/lounge/loungeInsert/{replyContent}/{userNum}/{loungeNum}")
     public String insertReply(@PathVariable("replyContent") String replyContent, @PathVariable("userNum") UserVO userNum, @PathVariable("loungeNum") LoungeVO loungeNum){
-        loungeReplyRepository.save(LoungeReplyVO.builder().loungeReplyContent(replyContent).loungeVO(loungeNum).userVO(userNum).build());
-        return "success";
+        return loungeService.insertReply(replyContent, userNum, loungeNum);
     }
 
     //라운지 삭제
     @ResponseBody
     @GetMapping("/lounge/loungeDelete/{loungeNum}")
     public String deleteLounge(@PathVariable("loungeNum") Long loungeNum){
-        loungeRepository.deleteById(loungeNum);
-        return "success";
+        return loungeService.deleteLounge(loungeNum);
     }
 
     //라운지 수정
     @ResponseBody
     @GetMapping("/lounge/loungeUpdate/{loungeNum}/{loungeContent}")
     public String updateLounge(@PathVariable("loungeNum") Long loungeNum, @PathVariable("loungeContent") String loungeContent){
-        UserVO userVO = loungeRepository.findById(loungeNum).get().getUserVO();
-
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        LoungeVO loungeVO= loungeRepository.save(LoungeVO.builder().loungeContent(loungeContent).loungeDate(sdf.format(date)).loungeNum(loungeNum).userVO(userVO).build());
-        return "success";
+        return loungeService.updateLounge(loungeNum, loungeContent);
     }
 }
