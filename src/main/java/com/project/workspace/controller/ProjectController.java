@@ -5,6 +5,10 @@ import com.project.workspace.domain.vo.*;
 import com.project.workspace.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
+import org.springframework.boot.configurationprocessor.json.JSONArray;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -14,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -75,9 +80,17 @@ public class ProjectController {
 
     @PostMapping("/projectFilter")
     @ResponseBody
-    public List<ProjectVO> projectFilter(ProjectFilter projectFilter) {
-
+    public List<ProjectVO> projectFilter(ProjectFilter projectFilter) throws JSONException {
+        JSONArray jsonArray = new JSONArray();
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
+//        List<ProjectPersonVO> persons = projectPersonRepository.getProjectList(projectFilter);
+        HashMap<String,Object> hashMap = new HashMap<>();
+        JSONObject json = new JSONObject(hashMap);
+        for(ProjectVO project : projectList){
+            json.put("project",project);
+        }
+
+
         return projectList;
     }
 
@@ -90,6 +103,10 @@ public class ProjectController {
     @Transactional
     public RedirectView projectRegister(ProjectVO projectVO, StudyVO studyVO, HttpServletRequest request) {
         String type = request.getParameter("type");
+        HttpSession session= request.getSession();
+        UserVO userVO = new UserVO();
+        userVO.setUserNum((Long)session.getAttribute("userNum"));
+        projectVO.setUserVO(userVO);
         log.info(type);
         if (type.equals("project")) {
 

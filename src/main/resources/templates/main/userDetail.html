@@ -37,8 +37,8 @@
                     </div>
                 </div>
                     <!-- p -->
-                    <p class="userProName">
-                        <img src="/images/level_6.png">&nbsp;박상아
+                    <p class="userProName" th:text="${user.userNickName}">
+                        <img src="/images/level_6.png">
                     </p>
                     <p class="userLogin">
                         마지막 로그인 : 오늘
@@ -63,27 +63,51 @@
                     <ul class="userSummryUl">
                         <li class="liTit">
                             <span>
-                                <strong>[ 본 캐릭터 ]</strong>
+                                <strong>[ 메인 캐릭터 ]</strong>
                             </span>
                         </li>
                         <li class="userSummryLi">
-                            <span>직 무</span><span class="spangray">웹 서버</span>
+                            <span>파 트</span><span class="spangray" th:text="${user.userMainSkill}"></span>
                         </li>
                         <li class="userSummryLi">
-                            <span>능력치</span><span class="spangray">초보(N년차)</span>
+                            <span>직 무</span><span class="spangray" th:text="${user.userMainDetail}"></span>
                         </li>
                         <li class="userSummryLi">
-                            <span>상호평가</span><span class="spangray">데이터 수집중</span>
+                            <span>능력치</span>
+                            <span class="spangray" th:if="${user.userMainLevel=='1'}">초보</span>
+                            <span class="spangray" th:if="${user.userMainLevel=='2'}">중수</span>
+                            <span class="spangray" th:if="${user.userMainLevel=='3'}">고수</span>
+                            <span class="spangray" th:if="${user.userMainLevel=='4'}">해커</span>
+                        </li>
+                        <li class="liTit" th:if="${user.userSubSkill!=null}">
+                            <span>
+                                <strong>[ 서브 캐릭터 ]</strong>
+                            </span>
+                        </li>
+                        <li class="userSummryLi">
+                            <span>파 트</span><span class="spangray" th:text="${user.userSubSkill}"></span>
+                        </li>
+                        <li class="userSummryLi">
+                            <span>직 무</span><span class="spangray" th:text="${user.userSubDetail}"></span>
+                        </li>
+                        <li class="userSummryLi">
+                            <span>능력치</span>
+                            <span class="spangray" th:if="${user.userSubLevel=='1'}">초보</span>
+                            <span class="spangray" th:if="${user.userSubLevel=='2'}">중수</span>
+                            <span class="spangray" th:if="${user.userSubLevel=='3'}">고수</span>
+                            <span class="spangray" th:if="${user.userSubLevel=='4'}">해커</span>
                         </li>
                         <!-- 프로필 박스 -->
                         <ul class="userSummryBoxUl">
                             <li class="userSummryBoxLi">
                                 <span class="userBoxLiSpan">온/오프라인</span>
-                                <span>온, 오프라인 모두가능</span>
+                                <span th:if="${user.userOnOff=='0'}">온라인만 가능</span>
+                                <span th:if="${user.userOnOff=='1'}">오프라인만 가능</span>
+                                <span th:if="${user.userOnOff=='2'}">온/오프라인 모두가능</span>
                             </li>
                             <li class="userSummryBoxLi">
                                 <span class="userBoxLiSpan">모임 장소</span>
-                                <span>상관없음</span>
+                                <span th:text="${user.userLocation}"></span>
                             </li>
                             <li class="userSummryBoxLi">
                                 <span class="userBoxLiSpan">모임 시간</span>
@@ -91,11 +115,13 @@
                             </li>
                             <li class="userSummryBoxLi">
                                 <span class="userBoxLiSpan">관심 분야</span>
-                                <span>O2O, 소셜네트워크, 게임</span>
+                                <th:block th:each="inter : ${user.getInterests()}">
+                                    <span th:text="${inter.interest}"></span>
+                                </th:block>
                             </li>
                             <li class="userSummryBoxLi">
                                 <span class="userBoxLiSpan">대화 포인트</span>
-                                <span>1 커피</span>
+                                <span th:text="${user.userPrice}+' 비트'"></span>
                             </li>
                         </ul>
                         <!-- 여기까지 프로필박스 -->
@@ -107,21 +133,11 @@
                         <li class="userSummryTxtTag">
                             <span class="userSummryTagWrap">태 그</span>
                             <div class="profileKeywordWrap">
+                                <th:block th:each="tag:${user.getTags()}">
                                 <div class="keywordTag">
-                                    <span>#해커톤</span>
+                                    <span th:text="'#'+${tag.getTagName()}"></span>
                                 </div>
-                                <div class="keywordTag">
-                                    <span>#창업</span>
-                                </div>
-                                <div class="keywordTag">
-                                    <span>#스타트업</span>
-                                </div>
-                                <div class="keywordTag">
-                                    <span>#스타트업</span>
-                                </div>
-                                <div class="keywordTag">
-                                    <span>#스타트업</span>
-                                </div>
+                                </th:block>
                             </div>
                         </li>
                     </ul>
@@ -134,6 +150,7 @@
                 <p class="userFollowerTit">진행중인 프로젝트/스터디</p>
                 <div class="ingProjectWrap">
                    <!-- 복사 -->
+                    <th:block th:each="project : ${user.getProjects()}">
                     <div class="projectGridWrap">
                         <div class="projectTopInfo">
                             <div class="topInfo">
@@ -148,12 +165,15 @@
                                 <div class="favorite"></div>
                             </div>
                             <div class="projectImg">
-                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
+                                <img th:if="${project.projectImgPath == null}"
+                                     th:src="'/images/'+${project.projectImg}">
+                                <img th:unless="${project.projectImgPath == null}"
+                                     th:src="'/project/display?fileName='+ ${project.projectImgPath} + '/' + ${project.projectImgUuid} + '_' + ${project.projectImg}">
                             </div>
                         </div>
                         <div class="projectMiddleInfo">
-                            <p class="category">소셜네트워크</p>
-                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
+                            <p class="category" th:text="${project.projectPart}"></p>
+                            <p class="categoryText" th:text="'['+${project.projectLocation}+'] '+${project.projectName}"></p>
                         </div>
                         <div class="projectBottomInfo">
                             <div class="middleWrap">
@@ -165,8 +185,7 @@
                                 </div>
                                 <div class="right">
                                     <div>
-                                        <span>89</span>
-                                        <span> (-)</span>
+                                        <span th:text="${project.projectReadCount}"></span>
                                     </div>
                                 </div>
                             </div>
@@ -174,157 +193,23 @@
                                 <div class="recruit">
                                     <div class="recruitStatus">
                                         <span>참여일 : 22.04.08</span>
-                                        <!-- <span>
-                                            0/1
-                                        </span> -->
-                                        <!-- <div>
-                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                        </div> -->
                                     </div>
                                     <div class="recruitModel">
                                         <ul>
+                                            <th:block th:each="person : ${project.persons}">
                                             <li>
-                                                <span>UI/UX기획</span>
-                                                <span>1명</span>
+                                                <span th:text="${person.projectSubSkill}"></span>
+                                                <span th:text="${person.projectCount}"></span>
                                             </li>
-                                            <li>
-                                                <span>웹 프론트엔드</span>
-                                                <span>2명</span>
-                                            </li>
+                                            </th:block>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </th:block>
                     <!-- 여기까지 -->
-                    <div class="projectGridWrap">
-                        <div class="projectTopInfo">
-                            <div class="topInfo">
-                                <div class="box-wrap">
-                                    <div class="box green">
-                                        <span>NEW</span>
-                                    </div>
-                                    <div class="box black">
-                                        <span>사이드프로젝트</span>
-                                    </div>
-                                </div>
-                                <div class="favorite"></div>
-                            </div>
-                            <div class="projectImg">
-                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                            </div>
-                        </div>
-                        <div class="projectMiddleInfo">
-                            <p class="category">소셜네트워크</p>
-                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                        </div>
-                        <div class="projectBottomInfo">
-                            <div class="middleWrap">
-                                <div class="left">
-                                    <div class="heart">
-                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                        <span class="heartCount">0</span>
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <div>
-                                        <span>89</span>
-                                        <span> (-)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bottomWrap">
-                                <div class="recruit">
-                                    <div class="recruitStatus">
-                                        <span>참여일 : 22.04.08</span>
-                                        <!-- <span>
-                                            0/1
-                                        </span> -->
-                                        <!-- <div>
-                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                        </div> -->
-                                    </div>
-                                    <div class="recruitModel">
-                                        <ul>
-                                            <li>
-                                                <span>UI/UX기획</span>
-                                                <span>1명</span>
-                                            </li>
-                                            <li>
-                                                <span>웹 프론트엔드</span>
-                                                <span>2명</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 여기까지 -->
-                    <div class="projectGridWrap">
-                        <div class="projectTopInfo">
-                            <div class="topInfo">
-                                <div class="box-wrap">
-                                    <div class="box green">
-                                        <span>NEW</span>
-                                    </div>
-                                    <div class="box black">
-                                        <span>사이드프로젝트</span>
-                                    </div>
-                                </div>
-                                <div class="favorite"></div>
-                            </div>
-                            <div class="projectImg">
-                                <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                            </div>
-                        </div>
-                        <div class="projectMiddleInfo">
-                            <p class="category">소셜네트워크</p>
-                            <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                        </div>
-                        <div class="projectBottomInfo">
-                            <div class="middleWrap">
-                                <div class="left">
-                                    <div class="heart">
-                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                        <span class="heartCount">0</span>
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <div>
-                                        <span>89</span>
-                                        <span> (-)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bottomWrap">
-                                <div class="recruit">
-                                    <div class="recruitStatus">
-                                        <span>참여일 : 22.04.08</span>
-                                        <!-- <span>
-                                            0/1
-                                        </span> -->
-                                        <!-- <div>
-                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                        </div> -->
-                                    </div>
-                                    <div class="recruitModel">
-                                        <ul>
-                                            <li>
-                                                <span>UI/UX기획</span>
-                                                <span>1명</span>
-                                            </li>
-                                            <li>
-                                                <span>웹 프론트엔드</span>
-                                                <span>2명</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
              
      
                 </div>

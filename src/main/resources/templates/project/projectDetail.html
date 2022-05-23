@@ -32,7 +32,8 @@
                     <span class="leaderText">
                             <span class="userId" th:text="${user.userNickName}"></span>
                             <span class="confirmPhone">(휴대폰 인증)</span>
-                            <span class="lastLogin" th:text="*{loginCount}+'일전 로그인'"></span>
+                            <span class="lastLogin" th:if="*{loginCount!=0}" th:text="*{loginCount}+'일전 접속'"></span>
+                            <span class="lastLogin" th:unless="*{loginCount!=0}">오늘 접속</span>
                             <div class="idMenu">
                                 <ul>
                                     <li>
@@ -50,7 +51,7 @@
                 </div>
             </li>
             <div>
-                <span class="status white" th:if="${project.projectStatus=='2'}" >모집완료</span>
+                <span class="status white" th:if="${project.projectStatus=='2'}">모집완료</span>
                 <span class="status gray" th:unless="${project.projectStatus=='2'}">모집중</span>
             </div>
         </div>
@@ -79,11 +80,11 @@
                         <h3 class="detailTab">모집 현황</h3>
                         <ul>
                             <th:block th:each="person : ${projectPersonList}">
-                            <li>
-                                <span class="position" th:text="${person.projectSubSkill}">UI/UX기획</span>
-                                <span class="applyNumber" th:text="'0/'+${person.projectCount}">0/1</span>
-                                <a class="applyButton">지원</a>
-                            </li>
+                                <li>
+                                    <span class="position" th:text="${person.projectSubSkill}">UI/UX기획</span>
+                                    <span class="applyNumber" th:text="'0/'+${person.projectCount}">0/1</span>
+                                    <a class="applyButton">지원</a>
+                                </li>
                             </th:block>
                         </ul>
                     </div>
@@ -93,7 +94,8 @@
                             <div class="iconImg">
                                 <img th:if="*{projectPlatform=='IOS 앱'}" src="/images/ic-appstore.png">
                                 <img th:if="*{projectPlatform=='안드로이드 앱'}" src="/images/ic-playstore.png">
-                                <img th:if="*{projectPlatform!='IOS 앱'} and *{projectPlatform!='안드로이드 앱'}" src="/images/ic-web.png">
+                                <img th:if="*{projectPlatform!='IOS 앱'} and *{projectPlatform!='안드로이드 앱'}"
+                                     src="/images/ic-web.png">
                             </div>
                         </div>
                     </div>
@@ -469,39 +471,41 @@
                         <div class="replyWrap">
                             <div class="replyActive">
                                 <div class="activeWrap">
-                                   <div class="activeTop">
-                                       <div class="activeLeft">
-                                       <a href="#">
-                                           <div class="activeLeftPro">
-                                               <img src="/images/여.png">
-                                           </div>
-                                       </a>
-                                       </div>
-                                       <div class="activeRight">
-                                           <div class="activeProfile">
-                                               <p class="activeProName" id="activeProName">상아야       
-                                          <ul class="hoverUl" id="houverUl">
-                                           <li>
-                                               <a href="#">프로필 상세</a>
-                                           </li>
-                                           <li >
-                                               <a>1 : 1 대화</a>
-                                           </li>
-                                           <li>
-                                               <a>모임초대</a>
-                                           </li>
-                                         </ul>
-                                    
-                                               </p>
-                                               <span class="activeDate">22.05.02 08:43</span>   
-                                           </div>
-                                           <div class="activeTxt">
-                                               <textarea class="activeTextArea" maxlength="500" placeholder="댓글을 작성해주세요" rows="2" readonly="">반갑습니다.</textarea>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                       </div>
+                                    <div class="activeTop">
+                                        <div class="activeLeft">
+                                            <a href="#">
+                                                <div class="activeLeftPro">
+                                                    <img src="/images/여.png">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="activeRight">
+                                            <div class="activeProfile">
+                                                <p class="activeProName" id="activeProName">상아야
+                                                <ul class="hoverUl" id="houverUl">
+                                                    <li>
+                                                        <a href="#">프로필 상세</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>1 : 1 대화</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>모임초대</a>
+                                                    </li>
+                                                </ul>
+
+                                                </p>
+                                                <span class="activeDate">22.05.02 08:43</span>
+                                            </div>
+                                            <div class="activeTxt">
+                                                <textarea class="activeTextArea" maxlength="500"
+                                                          placeholder="댓글을 작성해주세요" rows="2"
+                                                          readonly="">반갑습니다.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <p class="noMemberText">
                                 😢 프로젝트의 멤버가 아니셔서 답글을 달 수 없네요.
                                 <a>지원해주세요</a>
@@ -548,45 +552,48 @@
                         <div class="replyWrap">
                             <div class="replyActive">
                                 <div class="activeWrap">
-                                   <div class="activeTop">
-                                       <div class="activeLeft">
-                                       <a href="#">
-                                           <div class="activeLeftPro">
-                                               <img src="/images/여.png">
-                                           </div>
-                                       </a>
-                                       </div>
-                                       <div class="activeRight">
-                                           <div class="activeProfile">
-                                               <p class="activeProName" id="activeProName">상아야       
-                                          <ul class="hoverUl" id="houverUl">
-                                           <li>
-                                               <a href="#">프로필 상세</a>
-                                           </li>
-                                           <li >
-                                               <a>1 : 1 대화</a>
-                                           </li>
-                                           <li>
-                                               <a>모임초대</a>
-                                           </li>
-                                         </ul>
-                                    
-                                               </p>
-                                               <span class="activeDate">22.05.02 08:43</span>   
-                                           </div>
-                                           <div class="activeTxt">
-                                               <textarea class="activeTextArea" maxlength="500" placeholder="댓글을 작성해주세요" rows="2" readonly="">반갑습니다.</textarea>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                       </div>
+                                    <div class="activeTop">
+                                        <div class="activeLeft">
+                                            <a href="#">
+                                                <div class="activeLeftPro">
+                                                    <img src="/images/여.png">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="activeRight">
+                                            <div class="activeProfile">
+                                                <p class="activeProName" id="activeProName">상아야
+                                                <ul class="hoverUl" id="houverUl">
+                                                    <li>
+                                                        <a href="#">프로필 상세</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>1 : 1 대화</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>모임초대</a>
+                                                    </li>
+                                                </ul>
+
+                                                </p>
+                                                <span class="activeDate">22.05.02 08:43</span>
+                                            </div>
+                                            <div class="activeTxt">
+                                                <textarea class="activeTextArea" maxlength="500"
+                                                          placeholder="댓글을 작성해주세요" rows="2"
+                                                          readonly="">반갑습니다.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="activeInput">
                                 <div class="activInputPro">
                                     <img class="activInputImg" src="/images/여.png">
                                 </div>
                                 <div class="activeInputTxt">
-                                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요" class="activeInputTextArea"></textarea>
+                                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요"
+                                              class="activeInputTextArea"></textarea>
                                     <button class="activeInputBtn">등록</button>
                                 </div>
                             </div>
@@ -630,7 +637,6 @@
                         </div>
                     </div>
                 </div>
-
 
 
                 <!-- 피드 -->
@@ -687,56 +693,59 @@
                             <div class="faqBottom">
                                 <a>댓글 열기</a>
                                 <span class="replyCount">0</span>
-                                
+
                             </div>
-                        
+
                         </div>
-                         <div class="replyWrap">
+                        <div class="replyWrap">
                             <div class="replyActive">
                                 <div class="activeWrap">
-                                   <div class="activeTop">
-                                       <div class="activeLeft">
-                                       <a href="#">
-                                           <div class="activeLeftPro">
-                                               <img src="/images/여.png">
-                                           </div>
-                                       </a>
-                                       </div>
-                                       <div class="activeRight">
-                                           <div class="activeProfile">
-                                               <p class="activeProName" id="activeProName">상아야       
-                                          <ul class="hoverUl" id="houverUl">
-                                           <li>
-                                               <a href="#">프로필 상세</a>
-                                           </li>
-                                           <li >
-                                               <a>1 : 1 대화</a>
-                                           </li>
-                                           <li>
-                                               <a>모임초대</a>
-                                           </li>
-                                         </ul>
-                                    
-                                               </p>
-                                               <span class="activeDate">22.05.02 08:43</span>   
-                                           </div>
-                                           <div class="activeTxt">
-                                               <textarea class="activeTextArea" maxlength="500" placeholder="댓글을 작성해주세요" rows="2" readonly="">반갑습니다.</textarea>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                       </div>
+                                    <div class="activeTop">
+                                        <div class="activeLeft">
+                                            <a href="#">
+                                                <div class="activeLeftPro">
+                                                    <img src="/images/여.png">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="activeRight">
+                                            <div class="activeProfile">
+                                                <p class="activeProName" id="activeProName">상아야
+                                                <ul class="hoverUl" id="houverUl">
+                                                    <li>
+                                                        <a href="#">프로필 상세</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>1 : 1 대화</a>
+                                                    </li>
+                                                    <li>
+                                                        <a>모임초대</a>
+                                                    </li>
+                                                </ul>
+
+                                                </p>
+                                                <span class="activeDate">22.05.02 08:43</span>
+                                            </div>
+                                            <div class="activeTxt">
+                                                <textarea class="activeTextArea" maxlength="500"
+                                                          placeholder="댓글을 작성해주세요" rows="2"
+                                                          readonly="">반갑습니다.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="activeInput">
                                 <div class="activInputPro">
                                     <img class="activInputImg" src="/images/여.png">
                                 </div>
                                 <div class="activeInputTxt">
-                                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요" class="activeInputTextArea"></textarea>
+                                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요"
+                                              class="activeInputTextArea"></textarea>
                                     <button class="activeInputBtn">등록</button>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                     <div class="faqUploadSection">
                         <div class="faqUploadWrap faqUploadWrap2">
@@ -776,7 +785,7 @@
                             </div>
                         </div>
                         <div class="replyWrap">
-                            
+
                             <div class="replyWrapContent replyWrapContent2">
                                 <div class="top">
                                     <div class="left">
@@ -815,13 +824,14 @@
                                     <img class="activInputImg" src="/images/여.png">
                                 </div>
                                 <div class="activeInputTxt">
-                                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요" class="activeInputTextArea"></textarea>
+                                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요"
+                                              class="activeInputTextArea"></textarea>
                                     <button class="activeInputBtn">등록</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
 
@@ -846,312 +856,19 @@
                             <div class="projectSupText">
                                 <span>현재 지원자가 없습니다.</span>
                             </div>
-                             <!-- 지원자 있을 때 -->
-                          <div class="projectSupContents">
-                            <ul class="userGridList">
-                                <li class="userGrid userGrid2" >
-                                    <div class="userGridtop userGridtop2">
-                                        <div class="userIn2">
-                                            <div class="userGridimg">
-                                                <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
-                                            </div>
-  
-                                        </div>
-
-                                        <div class="usertool">
-                                            <div class="userwork1">
-                                                <div class="userGridName">
-                                                    <p class="ugname ugname2">상아얌</p>
-                                                    <ul class="idHoverMenu">
-                                                        <li>
-                                                            <a>프로필 상세</a>
-                                                        </li>
-                                                        <li>
-                                                            <a>1:1 대화</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                       
-                                    <div class="usertag">
-                                        <p class="join2">지원일 : 22.05.10</p>
-                                        <p class="line"></p>
-                                        <!-- <hr> -->
-                                        <p class="join3">[직무]</p>
-                                        <p class="join4">[포부]</p>
-                                        <p class="join5">[이메일]</p>
-                                    </div>
-                                    <div class="userGridSandN">
-                                        <p class="success">승인</p>
-                                        <p class="nonono">거절</p>
-                                    </div>
-                                </li>
-                                <!-- 여기까지 -->
-                                <li class="userGrid userGrid2" >
-                                    <div class="userGridtop userGridtop2">
-                                        <div class="userIn2">
-                                            <div class="userGridimg">
-                                                <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
-                                            </div>
-  
-                                        </div>
-
-                                        <div class="usertool">
-                                            <div class="userwork1">
-                                                <div class="userGridName">
-                                                    <p class="ugname ugname2">상냥이</p>
-                                                    <ul class="idHoverMenu">
-                                                        <li>
-                                                            <a>프로필 상세</a>
-                                                        </li>
-                                                        <li>
-                                                            <a>1:1 대화</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                       
-                                    <div class="usertag">
-                                        <p class="join2">지원일 : 22.05.10</p>
-                                        <p class="line"></p>
-                                        <!-- <hr> -->
-                                        <p class="join3">[직무]</p>
-                                        <p class="join4">[포부]</p>
-                                        <p class="join5">[이메일]</p>
-                                    </div>
-                                    <div class="userGridSandN">
-                                        <p class="success">승인</p>
-                                        <p class="nonono">거절</p>
-                                    </div>
-                                </li>
-                                <!-- 여기까지 -->
-                                <li class="userGrid userGrid2" >
-                                    <div class="userGridtop userGridtop2">
-                                        <div class="userIn2">
-                                            <div class="userGridimg">
-                                                <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
-                                            </div>
-  
-                                        </div>
-
-                                        <div class="usertool">
-                                            <div class="userwork1">
-                                                <div class="userGridName">
-                                                    <p class="ugname ugname2">무밍맘</p>
-                                                    <ul class="idHoverMenu">
-                                                        <li>
-                                                            <a>프로필 상세</a>
-                                                        </li>
-                                                        <li>
-                                                            <a>1:1 대화</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                       
-                                    <div class="usertag">
-                                        <p class="join2">지원일 : 22.05.10</p>
-                                        <p class="line"></p>
-                                        <!-- <hr> -->
-                                        <p class="join3">[직무]</p>
-                                        <p class="join4">[포부]</p>
-                                        <p class="join5">[이메일]</p>
-                                    </div>
-                                    <div class="userGridSandN">
-                                        <p class="success">승인</p>
-                                        <p class="nonono">거절</p>
-                                    </div>
-                                </li>
-                                <li class="userGrid userGrid2" >
-                                    <div class="userGridtop userGridtop2">
-                                        <div class="userIn2">
-                                            <div class="userGridimg">
-                                                <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
-                                            </div>
-  
-                                        </div>
-
-                                        <div class="usertool">
-                                            <div class="userwork1">
-                                                <div class="userGridName">
-                                                    <p class="ugname ugname2">홍만두</p>
-                                                    <ul class="idHoverMenu">
-                                                        <li>
-                                                            <a>프로필 상세</a>
-                                                        </li>
-                                                        <li>
-                                                            <a>1:1 대화</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                       
-                                    <div class="usertag">
-                                        <p class="join2">지원일 : 22.05.10</p>
-                                        <p class="line"></p>
-                                        <!-- <hr> -->
-                                        <p class="join3">[직무]</p>
-                                        <p class="join4">[포부]</p>
-                                        <p class="join5">[이메일]</p>
-                                    </div>
-                                    <div class="userGridSandN">
-                                        <p class="success">승인</p>
-                                        <p class="nonono">거절</p>
-                                    </div>
-                                </li>
-                                <li class="userGrid userGrid2" >
-                                    <div class="userGridtop userGridtop2">
-                                        <div class="userIn2">
-                                            <div class="userGridimg">
-                                                <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
-                                            </div>
-  
-                                        </div>
-
-                                        <div class="usertool">
-                                            <div class="userwork1">
-                                                <div class="userGridName">
-                                                    <p class="ugname ugname2">다크준형</p>
-                                                    <ul class="idHoverMenu">
-                                                        <li>
-                                                            <a>프로필 상세</a>
-                                                        </li>
-                                                        <li>
-                                                            <a>1:1 대화</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                       
-                                    <div class="usertag">
-                                        <p class="join2">지원일 : 22.05.10</p>
-                                        <p class="line"></p>
-                                        <!-- <hr> -->
-                                        <p class="join3">[직무]</p>
-                                        <p class="join4">[포부]</p>
-                                        <p class="join5">[이메일]</p>
-                                    </div>
-                                    <div class="userGridSandN">
-                                        <p class="success">승인</p>
-                                        <p class="nonono">거절</p>
-                                    </div>
-                                </li>
-                                <li class="userGrid userGrid2" >
-                                    <div class="userGridtop userGridtop2">
-                                        <div class="userIn2">
-                                            <div class="userGridimg">
-                                                <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
-                                            </div>
-  
-                                        </div>
-
-                                        <div class="usertool">
-                                            <div class="userwork1">
-                                                <div class="userGridName">
-                                                    <p class="ugname ugname2">박상냥</p>
-                                                    <ul class="idHoverMenu">
-                                                        <li>
-                                                            <a>프로필 상세</a>
-                                                        </li>
-                                                        <li>
-                                                            <a>1:1 대화</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                       
-                                    <div class="usertag">
-                                        <p class="join2">지원일 : 22.05.10</p>
-                                        <p class="line"></p>
-                                        <!-- <hr> -->
-                                        <p class="join3">[직무]</p>
-                                        <p class="join4">[포부]</p>
-                                        <p class="join5">[이메일]</p>
-                                    </div>
-                                    <div class="userGridSandN">
-                                        <p class="success">승인</p>
-                                        <p class="nonono">거절</p>
-                                    </div>
-                                </li>
-                                <li class="userGrid userGrid2" >
-                                    <div class="userGridtop userGridtop2">
-                                        <div class="userIn2">
-                                            <div class="userGridimg">
-                                                <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
-                                            </div>
-  
-                                        </div>
-
-                                        <div class="usertool">
-                                            <div class="userwork1">
-                                                <div class="userGridName">
-                                                    <p class="ugname ugname2">상냥이</p>
-                                                    <ul class="idHoverMenu">
-                                                        <li>
-                                                            <a>프로필 상세</a>
-                                                        </li>
-                                                        <li>
-                                                            <a>1:1 대화</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                       
-                                    <div class="usertag">
-                                        <p class="join2">지원일 : 22.05.10</p>
-                                        <p class="line"></p>
-                                        <!-- <hr> -->
-                                        <p class="join3">[직무]</p>
-                                        <p class="join4">[포부]</p>
-                                        <p class="join5">[이메일]</p>
-                                    </div>
-                                    <div class="userGridSandN">
-                                        <p class="success">승인</p>
-                                        <p class="nonono">거절</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        </div>
-                        <!-- 멤버관리 -->
-                         <div class="proManag manages">
-                             <!-- 멤버없을때 -->
-                            <div class="projectSupText">
-                                <span>현재 가입된 멤버가 없습니다.</span>
-                            </div>
-                            <!-- 멤버있을때 -->
+                            <!-- 지원자 있을 때 -->
                             <div class="projectSupContents">
                                 <ul class="userGridList">
-                                    <li class="userGrid userGrid2" >
+                                    <li class="userGrid userGrid2">
                                         <div class="userGridtop userGridtop2">
                                             <div class="userIn2">
                                                 <div class="userGridimg">
-                                                    <img src="/images/image/여.png" style="width: 50px; object-fit: cover;">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
                                                 </div>
-      
+
                                             </div>
-    
+
                                             <div class="usertool">
                                                 <div class="userwork1">
                                                     <div class="userGridName">
@@ -1166,10 +883,308 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
-                           
+
+                                        <div class="usertag">
+                                            <p class="join2">지원일 : 22.05.10</p>
+                                            <p class="line"></p>
+                                            <!-- <hr> -->
+                                            <p class="join3">[직무]</p>
+                                            <p class="join4">[포부]</p>
+                                            <p class="join5">[이메일]</p>
+                                        </div>
+                                        <div class="userGridSandN">
+                                            <p class="success">승인</p>
+                                            <p class="nonono">거절</p>
+                                        </div>
+                                    </li>
+                                    <!-- 여기까지 -->
+                                    <li class="userGrid userGrid2">
+                                        <div class="userGridtop userGridtop2">
+                                            <div class="userIn2">
+                                                <div class="userGridimg">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="usertool">
+                                                <div class="userwork1">
+                                                    <div class="userGridName">
+                                                        <p class="ugname ugname2">상냥이</p>
+                                                        <ul class="idHoverMenu">
+                                                            <li>
+                                                                <a>프로필 상세</a>
+                                                            </li>
+                                                            <li>
+                                                                <a>1:1 대화</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="usertag">
+                                            <p class="join2">지원일 : 22.05.10</p>
+                                            <p class="line"></p>
+                                            <!-- <hr> -->
+                                            <p class="join3">[직무]</p>
+                                            <p class="join4">[포부]</p>
+                                            <p class="join5">[이메일]</p>
+                                        </div>
+                                        <div class="userGridSandN">
+                                            <p class="success">승인</p>
+                                            <p class="nonono">거절</p>
+                                        </div>
+                                    </li>
+                                    <!-- 여기까지 -->
+                                    <li class="userGrid userGrid2">
+                                        <div class="userGridtop userGridtop2">
+                                            <div class="userIn2">
+                                                <div class="userGridimg">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="usertool">
+                                                <div class="userwork1">
+                                                    <div class="userGridName">
+                                                        <p class="ugname ugname2">무밍맘</p>
+                                                        <ul class="idHoverMenu">
+                                                            <li>
+                                                                <a>프로필 상세</a>
+                                                            </li>
+                                                            <li>
+                                                                <a>1:1 대화</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="usertag">
+                                            <p class="join2">지원일 : 22.05.10</p>
+                                            <p class="line"></p>
+                                            <!-- <hr> -->
+                                            <p class="join3">[직무]</p>
+                                            <p class="join4">[포부]</p>
+                                            <p class="join5">[이메일]</p>
+                                        </div>
+                                        <div class="userGridSandN">
+                                            <p class="success">승인</p>
+                                            <p class="nonono">거절</p>
+                                        </div>
+                                    </li>
+                                    <li class="userGrid userGrid2">
+                                        <div class="userGridtop userGridtop2">
+                                            <div class="userIn2">
+                                                <div class="userGridimg">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="usertool">
+                                                <div class="userwork1">
+                                                    <div class="userGridName">
+                                                        <p class="ugname ugname2">홍만두</p>
+                                                        <ul class="idHoverMenu">
+                                                            <li>
+                                                                <a>프로필 상세</a>
+                                                            </li>
+                                                            <li>
+                                                                <a>1:1 대화</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="usertag">
+                                            <p class="join2">지원일 : 22.05.10</p>
+                                            <p class="line"></p>
+                                            <!-- <hr> -->
+                                            <p class="join3">[직무]</p>
+                                            <p class="join4">[포부]</p>
+                                            <p class="join5">[이메일]</p>
+                                        </div>
+                                        <div class="userGridSandN">
+                                            <p class="success">승인</p>
+                                            <p class="nonono">거절</p>
+                                        </div>
+                                    </li>
+                                    <li class="userGrid userGrid2">
+                                        <div class="userGridtop userGridtop2">
+                                            <div class="userIn2">
+                                                <div class="userGridimg">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="usertool">
+                                                <div class="userwork1">
+                                                    <div class="userGridName">
+                                                        <p class="ugname ugname2">다크준형</p>
+                                                        <ul class="idHoverMenu">
+                                                            <li>
+                                                                <a>프로필 상세</a>
+                                                            </li>
+                                                            <li>
+                                                                <a>1:1 대화</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="usertag">
+                                            <p class="join2">지원일 : 22.05.10</p>
+                                            <p class="line"></p>
+                                            <!-- <hr> -->
+                                            <p class="join3">[직무]</p>
+                                            <p class="join4">[포부]</p>
+                                            <p class="join5">[이메일]</p>
+                                        </div>
+                                        <div class="userGridSandN">
+                                            <p class="success">승인</p>
+                                            <p class="nonono">거절</p>
+                                        </div>
+                                    </li>
+                                    <li class="userGrid userGrid2">
+                                        <div class="userGridtop userGridtop2">
+                                            <div class="userIn2">
+                                                <div class="userGridimg">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="usertool">
+                                                <div class="userwork1">
+                                                    <div class="userGridName">
+                                                        <p class="ugname ugname2">박상냥</p>
+                                                        <ul class="idHoverMenu">
+                                                            <li>
+                                                                <a>프로필 상세</a>
+                                                            </li>
+                                                            <li>
+                                                                <a>1:1 대화</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="usertag">
+                                            <p class="join2">지원일 : 22.05.10</p>
+                                            <p class="line"></p>
+                                            <!-- <hr> -->
+                                            <p class="join3">[직무]</p>
+                                            <p class="join4">[포부]</p>
+                                            <p class="join5">[이메일]</p>
+                                        </div>
+                                        <div class="userGridSandN">
+                                            <p class="success">승인</p>
+                                            <p class="nonono">거절</p>
+                                        </div>
+                                    </li>
+                                    <li class="userGrid userGrid2">
+                                        <div class="userGridtop userGridtop2">
+                                            <div class="userIn2">
+                                                <div class="userGridimg">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="usertool">
+                                                <div class="userwork1">
+                                                    <div class="userGridName">
+                                                        <p class="ugname ugname2">상냥이</p>
+                                                        <ul class="idHoverMenu">
+                                                            <li>
+                                                                <a>프로필 상세</a>
+                                                            </li>
+                                                            <li>
+                                                                <a>1:1 대화</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="usertag">
+                                            <p class="join2">지원일 : 22.05.10</p>
+                                            <p class="line"></p>
+                                            <!-- <hr> -->
+                                            <p class="join3">[직무]</p>
+                                            <p class="join4">[포부]</p>
+                                            <p class="join5">[이메일]</p>
+                                        </div>
+                                        <div class="userGridSandN">
+                                            <p class="success">승인</p>
+                                            <p class="nonono">거절</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 멤버관리 -->
+                        <div class="proManag manages">
+                            <!-- 멤버없을때 -->
+                            <div class="projectSupText">
+                                <span>현재 가입된 멤버가 없습니다.</span>
+                            </div>
+                            <!-- 멤버있을때 -->
+                            <div class="projectSupContents">
+                                <ul class="userGridList">
+                                    <li class="userGrid userGrid2">
+                                        <div class="userGridtop userGridtop2">
+                                            <div class="userIn2">
+                                                <div class="userGridimg">
+                                                    <img src="/images/image/여.png"
+                                                         style="width: 50px; object-fit: cover;">
+                                                </div>
+                                            </div>
+                                            <div class="usertool">
+                                                <div class="userwork1">
+                                                    <div class="userGridName">
+                                                        <p class="ugname ugname2">상아얌</p>
+                                                        <ul class="idHoverMenu">
+                                                            <li>
+                                                                <a>프로필 상세</a>
+                                                            </li>
+                                                            <li>
+                                                                <a>1:1 대화</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                         <div class="usertag">
                                             <p class="join2">참여일 : 22.05.10</p>
                                             <p class="line"></p>
@@ -1179,13 +1194,9 @@
                                             <p class="successBang">방출</p>
                                         </div>
                                     </li>
-                                    </ul>
-                           
-                            
-                        </div> 
+                                </ul>
+                            </div>
                         </div>
-                         
-
                     </div>
                 </div>
             </div>
@@ -1202,8 +1213,7 @@
                                 </a>
                             </div>
                             <div class="userWrapper">
-                                <span class="userId">
-                                    Oxkong
+                                <span class="userId" th:text="${user.userNickName}">
                                     <div class="idMenu">
                                         <ul>
                                             <li>
@@ -1246,12 +1256,8 @@
                     </div>
                 </div>
                 <div class="projectDate infoWrap">
-                    <h3 class="projectTab">프로젝트 기간</h3>
-                    <p class="projectText">22.04.25 ~ 22.10.25<span>(184일)</span></p>
-                </div>
-                <div class="projectDate infoWrap">
                     <h3 class="projectTab">프로젝트 분야</h3>
-                    <p class="projectText">금융</p>
+                    <p class="projectText" th:text="${project.projectPart}"></p>
                 </div>
                 <div class="subscriber infoWrap">
                     <h3 class="projectTab">구독중인 렛플인 3명</h3>
@@ -1493,7 +1499,7 @@
     <div id="modalPage13">
         <a class="modalCloseBtn13"><img src="/images/free-icon-font-cross-3917759.png" class="xIcon13 xBtns"></a>
         <div class="letter13">
-            <p class="completeP13">AI아바타챗봇 창업공모전준비를 구독하시겠습니까?</p>
+            <p class="completeP13" th:text="${project.projectName}+'를 구독하시겠습니까?'"></p>
             <p class="mdProPtags">구독하시면, 관련된 정보나 홍보 컨텐츠가 SMS/이메일을 통해 정기적으로 배송되며 자동으로 웍스 광고수신동의가 이루어집니다</p>
             <div class="mdBtnProWraps">
                 <button class="mdBtnProNo xBtns">아니오</button>

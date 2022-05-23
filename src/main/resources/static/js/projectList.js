@@ -166,10 +166,13 @@ else if(result.length) {
         str += '</div>'
         str += '<div class="recruitModel">'
         str += '<ul>'
-        str += '<li>'
-        str += '<span>UI/UX기획</span>'
-        str += '<span>1명</span>'
-        str += '</li>'
+
+        // for (let i =0;i<project.persons.size;i++) {
+        //     str += '<li>'
+        //     str += '<span>'+project.persons[i].projectSubSkill+'</span>'
+        //     str += '<span>'+project.persons[i].projectCount+'</span>'
+        //     str += '</li>'
+        // }
         str += '</ul>'
         str += '</div>'
         str += '</div>'
