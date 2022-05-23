@@ -27,8 +27,10 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -44,47 +46,16 @@ public class KakaoController {
     private final UserInterestRepository userInterestRepository;
     private final UserPortfolioRepository userPortfolioRepository;
 
-
-//    KakaoAPI kakaoApi = new KakaoAPI();
-//
-////    쿼리스트링 code의 값은 매개변수로 쉽게 받을 수 있다.
-//    @RequestMapping(value="/login")
-//    public ModelAndView login(@RequestParam("code") String code, HttpSession session) {
-//        ModelAndView mav = new ModelAndView();
-//        // 1번 인증코드 요청 전달
-//        String accessToken = kakaoApi.getAccessToken(code);
-//        // 2번 인증코드로 토큰 전달
-//        HashMap<String, Object> userInfo = kakaoApi.getUserInfo(accessToken);
-//
-//        System.out.println("login info : " + userInfo.toString());
-//
-//        if(userInfo.get("email") != null) {
-//            session.setAttribute("userId", userInfo.get("email"));
-//            session.setAttribute("accessToken", accessToken);
-//        }
-//        mav.addObject("userId", userInfo.get("email"));
-//        mav.setViewName("index");
-//        return mav;
-//    }
-//
-//    @RequestMapping(value="/logout")
-//    public ModelAndView logout(HttpSession session) {
-//        ModelAndView mav = new ModelAndView();
-//
-//        kakaoApi.kakaoLogout((String)session.getAttribute("accessToken"));
-//        session.removeAttribute("accessToken");
-//        session.removeAttribute("userId");
-//        mav.setViewName("index");
-//        return mav;
-//    }
-
     @GetMapping("/login")
-    public String kakaoLogin(String code, Model model){ //Data를 리턴해주는 컨트롤러
+    public String kakaoLogin(String code, Model model, HttpServletRequest req){ //Data를 리턴해주는 컨트롤러
 
         //POST방식으로 key = value 데이터를 요청 (카카오쪽으로)
         //RestTemplate란 Rest API 호출이후 응답을 받을 때까지 기다리는 동기 방식
         //HTTP 서버와의 통신을 단순화하고 Restful 원칙을 지킨다. (json, xml을 쉽게 응답 답을수 있음.)
         RestTemplate rt = new RestTemplate();
+
+//        URL을 변수로써 상황에 맞게 달라지게한다.
+        String url = "";
 
 //        HttpHeader 오브젝트 생성
         HttpHeaders headers = new HttpHeaders();
@@ -190,15 +161,167 @@ public class KakaoController {
        model.addAttribute("userCode", userCode);
        model.addAttribute("userProfileURL", kakaoProfile.getProperties().getProfile_image());
 
-//        if(정보가 있다면){
-//            return "main/index";
+//       유저 넘버를 가져올 방법이 닉네임으로 db에서 셀렉트하는 방법밖에 없다.
+        String userId = kakaoProfile.getKakao_account().getEmail();
+
+        log.info("들어오기 전 입니다." + userId);
+
+        UserVO userVO = userRepository.findByUserId(userId);
+
+        log.info("들어온 후 입니다." + userVO);
+
+        if(userVO == null){
+
+            url = "user/joinForm";
+
+        }else{
+
+            HttpSession session = req.getSession();
+
+            session.setAttribute("userNum", userVO.getUserNum());
+
+            url = "main/index";
+        }
+
+        return url;
+    }
+//    로그인 시도
+    @GetMapping("/loginTry")
+    public String kakaoLoginTry(String code, Model model, HttpServletRequest req){ //Data를 리턴해주는 컨트롤러
+
+        //POST방식으로 key = value 데이터를 요청 (카카오쪽으로)
+        //RestTemplate란 Rest API 호출이후 응답을 받을 때까지 기다리는 동기 방식
+        //HTTP 서버와의 통신을 단순화하고 Restful 원칙을 지킨다. (json, xml을 쉽게 응답 답을수 있음.)
+        RestTemplate rt = new RestTemplate();
+
+//        URL을 변수로써 상황에 맞게 달라지게한다.
+        String url = "";
+
+//        HttpHeader 오브젝트 생성
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+
+//        HttpBody 오브젝트 생성
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.add("grant_type", "authorization_code");
+        params.add("client_id", "fd3ba5c3c1994f15929fb85ba0dbe764");
+        params.add("redirect_uri", "http://localhost:7777/login");
+        params.add("code", code);
+
+        //HttpBody값과 HttpHeader를 하나의 오브젝트에 담기.
+        HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
+                new HttpEntity<>(params, headers);
+
+//        Http 요청하기 - Post방식으로 - 그리고 response 변수의 응답 받음.
+        ResponseEntity response = rt.exchange(
+          "https://kauth.kakao.com/oauth/token",
+                HttpMethod.POST,
+                kakaoTokenRequest,
+                String.class
+        );
+
+        //Gson, Json Simple, ObjectMapper
+        ObjectMapper objectMapper = new ObjectMapper();
+        OAuthToken oauthToken = null;
+
+        try {
+            oauthToken = objectMapper.readValue((String)(response.getBody()), OAuthToken.class);
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+//        System.out.println("카카오 엑세스 토큰 : " + oauthToken.getAccess_token());
+
+        RestTemplate rt2 = new RestTemplate();
+
+        //HttpHeader 오브젝트 생성
+        HttpHeaders headers2 = new HttpHeaders();
+        headers2.add("Authorization", "Bearer "+ oauthToken.getAccess_token());
+        headers2.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+
+        //HttpHeader와 HttpBody를 하나의 오브젝트에 담기
+        HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest2 =
+                new HttpEntity<>(headers2);
+
+        //Http 요청하기 - Post방식으로 - 그리고 response변수의 응답 받음.
+        ResponseEntity response2 = rt2.exchange(
+                "https://kapi.kakao.com/v2/user/me",
+                HttpMethod.POST,
+                kakaoProfileRequest2,
+                String.class
+        );
+
+//        System.out.println(response2.getBody());
+
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        KakaoProfile kakaoProfile = null;
+
+        try {
+            kakaoProfile = objectMapper2.readValue((String)(response2.getBody()), KakaoProfile.class);
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        //User 오브젝트 :
+        System.out.println("카카오 아이디(번호) : " + kakaoProfile.getId());
+        System.out.println("카카오 이메일 : " + kakaoProfile.getKakao_account().getEmail());
+        System.out.println("카카오 닉네임 : " + kakaoProfile.getKakao_account().getProfile().getNickname());
+        System.out.println("카카오 프로필사진 : " + kakaoProfile.getProperties().getProfile_image());
+
+        System.out.println("워크스페이스 유저네임 : " + kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId());
+        System.out.println("워크스페이스 이메일 : " + kakaoProfile.getKakao_account().getEmail());
+        UUID uuid = UUID.randomUUID();
+        String userCode= uuid.toString().split("-")[0];
+        System.out.println("워크스페이스 패스워드 : "+userCode);
+//        UserVO userVO = new UserVO();
+//        userVO.setUserId(kakaoProfile.getKakao_account().getEmail());
+//        userVO.setUserNick_name(kakaoProfile.getKakao_account().getProfile().getNickname());
+//        userVO.setUserImgName(kakaoProfile.getProperties().getProfile_image());
+
+//        userRepository.save(UserVO.builder().userId(kakaoProfile.getKakao_account().getEmail()));
+//        List<UserVO> users = userRepository.findAll();
+//        ArrayList<String> userCodes = new ArrayList<>();
+//        for (int i=0;i<users.size();i++){
+//            userCodes.add(users.get(i).getUserCode());
 //        }
 
-        return "user/joinForm";
+//        HashSet<String> set = new HashSet<String>(Arrays.asList(userCodes))
+
+
+//        userVO.setUserCode(userCode);
+
+//       userRepository.save(userVO);
+
+       model.addAttribute("userId", kakaoProfile.getKakao_account().getEmail());
+       model.addAttribute("userNickName", kakaoProfile.getKakao_account().getProfile().getNickname());
+       model.addAttribute("userCode", userCode);
+       model.addAttribute("userProfileURL", kakaoProfile.getProperties().getProfile_image());
+
+//       유저 넘버를 가져올 방법이 닉네임으로 db에서 셀렉트하는 방법밖에 없다.
+        String userNickName = kakaoProfile.getKakao_account().getProfile().getNickname();
+
+        log.info("들어오기 전 입니다.");
+
+        Long userNum = userRepository.findByUserNickname(userNickName).getUserNum();
+
+        log.info("들어온 후 입니다." + userNum);
+
+            url = "user/joinForm";
+            HttpSession session = req.getSession();
+
+            session.setAttribute("userNum", userNum);
+
+            url = "main/index";
+
+        return "main/index";
     }
 
     @PostMapping("/joinForm")
-    public String join(UserVO userVO, Model model){
+    public String join(UserVO userVO, Model model, HttpServletRequest req){
         System.out.println(userVO.toString());
         userRepository.save(userVO);
         List<Long> userNumList = userRepository.findAll().stream().map(UserVO::getUserNum).collect(Collectors.toList());
@@ -208,6 +331,10 @@ public class KakaoController {
 //        log.info(userNumList.toString());
 
         model.addAttribute("userNum", userNum);
+
+        HttpSession session = req.getSession();
+
+        session.setAttribute("userNum", userNum);
 
         return "user/joinSuccess";
     }
@@ -273,6 +400,54 @@ public class KakaoController {
         HttpSession session = req.getSession();
         session.setAttribute("userNum",userNum);
         return new RedirectView("main/index");
+    }
+
+//    로그아웃 컨트롤러
+    @GetMapping("/logOut")
+    public RedirectView logOut(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        session.invalidate();
+        return new RedirectView("main/index");
+    }
+
+//    카카오페이
+    @RequestMapping("/kakaoPay")
+    @ResponseBody
+    public String kakaoPay(){
+        try {
+            URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
+            HttpURLConnection connection = (HttpURLConnection)address.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Authorization", "KakaoAK 592bc06590564de8184d8613164618f4");
+            connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+            //          서버에 전달할게 있는가 없는가
+            connection.setDoOutput(true);
+            String parameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=bitCoin&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:7777/kakaoPay&fail_url=http://localhost:7777/fail&cancel_url=http://localhost:7777/cancel";
+            OutputStream outputStream = connection.getOutputStream();
+            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+            dataOutputStream.writeBytes(parameter);
+            dataOutputStream.close();
+
+            int result = connection.getResponseCode();
+
+            InputStream inputStream;
+            if(result == 200){
+                inputStream = connection.getInputStream();
+            }else{
+                inputStream = connection.getErrorStream();
+            }
+
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            return bufferedReader.readLine();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        return "{\"result\":\"NO\"}";
     }
 
 
