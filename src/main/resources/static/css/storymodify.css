@@ -62,3 +62,7 @@ button.mdBtnStoryBtn{
     margin-top: 20px;
     cursor: pointer;
 }
+
+a{
+    text-decoration: none !important;
+}

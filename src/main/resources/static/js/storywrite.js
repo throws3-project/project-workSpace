@@ -241,18 +241,34 @@ const editor = new toastui.Editor({
 
 
 //스터디 분야 선택
+let pattern = /\s/g;
 
 $("#skill").on("keydown", $("#keyword"), function (e) {
     let check = false;
 
     if (e.keyCode == 13) {
         e.preventDefault();
+
+        if($("#keyword").val().match(pattern)){
+            alert("공백은 입력하실 수 없습니다.");
+            check = true;
+        }
+
+        if($("#keyword").val().length == 0){
+            alert("태그를 입력해주십시오.");
+            check = true;
+        }
+
         $(".skillTag").each(function (i, tag) {
             if ($("#keyword").val().toLowerCase() === $(tag).text()) {
                 alert("이미 등록한 키워드입니다.");
                 check = true;
             }
         })
+        if($(".skillTag").length == 5){
+            alert("태그는 최대 5개까지 입력가능합니다.");
+            check = true;
+        }
         let str = "";
         str += "<a class='skillTag'>" + $("#keyword").val().toLowerCase() + "</a>";
 
