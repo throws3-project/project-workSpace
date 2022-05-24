@@ -71,6 +71,7 @@ public class ProjectController {
         List<ProjectVO> projectList = projectRepository.findAllByOrderByProjectNumDesc();
 
 
+
 //        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
         model.addAttribute("newProjectList", newProjectList);
         model.addAttribute("projectTop3", projectTop3);
@@ -80,18 +81,19 @@ public class ProjectController {
 
     @PostMapping("/projectFilter")
     @ResponseBody
-    public List<ProjectVO> projectFilter(ProjectFilter projectFilter) throws JSONException {
-        JSONArray jsonArray = new JSONArray();
+    public JSONArray projectFilter(ProjectFilter projectFilter) throws JSONException {
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
-//        List<ProjectPersonVO> persons = projectPersonRepository.getProjectList(projectFilter);
         HashMap<String,Object> hashMap = new HashMap<>();
+        JSONArray jsonArray = new JSONArray();
         JSONObject json = new JSONObject(hashMap);
         for(ProjectVO project : projectList){
             json.put("project",project);
+            json.put("persons",project.getPersons());
+            jsonArray.put(json);
         }
 
 
-        return projectList;
+        return jsonArray;
     }
 
     @GetMapping("/projectRegister")
