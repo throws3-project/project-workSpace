@@ -96,7 +96,7 @@
             <div class="normalPayment paymentMethod">
                 <p>일반 결제</p>
                 <div>
-                    <button>신용카드</button>
+                    <button id="check_module">신용카드</button>
                     <button>휴대폰결제</button>
                     <button>가상계좌</button>
                     <button>계좌이체</button>
@@ -116,7 +116,40 @@
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
 <script src="/js/payment.js"></script>
+<script>
+    $("#check_module").click(function(){
+        var IMP = window.IMP;
+        IMP.init('imp07124966');
+        IMP.request_pay({
+            pg: 'inicis',
+            pay_method: 'card',
+            merchant_uid: 'merchant_' + new Date().getTime(),
+            name: "bit Coin",
+            amount: 10,
+            buyer_email: "thdwnsgud79@naver.com",
+            buyer_name: "송준형",
+            buyer_tel: "010-8958-7712",
+            buyer_addr: "서울특별시 강남구 개포동",
+            buyer_postcode: "06330",
+            m_redirect_url: 'http://localhost:7777/user/payment'
+        }, function(rsp){
+            console.log(rsp);
+            if(rsp.success){
+                var msg = '결제가 완료되었습니다.';
+                msg += '고유ID : ' + rsp.imp_uid;
+                msg += '상점 거래ID : ' + rsp.merchant_uid;
+                msg += '결제 금액 : ' + rsp.paid_amount;
+                msg += '카드 승인번호 : ' + rsp.apply_num;
+            } else{
+                var msg = '결제에 실패하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
+            }
+            alert(msg);
+        });
+    });
+</script>
 </html>

@@ -277,44 +277,44 @@ public class KakaoController {
     }
 
 //    카카오페이
-    @RequestMapping("/kakaoPay")
-    @ResponseBody
-    public String kakaoPay(){
-        try {
-            URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
-            HttpURLConnection connection = (HttpURLConnection)address.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Authorization", "KakaoAK 592bc06590564de8184d8613164618f4");
-            connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-            //          서버에 전달할게 있는가 없는가
-            connection.setDoOutput(true);
-            String parameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=bitCoin&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:7777/kakaoPay&fail_url=http://localhost:7777/fail&cancel_url=http://localhost:7777/cancel";
-            OutputStream outputStream = connection.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            dataOutputStream.writeBytes(parameter);
-            dataOutputStream.close();
-
-            int result = connection.getResponseCode();
-
-            InputStream inputStream;
-            if(result == 200){
-                inputStream = connection.getInputStream();
-            }else{
-                inputStream = connection.getErrorStream();
-            }
-
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            return bufferedReader.readLine();
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-        return "{\"result\":\"NO\"}";
-    }
+//    @RequestMapping("/kakaoPay")
+//    @ResponseBody
+//    public String kakaoPay(){
+//        try {
+//            URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
+//            HttpURLConnection connection = (HttpURLConnection)address.openConnection();
+//            connection.setRequestMethod("POST");
+//            connection.setRequestProperty("Authorization", "KakaoAK 592bc06590564de8184d8613164618f4");
+//            connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+//            //          서버에 전달할게 있는가 없는가
+//            connection.setDoOutput(true);
+//            String parameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=bitCoin&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:7777/kakaoPay&fail_url=http://localhost:7777/fail&cancel_url=http://localhost:7777/cancel";
+//            OutputStream outputStream = connection.getOutputStream();
+//            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+//            dataOutputStream.writeBytes(parameter);
+//            dataOutputStream.close();
+//
+//            int result = connection.getResponseCode();
+//
+//            InputStream inputStream;
+//            if(result == 200){
+//                inputStream = connection.getInputStream();
+//            }else{
+//                inputStream = connection.getErrorStream();
+//            }
+//
+//            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//            return bufferedReader.readLine();
+//
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e){
+//            e.printStackTrace();
+//        }
+//
+//        return "{\"result\":\"NO\"}";
+//    }
 
 
 //    @PostMapping("/uploadAjaxAction")
