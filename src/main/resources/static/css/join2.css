@@ -183,7 +183,7 @@ button.codeButton{
     margin: 0 6px;
 }
 
-button.joinComplete{
+button.joinComplete, button.joinCompleteLater{
     color: #fff;
     font-size: 0.8rem;
     padding: 11px 35px;
@@ -298,7 +298,7 @@ img.xIcon{
     width: 25px;
 }
 
-div.modalWindow{
+div.modalWindowSuccess{
     position: fixed;
     top: 0;
     left: 0;
@@ -414,7 +414,7 @@ a{
         width: 310px !important;
     }
 
-    button.joinComplete{
+    button.joinComplete, button.joinCompleteLater{
         width: 180px !important;
     }
 

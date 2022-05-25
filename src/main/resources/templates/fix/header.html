@@ -10,8 +10,8 @@
                     <li><a href="#">블로그</a></li>
                     <li><a href="#">라운지</a></li>
                 </ul>
-                <div class="loginWrap"><a class="joinAndLogin">로그인</a><a class="joinAndLogin">가입</a></div>
-                <div class="profileWrap">
+                <div class="loginWrap" th:if="${session.userNum == null}"><a class="joinAndLogin">로그인</a><a class="joinAndLogin">가입</a></div>
+                <div class="profileWrap" th:if="${session.userNum != null}">
                     <div class="boxBigWrap">
                         <div class="boxWrap">
                             <div class="grayBox"><span>0</span><span>P</span></div>
@@ -32,7 +32,7 @@
                             <div class="profileImgWholeWrap">
                                 <div class="profileImgWrapFirstLine">
                                     <span class="lvColor">Lv.</span><span class="lvColor2">0</span>
-                                    <a href="#" class="logOut">로그아웃</a>
+                                    <a class="logOut">로그아웃</a>
                                 </div>
                                 <div class="profileImgWrapSecondLine">
                                     <a href="#">
@@ -77,7 +77,7 @@
                 <a class="modal_close_btn"><img src="/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
                 <p class="snsLoginP">로그인</p>
                 <div class="snsWrap">
-                    <button class="kakao_button">카카오 계정으로 로그인</button>
+                    <button class="kakao_button" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=fd3ba5c3c1994f15929fb85ba0dbe764&redirect_uri=http://localhost:7777/login&response_type=code'">카카오 계정으로 로그인</button>
                     <button class="face_button">페이스북 계정으로 로그인</button>
                     <button class="google_button">구글 계정으로 로그인</button>
                 </div>
@@ -92,7 +92,7 @@
                 <a class="modal_close_btn"><img src="/images/free-icon-font-cross-3917759.png" class="xIcon"></a>
                 <p class="snsLoginP">회원가입</p>
                 <div class="snsWrap">
-                    <button class="kakao_button2">카카오 계정으로 회원가입</button>
+                    <button class="kakao_button2" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=fd3ba5c3c1994f15929fb85ba0dbe764&redirect_uri=http://localhost:7777/login&response_type=code'">카카오 계정으로 회원가입</button>
                     <button class="face_button2">페이스북 계정으로 회원가입</button>
                     <button class="google_button2">구글 계정으로 회원가입</button>
                 </div>
@@ -108,10 +108,12 @@
 
         <div class="modalWindow">
             <div id="my_modal3">
-                <a class="modal_close_btn"><img src="/images/free-icon-font-cross-3917759.png" class="xIcon2"></a>
+                <a href="/logOut" class="modal_close_btn"><img src="/images/free-icon-font-cross-3917759.png" class="xIcon2"></a>
                 <div class="letter">
                     <p class="completeP">로그아웃이 완료되었습니다.</p>
+                    <form action="/logOut">
                     <button class="complete">확인</button>
+                    </form>
                 </div>
             </div>
         </div>
