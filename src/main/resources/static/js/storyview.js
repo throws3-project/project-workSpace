@@ -6,8 +6,138 @@ $(".contentsBtnReply").on("click",function () {
     }else{
         $(this).html("댓글 닫기");
         $(".rpyAtiveWrap").show();
+        let storyNum = $(".storyViewContentsWrap").data("num");
+
+        getList(storyNum);
     }
 })
+
+// 댓글 등록
+$(".storyViewWrap").on("click", ".activeInputBtn" , function (e) {
+    e.preventDefault();
+
+    let storyReply = $(this).prev().val();
+    let storyNum = $(".storyViewContentsWrap").data("num");
+    if(!storyReply){
+        alert("댓글을 입력하세요");
+        return;
+    }else{
+        storyService.insertReply({
+            storyReply:storyReply, userNum:1, storyNum:storyNum
+        }, function (result) {
+            alert(result);
+            getList(storyNum);
+            storyService.resetReply(
+                storyNum, function (result) {
+                    console.log($("span.bannerStatusTxt:nth-child(2)"));
+                    $("p.bannerStatusMsgDiv span.bannerStatusTxt").text(result);
+                }
+            )
+        })
+    }
+})
+
+// 사람 좋아요 누르기
+$("div.heart").on("click",function () {
+    let storyNum = 3;
+    let userNum = 2;
+
+    $.ajax({
+        type: "GET",
+        url: "/story/likeStory/" + storyNum +"/" + userNum,
+        success: function (result) {
+            if (result === "success") {
+                console.log("성공");
+                alert(result);
+            }else{
+                console.log("실패");
+                alert(result);
+            }
+        },
+        error: function (xhr, status, error) {
+            // if (error) {
+            // }
+        }
+    })
+})
+
+
+// 댓글 리스트 불러오기
+function getList(storyNum){
+    let str = "";
+
+    storyService.getList(
+        storyNum
+        , function (userNickNames, replies) {
+
+            if (replies == null || replies.length == 0) {
+                str += "<div class='activeInput'>";
+                str += "<div class='activInputPro'>";
+                str += "<img  class='activInputImg' src='/images/여.png'>";
+                str += "</div>";
+                str += "<div class='activeInputTxt'>";
+                str += "<textarea maxlength='500' rows='2' placeholder='댓글을 작성해주세요' class='activeInputTextArea'></textarea>";
+                str += "<button class='activeInputBtn'>등록</button>";
+                str += "</div>";
+                str += "</div>";
+
+                $(".rpyAtiveWrap").html(str);
+                return;
+            }
+
+            for (let i = 0; i < replies.length; i++) {
+                str += "<div class='replyActive' data-num='"+ replies[i].storyReplyNum +"'>";
+                str += "<div class='activeWrap'>";
+                str += "<div class='activeTop'>";
+                str += "<div class='activeLeft'>";
+                str += "<a href='#'>";
+                str += "<div class='activeLeftPro'>";
+                str += "<img src='/images/여.png'>";
+                str += "</div>";
+                str += "</a>";
+                str += "</div>";
+                str += "<div class='activeRight'>";
+                str += "<div class='activeProfile'>";
+                str += "<p class='activeProName'>" + userNickNames[i];
+                str += "<ul class='hoverUl'>";
+                str += "<li class='hoverLi'>";
+                str += "<a href='/people/%EC%83%81%EC%95%84%EC%95%BC'>프로필 상세</a>";
+                str += "</li>";
+                str += "<li class='hoverLi'>";
+                str += "<a>1 : 1 대화</a>";
+                str += "</li>";
+                str += "<li class='hoverLi'>";
+                str += "<a>모임초대</a>";
+                str += "</li>";
+                str += "</ul>";
+                str += "</p>";
+                str += "<span class='activeDate'>" + replies[i].replyTime + "</span>";
+                str += "</div>";
+                str += "<div class='activeTxt'>";
+                str += "<textarea class='activeTextArea' maxlength='500' placeholder='댓글을 작성해주세요' rows='2' readonly>" + replies[i].storyReply + "</textarea>";
+                str += "</div>";
+                str += "</div>";
+                str += "</div>";
+                str += "</div>";
+                str += "</div>";
+            }
+
+            //로그인 검사해야함
+
+            str += "<div class='activeInput'>";
+            str += "<div class='activInputPro'>";
+            str += "<img  class='activInputImg' src='/images/여.png'>";
+            str += "</div>";
+            str += "<div class='activeInputTxt'>";
+            str += "<textarea maxlength='500' rows='2' placeholder='댓글을 작성해주세요' class='activeInputTextArea'></textarea>";
+            str += "<button class='activeInputBtn'>등록</button>";
+            str += "</div>";
+            str += "</div>";
+
+
+            $(".rpyAtiveWrap").html(str);
+        })
+}
 
 // 스토리 삭제 모달
 $(".remove").on("click",function(){
@@ -15,12 +145,23 @@ $(".remove").on("click",function(){
 });
 
 $(".mdBtnRemoves").on("click",function(){
-    $(".modalStory3").css('display','none');
-    $(".modalStory2").css('display','block');
+    let storyNum = $(".storyViewContentsWrap").data("num");
+
+    $.ajax({
+        type: "GET",
+        url: "/story/deleteStory/" + storyNum,
+        success: function () {
+            $(".modalStory3").css('display','none');
+            $(".modalStory2").css('display','block');
+        },
+        error: function (xhr, status, error) {
+
+        }
+    })
 });
 
 $(".xBtns").on("click",function(){
-    $(".modals").hide();
+    location.href = "/story/storyList";
 });
 
 //프로필 상세보기 

@@ -1,13 +1,7 @@
 package com.project.workspace.controller;
 
-import com.project.workspace.domain.repository.StoryQueryRepository;
-import com.project.workspace.domain.repository.StoryRepository;
-import com.project.workspace.domain.repository.StorySeriesRepository;
-import com.project.workspace.domain.repository.StoryTagRepository;
-import com.project.workspace.domain.vo.StoryDTO;
-import com.project.workspace.domain.vo.StoryTagVO;
-import com.project.workspace.domain.vo.StoryVO;
-import com.project.workspace.domain.vo.UserVO;
+import com.project.workspace.domain.repository.*;
+import com.project.workspace.domain.vo.*;
 import com.project.workspace.service.StoryService;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -34,10 +28,11 @@ import java.util.stream.Collectors;
 public class StoryController {
     private final StoryService storyService;
     private final StoryRepository storyRepository;
-    private final StorySeriesRepository storySeriesRepository;
+    private final StoryReplyRepository storyReplyRepository;
     private final StoryTagRepository storyTagRepository;
     private final JPAQueryFactory queryFactory;
     private final StoryQueryRepository storyQueryRepository;
+    private final StoryLikeRepository storyLikeRepository;
 
     @GetMapping("/storyDetail")
     public void storyDetail(@RequestParam("storyNum") Long storyNum, Model model){
@@ -181,6 +176,53 @@ public class StoryController {
             log.error(e.getMessage());
         }
         return storyVO;
+    }
+
+    // 댓글 리스트
+    @ResponseBody
+    @GetMapping("/getList/{storyNum}")
+    public StoryReplyDTO getList(@PathVariable("storyNum") Long storyNum){
+        StoryVO storyVO = storyRepository.findById(storyNum).get();
+        List<StoryReplyVO> replies = storyVO.getReplies();
+        List<String> userNickNames = replies.stream().map(UserVO -> UserVO.getUserVO().getUserNickName()).collect(Collectors.toList());
+        Collections.reverse(userNickNames);
+        Collections.reverse(replies);
+
+        return new StoryReplyDTO(userNickNames, replies);
+    }
+
+    // 스토리 삭제
+    @ResponseBody
+    @GetMapping("/deleteStory/{storyNum}")
+    public void deleteStory(@PathVariable("storyNum") Long storyNum){
+        storyRepository.deleteById(storyNum);
+    }
+
+    @ResponseBody
+    @GetMapping("/storyInsert/{storyReply}/{userNum}/{storyNum}")
+    public String insertReply(@PathVariable("storyReply") String storyReply, @PathVariable("userNum") UserVO userNum, @PathVariable("storyNum") StoryVO storyNum){
+         storyReplyRepository.save(StoryReplyVO.builder().storyVO(storyNum).userVO(userNum).storyReply(storyReply).build());
+        return "success";
+    }
+
+    //댓글 작성후 댓글개수 초기화
+    @ResponseBody
+    @GetMapping("/resetReply/{storyNum}")
+    public int resetReply(@PathVariable("storyNum") Long storyNum){
+        int size = storyRepository.findById(storyNum).get().getReplies().size();
+        return size;
+    }
+
+    // 좋아요
+    @ResponseBody
+    @GetMapping("/likeStory/{userNum}/{storyNum}")
+    public String likeStory(@PathVariable("userNum") UserVO userNum, @PathVariable("storyNum") StoryVO storyNum){
+        StoryLikeVO byUserVOAndStoryVO = storyLikeRepository.findByUserVOAndStoryVO(userNum, storyNum);
+        if(byUserVOAndStoryVO != null){
+            return "fail";
+        }
+        storyLikeRepository.save(StoryLikeVO.builder().userVO(userNum).storyVO(storyNum).build());
+        return "success";
     }
 
     @GetMapping("/display")

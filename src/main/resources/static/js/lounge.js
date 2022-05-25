@@ -333,13 +333,13 @@ $(".loungeTool").on("click", ".activeInputBtn" , function (e) {
     let loungeNum = $(this).parents(".replySection").data("reply");
     if(!replyContent){
         alert("댓글을 입력하세요");
+        return;
     }else{
         loungeService.insertReply({
             replyContent:replyContent, userNum:3, loungeNum:loungeNum
         }, function (result) {
             alert(result);
             getList(rpyAtiveWrap, loungeNum);
-
         })
     }
 })

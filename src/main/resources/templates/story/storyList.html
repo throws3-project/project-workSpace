@@ -29,7 +29,7 @@
                 <h3>아직 안보셨나요? Featured Story</h3>
                 <div class="featuredContents">
 
-                    <a class="featuredGrid" href="" th:each="topList:${topStoryList}">
+                    <a class="featuredGrid" th:each="topList:${topStoryList}" th:href="@{/story/storyDetail(storyNum=${topList.getStoryNum()})}">
                         <div class="featuredTop">
                             <img th:src="@{/story/displayTh(storyImgPath=${topList.getStoryImgPath()}, storyImgUuid=${topList.getStoryImgUuid()}, storyImgName=${topList.getStoryImgName()})}">
                         </div>
@@ -292,9 +292,12 @@
 
                         <li class="storyTimeLi" th:each="allStory:${allStoryList}">
                             <div class="storyTimeLineLeft">
+                                <a th:href="@{/story/storyDetail(storyNum=${allStory.getStoryNum()})}">
                                 <div class="storyTimeLineImg">
                                     <img th:src="@{/story/displayTh(storyImgPath=${allStory.getStoryImgPath()}, storyImgUuid=${allStory.getStoryImgUuid()}, storyImgName=${allStory.getStoryImgName()})}">
                                 </div>
+                                </a>
+                                <a th:href="@{/story/storyDetail(storyNum=${allStory.getStoryNum()})}">
                                 <div class="storyTimeLineContents">
                                     <div class="timeLineTitWrap">
                                         <span class="timeLintCategory" th:text="${allStory.getUserVO().getUserNickName()}"></span>
@@ -308,6 +311,7 @@
                                         </th:block>
                             </div>
                         </div>
+                                </a>
                     </div>
                     <div class="storyTimeLineRight">
                         <div class="TimeLineStatusWrap">

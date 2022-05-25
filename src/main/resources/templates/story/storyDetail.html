@@ -78,7 +78,7 @@
     <!-- 내용 -->
     <div class="storyViewWrap">
         <!-- 콘텐츠 전체 -->
-        <div class="storyViewContentsWrap">
+        <div class="storyViewContentsWrap" th:attr="data-num=${storyVO.storyNum}">
             <!-- 콘텐츠 상단 프로필 -->
             <div class="storyViewContentsPro">
                 <!-- 프로필 오른쪽 좋아요-->
@@ -124,9 +124,9 @@
             <div class="contentsBtnReplyWrap">
                 <a class="contentsBtnReply active">댓글 열기</a>
                 <div class="replyBtnWrap">
-                    <p class="txtBtn modify">
+                    <a class="txtBtn modify" th:href="@{/story/storyModify(storyNum=${storyVO.getStoryNum()})}">
                         <img class="txtBtnImg" src="/images/modify.png">
-                    </p>
+                    </a>
                     <div class="sell">｜</div>
                     <p class="txtBtn remove">
                     <img class="txtBtnImg" src="/images/remove.png">
@@ -136,63 +136,9 @@
         </div>
         <!-- 여기까지 콘텐츠 전체 -->
         <!-- 콘텐츠 댓글 -->
-        <!-- <div class="storyViewContentsReplyWrap">
-            <div class="contentsRpyInput">
-                <div class="contentsRpyInputImg">
-                    <img src="/images/여.png">
-                </div>
-                <div class="contentsRpyInputTxt">
-                    <textarea class="contentsRpyTextArea" rows="2" maxlength="200" placeholder="댓글을 작성해주세요"></textarea>
-                    <button class="contentsRpyInputBtn">등록</button>
-                </div>
-            </div>
-        </div> -->
         <div class="rpyAtiveWrap">
-            <div class="replyActive">
-                 <div class="activeWrap">
-                    <div class="activeTop">
-                        <div class="activeLeft">
-                        <a href="#">
-                            <div class="activeLeftPro">
-                                <img src="/images/여.png">
-                            </div>
-                        </a>
-                        </div>
-                        <div class="activeRight">
-                            <div class="activeProfile">
-                                <p class="activeProName">상아야
-                                   
-                        <ul class="hoverUl">
-                            <li class="hoverLi">
-                                <a href="/people/%EC%83%81%EC%95%84%EC%95%BC">프로필 상세</a>
-                            </li>
-                            <li class="hoverLi">
-                                <a>1 : 1 대화</a>
-                            </li>
-                            <li class="hoverLi">
-                                <a>모임초대</a>
-                            </li>
-                        </ul>
-                     
-                                </p>
-                                <span class="activeDate">22.05.02 08:43</span>   
-                            </div>
-                            <div class="activeTxt">
-                                <textarea class="activeTextArea" maxlength="500" placeholder="댓글을 작성해주세요" rows="2" readonly="">반갑습니다.</textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
         </div>
-            <div class="activeInput">
-                <div class="activInputPro">
-                    <img class="activInputImg" src="/images/여.png">
-                </div>
-                <div class="activeInputTxt">
-                    <textarea maxlength="500" rows="2" placeholder="댓글을 작성해주세요" class="activeInputTextArea"></textarea>
-                    <button class="activeInputBtn">등록</button>
-                </div>
-            </div>
             <!-- s -->
         </div>
         <!-- 댓글부분 여기까지 -->
@@ -239,98 +185,6 @@
                             </div>
                         </div>
                     </li>
-                    <li class="storyTimeLi">
-                        <div class="storyTimeLineLeft">
-                            <div class="storyTimeLineImg">
-                                <img src="/images/썸네일6.png">
-                            </div>
-                            <div class="storyTimeLineContents">
-                                <div class="timeLineTitWrap">
-                                    <span class="timeLintCategory">workspace-공식채널</span>
-                                    <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>
-                                </div>
-                                <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 3일 입니다.
-                                    여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다 Throws3팀의 멤버로는
-                                    팀장 배상혁 부팀장 한서현 팀원 박상아 홍승근 송준형으로 구성되어있는 팀 입니다.
-                                    각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D
-                                </div>
-                                <div class="timeLineTagWrap">
-                                    <span>#상아에요</span>
-                                    <span># 상아태그</span>
-                            <span>#상혁준형</span>
-                            <span>#서현승근</span>
-                            <span>#화이팅</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="storyTimeLineRight">
-                    <!-- <div class="heartWrap">
-                        <div class="favorite"></div>
-                    </div> -->
-                    <div class="TimeLineStatusWrap">
-                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                            <img class="storyTimeLineDivImg" src="/images/eye.png">
-                            <span class="divFooterTxt">122</span>
-                        </p>
-                         <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                            <img class="storyTimeLineDivImg" src="/images/msg.png">
-                            <span class="divFooterTxt">0</span>
-                        </p>
-                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                            <img class="storyTimeLineDivImg" src="/images/likeup.png">
-                            <span class="divFooterTxt">4</span>
-                        </p>
-                        
-
-                    </div>
-                </div>
-                </li>
-
-
-                <li class="storyTimeLi">
-                    <div class="storyTimeLineLeft">
-                        <div class="storyTimeLineImg">
-                            <img src="/images/썸네일6.png">
-                        </div>
-                        <div class="storyTimeLineContents">
-                            <div class="timeLineTitWrap">
-                                <span class="timeLintCategory">workspace-공식채널</span>
-                                <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>
-                            </div>
-                            <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 3일 입니다.
-                                여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다 Throws3팀의 멤버로는
-                                팀장 배상혁 부팀장 한서현 팀원 박상아 홍승근 송준형으로 구성되어있는 팀 입니다.
-                                각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D
-                            </div>
-                            <div class="timeLineTagWrap">
-                                <span>#상아에요</span>
-                                <span># 상아태그</span>
-                        <span>#상혁준형</span>
-                        <span>#서현승근</span>
-                        <span>#화이팅</span>
-                    </div>
-                </div>
-            </div>
-            <div class="storyTimeLineRight">
-                <!-- <div class="heartWrap">
-                    <div class="favorite"></div>
-                </div> -->
-                <div class="TimeLineStatusWrap">
-                    <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                        <img class="storyTimeLineDivImg" src="/images/eye.png">
-                        <span class="divFooterTxt">122</span>
-                    </p>
-                     <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                        <img class="storyTimeLineDivImg" src="/images/msg.png">
-                        <span class="divFooterTxt">0</span>
-                    </p>
-                    <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                        <img class="storyTimeLineDivImg" src="/images/likeup.png">
-                        <span class="divFooterTxt">4</span>
-                    </p>
-                </div>
-            </div>
-            </li>
                 </ul>
             </div>
         </div>
@@ -339,7 +193,6 @@
             <h3>재미있는 다른 스토리도 추천해드려요</h3>
             <div class="seriesScroll">
                 <ul class="seriesUl">
-
                     <li class="seriesLi" th:each="recommend:${recommendList}">
                         <a th:href="@{/story/storyDetail(storyNum=${recommend.getStoryNum()})}">
                             <div class="seriesImg">
@@ -348,52 +201,10 @@
                             <span class="storySubTit" th:text="${recommend.getStoryTitle()}"></span>
                         </a>
                     </li>
-
-                    <li class="seriesLi">
-                        <a href="#">
-                            <div class="seriesImg">
-                                <img src="/images/썸네일2.png">
-                            </div>
-                            <span class="storySubTit">3팀에 대해 알아보자 1탄 (a.k.a 상아야)</span>
-                        </a>
-                    </li>
-                    <li class="seriesLi">
-                        <a href="#">
-                            <div class="seriesImg">
-                                <img src="/images/썸네일1.png">
-                            </div>
-                            <span class="storySubTit">3팀에 대해 알아보자 2탄 (a.k.a 상아야)</span>
-                        </a>
-                    </li>
-                    <li class="seriesLi">
-                        <a href="#">
-                            <div class="seriesImg">
-                                <img src="/images/썸네일4.png">
-                            </div>
-                            <span class="storySubTit">3팀에 대해 알아보자 3탄 (a.k.a 상아야)</span>
-                        </a>
-                    </li>
-                    <li class="seriesLi">
-                        <a href="#">
-                            <div class="seriesImg">
-                                <img src="/images/썸네일6.png">
-                            </div>
-                            <span class="storySubTit">3팀에 대해 알아보자 4탄 (a.k.a 상아야)</span>
-                        </a>
-                    </li>
-                    <li class="seriesLi">
-                        <a href="#">
-                            <div class="seriesImg">
-                                <img src="/images/썸네일5.png">
-                            </div>
-                            <span class="storySubTit">3팀에 대해 알아보자 5탄 (a.k.a 상아야)</span>
-                        </a>
-                    </li>
-                   
                 </ul>
             </div>
         </div>
-
+    </div>
     </section>
     <th:block th:insert="/fix/chat.html :: sideFragment"/>
     <th:block th:insert="/fix/footer.html :: footerFragment"/>
@@ -401,5 +212,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
+<script src="/js/storyListModule.js"></script>
 <script src="/js/storyview.js"></script>
 </html>

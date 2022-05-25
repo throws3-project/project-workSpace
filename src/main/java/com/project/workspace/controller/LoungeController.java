@@ -100,14 +100,13 @@ public class LoungeController {
     @GetMapping("/lounge/reply/{loungeNum}")
     public LoungeReplyDTO likeAndReply(@PathVariable("loungeNum") Long loungeNum) {
         LoungeVO loungeVO = loungeService.findId(loungeNum);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<LoungeReplyVO> replies = loungeVO.getReplies();
-        List<String> UserNickNames = replies.stream().map(UserVO -> UserVO.getUserVO().getUserNickName()).collect(Collectors.toList());
-        log.info(replies.toString());
-        log.info(UserNickNames.toString());
+        List<String> userNickNames = replies.stream().map(UserVO -> UserVO.getUserVO().getUserNickName()).collect(Collectors.toList());
+        Collections.reverse(userNickNames);
+        Collections.reverse(replies);
         //service 집에서 하기
 
-        return new LoungeReplyDTO(UserNickNames,replies);
+        return new LoungeReplyDTO(userNickNames,replies);
     }
 
     // 라운지 글작성

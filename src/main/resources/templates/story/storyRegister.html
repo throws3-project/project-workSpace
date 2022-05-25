@@ -204,20 +204,32 @@
 <script src="/js/chat.js"></script>
 <script src="/js/storywrite.js"></script>
 <script>
+    let storyImgName;
+    let storyImgPath;
+    let storyImgUuid;
+
     $(document).ready(function () {
+        $(".uploadImgLi").each(function (i,img) {
+            $(img).children().on("click",function () {
+                storyImgName = $(img).children().attr("src");
+                storyImgPath = "";
+                storyImgUuid = "";
+                $(".thumbnailBox").css("background-image", "url('" + $(img).children().attr("src") + "')");
+                $(".thumbnailBox").css("background-size", "cover");
+                $(".thumbnailImage2").hide();
+            })
+        })
+
         function showUploadFile(uploadResult) {
             let str = "";
-            let storyImgName = uploadResult.storyImgName;
-            let storyImgPath = uploadResult.storyImgPath;
-            let storyImgUuid = uploadResult.storyImgUuid;
-
-            str += "<input type='hidden' name='storyImgName' value='" + storyImgName + "'>"
-            str += "<input type='hidden' name='storyImgPath' value='" + storyImgPath + "'>"
-            str += "<input type='hidden' name='storyImgUuid' value='" + storyImgUuid + "'>"
+            storyImgName = uploadResult.storyImgName;
+            storyImgPath = uploadResult.storyImgPath;
+            storyImgUuid = uploadResult.storyImgUuid;
 
             $("#frm").append(str);
             $(".thumbnailBox").css("background-image", "url('/story/display?fileName=" + storyImgPath + "/" + storyImgUuid + "_" + storyImgName + "')");
-            $(".thumbnailBox").css("background-size", "cover");
+            $(".thumbnailBox").css("background-size", "contain");
+            $(".thumbnailBox").css("background-repeat", "no-repeat");
             $(".thumbnailImage2").hide();
         }
 
@@ -241,6 +253,19 @@
     })
 
         $(".completeMd").on("click",function () {
+            // console.log()
+            if(!$("input[name='step2_radio']").is(":checked")){
+                alert("유형을 골라주세요");
+                return;
+            }
+
+            if(!$("input[name='storyContent']").val()){
+                alert("제목을 입력해주세요")
+            }
+
+
+
+
         $("input[name='storyPart']").val($("input:checked").val());
         $("input[name='storyContent']").val(editor.getHTML());
             $(".skillTag").each(function (i,tag) {
@@ -250,6 +275,14 @@
                     $("#frm").append(str);
                 }
             })
+            let img = "";
+            console.log(storyImgName);
+            img += "<input type='hidden' name='storyImgName' value='" + storyImgName + "'>"
+            img += "<input type='hidden' name='storyImgPath' value='" + storyImgPath + "'>"
+            img += "<input type='hidden' name='storyImgUuid' value='" + storyImgUuid + "'>"
+
+            $("#frm").append(img);
+
         $("#frm").attr("action", "/story/storyRegister");
         $("#frm").submit();
     })

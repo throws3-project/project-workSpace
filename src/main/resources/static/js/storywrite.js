@@ -290,14 +290,14 @@ $(".searchSelect").attr("disabled","disabled") ;
 
 
 //이미지
-$(".uploadImgLi").each(function (i,img) {
-    $(img).children().on("click",function () {
-        let src = $(img).children().attr("src");
-        $(".thumbnailImage2").attr("src",src);
-        $(".thumbnailImage2").css("width",385);
-        $(".thumbnailImage2").css("height",230);
-    })
-})
+// $(".uploadImgLi").each(function (i,img) {
+//     $(img).children().on("click",function () {
+//         let src = $(img).children().attr("src");
+//         $(".thumbnailImage2").attr("src",src);
+//         $(".thumbnailImage2").css("width",385);
+//         $(".thumbnailImage2").css("height",230);
+//     })
+// })
 
 
 
