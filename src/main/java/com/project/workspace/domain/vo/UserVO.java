@@ -108,11 +108,7 @@ public class UserVO {
     private List<LoungeReplyVO> loungeReplies = new ArrayList<>();
 
     @Builder
-<<<<<<< HEAD
-    public UserVO(String userId, String userContent, String userGender, String userLocation, String userNick_name, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
-=======
     public UserVO(String userId, String userContent, String userGender, String userLocation, String userNickname, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
->>>>>>> 3971ae42964a124ec23813ff98778e7eeb80f2cb
         this.userId = userId;
         this.userContent = userContent;
         this.userGender = userGender;
