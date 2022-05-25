@@ -107,23 +107,24 @@ function projectList(result) {
     if (!result.length) {
         $(".projectGridView").html("");
     } else if (result.length) {
-        $(result,proje).each(function (i, project) {
+        $(result).each(function (i, project) {
+            console.log()
             let imgName = "";
-            if (project.projectImgPath) {
-                imgName = '/project/display?fileName=' + project.projectImgPath + '/' + project.projectImgUuid + '_' + project.projectImg;
-            } else if (!project.projectImgPath) {
-                imgName = '/images/' + project.projectImg;
+            if (project[0].projectImgPath) {
+                imgName = '/project/display?fileName=' + project[0].projectImgPath + '/' + project[0].projectImgUuid + '_' + project[0].projectImg;
+            } else if (!project[0].projectImgPath) {
+                imgName = '/images/' + project[0].projectImg;
             }
 
             let status = "";
-            if (project.projectStatus == 1) {
+            if (project[0].projectStatus == 1) {
                 status = "모집중";
-            } else if (project.projectStatus == 2) {
+            } else if (project[0].projectStatus == 2) {
                 status = "모집완료";
             }
 
             str += '<div class="projectGridWrap">'
-            str += '<a href="/project/projectDetail/project/' + project.projectNum + '">'
+            str += '<a href="/project/projectDetail/project/' + project[0].projectNum + '">'
             str += '<div class="projectTopInfo">'
             str += '<div class="topInfo">'
             str += '<div class="box-wrap">'
@@ -141,8 +142,8 @@ function projectList(result) {
             str += '</div>'
             str += '</div>'
             str += '<div class="projectMiddleInfo"> '
-            str += '<p class="category">' + project.projectPart + '</p> '
-            str += '<p class="categoryText">[' + project.projectLocation + '] ' + project.projectName + '</p>'
+            str += '<p class="category">' + project[0].projectPart + '</p> '
+            str += '<p class="categoryText">[' + project[0].projectLocation + '] ' + project[0].projectName + '</p>'
             str += '</div>'
             str += '<div class="projectBottomInfo">'
             str += '<div class="middleWrap">'
@@ -154,7 +155,7 @@ function projectList(result) {
             str += '</div>'
             str += '<div class="right">'
             str += '<div>'
-            str += '<span>' + project.projectReadCount + '</span>'
+            str += '<span>' + project[0].projectReadCount + '</span>'
             str += '</div>'
             str += '</div>'
             str += '</div>'
@@ -163,17 +164,19 @@ function projectList(result) {
             str += '<div class="recruit"> '
             str += '<div class="recruitStatus"> '
             str += '<span>' + status + '</span>'
-            str += '<span>0/' + project.projectTotal + '</span>'
+            str += '<span>0/' + project[0].projectTotal + '</span>'
             str += '<div>'
             str += '<img src="https://letspl.me/assets/images/ic-arrow-up.svg">'
             str += '</div>'
             str += '</div>'
             str += '<div class="recruitModel">'
             str += '<ul>'
-            str += '<li>'
-            str += '<span></span>'
-            str += '<span></span>'
-            str += '</li>'
+            for (let i=0; i<project[1].length;i++) {
+                str += '<li>'
+                str += '<span>'+project[1][i].projectSubSkill+'</span>'
+                str += '<span>0/'+project[1][i].projectCount+'</span>'
+                str += '</li>'
+            }
             str += '</ul>'
             str += '</div>'
             str += '</div>'
@@ -184,3 +187,7 @@ function projectList(result) {
         })
     }
 }
+
+
+
+$("#billStatus").each()

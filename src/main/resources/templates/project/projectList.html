@@ -288,9 +288,9 @@
                             <div class="recruit">
                                 <div class="recruitStatus">
                                     <span th:if="${project.projectStatus=='1'}"
-                                       th:text="'[모집중] '+${project.projectPart}"></span>
+                                          th:text="'[모집중] '+${project.projectPart}"></span>
                                     <span th:if="${project.projectStatus=='2'}"
-                                       th:text="'[모집완료] '+${project.projectPart}"></span>
+                                          th:text="'[모집완료] '+${project.projectPart}"></span>
                                     <span>
                                     0/1
                                 </span>
@@ -301,10 +301,10 @@
                                 <div class="recruitModel">
                                     <ul>
                                         <th:block th:each="person : ${project.persons}">
-                                        <li>
-                                            <span th:text="${person.projectSubSkill}"></span>
-                                            <span th:text="${person.projectCount}"></span>
-                                        </li>
+                                            <li>
+                                                <span th:text="${person.projectSubSkill}"></span>
+                                                <span th:text="${person.projectCount}"></span>
+                                            </li>
                                         </th:block>
                                     </ul>
                                 </div>

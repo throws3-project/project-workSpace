@@ -49,11 +49,11 @@ public class ProjectController {
         List<ProjectPersonVO> projectPersonList = projectPersonRepository.getAllByProjectVO(project);
 
 
-        model.addAttribute("project",project);
-        model.addAttribute("user",user);
-        model.addAttribute("projectSkillList",projectSkillList);
-        model.addAttribute("projectReferenceList",projectReferenceList);
-        model.addAttribute("projectPersonList",projectPersonList);
+        model.addAttribute("project", project);
+        model.addAttribute("user", user);
+        model.addAttribute("projectSkillList", projectSkillList);
+        model.addAttribute("projectReferenceList", projectReferenceList);
+        model.addAttribute("projectPersonList", projectPersonList);
 
         return "project/projectDetail";
     }
@@ -71,7 +71,6 @@ public class ProjectController {
         List<ProjectVO> projectList = projectRepository.findAllByOrderByProjectNumDesc();
 
 
-
 //        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
         model.addAttribute("newProjectList", newProjectList);
         model.addAttribute("projectTop3", projectTop3);
@@ -81,19 +80,24 @@ public class ProjectController {
 
     @PostMapping("/projectFilter")
     @ResponseBody
-    public JSONArray projectFilter(ProjectFilter projectFilter) throws JSONException {
+    public Object[] projectFilter(ProjectFilter projectFilter) throws JSONException {
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
-        HashMap<String,Object> hashMap = new HashMap<>();
-        JSONArray jsonArray = new JSONArray();
-        JSONObject json = new JSONObject(hashMap);
-        for(ProjectVO project : projectList){
-            json.put("project",project);
-            json.put("persons",project.getPersons());
-            jsonArray.put(json);
+
+//        HashMap<String,Object> hashMap = new HashMap<>();
+//        JSONArray jsonArray = new JSONArray();
+//        JSONObject json = new JSONObject(hashMap);
+//        for(ProjectVO project : projectList){
+//            json.put("project",project);
+//            json.put("persons",projectPersonRepository.getAllByProjectVO(project));
+//            jsonArray.put(json);
+//        }
+        Object[] list = new Object[projectList.size()];
+        for (int i=0; i< projectList.size();i++) {
+            Object[] projectArray = {projectList.get(i), projectPersonRepository.getAllByProjectVO(projectList.get(i))};
+            list[i]=projectArray;
         }
 
-
-        return jsonArray;
+        return list;
     }
 
     @GetMapping("/projectRegister")
@@ -105,9 +109,9 @@ public class ProjectController {
     @Transactional
     public RedirectView projectRegister(ProjectVO projectVO, StudyVO studyVO, HttpServletRequest request) {
         String type = request.getParameter("type");
-        HttpSession session= request.getSession();
+        HttpSession session = request.getSession();
         UserVO userVO = new UserVO();
-        userVO.setUserNum((Long)session.getAttribute("userNum"));
+        userVO.setUserNum((Long) session.getAttribute("userNum"));
         projectVO.setUserVO(userVO);
         log.info(type);
         if (type.equals("project")) {
