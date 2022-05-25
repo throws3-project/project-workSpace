@@ -31,7 +31,7 @@ public class UserVO {
     @Column(name = "user_location")
     private String userLocation;
     @Column(name = "user_nick_name")
-    private String userNick_name;
+    private String userNickname;
     @Column(name = "user_phone")
     private String userPhone;
     @Column(name = "user_main_skill")
@@ -108,12 +108,16 @@ public class UserVO {
     private List<LoungeReplyVO> loungeReplies = new ArrayList<>();
 
     @Builder
+<<<<<<< HEAD
     public UserVO(String userId, String userContent, String userGender, String userLocation, String userNick_name, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
+=======
+    public UserVO(String userId, String userContent, String userGender, String userLocation, String userNickname, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
+>>>>>>> 3971ae42964a124ec23813ff98778e7eeb80f2cb
         this.userId = userId;
         this.userContent = userContent;
         this.userGender = userGender;
         this.userLocation = userLocation;
-        this.userNick_name = userNick_name;
+        this.userNickname = userNickname;
         this.userPhone = userPhone;
         this.userMainSkill = userMainSkill;
         this.userMainDetail = userMainDetail;
