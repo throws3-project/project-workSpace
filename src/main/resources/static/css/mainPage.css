@@ -273,9 +273,9 @@ p.categoryText{
 
 div.image3{
     width: 100%;
-    background-image: url("../../static/images/bg_openkakao.png");
+    background-image: url("/images/bg_openkakao.png");
     text-align: center;
-    margin: 20px auto 0;
+    margin: 40px auto 0;
     padding: 30px 0 25px;
     background-size: cover;
     background-position: 50%;
@@ -337,7 +337,7 @@ button.storyGo{
     color: #696980;
     margin-right: 10px;
     padding-left: 20px;
-    background-image: url(../../static/images/triangle.png);
+    background-image: url("/images/triangle.png");
     background-position: 90%;
     background-repeat: no-repeat;
     appearance: none;
@@ -356,7 +356,7 @@ button.storyGo{
     width: 22px;
     height: 22px;
     background-color: #fff;
-    background-image: url(../../static/images/grayheart.png);
+    background-image: url("/images/grayheart.png");
     background-repeat: no-repeat;
     background-size: 14px;
     background-position: 50%;

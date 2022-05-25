@@ -1,9 +1,6 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +12,10 @@ import java.util.List;
 @Component
 @Table(name = "tbl_user")
 @Getter
+@Setter
 @ToString(exclude = {"ports", "tags", "alerts", "interests", "users", "projects", "projectMembers","projectLikes","stories","replies","series","storyReplies","studies","studyMembers","lounges","loungeLikes" ,"loungeReplies"})
 @NoArgsConstructor
+@AllArgsConstructor
 @DynamicInsert
 public class UserVO {
     @Id
@@ -25,14 +24,14 @@ public class UserVO {
     private Long userNum;
     @Column(name = "user_id")
     private String userId;
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "user_content")
+    private String userContent;
     @Column(name = "user_gender")
     private String userGender;
     @Column(name = "user_location")
     private String userLocation;
     @Column(name = "user_nick_name")
-    private String userNick_name;
+    private String userNickname;
     @Column(name = "user_phone")
     private String userPhone;
     @Column(name = "user_main_skill")
@@ -109,12 +108,12 @@ public class UserVO {
     private List<LoungeReplyVO> loungeReplies = new ArrayList<>();
 
     @Builder
-    public UserVO(String userId, String userName, String userGender, String userLocation, String userNick_name, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
+    public UserVO(String userId, String userContent, String userGender, String userLocation, String userNickname, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
         this.userId = userId;
-        this.userName = userName;
+        this.userContent = userContent;
         this.userGender = userGender;
         this.userLocation = userLocation;
-        this.userNick_name = userNick_name;
+        this.userNickname = userNickname;
         this.userPhone = userPhone;
         this.userMainSkill = userMainSkill;
         this.userMainDetail = userMainDetail;

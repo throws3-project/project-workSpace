@@ -32,4 +32,5 @@ public class UserDAO {
 
     public List<UserAlertVO> getAlertList(){return userMapper.getAlertList();}
     public void insertAlert(Long userNum, String alertPart, Long numbers, String alertType){userMapper.insertAlert(userNum,alertPart,numbers,alertType);}
+
 }

@@ -1,6 +1,6 @@
 /* chatting */
 
-let count = 1;
+// let count = 1;
 
 $("div.chattingOpen").on("click", function () {
     $(this).removeClass("open");
