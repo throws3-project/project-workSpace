@@ -46,12 +46,7 @@ public class StoryController {
         Random rd = new Random();
         Collections.reverse(myList);
         List<StoryVO> recommendList = new ArrayList<>();
-        log.info("-----------------------------------------------");
-        log.info(storyVO.getStoryContent());
 
-        log.info(String.valueOf(otherStoryList.size()));
-        myList.stream().forEach(v -> log.info(v.toString()));
-        log.info("-----------------------------------------------");
         if(otherStoryList.size() > 5) {
             for (int i = 0; i<5; i++){
                 recommendList.add(otherStoryList.get(rd.nextInt(otherStoryList.size())));
@@ -77,9 +72,6 @@ public class StoryController {
         List<StoryVO> topStoryList = storyRepository.findTop4ByOrderByStoryReadCountDesc();
         List<StoryVO> allStoryList = storyRepository.findAll();
 
-        topStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
-        allStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
-
         model.addAttribute("topStoryList", topStoryList);
         model.addAttribute("allStoryList", allStoryList);
     }
@@ -87,22 +79,11 @@ public class StoryController {
     @ResponseBody
     @GetMapping("/selectList/{storyPart}")
     public StoryDTO selectStory(@PathVariable("storyPart") String storyPart){
-        log.info(storyPart);
         List<StoryVO> storyVO = storyQueryRepository.search(storyPart);
         List<UserVO> userVO = storyVO.stream().map(StoryVO::getUserVO).collect(Collectors.toList());
         List<List<StoryTagVO>> storyTagVOs = storyVO.stream().map(StoryVO::getTags).collect(Collectors.toList());
         List<Integer> storyLikeSize = storyVO.stream().map(storyVO1 -> storyVO1.getLikes().size()).collect(Collectors.toList());
         List<Integer> storyReplySize = storyVO.stream().map(storyVO1 -> storyVO1.getReplies().size()).collect(Collectors.toList());
-        log.info("=============================================================================");
-        storyVO.stream().forEach(v -> log.info(v.toString()));
-        log.info("=============================================================================");
-        userVO.stream().forEach(v -> log.info(v.toString()));
-        log.info("=============================================================================");
-        storyTagVOs.stream().forEach(v -> log.info(v.toString()));
-        log.info("=============================================================================");
-        storyLikeSize.stream().forEach(v -> log.info(v.toString()));
-        log.info("=============================================================================");
-        storyReplySize.stream().forEach(v -> log.info(v.toString()));
         return new StoryDTO(storyVO, userVO, storyTagVOs, storyLikeSize, storyReplySize);
     }
 
@@ -154,11 +135,6 @@ public class StoryController {
         if (!uploadPath.exists()) {
             uploadPath.mkdirs();
         }
-        log.info("-------------------------");
-        log.info("Upload File Name : " + uploadFile.getOriginalFilename());
-        log.info("Upload File Path : " + uploadFolderPath);
-        log.info("Upload File Size : " + uploadFile.getSize());
-
         uploadFileName = uploadFile.getOriginalFilename();
 
         storyVO.setStoryImgName(uploadFileName);
