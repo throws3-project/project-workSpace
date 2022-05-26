@@ -1,6 +1,10 @@
 package com.project.workspace.service;
 
+import com.project.workspace.domain.vo.ProjectFilter;
+import com.project.workspace.domain.vo.ProjectVO;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface ProjectService {
@@ -10,4 +14,5 @@ public interface ProjectService {
     public void insertProjectReference(Long projectNum, String projectUrl);
     public void insertProjectSkill(Long projectNum, String projectSkill);
     public void insertLikeProject(Long projectNum, Long userNum);
+    public List<ProjectVO> getProjectList(ProjectFilter projectFilter);
 }

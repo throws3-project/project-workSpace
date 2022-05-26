@@ -1,9 +1,6 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -11,8 +8,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_project_reference")
 @Component
+@Setter
 @Getter
 @ToString(exclude = {"projectVO"})
+@AllArgsConstructor
 @NoArgsConstructor
 public class ProjectReferenceVO {
     @Id
@@ -27,8 +26,7 @@ public class ProjectReferenceVO {
     private ProjectVO projectVO;
 
     @Builder
-    public ProjectReferenceVO(String projectUrl, ProjectVO projectVO) {
+    public ProjectReferenceVO(String projectUrl)  {
         this.projectUrl = projectUrl;
-        this.projectVO = projectVO;
     }
 }
