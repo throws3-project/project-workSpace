@@ -210,7 +210,7 @@ button.codeButton{
     margin: 0 6px;
 }
 
-button.joinComplete{
+button.joinComplete, button.joinCompleteLater{
     color: #fff;
     font-size: 0.8rem;
     padding: 11px 35px;
@@ -335,7 +335,7 @@ img.xIcon{
     top: 10px;
 }
 
-div.modalWindow{
+div.modalWindowPlus{
     position: fixed;
     top: 0;
     left: 0;
@@ -343,7 +343,7 @@ div.modalWindow{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10000;
-    display: none;
+    /*display: none;*/
 }
 
 a.firstA, a.secondA, a.thirdA{
@@ -467,7 +467,7 @@ div.labelWrap{
         width: 90px !important;
     }
 
-    button.joinComplete{
+    button.joinComplete, button.joinCompleteLater{
         width: 180px !important;
     }
 
