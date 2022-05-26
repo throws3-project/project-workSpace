@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Component
-@Table(name = "tbl_userTag")
+@Table(name = "tbl_user_tag")
 @Getter @Setter
 @ToString(of = {"tagNum","tagName"})
 @NoArgsConstructor

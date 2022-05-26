@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Component
-@Table(name = "tbl_userInterest")
+@Table(name = "tbl_user_interest")
 @Getter
 @Setter
 @ToString(of = {"interestNum","interest"})

@@ -1,5 +1,6 @@
 package com.project.workspace.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -84,32 +85,46 @@ public class UserVO {
     @OneToMany
     @JoinColumn(name = "following_user")
     private List<UserFollowVO> users = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<ProjectVO> projects = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<ProjectMemberVO> projectMembers = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<ProjectLikeVO> projectLikes = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<StoryVO> stories = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<StoryReplyVO> replies = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<StorySeriesVO> series = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<StoryLikeVO> storyReplies = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<StudyVO> studies = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<StudyMemberVO> studyMembers = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<LoungeVO> lounges = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<LoungeLikeVO> loungeLikes = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<LoungeReplyVO> loungeReplies = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<UserExpVO> exps = new ArrayList<>();
+//    @JsonIgnore
     @OneToMany(mappedBy = "userVO")
     private List<UserPointVO> points = new ArrayList<>();
 

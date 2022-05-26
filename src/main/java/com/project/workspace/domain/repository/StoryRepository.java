@@ -2,7 +2,16 @@ package com.project.workspace.domain.repository;
 
 import com.project.workspace.domain.vo.StoryVO;
 import com.project.workspace.domain.vo.UserAlertVO;
+import com.project.workspace.domain.vo.UserVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface StoryRepository extends JpaRepository<StoryVO, Long> {
+import java.awt.print.Pageable;
+import java.util.List;
+
+public interface StoryRepository extends JpaRepository<StoryVO, Long>{
+    List<StoryVO> findAllByUserVOAndStoryNumNot(UserVO userVO, Long storyNum);
+    List<StoryVO> findAllByStoryNumNot(Long storyNum);
+    List<StoryVO> findTop4ByOrderByStoryReadCountDesc();
 }

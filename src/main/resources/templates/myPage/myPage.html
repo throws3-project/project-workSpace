@@ -94,26 +94,26 @@
                     <div id="mainSkill" class="marginBottom">
                         <p>메인 직무/ 상세 직무 / 능력치</p>
                         <div class="flex">
-                            <select class="able first" id="mainSkill2" onchange="personChange(this)" th:value="${userVO.getUserMainSkill()}">
-                                <option>기획</option>
-                                <option>디자인</option>
-                                <option>프론트엔드개발</option>
-                                <option>백엔드개발</option>
-                                <option>사업</option>
-                                <option>기타</option>
+                            <select class="able first" id="mainSkill2" onchange="personChange(this)">
+                                <option th:selected="${userVO.getUserMainSkill()=='기획'}">기획</option>
+                                <option th:selected="${userVO.getUserMainSkill()=='디자인'}" >디자인</option>
+                                <option th:selected="${userVO.getUserMainSkill()=='프론트엔드개발'}">프론트엔드개발</option>
+                                <option th:selected="${userVO.getUserMainSkill()=='백엔드개발'}">백엔드개발</option>
+                                <option th:selected="${userVO.getUserMainSkill()=='사업'}">사업</option>
+                                <option th:selected="${userVO.getUserMainSkill()=='기타'}">기타</option>
                             </select>
-                            <select class="able second" id="mainDetail2" th:value="${userVO.getUserMainDetail()}">
-                                <option>UI/UX 기획</option>
-                                <option>게임 기획</option>
-                                <option>프로젝트 매니저</option>
-                                <option>하드웨어(제품) 기획</option>
+                            <select class="able second" id="mainDetail2">
+                                <option th:selected="${userVO.getUserMainDetail()=='UI/UX 기획'}">UI/UX 기획</option>
+                                <option th:selected="${userVO.getUserMainDetail()=='게임 기획'}">게임 기획</option>
+                                <option th:selected="${userVO.getUserMainDetail()=='프로젝트 매니저'}">프로젝트 매니저</option>
+                                <option th:selected="${userVO.getUserMainDetail()=='하드웨어(제품) 기획'}">하드웨어(제품) 기획</option>
                             </select>
-                            <select class="able third" id="skillLevel2" th:value="${userVO.getUserMainLevel()}">
-                                <option value="1">초심자</option>
-                                <option value="2">초보</option>
-                                <option value="3">중수</option>
-                                <option value="4">고수</option>
-                                <option value="5">해커</option>
+                            <select class="able third" id="skillLevel2">
+                                <option th:selected="${userVO.getUserMainLevel()=='초심자'}">초심자</option>
+                                <option th:selected="${userVO.getUserMainLevel()=='초보'}">초보</option>
+                                <option th:selected="${userVO.getUserMainLevel()=='중수'}">중수</option>
+                                <option th:selected="${userVO.getUserMainLevel()=='고수'}">고수</option>
+                                <option th:selected="${userVO.getUserMainLevel()=='해커'}">해커</option>
                             </select>
                         </div>
                     </div>
@@ -121,26 +121,26 @@
                     <div id="subSkill" class="marginBottom">
                         <p>서브 직무/ 상세 직무 / 능력치</p>
                         <div class="flex">
-                            <select class="able first" id="mainSkill3" onchange="personChange(this)" th:value="${userVO.getUserSubSkill()}">
-                                <option>기획</option>
-                                <option>디자인</option>
-                                <option>프론트엔드개발</option>
-                                <option>백엔드개발</option>
-                                <option>사업</option>
-                                <option>기타</option>
+                            <select class="able first" id="mainSkill3" onchange="personChange(this)">
+                                <option th:selected="${userVO.getUserSubSkill()=='기획'}">기획</option>
+                                <option th:selected="${userVO.getUserSubSkill()=='디자인'}">디자인</option>
+                                <option th:selected="${userVO.getUserSubSkill()=='프론트엔드개발'}">프론트엔드개발</option>
+                                <option th:selected="${userVO.getUserSubSkill()=='백엔드개발'}">백엔드개발</option>
+                                <option th:selected="${userVO.getUserSubSkill()=='사업'}">사업</option>
+                                <option th:selected="${userVO.getUserSubSkill()=='기타'}">기타</option>
                             </select>
-                            <select class="able second" id="subSkill3" th:value="${userVO.getUserSubDetail()}">
-                                <option>UI/UX 기획</option>
-                                <option>게임 기획</option>
-                                <option>프로젝트 매니저</option>
-                                <option>하드웨어(제품) 기획</option>
+                            <select class="able second" id="subSkill3">
+                                <option th:selected="${userVO.getUserSubDetail()=='UI/UX 기획'}">UI/UX 기획</option>
+                                <option th:selected="${userVO.getUserSubDetail()=='게임 기획'}">게임 기획</option>
+                                <option th:selected="${userVO.getUserSubDetail()=='프로젝트 매니저'}">프로젝트 매니저</option>
+                                <option th:selected="${userVO.getUserSubDetail()=='하드웨어(제품) 기획'}">하드웨어(제품) 기획</option>
                             </select>
-                            <select class="able third" id="skillLevel3" th:value="${userVO.getUserSubLevel()}">
-                                <option value="1">초심자</option>
-                                <option value="2">초보</option>
-                                <option value="3">중수</option>
-                                <option value="4">고수</option>
-                                <option value="5">해커</option>
+                            <select class="able third" id="skillLevel3">
+                                <option th:selected="${userVO.getUserSubLevel()=='초심자'}">초심자</option>
+                                <option th:selected="${userVO.getUserSubLevel()=='초보'}">초보</option>
+                                <option th:selected="${userVO.getUserSubLevel()=='중수'}">중수</option>
+                                <option th:selected="${userVO.getUserSubLevel()=='고수'}">고수</option>
+                                <option th:selected="${userVO.getUserSubLevel()=='해커'}">해커</option>
                             </select>
                         </div>
                     </div>
@@ -148,12 +148,12 @@
                     <div id="price" class="marginBottom">
                         <p>대화 포인트</p>
                         <div class="flex">
-                            <select class="able first" id="valPoint" th:value="${userVO.getUserPoint()}">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                            <select class="able first" id="valPoint" >
+                                <option th:selected="${userVO.getUserPrice()==1}">1</option>
+                                <option th:selected="${userVO.getUserPrice()==2}">2</option>
+                                <option th:selected="${userVO.getUserPrice()==3}">3</option>
+                                <option th:selected="${userVO.getUserPrice()==4}">4</option>
+                                <option th:selected="${userVO.getUserPrice()==5}">5</option>
                             </select>
                             <select class="able second hidden">
                                 <option></option>
@@ -173,25 +173,25 @@
                                 <option value="b">온라인만 가능</option>
                                 <option value="c">오프라인만 가능</option>
                             </select>
-                            <select class="able second" id="sido" th:value="${userVO.getUserLocation()}">
-                                <option>상관없음</option>
-                                <option>서울특별시</option>
-                                <option>경기도</option>
-                                <option>부산광역시</option>
-                                <option>인천광역시</option>
-                                <option>대구관역시</option>
-                                <option>경상남도</option>
-                                <option>경상북도</option>
-                                <option>대전광역시</option>
-                                <option>충청남도</option>
-                                <option>충청북도</option>
-                                <option>전라남도</option>
-                                <option>전라북도</option>
-                                <option>광주광역시</option>
-                                <option>강원도</option>
-                                <option>울산광역시</option>
-                                <option>제주특별자치도</option>
-                                <option>세종특별자치시</option>
+                            <select class="able second" id="sido">
+                                <option th:selected="${userVO.getUserLocation()=='상관없음'}">상관없음</option>
+                                <option th:selected="${userVO.getUserLocation()=='서울특별시'}">서울특별시</option>
+                                <option th:selected="${userVO.getUserLocation()=='경기도'}">경기도</option>
+                                <option th:selected="${userVO.getUserLocation()=='부산광역시'}">부산광역시</option>
+                                <option th:selected="${userVO.getUserLocation()=='인천광역시'}">인천광역시</option>
+                                <option th:selected="${userVO.getUserLocation()=='대구광역시'}">대구광역시</option>
+                                <option th:selected="${userVO.getUserLocation()=='경상남도'}">경상남도</option>
+                                <option th:selected="${userVO.getUserLocation()=='경상북도'}">경상북도</option>
+                                <option th:selected="${userVO.getUserLocation()=='대전광역시'}">대전광역시</option>
+                                <option th:selected="${userVO.getUserLocation()=='충청남도'}">충청남도</option>
+                                <option th:selected="${userVO.getUserLocation()=='충청북도'}">충청북도</option>
+                                <option th:selected="${userVO.getUserLocation()=='전라남도'}">전라남도</option>
+                                <option th:selected="${userVO.getUserLocation()=='전라북도'}">전라북도</option>
+                                <option th:selected="${userVO.getUserLocation()=='광주광역시'}">광주광역시</option>
+                                <option th:selected="${userVO.getUserLocation()=='강원도'}">강원도</option>
+                                <option th:selected="${userVO.getUserLocation()=='울산광역시'}">울산광역시</option>
+                                <option th:selected="${userVO.getUserLocation()=='제주특별자치도'}">제주특별자치도</option>
+                                <option th:selected="${userVO.getUserLocation()=='세종특별자치시'}">세종특별자치시</option>
                             </select>
                             <select class="able third hidden">
                                 <option></option>
@@ -202,11 +202,11 @@
                     <div id="time" class="marginBottom">
                         <p>시간 설정</p>
                         <div class="flex">
-                            <select class="able first" id="week"  th:value="${userVO.getUserTime()}">
-                                <option value="1">평일오전</option>
-                                <option value="2">평일오후</option>
-                                <option value="3">주말오전</option>
-                                <option value="4">주말오후</option>
+                            <select class="able first" id="week">
+                                <option th:selected="${userVO.getUserTime()=='평일오전'}">평일오전</option>
+                                <option th:selected="${userVO.getUserTime()=='평일오후'}">평일오후</option>
+                                <option th:selected="${userVO.getUserTime()=='주말오전'}">주말오전</option>
+                                <option th:selected="${userVO.getUserTime()=='주말오후'}">주말오후</option>
                             </select>
 <!--                            <select class="able second" name="times">-->
 <!--                                <option value="1">상관없음</option>-->
@@ -281,8 +281,8 @@
             <input type="hidden" name="userSubDetail">
             <input type="hidden" name="userSubLevel">
             <input type="hidden" name="userOnOff">
-            <input type="hidden" name="userPoint">
-<!--            <input type="hidden" name="userPrice">-->
+<!--            <input type="hidden" name="userPoint">-->
+            <input type="hidden" name="userPrice">
             <input type="hidden" name="userTime">
 <!--            <input type="hidden" name="userInterest">-->
             <input type="hidden" name="userContent">
@@ -301,69 +301,139 @@
                 <!--                        <p>아직 완료된 프로젝트/스터디가 없습니다.</p>-->
                 <!--                    </div>-->
                 <!--                </div>-->
-                <div class="projectGridWrap">
-                    <div class="projectTopInfo">
-                        <div class="topInfo">
-                            <div class="box-wrap">
-                                <div class="box green">
-                                    <span>NEW</span>
-                                </div>
-                                <div class="box black">
-                                    <span>사이드프로젝트</span>
-                                </div>
-                            </div>
-                            <div class="favorite"></div>
-                        </div>
-                        <div class="projectImg">
-                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                        </div>
-                    </div>
-                    <div class="projectMiddleInfo">
-                        <p class="category">소셜네트워크</p>
-                        <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                    </div>
-                    <div class="projectBottomInfo">
-                        <div class="middleWrap">
-                            <div class="left">
-                                <div class="heart">
-                                    <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                    <span class="heartCount">0</span>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <div>
-                                    <span>89</span>
-                                    <span> (-)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottomWrap">
-                            <div class="recruit">
-                                <div class="recruitStatus">
-                                    <span>모집완료</span>
-                                    <span>
-                                    0/1
-                                </span>
-                                    <div>
-                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+
+                <th:block th:each="project : ${projectList}">
+                    <div class="projectGridWrap">
+                        <div class="projectTopInfo">
+                            <div class="topInfo">
+                                <div class="box-wrap">
+                                    <div class="box green">
+                                        <span>NEW</span>
+                                    </div>
+                                    <div class="box black">
+                                        <span>사이드프로젝트</span>
                                     </div>
                                 </div>
-                                <div class="recruitModel">
-                                    <ul>
-                                        <li>
-                                            <span>UI/UX기획</span>
-                                            <span>1명</span>
-                                        </li>
-                                        <li>
-                                            <span>웹 프론트엔드</span>
-                                            <span>2명</span>
-                                        </li>
-                                    </ul>
+                                <div class="favorite"></div>
+                            </div>
+                            <div class="projectImg">
+                                <img th:if="${project.projectImgPath == null}"
+                                     th:src="'/images/'+${project.projectImg}">
+                                <img th:unless="${project.projectImgPath == null}"
+                                     th:src="'/project/display?fileName='+ ${project.projectImgPath} + '/' + ${project.projectImgUuid} + '_' + ${project.projectImg}">
+                            </div>
+                        </div>
+                        <div class="projectMiddleInfo">
+                            <p class="category" th:text="${project.projectPart}"></p>
+                            <p class="categoryText" th:text="'['+${project.projectLocation}+']'+${project.projectName}"></p>
+                        </div>
+                        </a>
+                        <div class="projectBottomInfo">
+                            <div class="middleWrap">
+                                <div class="left">
+                                    <div class="heart">
+                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
+                                        <span class="heartCount">0</span>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div>
+                                        <span th:text="${project.projectReadCount}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottomWrap">
+                                <div class="recruit">
+                                    <div class="recruitStatus">
+                                        <span th:if="${project.projectStatus=='1'}">[모집중]</span>
+                                        <span th:if="${project.projectStatus=='2'}">[모집완료]</span>
+                                        <span>
+                                    0/1
+                                </span>
+                                        <div>
+                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                        </div>
+                                    </div>
+                                    <div class="recruitModel">
+                                        <ul>
+                                            <th:block th:each="person : ${project.persons}">
+                                                <li>
+                                                    <span th:text="${person.projectSubSkill}"></span>
+                                                    <span th:text="${person.projectCount}"></span>
+                                                </li>
+                                            </th:block>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </th:block>
+
+
+<!--                <div class="projectGridWrap">-->
+<!--                    <div class="projectTopInfo">-->
+<!--                        <div class="topInfo">-->
+<!--                            <div class="box-wrap">-->
+<!--                                <div class="box green">-->
+<!--                                    <span>NEW</span>-->
+<!--                                </div>-->
+<!--                                <div class="box black">-->
+<!--                                    <span>사이드프로젝트</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="favorite"></div>-->
+<!--                        </div>-->
+<!--                        <div class="projectImg">-->
+<!--                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="projectMiddleInfo">-->
+<!--                        <p class="category">소셜네트워크</p>-->
+<!--                        <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
+<!--                    </div>-->
+<!--                    <div class="projectBottomInfo">-->
+<!--                        <div class="middleWrap">-->
+<!--                            <div class="left">-->
+<!--                                <div class="heart">-->
+<!--                                    <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
+<!--                                    <span class="heartCount">0</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="right">-->
+<!--                                <div>-->
+<!--                                    <span>89</span>-->
+<!--                                    <span> (-)</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="bottomWrap">-->
+<!--                            <div class="recruit">-->
+<!--                                <div class="recruitStatus">-->
+<!--                                    <span>모집완료</span>-->
+<!--                                    <span>-->
+<!--                                    0/1-->
+<!--                                </span>-->
+<!--                                    <div>-->
+<!--                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="recruitModel">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <span>UI/UX기획</span>-->
+<!--                                            <span>1명</span>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <span>웹 프론트엔드</span>-->
+<!--                                            <span>2명</span>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div>
                     <div>
                         <h3 class="titleMsg">진행 현황</h3>
@@ -395,80 +465,120 @@
                 <div>
                     <h3 class="titleMsg">내 게시글</h3>
                 </div>
-                <div class="emptyBox">
-                    <div>
-                        <p>아직 작성하신 게시글 없습니다.</p>
-                    </div>
-                    <div>
-                        <button class="submit"><span>게시글 작성하러 가기</span></button>
-                    </div>
-                </div>
+<!--                <div class="emptyBox"> 게시글이 없을때 보여줘야함-->
+<!--                    <div>-->
+<!--                        <p>아직 작성하신 게시글 없습니다.</p>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <button class="submit"><span>게시글 작성하러 가기</span></button>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- 본인스토리작성한부분 -->
                 <div class="myStoryWrap">
                     <div class="myStory">
                         <ul class="storyTimeUl">
-                            <li class="storyTimeLi">
-                                <div class="storyTimeLineLeft">
+                            <li class="storyTimeLi" th:each="allStory:${allStoryList}">
+                            <div class="storyTimeLineLeft">
+                                <a th:href="@{/story/storyDetail(storyNum=${allStory.getStoryNum()})}">
                                     <div class="storyTimeLineImg">
-                                        <img src="/images/썸네일6.png">
+                                        <img th:src="@{/story/displayTh(storyImgPath=${allStory.getStoryImgPath()}, storyImgUuid=${allStory.getStoryImgUuid()}, storyImgName=${allStory.getStoryImgName()})}">
                                     </div>
+                                </a>
+                                <a th:href="@{/story/storyDetail(storyNum=${allStory.getStoryNum()})}">
                                     <div class="storyTimeLineContents">
                                         <div class="timeLineTitWrap">
-                                            <span class="timeLintCategory">workspace-공식채널</span>
-                                            <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>
+                                            <span class="timeLintCategory" th:text="${allStory.getUserVO().getUserNickName()}"></span>
+                                            <p class="timeLineTit" th:text="|[${allStory.getStoryPart}] ${allStory.getStoryTitle()}"|>[출시/업데이트] 워크스페이스 업데이트 완료</p>
                                         </div>
-                                        <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 3일 입니다.
-                                            여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다 Throws3팀의 멤버로는
-                                            팀장 배상혁 부팀장 한서현 팀원 박상아 홍승근 송준형으로 구성되어있는 팀 입니다.
-                                            각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D
+                                        <div class="timeLineTxt" th:text="${allStory.getStoryContent()}">
                                         </div>
                                         <div class="timeLineTagWrap">
-                                            <span>#상아에요</span>
-                                            <span># 상아태그</span>
-                                            <span>#상혁준형</span>
-                                            <span>#서현승근</span>
-                                            <span>#화이팅</span>
+                                            <th:block th:each="tag:${allStory.getTags()}">
+                                                <span th:text="|#${tag.getTagName()}|"></span>
+                                            </th:block>
                                         </div>
                                     </div>
+                                </a>
+                            </div>
+                            <div class="storyTimeLineRight">
+                                <div class="TimeLineStatusWrap">
+                                    <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                        <img class="storyTimeLineDivImg" src="/images/eye.png">
+                                        <span class="divFooterTxt" th:text="${allStory.getStoryReadCount()}"></span>
+                                    </p>
+                                    <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                        <img class="storyTimeLineDivImg" src="/images/msg.png">
+                                        <span class="divFooterTxt" th:text="${allStory.getReplies().size()}"></span>
+                                    </p>
+                                    <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                        <img class="storyTimeLineDivImg" src="/images/likeup.png">
+                                        <span class="divFooterTxt" th:text="${allStory.getLikes().size()}"></span>
+                                    </p>
                                 </div>
-                                <div class="storyTimeLineRight">
-                                    <!-- <div class="heartWrap">
-                                        <div class="favorite"></div>
-                                    </div> -->
-                                    <div class="TimeLineStatusWrap">
-                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                            <img class="storyTimeLineDivImg" src="/images/eye.png">
-                                            <span class="divFooterTxt">122</span>
-                                        </p>
-                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                            <img class="storyTimeLineDivImg" src="/images/msg.png">
-                                            <span class="divFooterTxt">0</span>
-                                        </p>
-                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                            <img class="storyTimeLineDivImg" src="/images/likeup.png">
-                                            <span class="divFooterTxt">4</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                            </div>
+                        </li>
+<!--                            <li class="storyTimeLi">-->
+<!--                                <div class="storyTimeLineLeft">-->
+<!--                                    <div class="storyTimeLineImg">-->
+<!--                                        <img src="/images/썸네일6.png">-->
+<!--                                    </div>-->
+<!--                                    <div class="storyTimeLineContents">-->
+<!--                                        <div class="timeLineTitWrap">-->
+<!--                                            <span class="timeLintCategory">workspace-공식채널</span>-->
+<!--                                            <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 3일 입니다.-->
+<!--                                            여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다 Throws3팀의 멤버로는-->
+<!--                                            팀장 배상혁 부팀장 한서현 팀원 박상아 홍승근 송준형으로 구성되어있는 팀 입니다.-->
+<!--                                            각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D-->
+<!--                                        </div>-->
+<!--                                        <div class="timeLineTagWrap">-->
+<!--                                            <span>#상아에요</span>-->
+<!--                                            <span># 상아태그</span>-->
+<!--                                            <span>#상혁준형</span>-->
+<!--                                            <span>#서현승근</span>-->
+<!--                                            <span>#화이팅</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="storyTimeLineRight">-->
+<!--                                    &lt;!&ndash; <div class="heartWrap">-->
+<!--                                        <div class="favorite"></div>-->
+<!--                                    </div> &ndash;&gt;-->
+<!--                                    <div class="TimeLineStatusWrap">-->
+<!--                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">-->
+<!--                                            <img class="storyTimeLineDivImg" src="/images/eye.png">-->
+<!--                                            <span class="divFooterTxt">122</span>-->
+<!--                                        </p>-->
+<!--                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">-->
+<!--                                            <img class="storyTimeLineDivImg" src="/images/msg.png">-->
+<!--                                            <span class="divFooterTxt">0</span>-->
+<!--                                        </p>-->
+<!--                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">-->
+<!--                                            <img class="storyTimeLineDivImg" src="/images/likeup.png">-->
+<!--                                            <span class="divFooterTxt">4</span>-->
+<!--                                        </p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </li>-->
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- 본인스토리여기까지 -->
-            <div>
-                <div>
-                    <h3 class="titleMsg">내 시리즈</h3>
-                </div>
-                <div class="emptyBox">
-                    <div>
-                        <p>아직 추가한 시리즈가 없습니다.</p>
-                    </div>
-                    <div>
-                        <button class="submit">시리즈 추가하기</button>
-                    </div>
-                </div>
-            </div>
+<!--            <div>-->
+<!--                <div>-->
+<!--                    <h3 class="titleMsg">내 시리즈</h3>-->
+<!--                </div>-->
+<!--                <div class="emptyBox">-->
+<!--                    <div>-->
+<!--                        <p>아직 추가한 시리즈가 없습니다.</p>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <button class="submit">시리즈 추가하기</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
         </div>
     </section>
@@ -843,25 +953,34 @@
         </div>
     </section>
     <!-----------------------------------------------------------------------알림 !!--------------------------------------------------------------------->
+
+<!--    <th:block th:each="exps, i:${userExpVO}">-->
+<!--        <tr>-->
+<!--            <td  th:text="${exps.expDate}">22.05.01 13:27</td>-->
+<!--            <td  th:text="${exps.expValue}">-100</td>-->
+<!--            <td class="lastCell" th:text="${exps.expHistory}">스토리 삭제</td>-->
+<!--        </tr>-->
+<!--    </th:block>-->
     <section id="alert" class="pageNav">
         <div>
             <div>
                 <h3 class="titleMsg">알림 내역</h3>
             </div>
+         <th:block th:each="alert, i:${userAlertVO}">
             <div class="alertWrap">
                 <div class="alertList">
                     <div class="alertDay">
-                        <p>22.05.02</p>
+                        <p th:text="${alert.alertDate}"></p>
                     </div>
                     <div class="alertSide">
                         <div class="alertBox flex flexs">
                             <div>
                                 <div>
-                                    <span class="alertTitle">[프로젝트/스터디]</span>
-                                    <span class="alertDate">22.05.01</span>
+                                    <span class="alertTitle" th:text="${alert.alertPart}"></span>
+                                    <span class="alertDate" th:text="${alert.alertDate}"></span>
                                 </div>
                                 <div>
-                                    <span class="alertContent">프로젝트 ddddd가 [안녕하세요 렛플입니다. 테스트용으로 작성된것으로 보입니다. 임시저장상태로 다시 변경했습니다.] 사유로 반려되었습니다</span>
+                                    <span class="alertContent" th:text="${alert.alertContent}"></span>
                                 </div>
                             </div>
                             <div>
@@ -869,24 +988,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="alertSide">
-                        <div class="alertBox flex flexs">
-                            <div>
-                                <div>
-                                    <span class="alertTitle">[프로젝트/스터디]</span>
-                                    <span class="alertDate">22.05.01</span>
-                                </div>
-                                <div>
-                                    <span class="alertContent">프로젝트 ddddd가 [안녕하세요 렛플입니다. 테스트용으로 작성된것으로 보입니다. 임시저장상태로 다시 변경했습니다.] 사유로 반려되었습니다</span>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#">프로젝트 보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--                    <div class="alertSide">-->
+<!--                        <div class="alertBox flex flexs">-->
+<!--                            <div>-->
+<!--                                <div>-->
+<!--                                    <span class="alertTitle">[프로젝트/스터디]</span>-->
+<!--                                    <span class="alertDate">22.05.01</span>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <span class="alertContent">프로젝트 ddddd가 [안녕하세요 렛플입니다. 테스트용으로 작성된것으로 보입니다. 임시저장상태로 다시 변경했습니다.] 사유로 반려되었습니다</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#">프로젝트 보기</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+         </th:block>
+
             <div class="alertWrap">
                 <div>
                     <div class="alertDay">
@@ -932,32 +1053,23 @@ th:value="${userVO.getUserSubLevel()}"-->
                 <table id="pointTable" class="pointTable">
                     <thead>
                     <tr>
-                        <th:block th:each="points, i:${userPointVO}">
-                        <th class="firstCell" th:value="${points.pointDate}">날짜</th>
-                        <th class="secondCell" th:value="${points.pointValue}">포인트</th>
-                        <th th:value="${points.getPointHistory()}">상세</th>
-                        <th class="lastCell" th:value="${points.pointStatus}">비고</th>
-                        </th:block>
+
+                        <th class="firstCell">날짜</th>
+                        <th class="secondCell">포인트</th>
+                        <th>상세</th>
+                        <th class="lastCell">비고</th>
+
                     </tr>
                     </thead>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">비고</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">비고</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">비고</td>
-                    </tr>
+
+                    <th:block th:each="points, i:${userPointVO}">
+                        <tr th:if="${points.pointStatus}=='1'">
+                        <td th:text="${points.pointDate}"></td>
+                        <td th:text="${points.pointValue}"></td>
+                        <td th:text="${points.getPointHistory()}"></td>
+                        <td class="lastCell">충전</td>
+                        </tr>
+                    </th:block>
                 </table>
             </div>
             <div>
@@ -970,36 +1082,15 @@ th:value="${userVO.getUserSubLevel()}"-->
                         <th class="lastCell">비고</th>
                     </tr>
                     </thead>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">사용</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">사용</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">사용</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">사용</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18</td>
-                        <td>10</td>
-                        <td>[이벤트] 본인인증 완료</td>
-                        <td class="lastCell">사용</td>
-                    </tr>
+                    <th:block th:each="points, i:${userPointVO}">
+                        <tr th:if="${points.pointStatus}=='2'">
+                            <td th:text="${points.pointDate}"></td>
+                            <td th:text="${points.pointValue}"></td>
+                            <td th:text="${points.getPointHistory()}"></td>
+                            <td class="lastCell">사용</td>
+                        </tr>
+                    </th:block>
+
                 </table>
             </div>
 
@@ -1010,7 +1101,9 @@ th:value="${userVO.getUserSubLevel()}"-->
     <section id="score" class="pageNav">
         <div>
             <div>
-                <h3 class="titleMsg">워크스코어 L6 (510) - 다음까지 291</h3>
+    <!-- 레벨은 출력되는데 경험치는 연산해야하나?
+        -->
+                <h3 class="titleMsg" >워크스코어 Lv<span style="color: green; font-weight: 600;" th:text="${userVO.getUserLevel()}"></span></h3>
             </div>
             <div>
                 <table id="scoreTable">
@@ -1021,156 +1114,158 @@ th:value="${userVO.getUserSubLevel()}"-->
                         <th class="lastCell">상세</th>
                     </tr>
                     </thead>
+                    <th:block th:each="exps, i:${userExpVO}">
                     <tr>
-                        <td>22.05.01 13:27</td>
-                        <td>-100</td>
-                        <td class="lastCell">스토리 삭제</td>
+                        <td  th:text="${exps.expDate}">22.05.01 13:27</td>
+                        <td  th:text="${exps.expValue}">-100</td>
+                        <td class="lastCell" th:text="${exps.expHistory}">스토리 삭제</td>
                     </tr>
-                    <tr>
-                        <td>22.05.01 13:26</td>
-                        <td>100</td>
-                        <td class="lastCell">스토리 작성</td>
-                    </tr>
-                    <tr>
-                        <td>22.05.01 13:26</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.30 15:50</td>
-                        <td>-50</td>
-                        <td class="lastCell">프로젝트/스터디 참여 철회</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.30 15:49</td>
-                        <td>50</td>
-                        <td class="lastCell">프로젝트/스터디 참여 신청</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.30 15:48</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.29 10:11</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.28 09:38</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.27 15:21</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.26 14:06</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 15:03</td>
-                        <td>-50</td>
-                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 15:03</td>
-                        <td>30</td>
-                        <td class="lastCell">워크인 좋아요</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 15:03</td>
-                        <td>-50</td>
-                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 15:03</td>
-                        <td>30</td>
-                        <td class="lastCell">워크인 좋아요</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 15:03</td>
-                        <td>-50</td>
-                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 15:03</td>
-                        <td>30</td>
-                        <td class="lastCell">워크인 좋아요</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 13:19</td>
-                        <td>-50</td>
-                        <td class="lastCell">글 삭제</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 13:19</td>
-                        <td>50</td>
-                        <td class="lastCell">글 등록</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 13:12</td>
-                        <td>-100</td>
-                        <td class="lastCell">스토리 삭제</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 13:12</td>
-                        <td>100</td>
-                        <td class="lastCell">스토리 작성</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.22 11:26</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.21 15:50</td>
-                        <td>30</td>
-                        <td class="lastCell">워크인 좋아요</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.21 14:33</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.20 15:14</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18 11:01</td>
-                        <td>100</td>
-                        <td class="lastCell">상대방의 리뷰완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18 11:00</td>
-                        <td>30</td>
-                        <td class="lastCell">워크인 좋아요</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.18 10:12</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.17 12:17</td>
-                        <td>200</td>
-                        <td class="lastCell">본 캐릭터 생성완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.17 12:17</td>
-                        <td>100</td>
-                        <td class="lastCell">회원가입 완료</td>
-                    </tr>
-                    <tr>
-                        <td>22.04.17 12:17</td>
-                        <td>10</td>
-                        <td class="lastCell">일일 로그인 완료</td>
-                    </tr>
+                    </th:block>
+<!--                    <tr>-->
+<!--                        <td>22.05.01 13:26</td>-->
+<!--                        <td>100</td>-->
+<!--                        <td class="lastCell">스토리 작성</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.05.01 13:26</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.30 15:50</td>-->
+<!--                        <td>-50</td>-->
+<!--                        <td class="lastCell">프로젝트/스터디 참여 철회</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.30 15:49</td>-->
+<!--                        <td>50</td>-->
+<!--                        <td class="lastCell">프로젝트/스터디 참여 신청</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.30 15:48</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.29 10:11</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.28 09:38</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.27 15:21</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.26 14:06</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 15:03</td>-->
+<!--                        <td>-50</td>-->
+<!--                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 15:03</td>-->
+<!--                        <td>30</td>-->
+<!--                        <td class="lastCell">워크인 좋아요</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 15:03</td>-->
+<!--                        <td>-50</td>-->
+<!--                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 15:03</td>-->
+<!--                        <td>30</td>-->
+<!--                        <td class="lastCell">워크인 좋아요</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 15:03</td>-->
+<!--                        <td>-50</td>-->
+<!--                        <td class="lastCell">프로젝트/스터디 좋아요 취소</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 15:03</td>-->
+<!--                        <td>30</td>-->
+<!--                        <td class="lastCell">워크인 좋아요</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 13:19</td>-->
+<!--                        <td>-50</td>-->
+<!--                        <td class="lastCell">글 삭제</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 13:19</td>-->
+<!--                        <td>50</td>-->
+<!--                        <td class="lastCell">글 등록</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 13:12</td>-->
+<!--                        <td>-100</td>-->
+<!--                        <td class="lastCell">스토리 삭제</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 13:12</td>-->
+<!--                        <td>100</td>-->
+<!--                        <td class="lastCell">스토리 작성</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.22 11:26</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.21 15:50</td>-->
+<!--                        <td>30</td>-->
+<!--                        <td class="lastCell">워크인 좋아요</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.21 14:33</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.20 15:14</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.18 11:01</td>-->
+<!--                        <td>100</td>-->
+<!--                        <td class="lastCell">상대방의 리뷰완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.18 11:00</td>-->
+<!--                        <td>30</td>-->
+<!--                        <td class="lastCell">워크인 좋아요</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.18 10:12</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.17 12:17</td>-->
+<!--                        <td>200</td>-->
+<!--                        <td class="lastCell">본 캐릭터 생성완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.17 12:17</td>-->
+<!--                        <td>100</td>-->
+<!--                        <td class="lastCell">회원가입 완료</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>22.04.17 12:17</td>-->
+<!--                        <td>10</td>-->
+<!--                        <td class="lastCell">일일 로그인 완료</td>-->
+<!--                    </tr>-->
                 </table>
             </div>
         </div>

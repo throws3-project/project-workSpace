@@ -109,12 +109,12 @@ function personChange(e) {
     let person_f = ["작가/블로거", "인플루언서/스트리머", "작곡(사운드)", "영상", "운영", "QA", "기타"];
     let target = $(e).next();
 
-    if (e.value == "a") d = person_a;
-    else if (e.value == "b") d = person_b;
-    else if (e.value == "c") d = person_c;
-    else if (e.value == "d") d = person_d;
-    else if (e.value == "e") d = person_e;
-    else if (e.value == "f") d = person_f;
+    if (e.value == "기획") d = person_a;
+    else if (e.value == "디자인") d = person_b;
+    else if (e.value == "프론트엔드개발") d = person_c;
+    else if (e.value == "백엔드개발") d = person_d;
+    else if (e.value == "사업") d = person_e;
+    else if (e.value == "기타") d = person_f;
 
     target.html("");
 
@@ -182,7 +182,7 @@ $("button#sss").on("click", function (e) {
     $("p.active").each(function (i, p) {
         let str="";
         if ($(p).text()) {
-            str = "<input type='hidden' name='userInterest' value='"+$(p).text()+"'>"
+            str = "<input type='hidden' name='interest' value='"+$(p).text()+"'>"
             $("#frm").append(str);
 
         }
@@ -197,11 +197,14 @@ $("button#sss").on("click", function (e) {
     $("input[name='userSubDetail']").val($("select#subSkill3").val());
     $("input[name='userSubLevel']").val($("select#skillLevel3").val());
     $("input[name='userOnOff']").val($("select#onOff").val());
-    $("input[name='userPoint']").val($("select#valPoint").val());
+    $("input[name='userPrice']").val($("select#valPoint").val());
     $("input[name='userTime']").val($("select#week").val());
     $("input[name='userContent']").val($("textarea#contents").val());
 
-    // $('#frm').submit();
+
+
+
+    $('#frm').submit();
 
 })
 

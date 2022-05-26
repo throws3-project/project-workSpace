@@ -2,6 +2,7 @@ package com.project.workspace.controller;
 
 import com.project.workspace.domain.repository.*;
 import com.project.workspace.domain.vo.*;
+import com.project.workspace.service.StoryService;
 import com.project.workspace.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -31,6 +33,9 @@ public class MyPageController {
     private final ProjectLikeRepository projectLikeRepository;
     private final UserExpRepository userExpRepository;
     private final UserPointRepository userPointRepository;
+    private final StoryService storyService;
+    private final StoryRepository storyRepository;
+    private final ProjectRepository projectRepository;
 
     private final UserService userService;
 
@@ -49,6 +54,14 @@ public class MyPageController {
         List<ProjectLikeVO> projectLikeVO = projectLikeRepository.findByUserVO(userVO);
         List<UserExpVO> userExpVO = userExpRepository.findByUserVO(userVO);
         List<UserPointVO> userPointVO = userPointRepository.findByUserVO(userVO);
+        List<UserAlertVO> userAlertVO = userAlertRepository.findByUserVO(userVO);
+
+//        List<UserFollowVO> userFollowVO = userFollowRepository.findByFollowingUser(UserFollowID);
+
+        List<StoryVO> topStoryList = storyRepository.findTop4ByOrderByStoryReadCountDesc();
+        List<StoryVO> allStoryList = storyRepository.findAll();
+
+        List<ProjectVO> projectList = projectRepository.findByUserVO(userVO);
 
 
         model.addAttribute("userVO", userVO);
@@ -58,10 +71,23 @@ public class MyPageController {
         model.addAttribute("projectLikeVO", projectLikeVO);
         model.addAttribute("userExpVO", userExpVO);
         model.addAttribute("userPointVO", userPointVO);
+        model.addAttribute("userAlertVO", userAlertVO);
+        model.addAttribute("topStoryList", topStoryList);
+        model.addAttribute("allStoryList", allStoryList);
+        model.addAttribute("projectList", projectList);
+
 
         log.info("------------------------------------");
         log.info(userVO.toString());
+        log.info(userPointVO.toString());
+        log.info(userAlertVO.toString());
+        log.info("===================스토리================================");
+        topStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
+        allStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
+        log.info("===================프로젝트================================");
+        log.info(projectList.toString());
         log.info("------------------------------------");
+
 
         return "/myPage/myPage";
     }
@@ -76,7 +102,7 @@ public class MyPageController {
         //유저브이오에서 유저넘을 셋해준다.
         userVO.setUserNum(1L);
         System.out.println(userRepository.save(userVO).toString());
-//        userRepository.save(userVO);
+        userRepository.save(userVO);
 //
 ////        유저태그VO
         List<UserTagVO> userTagVOs = new ArrayList<>();
@@ -134,6 +160,21 @@ public class MyPageController {
 
 
 }
+
+//        userPointVO[i].pointDate;
+
+//        List<UserPointVO> pointTables = new ArrayList<>();
+//        for(int i=1; i<=pointTables.size(); i++){ //반복문을 수행하면서 리스트에 데이터 삽입
+//            Date pointDate = Date.valueOf(i) +  "[pointDate]";;
+//            int pointValue = pointTables.valueOf(i) + "[pointValue]";
+//            String pointHistory = String.valueOf(i) + "[pointHistory]";
+//            String pointStatus = String.valueOf(i) + "[pointStatus]";
+//
+//            //객체를 리스트에 삽입
+//            UserPointVO userPointVOs = new UserPointVO(pointDate, pointValue, pointHistory, pointStatus);
+//            pointTables.add(userPointVOs);
+//        }
+
 
 //    @PostMapping("/myPage")
 //    public String myPage(UserVO userVO, Model model){

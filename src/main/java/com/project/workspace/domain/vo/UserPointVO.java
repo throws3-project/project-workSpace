@@ -1,9 +1,15 @@
 package com.project.workspace.domain.vo;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -12,12 +18,16 @@ import java.util.Date;
 @Getter @Setter
 @ToString(of = {"pointNum","pointDate","pointValue","pointHistory","pointStatus"})
 @NoArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 public class UserPointVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "point_num")
     private Long pointNum;
     @Column(name = "point_date")
+    @Generated(GenerationTime.INSERT)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date pointDate;
     @Column(name = "point_value")
     private int pointValue;
@@ -31,10 +41,13 @@ public class UserPointVO {
     private UserVO userVO;
 
    @Builder
-    public UserPointVO(Long pointNum, int pointValue, String pointHistory, String pointStatus, UserVO userVO) {
-        this.pointNum = pointNum;
+    public UserPointVO(int pointValue, String pointDate, String pointHistory, String pointStatus, UserVO userVO) {
+       SimpleDateFormat sdf = new SimpleDateFormat();
         this.pointValue = pointValue;
-        this.pointHistory = pointHistory;
+       try {
+           if(pointDate!=null){this.pointDate = sdf.parse(pointDate);}
+       } catch (ParseException e) {;}
+       this.pointHistory = pointHistory;
         this.pointStatus = pointStatus;
         this.userVO = userVO;
     }
