@@ -15,4 +15,5 @@ public interface StoryRepository extends JpaRepository<StoryVO, Long>{
     List<StoryVO> findAllByUserVOAndStoryNumNot(UserVO userVO, Long storyNum);
     List<StoryVO> findAllByStoryNumNot(Long storyNum);
     List<StoryVO> findTop4ByOrderByStoryReadCountDesc();
+    List<StoryVO> findTop10ByUserVO_UserNum(Long userNum);
 }

@@ -69,11 +69,33 @@ public class StoryController {
 
     @GetMapping("/storyList")
     public void storyList(Model model){
+        Random rd = new Random();
         List<StoryVO> topStoryList = storyRepository.findTop4ByOrderByStoryReadCountDesc();
         List<StoryVO> allStoryList = storyRepository.findAll();
+        List<Long> userNums = allStoryList.stream().map(storyVO -> storyVO.getUserVO().getUserNum()).distinct().collect(Collectors.toList());
+        List<Long> users = new ArrayList<>();
+        List<List<StoryVO>> randomList = new ArrayList<>();
+        if(userNums.size() > 2) {
+            for (int i = 0; i<2; i++){
+                users.add(userNums.get(rd.nextInt(userNums.size())));
+                for(int j=0; j<i; j++){
+                    if(users.get(i) == users.get(j)){
+                        users.remove(i);
+                        i--;
+                    }
+                }
+            }
+        }else{
+            users = userNums;
+        }
+
+        for (int i = 0; i<users.size(); i++){
+            randomList.add(storyRepository.findTop10ByUserVO_UserNum(users.get(i)));
+        }
 
         model.addAttribute("topStoryList", topStoryList);
         model.addAttribute("allStoryList", allStoryList);
+        model.addAttribute("randomList", randomList);
     }
 
     @ResponseBody

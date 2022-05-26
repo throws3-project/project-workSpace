@@ -5,6 +5,7 @@ import jdk.jfr.Timestamp;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.GenerationTime;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Component;
 import org.hibernate.annotations.Generated;
 

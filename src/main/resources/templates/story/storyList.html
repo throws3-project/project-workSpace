@@ -147,18 +147,20 @@
             </div>
             <div class="line"></div>
             <!-- 시리즈1 -->
-            <div class="series">
-                <h3>"한동석" 강사님 시리즈</h3>
+            <div class="series" th:each="lists:${randomList}">
+                <h3 th:text="|&quot${lists[0].getUserVO().getUserNickName()}&quot 님의 스토리|"></h3>
                 <div class="seriesScroll">
                     <ul class="seriesUl">
-                        <li class="seriesLi">
-                            <a href="#">
+
+                        <li class="seriesLi" th:each="list:${lists}">
+                            <a th:href="@{/story/storyDetail(storyNum=${list.getStoryNum()})}">
                                 <div class="seriesImg">
-                                    <img src="/images/썸네일2.png">
+                                    <img th:src="@{/story/displayTh(storyImgPath=${list.getStoryImgPath()}, storyImgUuid=${list.getStoryImgUuid()}, storyImgName=${list.getStoryImgName()})}">
                                 </div>
-                                <span class="storySubTit">한동석 강사님 1탄 (a.k.a 상아야)</span>
+                                <span class="storySubTit" th:text="${list.getStoryTitle()}"></span>
                             </a>
                         </li>
+
                         <li class="seriesLi">
                             <a href="#">
                                 <div class="seriesImg">
