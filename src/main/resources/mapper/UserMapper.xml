@@ -100,4 +100,5 @@
         (user_id, user_nick_name, user_main_skill, user_main_detail, user_main_level, user_code, user_img_name)
         VALUES(#{userId},#{userNickName},#{userMainSkill},#{userMainDetail},#{userMainLevel},#{userCode},#{userImgName})
     </insert>
+
 </mapper>
