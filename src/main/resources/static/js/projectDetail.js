@@ -1,7 +1,4 @@
-$(document).ready(function () {
-    $("#header").load('../../templates/fix/header.html');
-    $("#footer").load('../../templates/fix/footer.html');
-});
+$("#projectContent").html(content);
 
 $(".userWrap").on("mouseover", function () {
     $(this).find("div.idMenu").show();

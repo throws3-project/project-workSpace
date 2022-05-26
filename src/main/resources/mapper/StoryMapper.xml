@@ -27,6 +27,4 @@
         values(#{storyNum}, #{userNum})
     </insert>
 
-
-
 </mapper>

@@ -178,7 +178,7 @@ a{
     width: 22px;
     height: 21px;
     cursor: pointer;
-    background-image: url(../../static/images/grayheart.png);
+    background-image: url('/images/grayheart.png');
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
@@ -187,7 +187,7 @@ a{
     width: 20px;
     height: 20px;
     cursor: pointer;
-    background-image: url(../../static/images/redheart.png);
+    background-image: url('/images/redheart.png');
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
@@ -430,7 +430,10 @@ a{
     word-wrap: break-word;
     color: #b5b5c2;
     word-break: normal;
+    display: -webkit-inline-box;
     font-weight: 600;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 .timeLineTagWrap{
     color: #222;
@@ -886,6 +889,7 @@ button.mdBtnRemoves{
     transition: all .2s;
     font-size: .75rem;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 

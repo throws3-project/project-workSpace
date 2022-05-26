@@ -1,9 +1,7 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -11,8 +9,11 @@ import javax.persistence.*;
 @Entity
 @Component
 @Table(name = "tbl_study_keyword")
+@Setter
 @Getter
 @ToString
+@AllArgsConstructor
+@DynamicInsert
 @NoArgsConstructor
 public class StudyKeywordVO {
     @Id
