@@ -8,11 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,17 +19,23 @@ public class ChatController {
     private final ChatRoomRepository chatRoomRepository;
     private final UserRepository userRepository;
 
+
     //user목록 가져오기
     @GetMapping("/list")
+    @ResponseBody
     public List<String> List(){
-        List<String> list = userRepository.findAll().stream().map(UserVO::getUserId).collect(Collectors.toList());
+        List<String> list = userRepository.findAll().stream().map(UserVO::getUserNickName).collect(Collectors.toList());
+        log.info("@@@@@@@@닉네임 리스트@@@@@@@@@@@");
+        log.info(list.toString());
+        log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         return list;
     }
 
     @GetMapping("/rooms")
+
     public String rooms(Model model) {
         model.addAttribute("rooms", chatRoomRepository.findAllRoom());
-        return "home";
+        return "fix/chat";
     }
 
     @GetMapping("/rooms/{id}")
@@ -61,7 +63,7 @@ public class ChatController {
         log.info(name);
         log.info("*******************************************************");
 
-        return "home";
+        return "fix/chat";
     }
 
 

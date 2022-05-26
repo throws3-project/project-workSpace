@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString(of = {"messageNum", "message", "chatTime", "chatFile"})

@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class ChatMessageServiceImple implements ChatMessageService {
+public class ChatMessageServiceImpl implements ChatMessageService {
 
     public final ChatMessageDAO chatMessageDAO;
 
