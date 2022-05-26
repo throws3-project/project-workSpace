@@ -39,6 +39,7 @@ public class UserDAO {
 
     public List<UserPointVO> getPointList(){return userMapper.getPointList();}
     public void insertPoint(Long userNum, Date pointDate, int pointValue, String pointHistory, String pointStatus){userMapper.insertPoint(userNum,pointDate,pointValue,pointHistory,pointStatus);}
+
 }
 
 

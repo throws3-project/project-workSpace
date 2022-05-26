@@ -12,3 +12,20 @@ $("input[type=radio]").change(function(){
         $("#message").text("총 결제금액 : 110,000원 (부가세 10% 포함)")
     }
 });
+
+$(function(){
+    $('button.kakao').click(function(){
+        $.ajax({
+            url: '/kakaoPay' ,
+            dataType: 'json' ,
+            success: function(data){
+                // alert(data.next_redirect_pc_url);
+                var box =  data.next_redirect_pc_url;
+                window.open(box);
+            },
+            error:function(error){
+                alert(error);
+            }
+        })
+    })
+})

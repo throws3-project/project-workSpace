@@ -129,7 +129,9 @@ public class UserVO {
     private List<UserPointVO> points = new ArrayList<>();
 
     @Builder
+
     public UserVO(String userId, String userContent, String userGender, String userLocation, String userNickName, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath, String userCode) {
+
         this.userId = userId;
         this.userContent = userContent;
         this.userGender = userGender;
