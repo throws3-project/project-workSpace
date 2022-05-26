@@ -26,8 +26,6 @@ public class UserVO {
     private String userId;
     @Column(name = "user_content")
     private String userContent;
-    @Column(name = "user_gender")
-    private String userGender;
     @Column(name = "user_location")
     private String userLocation;
     @Column(name = "user_nick_name")
@@ -108,10 +106,9 @@ public class UserVO {
     private List<LoungeReplyVO> loungeReplies = new ArrayList<>();
 
     @Builder
-    public UserVO(String userId, String userContent, String userGender, String userLocation, String userNickName, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
+    public UserVO(String userId, String userContent, String userLocation, String userNickName, String userPhone, String userMainSkill, String userMainDetail, String userMainLevel, String userSubSkill, String userSubDetail, String userSubLevel, String userOnOff, String userTime, String userCode, Long userPrice, String socialType, String userStatus, String userImgUuid, String userImgName, String userImgPath) {
         this.userId = userId;
         this.userContent = userContent;
-        this.userGender = userGender;
         this.userLocation = userLocation;
         this.userNickName = userNickName;
         this.userPhone = userPhone;
