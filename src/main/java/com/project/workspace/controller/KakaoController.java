@@ -179,6 +179,7 @@ public class KakaoController {
             HttpSession session = req.getSession();
 
             session.setAttribute("userNum", userVO.getUserNum());
+            session.setAttribute("userNickName", userVO.getUserNickName());
 
             url = "main/index";
         }
@@ -201,6 +202,7 @@ public class KakaoController {
         HttpSession session = req.getSession();
 
         session.setAttribute("userNum", userNum);
+        session.setAttribute("userNickName", userVO.getUserNickName());
 
         return "user/joinSuccess";
     }
@@ -257,14 +259,16 @@ public class KakaoController {
 
         HttpSession session = req.getSession();
         session.setAttribute("userNum",userNum);
+        session.setAttribute("userNickName", userVO.getUserNickName());
 
         return "main/index";
     }
 
     @GetMapping("/joinLater")
-    public RedirectView joinLater(Long userNum, HttpServletRequest req){
+    public RedirectView joinLater(Long userNum, HttpServletRequest req, String userNickName){
         HttpSession session = req.getSession();
         session.setAttribute("userNum",userNum);
+        session.setAttribute("userNickName", userNickName);
         return new RedirectView("main/index");
     }
 
