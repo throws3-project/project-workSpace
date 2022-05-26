@@ -14,6 +14,7 @@
 <th:block th:insert="/fix/header.html :: headFragment"/>
 
 <section class="notice">
+    <form action="/notice/noticeRegister" id="frm" method="post">
     <div class="noticeTitle">
         <h2>
             <span class="smallTxt">NOTICE</span>
@@ -27,47 +28,19 @@
                     <p>제목</p>
                 </div>
                 <div class="right">
-                    <input type="text" placeholder="제목을 입력해주세요.">
-                </div>
-            </div>
-            <div class="noticeTitleWriter">
-                <div class="left" id="attach">
-                    <p>첨부파일</p>
-                </div>
-                <div class="right" style="display: flex">
-                    <label for="uploadFile">
-                        <img src="https://letspl.me/assets/images/ic-camera-alt-24-px.png" alt="">
-                    </label>
-                    <input type="file" name="uploadFile" id="uploadFile" style="display: none">
-                    <div class="field">
-                        <div class="uploadResult">
-                            <ul id="thumbNailWrap">
-                                <li>
-                                    <a>
-                                        <img src="/images/스토리배너1.png">
-                                    </a>
-                                    <span>x</span>
-                                </li>
-                                <li>
-                                    <a>
-                                        <img src="c/images/썸네일2.png">
-                                    </a>
-                                    <span>x</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <input type="text" name="noticeTitle" max="3000" placeholder="제목을 입력해주세요.">
                 </div>
             </div>
         </div>
         <div class="noticeViewContents">
-            <textarea name="content" id="content" onkeydown="resize(this)" onkeyup="resize(this)" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
+            <textarea name="noticeContent" id="content" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
         </div>
         <div class="btnWrap">
             <button class="primaryBtn">작성완료</button>
             <button class="whiteBtn">작성취소</button>
         </div>
     </div>
+    </form>
 </section>
 
 <th:block th:insert="/fix/chat.html :: sideFragment"/>

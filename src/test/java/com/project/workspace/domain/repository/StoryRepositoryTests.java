@@ -27,8 +27,8 @@ public class StoryRepositoryTests {
     // 스토리
 //    @Test
 //    public void insertTest(){
-//        UserVO userVO = userRepository.findById(1L).get();
-//        storyRepository.save(StoryVO.builder().storyPart("안녕").storyContent("11").storyImgName("11").storyImgPath("1").storyImgUuid("1").storyTitle("123").userVO(userVO).build());
+//        UserVO userVO = userRepository.findById(4L).get();
+//        storyRepository.save(StoryVO.builder().storyPart("테스터").storyContent("안녕하세요").storyImgName("11").storyImgPath("1").storyImgUuid("1").storyTitle("안녕하세요").userVO(userVO).build());
 //    }
 
 //    @Test
@@ -82,12 +82,12 @@ public class StoryRepositoryTests {
 //    }
 
     // 스토리 좋아요
-//    @Test
-//    public void insertTest(){
-//        StoryVO storyVO = storyRepository.findById(1L).get();
-//        UserVO userVO = userRepository.findById(1L).get();
-//        storyLikeRepository.save(StoryLikeVO.builder().storyVO(storyVO).userVO(userVO).build());
-//    }
+    @Test
+    public void insertTest(){
+        StoryVO storyVO = storyRepository.findById(3L).get();
+        UserVO userVO = userRepository.findById(3L).get();
+        storyLikeRepository.save(StoryLikeVO.builder().storyVO(storyVO).userVO(userVO).build());
+    }
 
 //    @Test
 //    @Transactional

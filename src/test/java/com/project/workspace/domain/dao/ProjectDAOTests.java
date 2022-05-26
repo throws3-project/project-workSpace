@@ -1,5 +1,8 @@
 package com.project.workspace.domain.dao;
 
+import com.project.workspace.domain.repository.ProjectRepository;
+import com.project.workspace.domain.vo.ProjectVO;
+import com.project.workspace.domain.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class ProjectDAOTests {
     @Autowired
     private ProjectDAO projectDAO;
+    private ProjectRepository projectRepository;
 
 
 //    @Test
@@ -42,6 +46,11 @@ public class ProjectDAOTests {
 //        projectDAO.insertLikeProject(1L, 1L);
 //    }
 
-
+//@Test
+//    public void insertSelectProjectNum(){
+//
+//    projectDAO.insertSelectProjectNum(1L, "projectName", "projectPart", "projectLocation", "o", "o", "projectContent", "projectImg", "projectImgUuid", "projectImgPath");
+//
+//}
 
 }

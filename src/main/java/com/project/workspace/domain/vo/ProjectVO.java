@@ -1,9 +1,7 @@
 package com.project.workspace.domain.vo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Component;
 
@@ -11,13 +9,15 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Component
+@Entity
 @Table(name = "tbl_project")
 @Getter
+@Setter
 @ToString(exclude = { "userVO", "skills", "persons", "references", "members", "likes" })
-@NoArgsConstructor
 @DynamicInsert
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProjectVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,35 +50,42 @@ public class ProjectVO {
     @Column(name = "login_count")
     private Long loginCount;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_num")
     private UserVO userVO;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectSkillVO> skills = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectPersonVO> persons = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectReferenceVO> references = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectMemberVO> members = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "projectVO")
     private List<ProjectLikeVO> likes = new ArrayList<>();
 
     @Builder
-    public ProjectVO(String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal, Long loginCount, UserVO userVO) {
+    public ProjectVO(String projectName, String projectPart, String projectLocation, String projectOnOff, String projectPlatform, String projectContent, String projectStatus, String projectImg, String projectImgUuid, String projectImgPath, Long projectTotal) {
         this.projectName = projectName;
         this.projectPart = projectPart;
         this.projectLocation = projectLocation;
         this.projectOnOff = projectOnOff;
         this.projectPlatform = projectPlatform;
         this.projectContent = projectContent;
-        this.projectStatus = projectStatus;
         this.projectImg = projectImg;
         this.projectImgUuid = projectImgUuid;
         this.projectImgPath = projectImgPath;
         this.projectTotal = projectTotal;
-        this.loginCount = loginCount;
-        this.userVO = userVO;
     }
 }
