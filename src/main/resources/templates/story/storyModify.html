@@ -30,12 +30,12 @@
             font-size: 13px;
         }
 
-        .skillResult a {
+        .skillResult a{
             text-decoration: none;
             cursor: pointer;
             background-color: #336d47;
-            padding: 4px;
-            border-radius: 4px;
+            padding: 11px;
+            border-radius: 20px;
             color: #fff;
             margin-left: 2px;
             font-size: 13px;
@@ -82,27 +82,32 @@
                                 <li class="checkBoxWrap selectPurpose">
                                     <label class="checkBox">
                                         <span class="txt">정보</span>
-                                        <input type="radio" name="step2_radio" value="01">
+                                        <input th:if="${storyVO.getStoryPart() eq '정보'}" type="radio" name="step2_radio" value="정보" checked>
+                                        <input th:unless="${storyVO.getStoryPart() eq '정보'}" type="radio" name="step2_radio" value="정보" che>
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">노하우</span>
-                                        <input type="radio" name="step2_radio" value="02">
+                                        <input th:if="${storyVO.getStoryPart() eq '노하우'}" type="radio" name="step2_radio" value="노하우" checked>
+                                        <input th:unless="${storyVO.getStoryPart() eq '노하우'}" type="radio" name="step2_radio" value="노하우">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">테스터 모집</span>
-                                        <input type="radio" name="step2_radio" value="03">
+                                        <input th:if="${storyVO.getStoryPart() eq '테스터 모집'}"  type="radio" name="step2_radio" value="테스터 모집" checked>
+                                        <input th:unless="${storyVO.getStoryPart() eq '테스터 모집'}" type="radio" name="step2_radio" value="테스터 모집">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">이벤트</span>
-                                        <input type="radio" name="step2_radio" value="04">
+                                        <input th:if="${storyVO.getStoryPart() eq '이벤트'}" type="radio" name="step2_radio" value="이벤트" checked>
+                                        <input th:unless="${storyVO.getStoryPart() eq '이벤트'}" type="radio" name="step2_radio" value="이벤트">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">출시/업데이트</span>
-                                        <input type="radio" name="step2_radio" value="05">
+                                        <input th:if="${storyVO.getStoryPart() eq '출시/업데이트'}" type="radio" name="step2_radio" value="출시/업데이트" checked>
+                                        <input th:unless="${storyVO.getStoryPart() eq '출시/업데이트'}" type="radio" name="step2_radio" value="출시/업데이트">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
@@ -115,7 +120,7 @@
 
                         <div class="answer">
                             <div class="inputWrap">
-                                <input placeholder="최대 30자까지 입력가능합니다" minlength="3" maxlength="30" autocomplete="off">
+                                <input placeholder="최대 30자까지 입력가능합니다" th:value="${storyVO.getStoryTitle()}" minlength="3" maxlength="30" autocomplete="off">
                             </div>
                         </div>
 
@@ -123,10 +128,9 @@
 
                         <div class="answer">
                             <div class="thumbnailWrap">
-                                <div class="thumbnailBox">
+                                <div class="thumbnailBox" th:style="'background-image:url(' + @{/story/displayTh(storyImgPath=${storyVO.getStoryImgPath()}, storyImgUuid=${storyVO.getStoryImgUuid()}, storyImgName=${storyVO.getStoryImgName()})} + '); background-size:cover;'">
                                     <button type="button" id="imgUploadBtn"></button>
-                                    <img class="thumbnailImage2"
-                                        src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
+                                    <img class="thumbnailImage2">
                                     <input type="file" style="display: none;" id="imgUpload" name="imgUpload">
                                 </div>
                                 <div class="uploadBox">
@@ -167,10 +171,7 @@
                         </div>
     
                         <div class="answer">
-                            <form method="post">
-                                <!--                            <textarea id="summernote" name="editordata"></textarea>-->
-                                <div id="editor"></div>
-                            </form>
+                                <div id="editor" th:utext="${storyVO.getStoryContent()}"></div>
                         </div>
 
 
@@ -181,7 +182,7 @@
                                        maxlength="20" autocomplete="off">
                             </div>
                             <div class="skillResult">
-
+                                <a class="skillTag" th:each="tag:${storyVO.getTags()}" th:text="${tag.getTagName()}"></a>
                             </div>
                         </div>
 
@@ -205,4 +206,55 @@
 <script src="/js/chat.js"></script>
 <script src="/js/storywrite.js"></script>
 <script src="/js/storymodify.js"></script>
+<script>
+    $(document).ready(function () {
+        function showUploadFile(uploadResult) {
+            let str = "";
+            let storyImgName = uploadResult.storyImgName;
+            let storyImgPath = uploadResult.storyImgPath;
+            let storyImgUuid = uploadResult.storyImgUuid;
+
+            str += "<input type='hidden' name='storyImgName' value='" + storyImgName + "'>"
+            str += "<input type='hidden' name='storyImgPath' value='" + storyImgPath + "'>"
+            str += "<input type='hidden' name='storyImgUuid' value='" + storyImgUuid + "'>"
+
+            $("#frm").append(str);
+            $(".thumbnailBox").css("background-image", "url('/story/display?fileName=" + storyImgPath + "/" + storyImgUuid + "_" + storyImgName + "')");
+            $(".thumbnailBox").css("background-size", "cover");
+            $(".thumbnailImage2").hide();
+        }
+
+        $("input[type='file']").change(function (e) {
+            let files = e.target.files;
+            let formData = new FormData();
+
+            formData.append("uploadFile", files[0]);
+            $.ajax({
+                url: "/story/uploadAjaxAction",
+                data: formData,
+                type: "POST",
+                // 현재 설정된 헤더 설정을 기본 방식으로 변경하지 못하도록 false로 설정
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    showUploadFile(result);
+                }
+            });
+        });
+    })
+
+    $(".completeMd").on("click",function () {
+        $("input[name='storyPart']").val($("input:checked").val());
+        $("input[name='storyContent']").val(editor.getHTML());
+        $(".skillTag").each(function (i,tag) {
+            let str="";
+            if ($(tag).text()) {
+                str = "<input type='hidden' name='tagName' value='"+$(tag).text()+"'>"
+                $("#frm").append(str);
+            }
+        })
+        $("#frm").attr("action", "/story/storyRegister");
+        $("#frm").submit();
+    })
+</script>
 </html>

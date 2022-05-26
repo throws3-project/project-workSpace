@@ -27,34 +27,30 @@ public class UserRepositoryTests {
     private UserTagRepository userTagRepository;
 
     // 유저 생성
-//    @Test
-//    public void userVOTests(){
-//        String id = "hsk1245";
-//        String name = "홍승근";
-//        String gender = "m";
-//        String location = "서울시";
-//        String nickname = "만두";
-//        String phone = "01087223322";
-//        String mainSkill = "1";
-//        String mainDetail = "1";
-//        String userMainLevel = "1";
-//        String userSubSkill = "2";
-//        String userSubDetail = "21";
-//        String userSubLevel = "1";
-//        String userOnOff = "1";
-//        String userTime = "1";
-//        String userCode = "1422";
-//        Long level = 1L;
-//        Long userExp = 100L;
-//        Long userPoint = 1L;
-//        Long userPrice = 3L;
-//        String socialType="1";
-//        String userStatus="0";
-//        String userImgUuid="124";
-//        String userImgName="1";
-//        String userImgPath="1";
-//        userRepository.save(UserVO.builder().userId(id).userName(name).userGender(gender).userLocation(location).userNick_name(nickname).userPhone(phone).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userLevel(level).userExp(userExp).userPoint(userPoint).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
-//    }
+    @Test
+    public void userVOTests(){
+        String id = "hsk123";
+        String gender = "m";
+        String location = "서울시";
+        String nickname = "만두";
+        String phone = "01087223322";
+        String mainSkill = "1";
+        String mainDetail = "1";
+        String userMainLevel = "1";
+        String userSubSkill = "2";
+        String userSubDetail = "21";
+        String userSubLevel = "1";
+        String userOnOff = "1";
+        String userTime = "1";
+        String userCode = "1422";
+        Long userPrice = 3L;
+        String socialType="1";
+        String userStatus="0";
+        String userImgUuid="12";
+        String userImgName="2";
+        String userImgPath="2";
+        userRepository.save(UserVO.builder().userId(id).userGender(gender).userLocation(location).userNickName(nickname).userPhone(phone).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
+    }
 
     // 유저 아이디로 검색
 //    @Test
