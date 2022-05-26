@@ -1,9 +1,4 @@
 // 헤더 표시하기
-$(document).ready(function () {
-    $("#header").load('../../templates/fix/header.html');
-    $("#foot").load('../../templates/fix/footer.html');
-})
-
 
 // 프로젝트/스터디 양식 선택
 // $(".choice").each(function (i, radio) {
@@ -124,7 +119,6 @@ const number = $(".countNumber");
 const plus = $(".plus");
 const minus = $(".minus");
 
-// console.log(number.text());
 
 $("div#personWrap").on("click", "button.plus", function (e) {
     e.preventDefault();
@@ -226,41 +220,55 @@ const editor = new toastui.Editor({
     height: '600px',
     initialEditType: 'markdown',
     previewStyle: 'vertical',
-    // initialValue: '1. 프로젝트의 시작 동기\n   ' +
-    //     ' - 왜 이 서비스를 만드시고 싶은지 적어주세요 \n' +
-    //     ' (ex - 기존에 찾기 어려운 여행정보를 한번에 모아서 보여줄 예정입니다) \n' +
-    //     ' - 어떤 사용자들을 타겟하고 있는지 적어주세요 \n' +
-    //     ' (ex - 혼자 여행하는 것에 꺼리낌이 없는 30대 이상의 미혼 남녀를 대상으로 합니다) \n' +
-    //     '\n' +
-    //     '2. 회의 진행/모임 방식\n' +
-    //     ' - 1주에 몇번정도 회의나 모임을 진행할 계획인가요? \n' +
-    //     ' (ex - 1주일에 1회/2회 정도 정기적으로 회의합니다)\n' +
-    //     ' - 온/오프라인 회의 진행시 진행방식을 적어주세요 \n' +
-    //     ' (ex - 온라인은 줌을 활용하고, 오프라인은 강남역 카페등을 대관할예정입니다, 커뮤니케이션은 슬랙을 위주로 사용합니다 )\n   ' +
-    //     '3. 그외 자유기재 \n' +
-    //     '\n' +
-    //     '-  2번까지의 내용을 포함할 수 있도록 작성해주세요(형식은 달라도 상관없습니다)\n' +
-    //     '-  신청시 기타사항과 질문내용 등을 삭제한 후 답변만 등록해주세요. \n' +
-    //     '   (그외의 내용은 자유롭게 기입해주세요(영상/이미지 포함) \n' +
-    //     '-  상세 검수가이드라인은 공지사항을 참고해주세요. https://letspl.me/notice/80'
+    initialValue: '1. 프로젝트의 시작 동기\n   ' +
+        ' - 왜 이 서비스를 만드시고 싶은지 적어주세요 \n' +
+        ' (ex - 기존에 찾기 어려운 여행정보를 한번에 모아서 보여줄 예정입니다) \n' +
+        ' - 어떤 사용자들을 타겟하고 있는지 적어주세요 \n' +
+        ' (ex - 혼자 여행하는 것에 꺼리낌이 없는 30대 이상의 미혼 남녀를 대상으로 합니다) \n' +
+        '\n' +
+        '2. 회의 진행/모임 방식\n' +
+        ' - 1주에 몇번정도 회의나 모임을 진행할 계획인가요? \n' +
+        ' (ex - 1주일에 1회/2회 정도 정기적으로 회의합니다)\n' +
+        ' - 온/오프라인 회의 진행시 진행방식을 적어주세요 \n' +
+        ' (ex - 온라인은 줌을 활용하고, 오프라인은 강남역 카페등을 대관할예정입니다, 커뮤니케이션은 슬랙을 위주로 사용합니다 )\n   ' +
+        '3. 그외 자유기재 \n' +
+        '\n' +
+        '-  2번까지의 내용을 포함할 수 있도록 작성해주세요(형식은 달라도 상관없습니다)\n' +
+        '-  신청시 기타사항과 질문내용 등을 삭제한 후 답변만 등록해주세요. \n' +
+        '   (그외의 내용은 자유롭게 기입해주세요(영상/이미지 포함) \n' +
+        '-  상세 검수가이드라인은 공지사항을 참고해주세요.'
 });
 
 
 //스터디 분야 선택
+let pattern = /\s/g;
 
 $("#skill").on("keydown", $("#keyword"), function (e) {
     let check = false;
 
     if (e.keyCode == 13) {
         e.preventDefault();
+
+        if($("#keyword").val().match(pattern)){
+            alert("공백은 입력하실 수 없습니다.");
+            check = true;
+        }
+
+        if($("#keyword").val().length == 0){
+            alert("태그를 입력해주십시오.");
+            check = true;
+        }
+
         $(".skillTag").each(function (i, tag) {
-            console.log($("#keyword").val());
-            console.log($(tag).text());
             if ($("#keyword").val().toLowerCase() === $(tag).text()) {
                 alert("이미 등록한 키워드입니다.");
                 check = true;
             }
         })
+        if($(".skillTag").length == 5){
+            alert("태그는 최대 5개까지 입력가능합니다.");
+            check = true;
+        }
         let str = "";
         str += "<a class='skillTag'>" + $("#keyword").val().toLowerCase() + "</a>";
 
@@ -282,14 +290,14 @@ $(".searchSelect").attr("disabled","disabled") ;
 
 
 //이미지
-$(".uploadImgLi").each(function (i,img) {
-    $(img).children().on("click",function () {
-        let src = $(img).children().attr("src");
-        $(".thumbnailImage2").attr("src",src);
-        $(".thumbnailImage2").css("width",385);
-        $(".thumbnailImage2").css("height",230);
-    })
-})
+// $(".uploadImgLi").each(function (i,img) {
+//     $(img).children().on("click",function () {
+//         let src = $(img).children().attr("src");
+//         $(".thumbnailImage2").attr("src",src);
+//         $(".thumbnailImage2").css("width",385);
+//         $(".thumbnailImage2").css("height",230);
+//     })
+// })
 
 
 

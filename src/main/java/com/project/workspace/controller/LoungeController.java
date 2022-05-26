@@ -10,6 +10,7 @@ import com.project.workspace.domain.vo.UserVO;
 import com.project.workspace.service.LoungeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.Store;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +38,7 @@ public class LoungeController {
 
     @GetMapping("/lounge")
     public String lounge(Model model) {
-        List<LoungeVO> loungeVOs = loungeRepository.findAll();
+        List<LoungeVO> loungeVOs = loungeService.findLoungeAll();
 
         List<String> loungeUserNickNames = loungeVOs.stream()
                 .map(loungeVO -> loungeVO.getUserVO().getUserNickName())
@@ -97,12 +99,11 @@ public class LoungeController {
     @ResponseBody
     @GetMapping("/lounge/reply/{loungeNum}")
     public LoungeReplyDTO likeAndReply(@PathVariable("loungeNum") Long loungeNum) {
-        LoungeVO loungeVO = loungeRepository.findById(loungeNum).get();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        LoungeVO loungeVO = loungeService.findId(loungeNum);
         List<LoungeReplyVO> replies = loungeVO.getReplies();
         List<String> userNickNames = replies.stream().map(UserVO -> UserVO.getUserVO().getUserNickName()).collect(Collectors.toList());
-        log.info(replies.toString());
-        log.info(userNickNames.toString());
+        Collections.reverse(userNickNames);
+        Collections.reverse(replies);
         //service 집에서 하기
 
         return new LoungeReplyDTO(userNickNames,replies);
@@ -110,18 +111,29 @@ public class LoungeController {
 
     // 라운지 글작성
     @ResponseBody
-    @GetMapping("/lounge/reply/{loungeContent}/{userNum}")
+    @GetMapping("/lounge/{loungeContent}/{userNum}")
     public String insertLounge(@PathVariable("loungeContent") String loungeContent, @PathVariable("userNum") UserVO userNum){
-        loungeRepository.save(LoungeVO.builder().userVO(userNum).loungeContent(loungeContent).build());
-        return "success";
+        return loungeService.insertLounge(loungeContent, userNum);
     }
 
     // 댓글 작성
     @ResponseBody
-    @GetMapping("/lounge/reply/{replyContent}/{userNum}/{loungeNum}")
+    @GetMapping("/lounge/loungeInsert/{replyContent}/{userNum}/{loungeNum}")
     public String insertReply(@PathVariable("replyContent") String replyContent, @PathVariable("userNum") UserVO userNum, @PathVariable("loungeNum") LoungeVO loungeNum){
-        loungeReplyRepository.save(LoungeReplyVO.builder().loungeReplyContent(replyContent).loungeVO(loungeNum).userVO(userNum).build());
-        return "success";
+        return loungeService.insertReply(replyContent, userNum, loungeNum);
     }
 
+    //라운지 삭제
+    @ResponseBody
+    @GetMapping("/lounge/loungeDelete/{loungeNum}")
+    public String deleteLounge(@PathVariable("loungeNum") Long loungeNum){
+        return loungeService.deleteLounge(loungeNum);
+    }
+
+    //라운지 수정
+    @ResponseBody
+    @GetMapping("/lounge/loungeUpdate/{loungeNum}/{loungeContent}")
+    public String updateLounge(@PathVariable("loungeNum") Long loungeNum, @PathVariable("loungeContent") String loungeContent){
+        return loungeService.updateLounge(loungeNum, loungeContent);
+    }
 }

@@ -19,7 +19,7 @@ let loungeService = (function () {
     function insertLounge(param, callback) {
         $.ajax({
             type:"GET",
-            url:"/lounge/reply/"+ param.loungeContent + "/" + param.userNum,
+            url:"/lounge/"+ param.loungeContent + "/" + param.userNum,
             success: function (result) {
                 if (callback) {
                     callback(result);
@@ -35,7 +35,7 @@ let loungeService = (function () {
     function insertReply(param, callback) {
         $.ajax({
             type:"GET",
-            url:"/lounge/reply/"+ param.replyContent + "/" + param.userNum + "/" + param.loungeNum,
+            url:"/lounge/loungeInsert/"+ param.replyContent + "/" + param.userNum + "/" + param.loungeNum,
             success: function (result) {
                 if (callback) {
                     callback(result);
@@ -48,5 +48,37 @@ let loungeService = (function () {
         })
     }
 
-    return {getList: getList, insertLounge:insertLounge, insertReply:insertReply}
+    function deleteLounge(loungeNum, callback) {
+        $.ajax({
+            type:"GET",
+            url:"/lounge/loungeDelete/"+ loungeNum,
+            success: function (result) {
+                if (callback) {
+                    callback(result);
+                }
+            },
+            error: function (xhr, status, error) {
+                if (error) {
+                }
+            }
+        })
+    }
+
+    function updateLounge(param, callback) {
+        $.ajax({
+            type:"GET",
+            url:"/lounge/loungeUpdate/"+ param.loungeNum +"/" + param.loungeContent,
+            success: function (result) {
+                if (callback) {
+                    callback(result);
+                }
+            },
+            error: function (xhr, status, error) {
+                if (error) {
+                }
+            }
+        })
+    }
+
+    return {getList: getList, insertLounge:insertLounge, insertReply:insertReply, deleteLounge:deleteLounge, updateLounge:updateLounge}
 })();

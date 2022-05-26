@@ -3,32 +3,26 @@ package com.project.workspace.controller;
 import com.project.workspace.domain.repository.*;
 import com.project.workspace.domain.vo.*;
 import com.project.workspace.service.ProjectService;
-import com.project.workspace.service.ProjectServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.coobird.thumbnailator.Thumbnailator;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.catalina.User;
+import org.springframework.boot.configurationprocessor.json.JSONArray;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.http.HttpRequest;
-import java.nio.file.Files;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -46,30 +40,64 @@ public class ProjectController {
     private final StudyKeywordRepository studyKeywordRepository;
 
 
-    @GetMapping("/projectDetail")
-    public void projectDetail() {
-        ;
+    @GetMapping("/projectDetail/project/{projectNum}")
+    public String projectDetail(@PathVariable("projectNum") Long projectNum, Model model) {
+        ProjectVO project = projectRepository.getById(projectNum);
+        UserVO user = project.getUserVO();
+        List<ProjectSkillVO> projectSkillList = projectSkillRepository.getAllByProjectVO(project);
+        List<ProjectReferenceVO> projectReferenceList = projectReferenceRepository.getAllByProjectVO(project);
+        List<ProjectPersonVO> projectPersonList = projectPersonRepository.getAllByProjectVO(project);
+
+
+        model.addAttribute("project", project);
+        model.addAttribute("user", user);
+        model.addAttribute("projectSkillList", projectSkillList);
+        model.addAttribute("projectReferenceList", projectReferenceList);
+        model.addAttribute("projectPersonList", projectPersonList);
+
+        return "project/projectDetail";
+    }
+
+    @GetMapping("/projectDetail/study/{studyNum}")
+    public String studyDetail(@PathVariable("studyNum") Long studyNum) {
+
+        return "project/projectDetail";
     }
 
     @GetMapping("/projectList")
     public void projectList(Model model) {
-        List<ProjectVO> projectTop4 = projectRepository.findTop4ByOrderByProjectNumDesc();
+        List<ProjectVO> newProjectList = projectRepository.findTop4ByOrderByProjectNumDesc();
+        List<ProjectVO> projectTop3 = projectRepository.findTop3ByOrderByProjectReadCountDesc();
         List<ProjectVO> projectList = projectRepository.findAllByOrderByProjectNumDesc();
 
 
 //        Stream.of(projectList).map(project->project.toString()).forEach(log::info);
-        model.addAttribute("projectTop4",projectTop4);
-        model.addAttribute("projectList",projectList);
+        model.addAttribute("newProjectList", newProjectList);
+        model.addAttribute("projectTop3", projectTop3);
+        model.addAttribute("projectList", projectList);
+
     }
 
     @PostMapping("/projectFilter")
     @ResponseBody
-    public List<ProjectVO> projectFilter(ProjectFilter projectFilter) {
-
+    public Object[] projectFilter(ProjectFilter projectFilter) throws JSONException {
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
 
-        projectList.stream().map(projectVO -> toString()).forEach(log::info);
-        return projectList;
+//        HashMap<String,Object> hashMap = new HashMap<>();
+//        JSONArray jsonArray = new JSONArray();
+//        JSONObject json = new JSONObject(hashMap);
+//        for(ProjectVO project : projectList){
+//            json.put("project",project);
+//            json.put("persons",projectPersonRepository.getAllByProjectVO(project));
+//            jsonArray.put(json);
+//        }
+        Object[] list = new Object[projectList.size()];
+        for (int i=0; i< projectList.size();i++) {
+            Object[] projectArray = {projectList.get(i), projectPersonRepository.getAllByProjectVO(projectList.get(i))};
+            list[i]=projectArray;
+        }
+
+        return list;
     }
 
     @GetMapping("/projectRegister")
@@ -79,10 +107,14 @@ public class ProjectController {
 
     @PostMapping("/projectRegister")
     @Transactional
-    public String projectRegister(ProjectVO projectVO, StudyVO studyVO,HttpServletRequest request) {
+    public RedirectView projectRegister(ProjectVO projectVO, StudyVO studyVO, HttpServletRequest request) {
         String type = request.getParameter("type");
+        HttpSession session = request.getSession();
+        UserVO userVO = new UserVO();
+        userVO.setUserNum((Long) session.getAttribute("userNum"));
+        projectVO.setUserVO(userVO);
         log.info(type);
-        if(type.equals("project")) {
+        if (type.equals("project")) {
 
             String[] count = request.getParameterValues("projectCount");
             String[] main = request.getParameterValues("projectMainSkill");
@@ -94,7 +126,7 @@ public class ProjectController {
             ProjectPersonMaker projectPersonMaker = new ProjectPersonMaker(count, main, sub);
 
             projectVO.setProjectTotal(projectPersonMaker.getProjectMaxCount());
-            ProjectVO saveProjectVO = projectRepository.save(projectVO);
+            ProjectVO saveProjectVO = projectRepository.save(defaultImg(projectVO));
 
             Stream.of(skill).forEach(it -> this.saveProjectSkill(it, saveProjectVO));
             IntStream.range(0, count.length).forEach(index -> {
@@ -104,16 +136,14 @@ public class ProjectController {
             });
 
             Stream.of(urls).forEach(url -> this.saveProjectUrl(url, saveProjectVO));
-        }else if(type.equals("study")){
+        } else if (type.equals("study")) {
             String[] keywords = request.getParameterValues("studyKeyword");
 
             StudyVO saveStudyVO = studyRepository.save(studyVO);
-            Stream.of(keywords).forEach(keyword -> this.saveStudyKeyword(keyword,saveStudyVO));
+            Stream.of(keywords).forEach(keyword -> this.saveStudyKeyword(keyword, saveStudyVO));
         }
-        return "/project/projectList";
+        return new RedirectView("projectList");
     }
-
-
 
 
     @PostMapping("/uploadAjaxAction")
@@ -121,10 +151,6 @@ public class ProjectController {
     public ProjectVO uploadAjaxPost(MultipartFile uploadFile) {
         String uploadFolder = "C:/upload";
         ProjectVO projectVO = new ProjectVO();
-//        UUID(Universally unique identifier) : 범용 고유 식별자
-//        네트워크 상에서 각각의 개체들을 식별하기 위하여 사용되었다.
-//        중복될 가능성이 거의 없다고 인정되기 때문에 많이 사용된다.
-//        UUID의 개수는 10의 38승입니다.
 
         UUID uuid = UUID.randomUUID();
         String uploadFileName = null;
@@ -145,11 +171,9 @@ public class ProjectController {
         projectVO.setProjectImgUuid(uuid.toString());
         projectVO.setProjectImgPath(uploadFolderPath);
 
-        //저장할 경로와 파일의 이름을 File객체에 담는다.
         File saveFile = new File(uploadPath, uuid.toString() + "_" + uploadFileName);
 
         try {
-            //설정한 경로에 해당 파일을 업로드한다.
             uploadFile.transferTo(saveFile);
 
         } catch (IOException e) {
@@ -190,5 +214,15 @@ public class ProjectController {
         studyKeywordVO.setStudyKeyword(keyword);
         studyKeywordVO.setStudyVO(studyVO);
         studyKeywordRepository.save(studyKeywordVO);
+    }
+
+    private ProjectVO defaultImg(ProjectVO projectVO) {
+        Random r = new Random();
+        if (projectVO.getProjectImgPath() == null) {
+            int index = r.nextInt(7) + 1;
+            projectVO.setProjectImg("thumb" + index + ".png");
+        }
+        return projectVO;
+
     }
 }

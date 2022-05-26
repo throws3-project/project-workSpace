@@ -394,7 +394,7 @@ $(document).ready(function () {
         str += "<input type='hidden' name='projectImgPath' value='" + projectImgPath + "'>"
         str += "<input type='hidden' name='projectImgUuid' value='" + projectImgUuid + "'>"
 
-        $("#projectData").append(str);
+        $("#projectImgData").html(str);
         $(".thumbnailBox").css("background-image", "url('/project/display?fileName=" + projectImgPath + "/" + projectImgUuid + "_" + projectImg + "')");
         $(".thumbnailBox").css("background-size", "cover");
         $(".thumbnailImage2").hide();

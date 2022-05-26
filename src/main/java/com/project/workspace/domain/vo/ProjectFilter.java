@@ -10,5 +10,5 @@ import org.springframework.stereotype.Component;
 public class ProjectFilter {
     String locationFilter;
     String skillFilter;
-    Long statusFilter;
+    String statusFilter;
 }
