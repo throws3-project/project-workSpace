@@ -843,17 +843,6 @@ img.xIcon{
     top: 10px;
 }
 
-div.modalWindow{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10000;
-    display: block;
-}
-
 a.firstA, a.secondA, a.thirdA{
     color: #00704a;
     font-size: 11px;

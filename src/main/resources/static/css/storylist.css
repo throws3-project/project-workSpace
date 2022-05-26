@@ -250,7 +250,7 @@ a{
     display: flex;
     flex-direction: row;
 }
-.storyWriter, .storyType{
+.storyWriter, .storyPart{
     max-width: 140px;
     width: 100%;
     border: 1px solid #bcbccb;
@@ -407,7 +407,10 @@ label.storyCheckBox {
     word-wrap: break-word;
     color: #b5b5c2;
     word-break: normal;
+    display: -webkit-inline-box;
     font-weight: 600;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 .timeLineTagWrap{
     color: #222;

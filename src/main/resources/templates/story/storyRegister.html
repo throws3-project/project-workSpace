@@ -71,7 +71,7 @@
 
                 <!--  프로젝트 양식 -->
                 <div class="make">
-                    <form action="" name="projectForm">
+                    <form action="" id="frm" name="projectForm" method="post" enctype="multipart/form-data">
                         <div class="question">
                             <p>유형</p>
                         </div>
@@ -81,27 +81,27 @@
                                 <li class="checkBoxWrap selectPurpose">
                                     <label class="checkBox">
                                         <span class="txt">정보</span>
-                                        <input type="radio" name="step2_radio" value="01">
+                                        <input type="radio" name="step2_radio" value="정보">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">노하우</span>
-                                        <input type="radio" name="step2_radio" value="02">
+                                        <input type="radio" name="step2_radio" value="노하우">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">테스터 모집</span>
-                                        <input type="radio" name="step2_radio" value="03">
+                                        <input type="radio" name="step2_radio" value="테스터 모집">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">이벤트</span>
-                                        <input type="radio" name="step2_radio" value="04">
+                                        <input type="radio" name="step2_radio" value="이벤트">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="checkBox">
                                         <span class="txt">출시/업데이트</span>
-                                        <input type="radio" name="step2_radio" value="05">
+                                        <input type="radio" name="step2_radio" value="출시/업데이트">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
@@ -114,7 +114,7 @@
 
                         <div class="answer">
                             <div class="inputWrap">
-                                <input placeholder="최대 30자까지 입력가능합니다" minlength="3" maxlength="30" autocomplete="off">
+                                <input placeholder="최대 30자까지 입력가능합니다" name="storyTitle" minlength="3" maxlength="30" autocomplete="off">
                             </div>
                         </div>
 
@@ -166,10 +166,8 @@
                         </div>
     
                         <div class="answer">
-                            <form method="post">
                                 <!--                            <textarea id="summernote" name="editordata"></textarea>-->
                                 <div id="editor"></div>
-                            </form>
                         </div>
 
 
@@ -188,6 +186,8 @@
                             <button type="button" value="임시저장" class="grayBtn saveBtn">임시저장</button>
                             <button type="button" value="완료" class="pinkBtn confirmBtn completeMd">작성완료</button>
                         </div>
+                        <input type="hidden" name="storyPart">
+                        <input type="hidden" name="storyContent">
                     </form>
                 </div>
 
@@ -203,4 +203,88 @@
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
 <script src="/js/storywrite.js"></script>
+<script>
+    let storyImgName;
+    let storyImgPath;
+    let storyImgUuid;
+
+    $(document).ready(function () {
+        $(".uploadImgLi").each(function (i,img) {
+            $(img).children().on("click",function () {
+                storyImgName = $(img).children().attr("src");
+                storyImgPath = "";
+                storyImgUuid = "";
+                $(".thumbnailBox").css("background-image", "url('" + $(img).children().attr("src") + "')");
+                $(".thumbnailBox").css("background-size", "cover");
+                $(".thumbnailImage2").hide();
+            })
+        })
+
+        function showUploadFile(uploadResult) {
+            let str = "";
+            storyImgName = uploadResult.storyImgName;
+            storyImgPath = uploadResult.storyImgPath;
+            storyImgUuid = uploadResult.storyImgUuid;
+
+            $("#frm").append(str);
+            $(".thumbnailBox").css("background-image", "url('/story/display?fileName=" + storyImgPath + "/" + storyImgUuid + "_" + storyImgName + "')");
+            $(".thumbnailBox").css("background-size", "contain");
+            $(".thumbnailBox").css("background-repeat", "no-repeat");
+            $(".thumbnailImage2").hide();
+        }
+
+        $("input[type='file']").change(function (e) {
+            let files = e.target.files;
+            let formData = new FormData();
+
+            formData.append("uploadFile", files[0]);
+            $.ajax({
+                url: "/story/uploadAjaxAction",
+                data: formData,
+                type: "POST",
+                // 현재 설정된 헤더 설정을 기본 방식으로 변경하지 못하도록 false로 설정
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    showUploadFile(result);
+                }
+            });
+        });
+    })
+
+        $(".completeMd").on("click",function () {
+            // console.log()
+            if(!$("input[name='step2_radio']").is(":checked")){
+                alert("유형을 골라주세요");
+                return;
+            }
+
+            if(!$("input[name='storyContent']").val()){
+                alert("제목을 입력해주세요")
+            }
+
+
+
+
+        $("input[name='storyPart']").val($("input:checked").val());
+        $("input[name='storyContent']").val(editor.getHTML());
+            $(".skillTag").each(function (i,tag) {
+                let str="";
+                if ($(tag).text()) {
+                    str = "<input type='hidden' name='tagName' value='"+$(tag).text()+"'>"
+                    $("#frm").append(str);
+                }
+            })
+            let img = "";
+            console.log(storyImgName);
+            img += "<input type='hidden' name='storyImgName' value='" + storyImgName + "'>"
+            img += "<input type='hidden' name='storyImgPath' value='" + storyImgPath + "'>"
+            img += "<input type='hidden' name='storyImgUuid' value='" + storyImgUuid + "'>"
+
+            $("#frm").append(img);
+
+        $("#frm").attr("action", "/story/storyRegister");
+        $("#frm").submit();
+    })
+</script>
 </html>

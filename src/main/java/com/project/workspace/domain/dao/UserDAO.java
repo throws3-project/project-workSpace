@@ -13,7 +13,6 @@ import java.util.List;
 public class UserDAO {
     private final UserMapper userMapper;
 
-
     public List<UserVO> getList(){return userMapper.getList();}
     public UserVO getInfo(Long userNum){return userMapper.getInfo(userNum);}
 
