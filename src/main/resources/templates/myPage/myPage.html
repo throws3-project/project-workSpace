@@ -595,70 +595,137 @@
                     </div>
                 </div>
                 <!-- 프로젝트/스터디찜했을경우 -->
-                <div class="projectGridWrap">
-                    <div class="projectTopInfo">
-                        <div class="topInfo">
-                            <div class="box-wrap">
-                                <div class="box green">
-                                    <span>NEW</span>
-                                </div>
-                                <div class="box black">
-                                    <span>사이드프로젝트</span>
-                                </div>
-                            </div>
-                            <div class="favorite"></div>
-                        </div>
-                        <div class="projectImg">
-                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                        </div>
-                    </div>
-                    <div class="projectMiddleInfo">
-                        <p class="category">소셜네트워크</p>
-                        <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                    </div>
-                    <div class="projectBottomInfo">
-                        <div class="middleWrap">
-                            <div class="left">
-                                <div class="heart">
-                                    <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                    <span class="heartCount">0</span>
-                                </div>
-                            </div>
-                            <div class="right">
-                                <div>
-                                    <span>89</span>
-                                    <span> (-)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottomWrap">
-                            <div class="recruit">
-                                <div class="recruitStatus">
-                                    <span>모집완료</span>
-                                    <span>
-                                    0/1
-                                </span>
-                                    <div>
-                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+<!--                <div class="projectGridWrap">-->
+<!--                    <div class="projectTopInfo">-->
+<!--                        <div class="topInfo">-->
+<!--                            <div class="box-wrap">-->
+<!--                                <div class="box green">-->
+<!--                                    <span>NEW</span>-->
+<!--                                </div>-->
+<!--                                <div class="box black">-->
+<!--                                    <span>사이드프로젝트</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="favorite"></div>-->
+<!--                        </div>-->
+<!--                        <div class="projectImg">-->
+<!--                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="projectMiddleInfo">-->
+<!--                        <p class="category">소셜네트워크</p>-->
+<!--                        <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>-->
+<!--                    </div>-->
+<!--                    <div class="projectBottomInfo">-->
+<!--                        <div class="middleWrap">-->
+<!--                            <div class="left">-->
+<!--                                <div class="heart">-->
+<!--                                    <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">-->
+<!--                                    <span class="heartCount">0</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="right">-->
+<!--                                <div>-->
+<!--                                    <span>89</span>-->
+<!--                                    <span> (-)</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="bottomWrap">-->
+<!--                            <div class="recruit">-->
+<!--                                <div class="recruitStatus">-->
+<!--                                    <span>모집완료</span>-->
+<!--                                    <span>-->
+<!--                                    0/1-->
+<!--                                </span>-->
+<!--                                    <div>-->
+<!--                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="recruitModel">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <span>UI/UX기획</span>-->
+<!--                                            <span>1명</span>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <span>웹 프론트엔드</span>-->
+<!--                                            <span>2명</span>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+                <th:block th:each="projects : ${projectLikeList}">
+                    <div class="projectGridWrap">
+                        <div class="projectTopInfo">
+                            <div class="topInfo">
+                                <div class="box-wrap">
+                                    <div class="box green">
+                                        <span>NEW</span>
+                                    </div>
+                                    <div class="box black">
+                                        <span>사이드프로젝트</span>
                                     </div>
                                 </div>
-                                <div class="recruitModel">
-                                    <ul>
-                                        <li>
-                                            <span>UI/UX기획</span>
-                                            <span>1명</span>
-                                        </li>
-                                        <li>
-                                            <span>웹 프론트엔드</span>
-                                            <span>2명</span>
-                                        </li>
-                                    </ul>
+                                <div class="favorite"></div>
+                            </div>
+                            <div class="projectImg">
+                                <img th:if="${projects.projectVO.projectImgPath == null}"
+                                     th:src="'/images/'+${projects.projectVO.projectImg}">
+                                <img th:unless="${projects.projectVO.projectImgPath == null}"
+                                     th:src="'/project/display?fileName='+ ${projects.projectVO.projectImgPath} + '/' + ${projects.projectVO.projectImgUuid} + '_' + ${projects.projectVO.projectImg}">
+                            </div>
+                        </div>
+                        <div class="projectMiddleInfo">
+                            <p class="category" th:text="${projects.projectVO.projectPart}"></p>
+                            <p class="categoryText" th:text="'['+${projects.projectVO.projectLocation}+']'+${projects.projectVO.projectName}"></p>
+                        </div>
+                        </a>
+                        <div class="projectBottomInfo">
+                            <div class="middleWrap">
+                                <div class="left">
+                                    <div class="heart">
+                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
+                                        <span class="heartCount">0</span>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div>
+                                        <span th:text="${projects.projectVO.projectReadCount}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottomWrap">
+                                <div class="recruit">
+                                    <div class="recruitStatus">
+                                        <span th:if="${projects.projectVO.projectStatus=='1'}">[모집중]</span>
+                                        <span th:if="${projects.projectVO.projectStatus=='2'}">[모집완료]</span>
+                                        <span>
+                                    0/1
+                                </span>
+                                        <div>
+                                            <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                        </div>
+                                    </div>
+                                    <div class="recruitModel">
+                                        <ul>
+                                            <th:block th:each="person : ${projects.projectVO.persons}">
+                                                <li>
+                                                    <span th:text="${projects.projectVO.projectSubSkill}"></span>
+                                                    <span th:text="${projects.projectVO.projectCount}"></span>
+                                                </li>
+                                            </th:block>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </th:block>
             <!-- 찜한 프로젝트/스터디 여기까지 -->
 
             <div>
