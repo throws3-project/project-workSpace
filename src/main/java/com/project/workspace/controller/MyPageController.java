@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,9 +44,13 @@ public class MyPageController {
 
 
     @GetMapping("/myPage")
-    public String myPage(Long userNum, Model model) {
+    public String myPage(Model model, HttpServletRequest request) {
         log.info("====================================================================");
-        UserVO userVO = userRepository.findById(userNum).get();
+        HttpSession session = request.getSession();
+        Long userNum = (Long) session.getAttribute("userNum");
+        UserVO userVO = userRepository.getById(userNum);
+
+//        UserVO userVO = userRepository.findById(userNum).get();
         List<UserPortfolioVO> userPortfolioVO = userPortfolioRepository.findByUserVO(userVO);
         List<UserTagVO> userTagVO = userTagRepository.findByUserVO(userVO);
         List<UserInterestVO> userInterestVO = userInterestRepository.findByUserVO(userVO);
@@ -56,12 +63,13 @@ public class MyPageController {
         List<UserPointVO> userPointVO = userPointRepository.findByUserVO(userVO);
         List<UserAlertVO> userAlertVO = userAlertRepository.findByUserVO(userVO);
 
-//        List<UserFollowVO> userFollowVO = userFollowRepository.findByFollowingUser(UserFollowID);
+        List<UserFollowVO> userFollowVO = userFollowRepository.findByFollowingUser(userNum);
 
         List<StoryVO> topStoryList = storyRepository.findTop4ByOrderByStoryReadCountDesc();
         List<StoryVO> allStoryList = storyRepository.findAll();
 
         List<ProjectVO> projectList = projectRepository.findByUserVO(userVO);
+        List<ProjectLikeVO> projectLikeList = projectLikeRepository.findByUserVO(userVO);
 
 
         model.addAttribute("userVO", userVO);
@@ -71,21 +79,26 @@ public class MyPageController {
         model.addAttribute("projectLikeVO", projectLikeVO);
         model.addAttribute("userExpVO", userExpVO);
         model.addAttribute("userPointVO", userPointVO);
+        model.addAttribute("userFollowVO", userFollowVO);
         model.addAttribute("userAlertVO", userAlertVO);
         model.addAttribute("topStoryList", topStoryList);
         model.addAttribute("allStoryList", allStoryList);
         model.addAttribute("projectList", projectList);
+        model.addAttribute("projectLikeList", projectLikeList);
 
 
         log.info("------------------------------------");
+        log.info("==================유저================================");
         log.info(userVO.toString());
         log.info(userPointVO.toString());
         log.info(userAlertVO.toString());
+        log.info(userFollowVO.toString());
         log.info("===================스토리================================");
         topStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
         allStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
         log.info("===================프로젝트================================");
         log.info(projectList.toString());
+        log.info(projectLikeList.toString());
         log.info("------------------------------------");
 
 
@@ -95,13 +108,11 @@ public class MyPageController {
     //   매개변수로 필요한 VO를 받는다
     @PostMapping("/modify")
     @Transactional
-    public RedirectView userModify(UserVO userVO, UserTagVO userTagVO, UserPortfolioVO userPortfolioVO,UserInterestVO userInterestVO) {
-//        log.info("-------------------------------------------------------------------------------------------");
-//        log.info("컨트롤러 들어옴");
-//        log.info("-------------------------------------------------------------------------------------------");
-        //유저브이오에서 유저넘을 셋해준다.
-        userVO.setUserNum(1L);
-        System.out.println(userRepository.save(userVO).toString());
+    public RedirectView userModify(HttpServletRequest request,UserVO userVO, UserTagVO userTagVO, UserPortfolioVO userPortfolioVO,UserInterestVO userInterestVO) {
+
+        HttpSession session = request.getSession();
+        userVO.setUserNum((Long) session.getAttribute("userNum"));
+        System.out.println(userVO.toString());
         userRepository.save(userVO);
 //
 ////        유저태그VO
@@ -152,7 +163,7 @@ public class MyPageController {
 
 //
 
-        return new RedirectView("myPage?userNum=1");
+        return new RedirectView("myPage");
 //        return "/myPage/myPage";
     }
 
