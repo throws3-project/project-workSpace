@@ -174,7 +174,11 @@ function getList(html, loungeNum){
                 str += "<img  class='activInputImg' src='/images/여.png'>";
                 str += "</div>";
                 str += "<div class='activeInputTxt'>";
-                str += "<textarea maxlength='500' rows='2' placeholder='댓글을 작성해주세요' class='activeInputTextArea'></textarea>";
+                if (userNum == null) {
+                    str += "<textarea maxlength='500' rows='2' placeholder='로그인 후 댓글 작성이 가능합니다' class='activeInputTextArea noSessionId'></textarea>";
+                }else {
+                    str += "<textarea maxlength='500' rows='2' placeholder='댓글을 작성해주세요' class='activeInputTextArea'></textarea>";
+                }
                 str += "<button class='activeInputBtn'>등록</button>";
                 str += "</div>";
                 str += "</div>";
@@ -226,7 +230,11 @@ function getList(html, loungeNum){
             str += "<img  class='activInputImg' src='/images/여.png'>";
             str += "</div>";
             str += "<div class='activeInputTxt'>";
-            str += "<textarea maxlength='500' rows='2' placeholder='댓글을 작성해주세요' class='activeInputTextArea'></textarea>";
+            if (userNum == null) {
+                str += "<textarea maxlength='500' rows='2' placeholder='로그인 후 댓글 작성이 가능합니다' class='activeInputTextArea noSessionId'></textarea>";
+            }else {
+                str += "<textarea maxlength='500' rows='2' placeholder='댓글을 작성해주세요' class='activeInputTextArea'></textarea>";
+            }
             str += "<button class='activeInputBtn'>등록</button>";
             str += "</div>";
             str += "</div>";
@@ -378,7 +386,10 @@ $("span.time").on("click", function(){
 
 })
 
-
+// 좋아요
+$(".rpyLikeDiv").on("click", function () {
+    $(this).find(".rpyImg").css("filter","invert(62%) sepia(79%) saturate(2914%) hue-rotate(323deg) brightness(100%) contrast(84%)");
+})
 
 //프로필 상세보기(댓글의댓글)
 $(".activeProName").on("mouseover", function () {

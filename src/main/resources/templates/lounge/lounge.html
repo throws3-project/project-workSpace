@@ -483,10 +483,12 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script th:inline="javascript">
-    let loungeVOs = [[${loungeVOs}]];
-    let loungeLikesNum = [[${loungeLikesNum}]];
-    let loungeRepliesNum = [[${loungeRepliesNum}]];
-    let loungeUserNickNames = [[${loungeUserNickNames}]];
+    let userNum = [[${session.userNum}]]
+    let loungeVOs = [[${loungeVOs}]]
+    let loungeLikesNum = [[${loungeLikesNum}]]
+    let loungeRepliesNum = [[${loungeRepliesNum}]]
+    let loungeUserNickNames = [[${loungeUserNickNames}]]
+    console.log(userNum)
 
     console.log(loungeVOs.length);
     console.log(loungeVOs[0]);
