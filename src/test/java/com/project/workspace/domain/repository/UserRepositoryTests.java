@@ -26,11 +26,7 @@ public class UserRepositoryTests {
     @Autowired
     private UserTagRepository userTagRepository;
 
-<<<<<<< HEAD
-//    // 유저 생성
-=======
     // 유저 생성
->>>>>>> 8de2c7f10d0ab23453b50876f0cca6b061b66f9f
 //    @Test
 //    public void userVOTests(){
 //        String id = "hsk123";
@@ -53,11 +49,7 @@ public class UserRepositoryTests {
 //        String userImgUuid="12";
 //        String userImgName="2";
 //        String userImgPath="2";
-<<<<<<< HEAD
-//        userRepository.save(UserVO.builder().userId(id).userGender(gender).userLocation(location).userNickName(nickname).userPhone(phone).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
-=======
-//        userRepository.save(UserVO.builder().userId(id).userLocation(location).userNickName(nickname).userPhone(phone).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
->>>>>>> 8de2c7f10d0ab23453b50876f0cca6b061b66f9f
+//        userRepository.save(UserVO.builder().userId(id).userLocation(location).userNickName(nickname).userPhone(콜).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
 //    }
 
     // 유저 아이디로 검색
