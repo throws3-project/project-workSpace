@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>workSpace</title>
     <link rel="stylesheet" href="/css/main.css" type="text/css"/>
     <link rel="stylesheet" href="/css/header.css" type="text/css">
@@ -28,1054 +28,291 @@
                     <button type="button" class="banner-button prev-arrow"></button>
                     <div class="sliderWrap">
                         <ul class="slider">
-                            <li class="slide selected">
-                                <div class="projectTopWrap">
-                                    <div class="project-wrap">
-                                        <div class="project-image">
-                                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png"
-                                                 alt="project_image">
-                                        </div>
-                                        <div class="top">
-                                            <div class="favorite"></div>
-                                        </div>
-                                    </div>
-                                    <div class="textWrap">
-                                        <div class="bottomText">
-                                            <p class="category">데이팅서비스</p>
-                                            <p class="categoryText">[서울] 소개팅앱</p>
-                                            <p class="recruitText">1. 프로젝트의 시작 동기
-
-                                                현 소개팅앱에는 이러한 문제들이 있습니다.-소개팅앱에 대한 안좋은 인식이 있음-실제로 신뢰불가하고 안좋음 (알바 고용해서
-                                                여자있는척, 혹은 봇을 돌려서 여자있는척)-안좋은 사람들이 많음.- 스펙 떨어지는 사람들은 매칭 안됨- 여자가 턱없이 부족함.이
-                                                모든 문제를 해결할수있는 아이디어가 있어 만들어서 서비스해보려고 합니다소개팅앱을 신뢰하지 않는 사용자를 포함한 소개팅을 하고
-                                                싶어하는 20대 30대 모든 남여를 대상으로 합니다
-
-                                                2. 회의 진행/모임 방식
-
-
-                                                - 1주일에 1회나 2주일에 1회 오프라인 회의를 지향하고 필요시 온라인 회의를 하려고합니다-온라인은 줌, 오프라인은 카페에서 할
-                                                예정입니다
-
-                                                3. 그외 자유기재
-
-                                                현재 개발자한분과 제가 팀을 이루고 있는데 개발자님이 한분더 구하는게 좋겠다고 하여 딱 한분만 더 구하게 되었습니다.실력도 좋지만
-                                                인성을 우선시합니다.성격 좋으신분만 지원 부탁드립니다</p>
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="heart">
-                                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                                <span class="heartCount">0</span>
+                            <th:block th:each="project : ${newProjectList}">
+                                <li class="slide">
+                                    <a th:href="'/project/projectDetail/project/'+${project.projectNum}">
+                                        <div class="projectTopWrap">
+                                            <div class="project-wrap">
+                                                <div class="project-image">
+                                                    <img th:if="${project.projectImgPath == null}"
+                                                         th:src="'/images/'+${project.projectImg}">
+                                                    <img th:unless="${project.projectImgPath == null}"
+                                                         th:src="'/project/display?fileName='+ ${project.projectImgPath} + '/' + ${project.projectImgUuid} + '_' + ${project.projectImg}">
+                                                </div>
+                                                <div class="top">
+                                                    <div class="favorite"></div>
+                                                </div>
                                             </div>
-                                            <div class="recruit">
-                                                <div class="recruitStatus">
-                                                    <span>모집완료</span>
-                                                    <span>
+                                            <div class="textWrap">
+                                                <div class="bottomText">
+                                                    <p class="category" th:text="${project.projectPart}"></p>
+                                                    <p class="categoryText"
+                                                       th:text="'['+${project.projectLocation}+']'+${project.projectName}"></p>
+                                                    <p class="recruitText">1. 프로젝트의 시작 동기
+
+                                                        현 소개팅앱에는 이러한 문제들이 있습니다.-소개팅앱에 대한 안좋은 인식이 있음-실제로 신뢰불가하고 안좋음 (알바
+                                                        고용해서
+                                                        여자있는척, 혹은 봇을 돌려서 여자있는척)-안좋은 사람들이 많음.- 스펙 떨어지는 사람들은 매칭 안됨- 여자가
+                                                        턱없이
+                                                        부족함.이
+                                                        모든 문제를 해결할수있는 아이디어가 있어 만들어서 서비스해보려고 합니다소개팅앱을 신뢰하지 않는 사용자를 포함한
+                                                        소개팅을
+                                                        하고
+                                                        싶어하는 20대 30대 모든 남여를 대상으로 합니다
+
+                                                        2. 회의 진행/모임 방식
+
+
+                                                        - 1주일에 1회나 2주일에 1회 오프라인 회의를 지향하고 필요시 온라인 회의를 하려고합니다-온라인은 줌,
+                                                        오프라인은
+                                                        카페에서 할
+                                                        예정입니다
+
+                                                        3. 그외 자유기재
+
+                                                        현재 개발자한분과 제가 팀을 이루고 있는데 개발자님이 한분더 구하는게 좋겠다고 하여 딱 한분만 더 구하게
+                                                        되었습니다.실력도
+                                                        좋지만
+                                                        인성을 우선시합니다.성격 좋으신분만 지원 부탁드립니다</p>
+                                                </div>
+                                                <div class="bottom">
+                                                    <div class="heart">
+                                                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
+                                                        <span class="heartCount">0</span>
+                                                    </div>
+                                                    <div class="recruit">
+                                                        <div class="recruitStatus">
+                                                        <span class="text" th:if="${project.projectStatus=='1'}"
+                                                              th:text="모집중"></span>
+                                                            <span class="text" th:if="${project.projectStatus=='2'}"
+                                                                  th:text="모집완료"></span>
+                                                            <span>
                                                         0/1
                                                     </span>
-                                                    <div>
-                                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                                            <div>
+                                                                <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                                            </div>
+                                                        </div>
+                                                        <div class="recruitModel">
+                                                            <ul>
+                                                                <th:block th:each="person : ${project.persons}">
+                                                                    <li>
+                                                                        <span th:text="${person.projectSubSkill}"></span>
+                                                                        <span th:text="${person.projectCount}"></span>
+                                                                    </li>
+                                                                </th:block>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="recruitModel">
-                                                    <ul>
-                                                        <li>
-                                                            <span>UI/UX기획</span>
-                                                            <span>1명</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>웹 프론트엔드</span>
-                                                            <span>2명</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="slide">
-                                <div class="projectTopWrap">
-                                    <div class="project-wrap">
-                                        <div class="project-image">
-                                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png"
-                                                 alt="project_image">
-                                        </div>
-                                        <div class="top">
-                                            <div class="favorite"></div>
-                                        </div>
-                                    </div>
-                                    <div class="textWrap">
-                                        <div class="bottomText">
-                                            <p class="category">데이팅서비스</p>
-                                            <p class="categoryText">[서울] 소개팅앱</p>
-                                            <p class="recruitText">1. 프로젝트의 시작 동기
-
-                                                현 소개팅앱에는 이러한 문제들이 있습니다.-소개팅앱에 대한 안좋은 인식이 있음-실제로 신뢰불가하고 안좋음 (알바 고용해서
-                                                여자있는척, 혹은 봇을 돌려서 여자있는척)-안좋은 사람들이 많음.- 스펙 떨어지는 사람들은 매칭 안됨- 여자가 턱없이 부족함.이
-                                                모든 문제를 해결할수있는 아이디어가 있어 만들어서 서비스해보려고 합니다소개팅앱을 신뢰하지 않는 사용자를 포함한 소개팅을 하고
-                                                싶어하는 20대 30대 모든 남여를 대상으로 합니다
-
-                                                2. 회의 진행/모임 방식
-
-
-                                                - 1주일에 1회나 2주일에 1회 오프라인 회의를 지향하고 필요시 온라인 회의를 하려고합니다-온라인은 줌, 오프라인은 카페에서 할
-                                                예정입니다
-
-                                                3. 그외 자유기재
-
-                                                현재 개발자한분과 제가 팀을 이루고 있는데 개발자님이 한분더 구하는게 좋겠다고 하여 딱 한분만 더 구하게 되었습니다.실력도 좋지만
-                                                인성을 우선시합니다.성격 좋으신분만 지원 부탁드립니다</p>
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="heart">
-                                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                                <span class="heartCount">0</span>
-                                            </div>
-                                            <div class="recruit">
-                                                <div class="recruitStatus">
-                                                    <span>모집완료</span>
-                                                    <span>
-                                                        0/1
-                                                    </span>
-                                                    <div>
-                                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="recruitModel">
-                                                    <ul>
-                                                        <li>
-                                                            <span>UI/UX기획</span>
-                                                            <span>1명</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>웹 프론트엔드</span>
-                                                            <span>2명</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="slide">
-                                <div class="projectTopWrap">
-                                    <div class="project-wrap">
-                                        <div class="project-image">
-                                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png"
-                                                 alt="project_image">
-                                        </div>
-                                        <div class="top">
-                                            <div class="favorite"></div>
-                                        </div>
-                                    </div>
-                                    <div class="textWrap">
-                                        <div class="bottomText">
-                                            <p class="category">데이팅서비스</p>
-                                            <p class="categoryText">[서울] 소개팅앱</p>
-                                            <p class="recruitText">1. 프로젝트의 시작 동기
-
-                                                현 소개팅앱에는 이러한 문제들이 있습니다.-소개팅앱에 대한 안좋은 인식이 있음-실제로 신뢰불가하고 안좋음 (알바 고용해서
-                                                여자있는척, 혹은 봇을 돌려서 여자있는척)-안좋은 사람들이 많음.- 스펙 떨어지는 사람들은 매칭 안됨- 여자가 턱없이 부족함.이
-                                                모든 문제를 해결할수있는 아이디어가 있어 만들어서 서비스해보려고 합니다소개팅앱을 신뢰하지 않는 사용자를 포함한 소개팅을 하고
-                                                싶어하는 20대 30대 모든 남여를 대상으로 합니다
-
-                                                2. 회의 진행/모임 방식
-
-
-                                                - 1주일에 1회나 2주일에 1회 오프라인 회의를 지향하고 필요시 온라인 회의를 하려고합니다-온라인은 줌, 오프라인은 카페에서 할
-                                                예정입니다
-
-                                                3. 그외 자유기재
-
-                                                현재 개발자한분과 제가 팀을 이루고 있는데 개발자님이 한분더 구하는게 좋겠다고 하여 딱 한분만 더 구하게 되었습니다.실력도 좋지만
-                                                인성을 우선시합니다.성격 좋으신분만 지원 부탁드립니다</p>
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="heart">
-                                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                                <span class="heartCount">0</span>
-                                            </div>
-                                            <div class="recruit">
-                                                <div class="recruitStatus">
-                                                    <span>모집완료</span>
-                                                    <span>
-                                                        0/1
-                                                    </span>
-                                                    <div>
-                                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="recruitModel">
-                                                    <ul>
-                                                        <li>
-                                                            <span>UI/UX기획</span>
-                                                            <span>1명</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>웹 프론트엔드</span>
-                                                            <span>2명</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="slide">
-                                <div class="projectTopWrap">
-                                    <div class="project-wrap">
-                                        <div class="project-image">
-                                            <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png"
-                                                 alt="project_image">
-                                        </div>
-                                        <div class="top">
-                                            <div class="favorite"></div>
-                                        </div>
-                                    </div>
-                                    <div class="textWrap">
-                                        <div class="bottomText">
-                                            <p class="category">데이팅서비스</p>
-                                            <p class="categoryText">[서울] 소개팅앱</p>
-                                            <p class="recruitText">1. 프로젝트의 시작 동기
-
-                                                현 소개팅앱에는 이러한 문제들이 있습니다.-소개팅앱에 대한 안좋은 인식이 있음-실제로 신뢰불가하고 안좋음 (알바 고용해서
-                                                여자있는척, 혹은 봇을 돌려서 여자있는척)-안좋은 사람들이 많음.- 스펙 떨어지는 사람들은 매칭 안됨- 여자가 턱없이 부족함.이
-                                                모든 문제를 해결할수있는 아이디어가 있어 만들어서 서비스해보려고 합니다소개팅앱을 신뢰하지 않는 사용자를 포함한 소개팅을 하고
-                                                싶어하는 20대 30대 모든 남여를 대상으로 합니다
-
-                                                2. 회의 진행/모임 방식
-
-
-                                                - 1주일에 1회나 2주일에 1회 오프라인 회의를 지향하고 필요시 온라인 회의를 하려고합니다-온라인은 줌, 오프라인은 카페에서 할
-                                                예정입니다
-
-                                                3. 그외 자유기재
-
-                                                현재 개발자한분과 제가 팀을 이루고 있는데 개발자님이 한분더 구하는게 좋겠다고 하여 딱 한분만 더 구하게 되었습니다.실력도 좋지만
-                                                인성을 우선시합니다.성격 좋으신분만 지원 부탁드립니다</p>
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="heart">
-                                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                                <span class="heartCount">0</span>
-                                            </div>
-                                            <div class="recruit">
-                                                <div class="recruitStatus">
-                                                    <span>모집완료</span>
-                                                    <span>
-                                                        0/1
-                                                    </span>
-                                                    <div>
-                                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="recruitModel">
-                                                    <ul>
-                                                        <li>
-                                                            <span>UI/UX기획</span>
-                                                            <span>1명</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>웹 프론트엔드</span>
-                                                            <span>2명</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                                    </a>
+                                </li>
+                            </th:block>
                         </ul>
                     </div>
                     <button type="button" class="banner-button next-arrow"></button>
                 </div>
             </div>
             <div class="projectView-rightWrap">
-                <h3>주목할만한 프로젝트/스터디</h3>
-                <div class="projectList">
-                    <div class="listImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/38/images/%EA%B3%A8%EB%93%A0%EC%8D%A8%ED%81%B4.jpg">
-                    </div>
-                    <div class="listCategory">
-                        <p class="categoryText">소셜트립 플랫폼</p>
-                        <p class="recruitText">﻿아이템 및 팀 구성아이템 소개저희는 현재 C2C 기반의여행 및 여가 황동 등을 함께 할 수 있도록 매칭하는 플랫폼을기획하고
-                            개발중에 있습니다.본 프로젝트는 2030대의 지친 일상을 풀어줄 수 있는 멋진 리더들과 참여자간의 검증된 상세 프로필을 확인할 수 있으며다양한 일상을 함께 공유하고
-                            소규모로 경험할 수 있는 안전하고 건전한 활동을 돕습니다.현재 2030대가 타켓오디언스인만큼 동행 관련 SNS 및 커뮤니티의 버즈들을 분석하고8명의 여행객 인터뷰,
-                            200명 대상의 국내 여행 실태조사 등을 통해 니즈와 문제점을 정의하여이를 기반으로 컨셉 및 MVP를 기획하였습니다.이 외 본 프로젝트에 대한 자세한 설명은 미팅 시
-                            말씀드리겠습니다 :)현재 팀원 구성영업 및 마케팅 1인UI 디자인 및 서비스 기획 1인백엔드 개발자 1인모집 사항백엔드 개발자 (모집완료)프론트 개발자 (1명)사용
-                            기술react native, android os, iOS, html5, css, javascript주요 업무앱 프론트 개발 리드경력2년 이상우대 사항스타트업 창업
-                            또는 업무 경력이 있으신 분비즈니스 영역에서 다양한 의견 공유가 가능한 인사이트가 있으신 분여행을 사랑하는 분업무 안내자택근무 가능 / 주1회 전체 회의 f리워드에
-                            대한 부분은 충분히 함께 논의하고 말씀 나누면 좋을 것 같습니다. 재택근무와 화상회의로 업무를 진행하고 필요하다면 사당역 근처에 있는 사무실에서 함께 근무
-                            가능합니다. 모집에 대한 문의 사항은 렛플을 통해 연락 주시면 답변드리겠습니다.감사합니다.</p>
-                        <p class="text">[모집] 크로스플랫폼</p>
-                    </div>
-                    <div class="heart">
-                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                        <span class="heartCount">0</span>
-                    </div>
-                </div>
-                <div class="projectList">
-                    <div class="listImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/38/images/%EA%B3%A8%EB%93%A0%EC%8D%A8%ED%81%B4.jpg">
-                    </div>
-                    <div class="listCategory">
-                        <p class="categoryText">소셜트립 플랫폼</p>
-                        <p class="recruitText">﻿아이템 및 팀 구성아이템 소개저희는 현재 C2C 기반의여행 및 여가 황동 등을 함께 할 수 있도록 매칭하는 플랫폼을기획하고
-                            개발중에 있습니다.본 프로젝트는 2030대의 지친 일상을 풀어줄 수 있는 멋진 리더들과 참여자간의 검증된 상세 프로필을 확인할 수 있으며다양한 일상을 함께 공유하고
-                            소규모로 경험할 수 있는 안전하고 건전한 활동을 돕습니다.현재 2030대가 타켓오디언스인만큼 동행 관련 SNS 및 커뮤니티의 버즈들을 분석하고8명의 여행객 인터뷰,
-                            200명 대상의 국내 여행 실태조사 등을 통해 니즈와 문제점을 정의하여이를 기반으로 컨셉 및 MVP를 기획하였습니다.이 외 본 프로젝트에 대한 자세한 설명은 미팅 시
-                            말씀드리겠습니다 :)현재 팀원 구성영업 및 마케팅 1인UI 디자인 및 서비스 기획 1인백엔드 개발자 1인모집 사항백엔드 개발자 (모집완료)프론트 개발자 (1명)사용
-                            기술react native, android os, iOS, html5, css, javascript주요 업무앱 프론트 개발 리드경력2년 이상우대 사항스타트업 창업
-                            또는 업무 경력이 있으신 분비즈니스 영역에서 다양한 의견 공유가 가능한 인사이트가 있으신 분여행을 사랑하는 분업무 안내자택근무 가능 / 주1회 전체 회의 f리워드에
-                            대한 부분은 충분히 함께 논의하고 말씀 나누면 좋을 것 같습니다. 재택근무와 화상회의로 업무를 진행하고 필요하다면 사당역 근처에 있는 사무실에서 함께 근무
-                            가능합니다. 모집에 대한 문의 사항은 렛플을 통해 연락 주시면 답변드리겠습니다.감사합니다.</p>
-                        <p class="text">[모집] 크로스플랫폼</p>
-                    </div>
-                    <div class="heart">
-                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                        <span class="heartCount">0</span>
-                    </div>
-                </div>
-                <div class="projectList">
-                    <div class="listImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/user/38/images/%EA%B3%A8%EB%93%A0%EC%8D%A8%ED%81%B4.jpg">
-                    </div>
-                    <div class="listCategory">
-                        <p class="categoryText">소셜트립 플랫폼</p>
-                        <p class="recruitText">﻿아이템 및 팀 구성아이템 소개저희는 현재 C2C 기반의여행 및 여가 황동 등을 함께 할 수 있도록 매칭하는 플랫폼을기획하고
-                            개발중에 있습니다.본 프로젝트는 2030대의 지친 일상을 풀어줄 수 있는 멋진 리더들과 참여자간의 검증된 상세 프로필을 확인할 수 있으며다양한 일상을 함께 공유하고
-                            소규모로 경험할 수 있는 안전하고 건전한 활동을 돕습니다.현재 2030대가 타켓오디언스인만큼 동행 관련 SNS 및 커뮤니티의 버즈들을 분석하고8명의 여행객 인터뷰,
-                            200명 대상의 국내 여행 실태조사 등을 통해 니즈와 문제점을 정의하여이를 기반으로 컨셉 및 MVP를 기획하였습니다.이 외 본 프로젝트에 대한 자세한 설명은 미팅 시
-                            말씀드리겠습니다 :)현재 팀원 구성영업 및 마케팅 1인UI 디자인 및 서비스 기획 1인백엔드 개발자 1인모집 사항백엔드 개발자 (모집완료)프론트 개발자 (1명)사용
-                            기술react native, android os, iOS, html5, css, javascript주요 업무앱 프론트 개발 리드경력2년 이상우대 사항스타트업 창업
-                            또는 업무 경력이 있으신 분비즈니스 영역에서 다양한 의견 공유가 가능한 인사이트가 있으신 분여행을 사랑하는 분업무 안내자택근무 가능 / 주1회 전체 회의 f리워드에
-                            대한 부분은 충분히 함께 논의하고 말씀 나누면 좋을 것 같습니다. 재택근무와 화상회의로 업무를 진행하고 필요하다면 사당역 근처에 있는 사무실에서 함께 근무
-                            가능합니다. 모집에 대한 문의 사항은 렛플을 통해 연락 주시면 답변드리겠습니다.감사합니다.</p>
-                        <p class="text">[모집] 크로스플랫폼</p>
-                    </div>
-                    <div class="heart">
-                        <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                        <span class="heartCount">0</span>
-                    </div>
-                </div>
+                <h3>주목할만한 프로젝트</h3>
+                <th:block th:each="project:${projectTop3}">
+                    <a th:href="'/project/projectDetail/project/'+${project.projectNum}">
+                        <div class="projectList">
+                            <div class="listImg">
+                                <img th:if="${project.projectImgPath == null}"
+                                     th:src="'/images/'+${project.projectImg}">
+                                <img th:unless="${project.projectImgPath == null}"
+                                     th:src="'/project/display?fileName='+ ${project.projectImgPath} + '/' + ${project.projectImgUuid} + '_' + ${project.projectImg}">
+                            </div>
+                            <div class="listCategory">
+                                <p class="categoryText" th:text="${project.projectName}"></p>
+                                <p class="recruitText">﻿아이템 및 팀 구성아이템 소개저희는 현재 C2C 기반의여행 및 여가 황동 등을 함께 할 수 있도록 매칭하는
+                                    플랫폼을기획하고
+                                    개발중에 있습니다.본 프로젝트는 2030대의 지친 일상을 풀어줄 수 있는 멋진 리더들과 참여자간의 검증된 상세 프로필을 확인할 수 있으며다양한 일상을
+                                    함께 공유하고
+                                    소규모로 경험할 수 있는 안전하고 건전한 활동을 돕습니다.현재 2030대가 타켓오디언스인만큼 동행 관련 SNS 및 커뮤니티의 버즈들을 분석하고8명의
+                                    여행객 인터뷰,
+                                    200명 대상의 국내 여행 실태조사 등을 통해 니즈와 문제점을 정의하여이를 기반으로 컨셉 및 MVP를 기획하였습니다.이 외 본 프로젝트에 대한 자세한
+                                    설명은 미팅 시
+                                    말씀드리겠습니다 :)현재 팀원 구성영업 및 마케팅 1인UI 디자인 및 서비스 기획 1인백엔드 개발자 1인모집 사항백엔드 개발자 (모집완료)프론트 개발자
+                                    (1명)사용
+                                    기술react native, android os, iOS, html5, css, javascript주요 업무앱 프론트 개발 리드경력2년 이상우대
+                                    사항스타트업 창업
+                                    또는 업무 경력이 있으신 분비즈니스 영역에서 다양한 의견 공유가 가능한 인사이트가 있으신 분여행을 사랑하는 분업무 안내자택근무 가능 / 주1회 전체
+                                    회의 f리워드에
+                                    대한 부분은 충분히 함께 논의하고 말씀 나누면 좋을 것 같습니다. 재택근무와 화상회의로 업무를 진행하고 필요하다면 사당역 근처에 있는 사무실에서 함께
+                                    근무
+                                    가능합니다. 모집에 대한 문의 사항은 렛플을 통해 연락 주시면 답변드리겠습니다.감사합니다.</p>
+                                <p class="text" th:if="${project.projectStatus=='1'}"
+                                   th:text="'[모집중] '+${project.projectPart}"></p>
+                                <p class="text" th:if="${project.projectStatus=='2'}"
+                                   th:text="'[모집완료] '+${project.projectPart}"></p>
+                            </div>
+                            <div class="heart">
+                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
+                                <span class="heartCount" th:text="${project.projectReadCount}"></span>
+                            </div>
+                        </div>
+                    </a>
+                </th:block>
             </div>
         </div>
     </div>
     <div class="allProject">
         <h3>전체 프로젝트/스터디</h3>
         <div class="selectOption">
-            <select class="smSelect">
-                <option selected value="KR00">지역 미지정</option>
-                <option value="KR01">서울특별시</option>
-                <option value="KR02">경기도</option>
-                <option value="KR03">부산광역시</option>
-                <option value="KR04">인천광역시</option>
-                <option value="KR05">대구광역시</option>
-                <option value="KR06">경상남도</option>
-                <option value="KR07">경상북도</option>
-                <option value="KR08">대전광역시</option>
-                <option value="KR09">충청남도</option>
-                <option value="KR10">충청북도</option>
-                <option value="KR11">전라남도</option>
-                <option value="KR12">전라북도</option>
-                <option value="KR13">광주광역시</option>
-                <option value="KR14">강원도</option>
-                <option value="KR15">울산광역시</option>
-                <option value="KR16">제주특별자치도</option>
-                <option value="KR17">세종특별자치시</option>
+            <select class="smSelect filters">
+                <option value="" selected>상관없음</option>
+                <option>서울특별시</option>
+                <option>경기도</option>
+                <option>부산광역시</option>
+                <option>인천광역시</option>
+                <option>대구광역시</option>
+                <option>경상남도</option>
+                <option>경상북도</option>
+                <option>대전광역시</option>
+                <option>충청남도</option>
+                <option>충청북도</option>
+                <option>전라남도</option>
+                <option>전라북도</option>
+                <option>광주광역시</option>
+                <option>강원도</option>
+                <option>울산광역시</option>
+                <option>제주특별자치도</option>
+                <option>세종특별자치시</option>
             </select>
-            <select name="" class="smSelect">
-                <option selected value="00">사이드/스터디 전체</option>
-                <option value="01">사이드프로젝트</option>
-                <option value="02">스터디</option>
+            <select class="smSelect" id="typeSelect">
+                <option selected>사이드프로젝트</option>
+                <option>스터디</option>
             </select>
-            <select name="" class="smSelect">
-                <option selected value="0000">모집분야</option>
+            <select class="smSelect filters">
+                <option value="" selected>상관없음</option>
                 <optgroup label=" 기획">
-                    <option value="0201">UI/UX기획</option>
-                    <option value="0202">게임기획</option>
-                    <option value="0203">프로젝트 매니저</option>
-                    <option value="0204">하드웨어(제품) 기획</option>
+                    <option>UI/UX기획</option>
+                    <option>게임기획</option>
+                    <option>프로젝트 매니저</option>
+                    <option>하드웨어(제품) 기획</option>
                 </optgroup>
                 <optgroup label="디자인">
-                    <option value="0301">그래픽디자인</option>
-                    <option value="0302">UI/UX디자인</option>
-                    <option value="0303">3D디자인</option>
-                    <option value="0304">하드웨어(제품) 디자인</option>
-                    <option value="0305">(디자인)기타</option>
+                    <option>그래픽디자인</option>
+                    <option>UI/UX디자인</option>
+                    <option>3D디자인</option>
+                    <option>하드웨어(제품) 디자인</option>
+                    <option>(디자인)기타</option>
                 </optgroup>
                 <optgroup label="프론트엔드 개발">
-                    <option value="0401">IOS</option>
-                    <option value="0402">안드로이드</option>
-                    <option value="0403">웹프론트엔드</option>
-                    <option value="0404">웹퍼블리셔</option>
-                    <option value="0405">크로스플랫폼</option>
+                    <option>IOS</option>
+                    <option>안드로이드</option>
+                    <option>웹프론트엔드</option>
+                    <option>웹퍼블리셔</option>
+                    <option>크로스플랫폼</option>
                 </optgroup>
                 <optgroup label="백엔드 개발">
-                    <option value="0501">웹 서버</option>
-                    <option value="0504">블록체인</option>
-                    <option value="0505">AI</option>
-                    <option value="0503">DB/빅데이터/DS</option>
-                    <option value="0502">게임 서버</option>
+                    <option>웹 서버</option>
+                    <option>블록체인</option>
+                    <option>AI</option>
+                    <option>DB/빅데이터/DS</option>
+                    <option>게임 서버</option>
                 </optgroup>
                 <optgroup label="사업">
-                    <option value="0101">사업기획</option>
-                    <option value="0102">마케팅</option>
-                    <option value="0103">재무/회계</option>
-                    <option value="0104">영업</option>
-                    <option value="0106">전략/컨설팅</option>
-                    <option value="0107">투자/고문</option>
-                    <option value="0105">(사업)그외</option>
+                    <option>사업기획</option>
+                    <option>마케팅</option>
+                    <option>재무/회계</option>
+                    <option>영업</option>
+                    <option>전략/컨설팅</option>
+                    <option>투자/고문</option>
+                    <option>(사업)그외</option>
                 </optgroup>
                 <optgroup label="기타">
-                    <option value="0606">작가/블로거</option>
-                    <option value="0607">인플루언서/스트리머</option>
-                    <option value="0601">작곡(사운드)</option>
-                    <option value="0602">영상</option>
-                    <option value="0603">운영</option>
-                    <option value="0604">QA</option>
-                    <option value="0605">기타</option>
+                    <option>작가/블로거</option>
+                    <option>인플루언서/스트리머</option>
+                    <option>작곡(사운드)</option>
+                    <option>영상</option>
+                    <option>운영</option>
+                    <option>QA</option>
+                    <option>기타</option>
                 </optgroup>
             </select>
-            <label class="checkbox">
-                <input type="checkbox" class="check" checked>
+            <label class="checkbox filters">
+                <input type="checkbox" id="checkFilter" class="check" value="1" checked>
                 <span class="text">모집중</span>
             </label>
+            <input type="hidden" class="filter">
+            <input type="hidden" class="filter">
+            <input type="hidden" class="filter">
         </div>
         <div class="projectGridView">
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+            <th:block th:each="project : ${projectList}">
+                <div class="projectGridWrap">
+                    <div class="projectTopInfo">
+                        <div class="topInfo">
+                            <div class="box-wrap">
+                                <div class="box green">
+                                    <span>NEW</span>
+                                </div>
+                                <div class="box black">
+                                    <span>사이드프로젝트</span>
                                 </div>
                             </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
+                            <div class="favorite"></div>
+                        </div>
+                        <div class="projectImg">
+                            <img th:if="${project.projectImgPath == null}"
+                                 th:src="'/images/'+${project.projectImg}">
+                            <img th:unless="${project.projectImgPath == null}"
+                                 th:src="'/project/display?fileName='+ ${project.projectImgPath} + '/' + ${project.projectImgUuid} + '_' + ${project.projectImg}">
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
+                    <div class="projectMiddleInfo">
+                        <p class="category" th:text="${project.projectPart}"></p>
+                        <p class="categoryText" th:text="'['+${project.projectLocation}+']'+${project.projectName}"></p>
                     </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                    </a>
+                    <div class="projectBottomInfo">
+                        <div class="middleWrap">
+                            <div class="left">
+                                <div class="heart">
+                                    <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
+                                    <span class="heartCount">0</span>
                                 </div>
                             </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
+                            <div class="right">
                                 <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                    <span th:text="${project.projectReadCount}"></span>
                                 </div>
                             </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
+                        <div class="bottomWrap">
+                            <div class="recruit">
+                                <div class="recruitStatus">
+                                    <span th:if="${project.projectStatus=='1'}"
+                                          th:text="'[모집중] '+${project.projectPart}"></span>
+                                    <span th:if="${project.projectStatus=='2'}"
+                                          th:text="'[모집완료] '+${project.projectPart}"></span>
+                                    <span>
                                     0/1
                                 </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                    <div>
+                                        <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
+                                    </div>
+                                </div>
+                                <div class="recruitModel">
+                                    <ul>
+                                        <th:block th:each="person : ${project.persons}">
+                                            <li>
+                                                <span th:text="${person.projectSubSkill}"></span>
+                                                <span th:text="${person.projectCount}"></span>
+                                            </li>
+                                        </th:block>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                </div>
-                            </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                </div>
-                            </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                </div>
-                            </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_05.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                </div>
-                            </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_11.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                </div>
-                            </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projectGridWrap">
-                <div class="projectTopInfo">
-                    <div class="topInfo">
-                        <div class="box-wrap">
-                            <div class="box green">
-                                <span>NEW</span>
-                            </div>
-                            <div class="box black">
-                                <span>사이드프로젝트</span>
-                            </div>
-                        </div>
-                        <div class="favorite"></div>
-                    </div>
-                    <div class="projectImg">
-                        <img src="https://letspl.s3.ap-northeast-2.amazonaws.com/images/project_thumb_13.png">
-                    </div>
-                </div>
-                <div class="projectMiddleInfo">
-                    <p class="category">소셜네트워크</p>
-                    <p class="categoryText">[서울] 매칭앱 사이드 프로젝트</p>
-                </div>
-                <div class="projectBottomInfo">
-                    <div class="middleWrap">
-                        <div class="left">
-                            <div class="heart">
-                                <img src="https://letspl.me/assets/images/ic-favorite-empty-white.svg">
-                                <span class="heartCount">0</span>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <span>89</span>
-                                <span> (-)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottomWrap">
-                        <div class="recruit">
-                            <div class="recruitStatus">
-                                <span>모집완료</span>
-                                <span>
-                                    0/1
-                                </span>
-                                <div>
-                                    <img src="https://letspl.me/assets/images/ic-arrow-up.svg">
-                                </div>
-                            </div>
-                            <div class="recruitModel">
-                                <ul>
-                                    <li>
-                                        <span>UI/UX기획</span>
-                                        <span>1명</span>
-                                    </li>
-                                    <li>
-                                        <span>웹 프론트엔드</span>
-                                        <span>2명</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </th:block>
         </div>
     </div>
     <div class="sideProject">
@@ -1093,7 +330,8 @@
                             </div>
                             <p class="text">코콘</p>
                         </div>
-                        <p class="sideText">당신만의 AI 스타일리스트, cocon 🛍, 50,000명이 만족한 AI 퍼스널컬러 진단을 무료로 만나보세요.🎨 베스트 컬러를 찾아 패션과 쇼핑몰을 추천합니다! 당신에게 꼭 맞는 컬러와 인생템을 발견 하러 가볼까요?</p>
+                        <p class="sideText">당신만의 AI 스타일리스트, cocon 🛍, 50,000명이 만족한 AI 퍼스널컬러 진단을 무료로 만나보세요.🎨 베스트 컬러를 찾아
+                            패션과 쇼핑몰을 추천합니다! 당신에게 꼭 맞는 컬러와 인생템을 발견 하러 가볼까요?</p>
                         <div class="sideApps">
                             <div class="sideApp">
                                 <img src="/images/sideProject.png">
@@ -1118,7 +356,8 @@
                             </div>
                             <p class="text">IT업무툴 리뷰 플랫폼 -비투버</p>
                         </div>
-                        <p class="sideText">저는 IT툴 활용경험을 공유하려는 분들은 정말 간편하게 경험을 공유할 수 있게 하고, 또 그 경험을 필요로 하는 분들도 최소한의 노력으로 꼭 필요한 정보를 얻을 수 있는 그런 공간</p>
+                        <p class="sideText">저는 IT툴 활용경험을 공유하려는 분들은 정말 간편하게 경험을 공유할 수 있게 하고, 또 그 경험을 필요로 하는 분들도 최소한의 노력으로
+                            꼭 필요한 정보를 얻을 수 있는 그런 공간</p>
                         <div class="sideApps">
                             <div class="sideApp">
                                 <img src="/images/sideProject.png">
@@ -1174,7 +413,8 @@
                         <div class="hotText">
                             <p class="text">언노운나이츠 -게임</p>
                         </div>
-                        <p class="sideText">‘언노운 나이츠’는 액션성 높은 독특한 '부대 전투'와 로그라이크가 결합된 게임입니다. 당신은 왕조차 버리고 도망친 나라에서 마왕의 탑을 무너뜨리기 위한 원정을 떠납니다. 사건을 해결하고, 기사를 고용하고, 민병을 소집해 최종전을 위한 강력한 기사단을 만들어야 합니다.
+                        <p class="sideText">‘언노운 나이츠’는 액션성 높은 독특한 '부대 전투'와 로그라이크가 결합된 게임입니다. 당신은 왕조차 버리고 도망친 나라에서 마왕의 탑을
+                            무너뜨리기 위한 원정을 떠납니다. 사건을 해결하고, 기사를 고용하고, 민병을 소집해 최종전을 위한 강력한 기사단을 만들어야 합니다.
                         </p>
                         <div class="sideApps">
                             <div class="sideApp">

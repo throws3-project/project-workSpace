@@ -205,7 +205,7 @@ public class StoryController {
     @ResponseBody
     @GetMapping("/storyInsert/{storyReply}/{userNum}/{storyNum}")
     public String insertReply(@PathVariable("storyReply") String storyReply, @PathVariable("userNum") UserVO userNum, @PathVariable("storyNum") StoryVO storyNum){
-         storyReplyRepository.save(StoryReplyVO.builder().storyVO(storyNum).userVO(userNum).storyReply(storyReply).build());
+        storyReplyRepository.save(StoryReplyVO.builder().storyVO(storyNum).userVO(userNum).storyReply(storyReply).build());
         return "success";
     }
 
@@ -221,7 +221,7 @@ public class StoryController {
     @ResponseBody
     @Transactional
     @GetMapping("/likeStory/{storyNum}/{userNum}")
-        public String likeStory(@PathVariable("userNum") Long userNum, @PathVariable("storyNum") Long storyNum){
+    public String likeStory(@PathVariable("userNum") Long userNum, @PathVariable("storyNum") Long storyNum){
         StoryLikeVO byUserVOAndStoryVO = storyLikeRepository.findByUserVO_UserNumAndStoryVO_StoryNum(userNum, storyNum);
         if(byUserVOAndStoryVO != null){
             log.info("삭제 들어옴");
