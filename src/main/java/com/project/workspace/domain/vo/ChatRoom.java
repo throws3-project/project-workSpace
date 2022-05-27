@@ -31,11 +31,7 @@ public class ChatRoom {
                               ObjectMapper objectMapper) throws IOException {
         if(chatMessage.getType() == MessageType.ENTER){
             sessions.add(session);
-//            list.add(session);
-//            log.info("===================세션리스트==================");
-//            log.info(""+list);
-//            log.info("=================================================");
-//            chatMessage.setMessage("연결 되었습니다.");
+            chatMessage.setMessage("채팅이 시작되었습니다.");
 
         }
         else if(chatMessage.getType() == MessageType.LEAVE){
