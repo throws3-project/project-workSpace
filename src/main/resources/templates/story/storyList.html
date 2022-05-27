@@ -60,7 +60,7 @@
             </div>
             <div class="line"></div>
             <!-- 시리즈1 -->
-            <div class="series" th:each="lists:${randomList}">
+            <div class="series" th:each="lists:${randomList}" th:if="${lists[0]?.getUserVO.getUserNickName()}">
                 <h3 th:text="|&quot${lists[0].getUserVO().getUserNickName()}&quot 님의 스토리|"></h3>
                 <div class="seriesScroll">
                     <ul class="seriesUl">
