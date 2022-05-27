@@ -36,7 +36,6 @@ public class StoryController {
     private final JPAQueryFactory queryFactory;
     private final StoryQueryRepository storyQueryRepository;
     private final StoryLikeRepository storyLikeRepository;
-    private final UserRepository userRepository;
 
     @GetMapping("/storyDetail")
     public void storyDetail(@RequestParam("storyNum") Long storyNum, Model model){
@@ -127,17 +126,11 @@ public class StoryController {
 
     @PostMapping("/storyRegister")
     @Transactional(rollbackFor = {Exception.class})
-<<<<<<< HEAD
-    public RedirectView storyRegister(HttpServletRequest req, StoryVO storyVO, StoryTagVO storyTagVO, RedirectAttributes rttr){
-        HttpSession session = req.getSession();
-        UserVO userVO = userRepository.getById((Long)session.getAttribute("userNum"));
-=======
     public RedirectView storyRegister(StoryVO storyVO, StoryTagVO storyTagVO, RedirectAttributes rttr, HttpServletRequest req){
         UserVO userVO = new UserVO();
         HttpSession session = req.getSession();
 
         userVO.setUserNum((Long) session.getAttribute("userNum"));
->>>>>>> 8de2c7f10d0ab23453b50876f0cca6b061b66f9f
         storyVO.setUserVO(userVO);
 
         Long storyNum = storyRepository.save(storyVO).getStoryNum();

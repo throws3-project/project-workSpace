@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<UserVO, Long> {
     public UserVO findByUserId(String userId);
+    public UserVO findByUserNum(Long userNum);
     public List<UserVO> findTop8ByOrderByUserNumDesc();
     public List<UserVO> findTop12ByOrderByUserNumDesc();
 }
