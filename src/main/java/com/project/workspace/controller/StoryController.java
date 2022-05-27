@@ -11,10 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -60,7 +63,6 @@ public class StoryController {
         }else{
             recommendList = otherStoryList;
         }
-        log.info(String.valueOf(recommendList.size()));
         model.addAttribute("storyVO", storyVO);
         model.addAttribute("myList", myList);
         model.addAttribute("tags", tags);
@@ -124,12 +126,15 @@ public class StoryController {
 
     @PostMapping("/storyRegister")
     @Transactional(rollbackFor = {Exception.class})
-    public RedirectView storyRegister(StoryVO storyVO, StoryTagVO storyTagVO, RedirectAttributes rttr){
+    public RedirectView storyRegister(StoryVO storyVO, StoryTagVO storyTagVO, RedirectAttributes rttr, HttpServletRequest req){
         UserVO userVO = new UserVO();
-//        HttpSession session = ;
-        userVO.setUserNum(1L);
+        HttpSession session = req.getSession();
+
+        userVO.setUserNum((Long) session.getAttribute("userNum"));
         storyVO.setUserVO(userVO);
+
         Long storyNum = storyRepository.save(storyVO).getStoryNum();
+
         if(storyTagVO.getTagName() != null){
             String[] tagName = storyTagVO.getTagName().split(",");
             for (int i = 0; i<tagName.length; i++) {
@@ -139,6 +144,7 @@ public class StoryController {
                 storyTagRepository.save(storyTagVOS);
             }
         }
+
         rttr.addAttribute("storyNum", storyNum);
         return new RedirectView("storyDetail");
     }
@@ -199,7 +205,7 @@ public class StoryController {
     @ResponseBody
     @GetMapping("/storyInsert/{storyReply}/{userNum}/{storyNum}")
     public String insertReply(@PathVariable("storyReply") String storyReply, @PathVariable("userNum") UserVO userNum, @PathVariable("storyNum") StoryVO storyNum){
-         storyReplyRepository.save(StoryReplyVO.builder().storyVO(storyNum).userVO(userNum).storyReply(storyReply).build());
+        storyReplyRepository.save(StoryReplyVO.builder().storyVO(storyNum).userVO(userNum).storyReply(storyReply).build());
         return "success";
     }
 
@@ -213,13 +219,21 @@ public class StoryController {
 
     // 좋아요
     @ResponseBody
-    @GetMapping("/likeStory/{userNum}/{storyNum}")
-    public String likeStory(@PathVariable("userNum") UserVO userNum, @PathVariable("storyNum") StoryVO storyNum){
-        StoryLikeVO byUserVOAndStoryVO = storyLikeRepository.findByUserVOAndStoryVO(userNum, storyNum);
+    @Transactional
+    @GetMapping("/likeStory/{storyNum}/{userNum}")
+    public String likeStory(@PathVariable("userNum") Long userNum, @PathVariable("storyNum") Long storyNum){
+        StoryLikeVO byUserVOAndStoryVO = storyLikeRepository.findByUserVO_UserNumAndStoryVO_StoryNum(userNum, storyNum);
         if(byUserVOAndStoryVO != null){
+            log.info("삭제 들어옴");
+            storyLikeRepository.deleteByUserVO_UserNumAndStoryVO_StoryNum(userNum, storyNum);
             return "fail";
         }
-        storyLikeRepository.save(StoryLikeVO.builder().userVO(userNum).storyVO(storyNum).build());
+        log.info("저장 들어옴");
+        UserVO userVO = new UserVO();
+        userVO.setUserNum(userNum);
+        StoryVO storyVO = new StoryVO();
+        storyVO.setStoryNum(storyNum);
+        storyLikeRepository.save(StoryLikeVO.builder().userVO(userVO).storyVO(storyVO).build());
         return "success";
     }
 

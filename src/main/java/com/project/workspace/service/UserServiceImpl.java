@@ -79,4 +79,7 @@ public class UserServiceImpl implements UserService {
     public List<UserAlertVO> getAlertList() {
         return userDAO.getAlertList();
     }
+
+    @Override
+    public List<UserVO> getUserList(UserFilter userFilter) {return userDAO.getUserList(userFilter);}
 }
