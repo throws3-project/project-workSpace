@@ -35,4 +35,6 @@ public interface UserMapper {
 
     public List<UserPointVO> getPointList();
     public void insertPoint(Long userNum, Date pointDate, int pointValue, String pointHistory, String pointStatus);
+
+    public List<UserVO> getUserList(UserFilter userFilter);
 }

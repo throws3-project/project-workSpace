@@ -154,8 +154,8 @@ public class KakaoController {
             session.setAttribute("userNum", userVO.getUserNum());
             session.setAttribute("profile", userVO);
             String userNickName = userVO.getUserNickName();
-            model.addAttribute("userNickName", userNickName);
 
+            model.addAttribute("userNickName", userNickName);
 
             url = "main/index";
         }

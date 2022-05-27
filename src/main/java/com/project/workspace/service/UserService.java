@@ -35,4 +35,6 @@ public interface UserService {
     public List<UserPointVO> getPointList();
 
 
+    public List<UserVO> getUserList(UserFilter userFilter);
+
 }

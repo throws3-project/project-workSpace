@@ -100,4 +100,5 @@ public class UserServiceImpl implements UserService {
     public List<UserPointVO> getPointList() {
         return userDAO.getPointList();
     }
+    public List<UserVO> getUserList(UserFilter userFilter) {return userDAO.getUserList(userFilter);}
 }

@@ -7,7 +7,7 @@
                 <ul class="bar web">
                     <li><a href="/main/userList">팀원찾기</a></li>
                     <li><a href="/project/projectList">프로젝트/스터디</a></li>
-                    <li><a href="/story/storyList">블로그</a></li>
+                    <li><a th:href="@{/story/storyList(userNum=${session.userNum})}">블로그</a></li>
                     <li><a href="/lounge">라운지</a></li>
                 </ul>
                 <div class="loginWrap" th:if="${session.userNum == null}"><a class="joinAndLogin">로그인</a><a class="joinAndLogin">가입</a></div>
