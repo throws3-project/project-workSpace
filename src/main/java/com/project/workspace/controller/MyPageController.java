@@ -40,6 +40,7 @@ public class MyPageController {
     private final StoryService storyService;
     private final StoryRepository storyRepository;
     private final ProjectRepository projectRepository;
+//    private  final ProjectMemberRepository projectMemberRepository;
 
     private final UserService userService;
 
@@ -50,6 +51,7 @@ public class MyPageController {
         HttpSession session = request.getSession();
         Long userNum = (Long) session.getAttribute("userNum");
         UserVO userVO = userRepository.getById(userNum);
+        List<ProjectVO> projectVO = projectRepository.findByUserVO(userVO);
 
 //        UserVO userVO = userRepository.findById(userNum).get();
         List<UserPortfolioVO> userPortfolioVO = userPortfolioRepository.findByUserVO(userVO);
@@ -86,6 +88,7 @@ public class MyPageController {
         model.addAttribute("allStoryList", allStoryList);
         model.addAttribute("projectList", projectList);
         model.addAttribute("projectLikeList", projectLikeList);
+
 
 
         log.info("------------------------------------");

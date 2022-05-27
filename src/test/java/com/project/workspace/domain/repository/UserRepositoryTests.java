@@ -30,6 +30,7 @@ public class UserRepositoryTests {
 //    @Test
 //    public void userVOTests(){
 //        String id = "hsk123";
+//        String gender = "m";
 //        String location = "서울시";
 //        String nickname = "만두";
 //        String phone = "01087223322";
@@ -48,7 +49,7 @@ public class UserRepositoryTests {
 //        String userImgUuid="12";
 //        String userImgName="2";
 //        String userImgPath="2";
-//        userRepository.save(UserVO.builder().userId(id).userLocation(location).userNickName(nickname).userPhone(phone).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
+//        userRepository.save(UserVO.builder().userId(id).userLocation(location).userNickName(nickname).userPhone(콜).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
 //    }
 
     // 유저 아이디로 검색
