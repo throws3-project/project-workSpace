@@ -33,6 +33,8 @@
             <span>1단계.</span>
             "결제 금액을 선택해주세요."
         </p>
+        <form method="get" name="charge" action="/charge">
+            <input type="hidden" id="workPoint" name="workPoint">
         <div class="chargeTable">
             <table>
                 <thead>
@@ -42,11 +44,12 @@
                     <th>상품 상세</th>
                 </tr>
                 </thead>
+
                 <tbody>
                 <tr>
                     <td>
                         <label class="checkBox">
-                            <input type="radio" name="price" value="10000">
+                            <input type="radio" name="price" value="10">
                             <span class="checkmark"></span>
                         </label>
                     </td>
@@ -56,7 +59,7 @@
                 <tr>
                     <td>
                         <label class="checkBox">
-                            <input type="radio" name="price" value="20000">
+                            <input type="radio" name="price" value="22">
                             <span class="checkmark"></span>
                         </label>
                     </td>
@@ -66,7 +69,7 @@
                 <tr>
                     <td>
                         <label class="checkBox">
-                            <input type="radio" name="price" value="50000">
+                            <input type="radio" name="price" value="56">
                             <span class="checkmark"></span>
                         </label>
                     </td>
@@ -76,7 +79,7 @@
                 <tr>
                     <td>
                         <label class="checkBox">
-                            <input type="radio" name="price" value="100000">
+                            <input type="radio" name="price" value="115">
                             <span class="checkmark"></span>
                         </label>
                     </td>
@@ -95,7 +98,7 @@
         </p>
         <div class="normalPayment paymentMethod">
             <p>일반 결제</p>
-            <form method="get" name="charge" action="/charge">
+
             <div>
                 <button id="check_module">신용카드</button>
                 <button>휴대폰결제</button>
@@ -123,6 +126,8 @@
 <script src="/js/chat.js"></script>
 <script src="/js/payment.js"></script>
 <script>
+
+
     $("#check_module").on("click",function (e) {
         e.preventDefault();
         var IMP = window.IMP;
@@ -131,7 +136,7 @@
             pg: 'inicis',
             pay_method: 'card',
             merchant_uid: 'merchant_' + new Date().getTime(),
-            name: "bit Coin",
+            name: "bit Point",
             amount: 10,
             buyer_email: "thdwnsgud79@naver.com",
             buyer_name: "송준형",
@@ -155,5 +160,6 @@
             alert(msg);
         });
     });
+
 </script>
 </html>

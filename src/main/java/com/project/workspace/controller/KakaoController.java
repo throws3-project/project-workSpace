@@ -280,12 +280,12 @@ public class KakaoController {
     
 //    아임포트 사용시 포인트 올라가는 컨트롤러
     @GetMapping("/charge")
-    public RedirectView charge(HttpServletRequest req){
+    public RedirectView charge(HttpServletRequest req, Long price, Long workPoint){
         HttpSession session = req.getSession();
         Long userNum = (Long)session.getAttribute("userNum");
 
         UserVO userVO = userRepository.findByUserNum(userNum);
-        Long userPoint = userVO.getUserPoint() + 200l;
+        Long userPoint = userVO.getUserPoint() + price;
 
         userVO.setUserPoint(userPoint);
 
