@@ -3,16 +3,16 @@
 
 <head>
     <meta charset="UTF-8" name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css"/>
     <link rel="stylesheet" href="/css/header.css" type="text/css">
     <link rel="stylesheet" href="/css/footer.css" type="text/css">
     <link rel="stylesheet" href="/css/chat.css" type="text/css">
-    <link rel="stylesheet" href="/css/storywrite.css" type="text/css" />
+    <link rel="stylesheet" href="/css/storywrite.css" type="text/css"/>
 
     <!-- Toast UI Editor -->
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"/>
 
 
     <title>storywrite</title>
@@ -29,7 +29,7 @@
             font-size: 13px;
         }
 
-        .skillResult a{
+        .skillResult a {
             text-decoration: none;
             cursor: pointer;
             background-color: #336d47;
@@ -43,174 +43,174 @@
 </head>
 
 <body>
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 
 
-    <th:block th:insert="/fix/header.html :: headFragment"/>
+<th:block th:insert="/fix/header.html :: headFragment"/>
 <!-- 스토리작성확인모 달 -->
 <div class="modalStory4 modals">
     <div id="modalStory4Page">
         <a class="modalStoryCloseBtn4"><img src="/images/free-icon-font-cross-3917759.png" class="xIcons4 xBtns"></a>
         <div class="storyLetter4">
-            <p class="completePStory4">작성되었습니다.</p>     
-             <button class="mdBtnStoryBtn4 xBtns">확인</button>
+            <p class="completePStory4">작성되었습니다.</p>
+            <button class="mdBtnStoryBtn4 xBtns">확인</button>
         </div>
     </div>
 </div>
 
-    <section class="storyWriteSection">
-        <div class="storyWriteTit">
-            <p><span>방구석에서 쓰는 소소한 갑분글,</span>나만의 이야기를 들려주마</p>
-            <div class="writeNotice">
-                <p>Tip. 나의 프로필 하단내 글 목록 및 스토리 타임라인에 게재됩니다. <span>단, 문제(저작권 등)소지가 있는 글일 경우 관리자 판단하에 글을 내릴 수 있습니다.</span>
-                </p>
-            </div>
+<section class="storyWriteSection">
+    <div class="storyWriteTit">
+        <p><span>방구석에서 쓰는 소소한 갑분글,</span>나만의 이야기를 들려주마</p>
+        <div class="writeNotice">
+            <p>Tip. 나의 프로필 하단내 글 목록 및 스토리 타임라인에 게재됩니다. <span>단, 문제(저작권 등)소지가 있는 글일 경우 관리자 판단하에 글을 내릴 수 있습니다.</span>
+            </p>
         </div>
-        <div class="buildProjectWrap">
-            <div class="buildProjectContents">
+    </div>
+    <div class="buildProjectWrap">
+        <div class="buildProjectContents">
 
-                <!--  프로젝트 양식 -->
-                <div class="make">
-                    <form action="" id="frm" name="projectForm" method="post" enctype="multipart/form-data">
-                        <div class="question">
-                            <p>유형</p>
+            <!--  프로젝트 양식 -->
+            <div class="make">
+                <form action="" id="frm" name="projectForm" method="post" enctype="multipart/form-data">
+                    <div class="question">
+                        <p>유형</p>
+                    </div>
+
+                    <div class="answer">
+                        <ul>
+                            <li class="checkBoxWrap selectPurpose">
+                                <label class="checkBox">
+                                    <span class="txt">정보</span>
+                                    <input type="radio" name="step2_radio" value="정보">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkBox">
+                                    <span class="txt">노하우</span>
+                                    <input type="radio" name="step2_radio" value="노하우">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkBox">
+                                    <span class="txt">테스터 모집</span>
+                                    <input type="radio" name="step2_radio" value="테스터 모집">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkBox">
+                                    <span class="txt">이벤트</span>
+                                    <input type="radio" name="step2_radio" value="이벤트">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkBox">
+                                    <span class="txt">출시/업데이트</span>
+                                    <input type="radio" name="step2_radio" value="출시/업데이트">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="question">
+                        <p>제목</p>
+                    </div>
+
+                    <div class="answer">
+                        <div class="inputWrap">
+                            <input placeholder="최대 30자까지 입력가능합니다" name="storyTitle" minlength="3" maxlength="30"
+                                   autocomplete="off">
                         </div>
+                    </div>
 
-                        <div class="answer">
-                            <ul>
-                                <li class="checkBoxWrap selectPurpose">
-                                    <label class="checkBox">
-                                        <span class="txt">정보</span>
-                                        <input type="radio" name="step2_radio" value="정보">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="checkBox">
-                                        <span class="txt">노하우</span>
-                                        <input type="radio" name="step2_radio" value="노하우">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="checkBox">
-                                        <span class="txt">테스터 모집</span>
-                                        <input type="radio" name="step2_radio" value="테스터 모집">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="checkBox">
-                                        <span class="txt">이벤트</span>
-                                        <input type="radio" name="step2_radio" value="이벤트">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="checkBox">
-                                        <span class="txt">출시/업데이트</span>
-                                        <input type="radio" name="step2_radio" value="출시/업데이트">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="question"></div>
 
-                        <div class="question">
-                            <p>제목</p>
-                        </div>
-
-                        <div class="answer">
-                            <div class="inputWrap">
-                                <input placeholder="최대 30자까지 입력가능합니다" name="storyTitle" minlength="3" maxlength="30" autocomplete="off">
+                    <div class="answer">
+                        <div class="thumbnailWrap">
+                            <div class="thumbnailBox">
+                                <button type="button" id="imgUploadBtn"></button>
+                                <img class="thumbnailImage2"
+                                     src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
+                                <input type="file" style="display: none;" id="imgUpload" name="imgUpload">
                             </div>
-                        </div>
-
-                        <div class="question"></div>
-
-                        <div class="answer">
-                            <div class="thumbnailWrap">
-                                <div class="thumbnailBox">
-                                    <button type="button" id="imgUploadBtn"></button>
-                                    <img class="thumbnailImage2"
-                                        src="https://letspl.me/assets/images/ic-camera-alt-24-px.png">
-                                    <input type="file" style="display: none;" id="imgUpload" name="imgUpload">
+                            <div class="uploadBox">
+                                <div>
+                                    <label for="imgUpload">이미지 업로드</label>
                                 </div>
-                                <div class="uploadBox">
-                                    <div>
-                                        <label for="imgUpload">이미지 업로드</label>
-                                    </div>
-                                    <ul>
-                                        <li>&nbsp;가로/세로의 비율이 3:1일 때 썸네일이 가장 예쁩니다.
-                                        </li>
-                                        <li>&nbsp;저작권에 위배되지 않는 파일만 업로드해주세요.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="uploadImgViewWrap">
-                                <p class="uploadImgPtag">&nbsp;이미지가 없으신 분들은 아래에서 이미지를 선택해주세요.</p>
-                                <ul class="uploadImgUl">
-                                    <li class="uploadImgLi">
-                                        <img src="/images/썸네일0.png">
+                                <ul>
+                                    <li>&nbsp;가로/세로의 비율이 3:1일 때 썸네일이 가장 예쁩니다.
                                     </li>
-                                    <li class="uploadImgLi">
-                                        <img src="/images/썸네일6.png">
-                                    </li>
-                                    <li class="uploadImgLi">
-                                        <img src="/images/썸네일5.png">
-                                    </li>
-                                    <li class="uploadImgLi">
-                                        <img src="/images/썸네일4.png">
-                                    </li>
-                                    <li class="uploadImgLi">
-                                        <img src="/images/썸네일2.png">
-                                    </li>
-                                    <li class="uploadImgLi">
-                                        <img src="/images/썸네일3.png">
+                                    <li>&nbsp;저작권에 위배되지 않는 파일만 업로드해주세요.
                                     </li>
                                 </ul>
                             </div>
                         </div>
-    
-                        <div class="answer">
-                                <!--                            <textarea id="summernote" name="editordata"></textarea>-->
-                                <div id="editor"></div>
+                        <div class="uploadImgViewWrap">
+                            <p class="uploadImgPtag">&nbsp;이미지가 없으신 분들은 아래에서 이미지를 선택해주세요.</p>
+                            <ul class="uploadImgUl">
+                                <li class="uploadImgLi">
+                                    <img src="/images/썸네일0.png">
+                                </li>
+                                <li class="uploadImgLi">
+                                    <img src="/images/썸네일6.png">
+                                </li>
+                                <li class="uploadImgLi">
+                                    <img src="/images/썸네일5.png">
+                                </li>
+                                <li class="uploadImgLi">
+                                    <img src="/images/썸네일4.png">
+                                </li>
+                                <li class="uploadImgLi">
+                                    <img src="/images/썸네일2.png">
+                                </li>
+                                <li class="uploadImgLi">
+                                    <img src="/images/썸네일3.png">
+                                </li>
+                            </ul>
                         </div>
+                    </div>
+
+                    <div class="answer">
+                        <!--                            <textarea id="summernote" name="editordata"></textarea>-->
+                        <div id="editor"></div>
+                    </div>
 
 
-                        <div id="tag" class="marginBottom">
-                            <p>검색태그 (#)</p>
-                            <div class="answer" id="skill">
-                                <input type="text" class="able" id="keyword" placeholder="태그는 최대 5개 가능합니다" minlength="3"
-                                       maxlength="20" autocomplete="off">
-                            </div>
-                            <div class="skillResult">
-
-                            </div>
+                    <div id="tag" class="marginBottom">
+                        <p>검색태그 (#)</p>
+                        <div class="answer" id="skill">
+                            <input type="text" class="able" id="keyword" placeholder="태그는 최대 5개 가능합니다" minlength="3"
+                                   maxlength="20" autocomplete="off">
                         </div>
+                        <div class="skillResult">
 
-                        <div class="confirmBtnWrap btnWrap">
-                            <button type="button" value="임시저장" class="grayBtn saveBtn">임시저장</button>
-                            <button type="button" value="완료" class="pinkBtn confirmBtn completeMd">작성완료</button>
                         </div>
-                        <input type="hidden" name="storyPart">
-                        <input type="hidden" name="storyContent">
-                    </form>
-                </div>
+                    </div>
 
+                    <div class="confirmBtnWrap btnWrap">
+                        <button type="button" value="임시저장" class="grayBtn saveBtn">임시저장</button>
+                        <button type="button" value="완료" class="pinkBtn confirmBtn completeMd">작성완료</button>
+                    </div>
+                    <input type="hidden" name="storyPart">
+                    <input type="hidden" name="storyContent">
+                </form>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <th:block th:insert="/fix/chat.html :: sideFragment"/>
-    <th:block th:insert="/fix/footer.html :: footerFragment"/>
+<th:block th:if="${session?.userNum}" th:insert="/fix/story.html :: sideFragment"/>
+<th:block th:insert="/fix/chat.html :: sideFragment"/>
+<th:block th:insert="/fix/footer.html :: footerFragment"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/header.js"></script>
-<script src="/js/chat.js"></script>
-<script src="/js/storywrite.js"></script>
 <script>
     let storyImgName;
     let storyImgPath;
     let storyImgUuid;
 
-    $(document).ready(function () {
-        $(".uploadImgLi").each(function (i,img) {
-            $(img).children().on("click",function () {
+        $(document).ready(function () {
+        $(".uploadImgLi").each(function (i, img) {
+            $(img).children().on("click", function () {
                 storyImgName = $(img).children().attr("src");
                 storyImgPath = "";
                 storyImgUuid = "";
@@ -252,39 +252,48 @@
         });
     })
 
-        $(".completeMd").on("click",function () {
-            // console.log()
-            if(!$("input[name='step2_radio']").is(":checked")){
-                alert("유형을 골라주세요");
-                return;
-            }
-
-            if(!$("input[name='storyContent']").val()){
-                alert("제목을 입력해주세요")
-            }
-
-
-
+    $(".completeMd").on("click", function () {
 
         $("input[name='storyPart']").val($("input:checked").val());
         $("input[name='storyContent']").val(editor.getHTML());
-            $(".skillTag").each(function (i,tag) {
-                let str="";
-                if ($(tag).text()) {
-                    str = "<input type='hidden' name='tagName' value='"+$(tag).text()+"'>"
-                    $("#frm").append(str);
-                }
-            })
-            let img = "";
-            console.log(storyImgName);
-            img += "<input type='hidden' name='storyImgName' value='" + storyImgName + "'>"
-            img += "<input type='hidden' name='storyImgPath' value='" + storyImgPath + "'>"
-            img += "<input type='hidden' name='storyImgUuid' value='" + storyImgUuid + "'>"
 
-            $("#frm").append(img);
+        if (!$("input[name='step2_radio']").is(":checked")) {
+            alert("유형을 골라주세요");
+            return;
+        }
 
-        $("#frm").attr("action", "/story/storyRegister");
-        $("#frm").submit();
+        if (!$("input[name='storyTitle']").val()) {
+            alert("제목을 입력해주세요");
+            return;
+        }
+
+        if ($("input[name='storyContent']").val().length > 50) {
+            alert("50글자 이상의 글을 입력해주세요");
+            return;
+        }
+
+        $(".skillTag").each(function (i, tag) {
+            let str = "";
+            if ($(tag).text()) {
+                str = "<input type='hidden' name='tagName' value='" + $(tag).text() + "'>"
+                $("#frm").append(str);
+            }
+        })
+        let img = "";
+        img += "<input type='hidden' name='storyImgName' value='" + storyImgName + "'>"
+        img += "<input type='hidden' name='storyImgPath' value='" + storyImgPath + "'>"
+        img += "<input type='hidden' name='storyImgUuid' value='" + storyImgUuid + "'>"
+
+        $("#frm").append(img);
+
+        $(".modalStory4").css('display','block');
+
+        $(".xBtns").on("click",function(){
+            $("#frm").attr("action", "/story/storyRegister");
+            $("#frm").submit();
+        });
     })
 </script>
+<script src="/js/chat.js"></script>
+<script src="/js/storywrite.js"></script>
 </html>

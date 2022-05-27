@@ -57,7 +57,7 @@ public class LoungeServiceImpl implements LoungeService{
 
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        LoungeVO loungeVO= loungeRepository.save(LoungeVO.builder().loungeContent(loungeContent).loungeNum(loungeNum).userVO(userVO).build());
+        LoungeVO loungeVO= loungeRepository.save(LoungeVO.builder().loungeContent(loungeContent).loungeDate(sdf.format(date)).loungeNum(loungeNum).userVO(userVO).build());
         return "success";
     }
 }
