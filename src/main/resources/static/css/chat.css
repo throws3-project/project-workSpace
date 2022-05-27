@@ -3,10 +3,10 @@ div.chattingWrap {
     position: fixed;
     left: 50%;
     width: 100%;
+    bottom: 0;
     max-width: 1200px;
     margin: 0 auto;
     z-index: 6999;
-    bottom: 0;
     transform: translateX(-50%);
     display: block;
     text-align: right;
@@ -35,6 +35,24 @@ div.chattingOpen:after {
     background-size: 55px auto;
     z-index: 99;
     background-image: url("https://letspl.me/_next/static/media/ic_chatting.15e3dffd8b339e28846d7ab7827b7b92.svg");
+}
+
+div.writeButton{
+    background-color: #a06bff;
+    background-image: url('https://letspl.me/_next/static/media/ic_writeStory.59a41f9112c5349217afe9b67167a8ef.svg');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: auto;
+    width: 58px;
+    height: 58px;
+    bottom: 79px;
+    right: 0;
+    position: fixed;
+    z-index: 99;
+    margin-left: auto;
+    box-shadow: 0 3px 20px 0 rgb(0 0 0 / 12%);
+    border-radius: 100px;
+    cursor: pointer;
 }
 
 div.chatting {

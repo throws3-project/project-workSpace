@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8" name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>storyview</title>
-    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css"/>
     <link rel="stylesheet" href="/css/header.css" type="text/css">
     <link rel="stylesheet" href="/css/footer.css" type="text/css">
     <link rel="stylesheet" href="/css/chat.css" type="text/css">
-    <link rel="stylesheet" href="/css/storyview.css" type="text/css" />
+    <link rel="stylesheet" href="/css/storyview.css" type="text/css"/>
 </head>
 <th:block th:insert="/fix/header.html :: headFragment"/>
 <!-- 스토리삭제확인모달 -->
@@ -17,9 +17,9 @@
     <div id="modalStory2Page">
         <a class="modalStoryCloseBtn2"><img src="/images/free-icon-font-cross-3917759.png" class="xIcons2 xBtns"></a>
         <div class="storyLetter2">
-            <p class="completePStory2">삭제되었습니다.</p>     
+            <p class="completePStory2">삭제되었습니다.</p>
 
-             <button class="mdBtnStoryBtn2 xBtns">확인</button>
+            <button class="mdBtnStoryBtn2 xBtns">확인</button>
         </div>
     </div>
 </div>
@@ -28,189 +28,209 @@
     <div id="modalStory3Page">
         <a class="modalStoryCloseBtn3"><img src="/images/free-icon-font-cross-3917759.png" class="xIcons3 xBtns"></a>
         <div class="storyLetter3">
-            <p class="completePStory3">스토리 삭제</p>     
-             <p class="completePStory33">스토리를 삭제하시겠습니까?</p>
-             
-             <div class="mdBtn">
+            <p class="completePStory3">스토리 삭제</p>
+            <p class="completePStory33">스토리를 삭제하시겠습니까?</p>
+
+            <div class="mdBtn">
                 <button class="mdBtnRemoves">삭제</button>
                 <button class="mdBtnBacks xBtns">취소</button>
             </div>
         </div>
     </div>
 </div>
-<body>
-    <!-- 상단 스크롤 배너부분 -->
-    <div class="storyViewBanner" >
-        <div class="storyViewBannerImgWrap">
-            <img class="bannerImg" src="/images/스토리배너1.png">
+<!-- 하트 모달-->
+<div class="modalWrapOpen">
+    <div class="commonModal"><p class="modalTit">로그인이 필요한 기능입니다</p>
+        <button class="closeBtn"><img src="/images/free-icon-font-cross-3917759.png" alt="close"></button>
+        <div class="commonModalContent"><p>로그인을 하시겠습니까?</p></div>
+        <div class="btnWrap doubleBtnWrap">
+            <button class="btn whiteBtn">아니오</button>
+            <button class="btn redBtn">예</button>
         </div>
-        <div class="storyBannerTxtWrap">
-            <div class="storyBannerTagWrap">
-                <span class="storyBannerTag blue" th:text="${storyVO.storyPart}"></span>
-            </div>
-            <h2 th:text="${storyVO.storyTitle}"></h2>
-            <div class="storyBannerHashTag">
-                <th:block th:each="tag, i:${storyVO.getTags()}">
-                    <span th:text="|#${tag.getTagName()}"|></span>
-                </th:block>
-            </div>
-            <div class="storyBannerBottomWrap">
-                <span class="bannerDateTxt" th:text="|작성일 : ${storyVO.storyDate}|"></span>
-                <div class="bannerStatusWrap">
-                    <p class="bannerStatusViewDiv" style="margin-right: 16px !important;">
-                        <img class="bannerStatusImg" src="/images/eyes.png">
-                        <span class="bannerStatusTxt" th:text="${storyVO.storyReadCount}"></span>
-                    </p>
-                        <p class="bannerStatusMsgDiv" style="margin-right: 16px !important;">
-                        <img class="bannerStatusImg" src="/images/msg.png">
-                        <span class="bannerStatusTxt" th:text="${storyVO.getReplies().size()}"></span>
-                        </p>
-                         <p class="bannerStatusLikeDiv" style="margin-right: 16px !important;">
-                            <img class="bannerStatusImg" src="/images/likeup.png">
-                            <span class="bannerStatusTxt" th:text="${storyVO.getLikes.size()}"></span>
-                         </p>
-                </div>
+    </div>
+</div>
+<body>
+<!-- 상단 스크롤 배너부분 -->
+<div class="storyViewBanner">
+    <div class="storyViewBannerImgWrap">
+        <img class="bannerImg"
+             th:src="@{/story/displayTh(storyImgPath=${storyVO.getStoryImgPath()}, storyImgUuid=${storyVO.getStoryImgUuid()}, storyImgName=${storyVO.getStoryImgName()})}">
+    </div>
+    <div class="storyBannerTxtWrap">
+        <div class="storyBannerTagWrap">
+            <span class="storyBannerTag blue" th:text="${storyVO.storyPart}"></span>
+        </div>
+        <h2 th:text="${storyVO.storyTitle}"></h2>
+        <div class="storyBannerHashTag">
+            <th:block th:each="tag, i:${storyVO.getTags()}">
+                <span th:text="|#${tag.getTagName()}" |></span>
+            </th:block>
+        </div>
+        <div class="storyBannerBottomWrap">
+            <span class="bannerDateTxt" th:text="|작성일 : ${#dates.format(storyVO.storyDate, 'yyyy-MM-dd HH:mm:ss')}|"></span>
+            <div class="bannerStatusWrap">
+                <p class="bannerStatusViewDiv" style="margin-right: 16px !important;">
+                    <img class="bannerStatusImg" src="/images/eyes.png">
+                    <span class="bannerStatusTxt" th:text="${storyVO.storyReadCount}"></span>
+                </p>
+                <p class="bannerStatusMsgDiv" style="margin-right: 16px !important;">
+                    <img class="bannerStatusImg" src="/images/msg.png">
+                    <span class="bannerStatusTxt" th:text="${storyVO.getReplies().size()}"></span>
+                </p>
+                <p class="bannerStatusLikeDiv" style="margin-right: 16px !important;">
+                    <img class="bannerStatusImg" src="/images/likeup.png">
+                    <span class="bannerStatusTxt" th:text="${storyVO.getLikes.size()}"></span>
+                </p>
             </div>
         </div>
     </div>
-    <!-- 여기까지 상단배너 -->
+</div>
+<!-- 여기까지 상단배너 -->
 
-    <!-- 내용 -->
-    <div class="storyViewWrap">
-        <!-- 콘텐츠 전체 -->
-        <div class="storyViewContentsWrap" th:attr="data-num=${storyVO.storyNum}">
-            <!-- 콘텐츠 상단 프로필 -->
-            <div class="storyViewContentsPro">
-                <!-- 프로필 오른쪽 좋아요-->
-                <div class="contentsProHeart">
-                    <div class="heart"></div>
-                </div>
-                <!-- 프로필 사진 -->
-                <div class="contentsProImg">
-                    <img class="userImg" src="/images/여.png">
-                </div>
-                <!-- 프로필 내용 -->
-                <div class="contentsProfile">
-                    <p class="contentsProName contentsProNamePtag" th:text="${storyVO.getUserVO().getUserNickName()}"></p>
-                    <span class="contentsPro" th:text="|본캐 : 그래픽디자인 /${storyVO.getUserVO().getUserMainLevel()}|"></span>
-                    <span style="display:flex">
+<!-- 내용 -->
+<div class="storyViewWrap">
+    <!-- 콘텐츠 전체 -->
+    <div class="storyViewContentsWrap" th:attr="data-num=${storyVO.storyNum}">
+        <!-- 콘텐츠 상단 프로필 -->
+        <div class="storyViewContentsPro">
+            <!-- 프로필 오른쪽 좋아요-->
+            <div class="contentsProHeart">
+                <div class="heart"></div>
+            </div>
+            <!-- 프로필 사진 -->
+            <div class="contentsProImg">
+                <img class="userImg" src="/images/여.png">
+            </div>
+            <!-- 프로필 내용 -->
+            <div class="contentsProfile">
+                <p class="contentsProName contentsProNamePtag" th:text="${storyVO.getUserVO().getUserNickName()}"></p>
+                <span class="contentsPro" th:text="|본캐 : 그래픽디자인 /${storyVO.getUserVO().getUserMainLevel()}|"></span>
+                <span style="display:flex">
                     <span class="contentsPro">관심분야 : </span>
                     <span class="contentsPro">
-                       <th:block th:each="tag, i:${storyVO.getUserVO().getTags()}">
-                            <span th:if="${i.index == tag.size() - 1}" th:text="${tag}"></span>
-                            <span th:unless="${i.index == tag.size() - 1}" th:text="|${tag}, |"></span>
+                       <th:block th:each="tag, i:${storyVO.getUserVO().getInterests()}">
+                            <span th:if="${i.index == storyVO.getUserVO().getInterests().size() - 1}"
+                                  th:text="${tag.getInterest()}"></span>
+                            <span th:unless="${i.index == storyVO.getUserVO().getInterests().size() - 1}"
+                                  th:text="|${tag.getInterest()}}, |"></span>
                        </th:block>
                     </span>
                     </span>
-                    <!-- 프로필 하단 -->
-                    <div class="contentsProStatus">
-                        <p class="contentsProDiv" style="margin-right: 16px !important;">
-                            <img class="contentsStatusImg" src="/images/ico_like.png">
-                            <span class="contentsProTxt" th:text="${storyVO.getUserVO().getUsers().size()}"></span>
-                        </p>
-                         <p class="contentsProDiv" style="margin-right: 16px !important;">
-                             <img class="contentsStatusImg" src="/images/smile.png">
-                             <span class="contentsProTxt" th:text="|L${storyVO.getUserVO().getUserLevel()}|"></span>
-                         </p>
-                    </div>
-                </div>
-            </div>
-            <!-- 여기까지 콘텐츠 프로필 -->
-            <!-- 콘텐츠 내용 -->
-            <div class="storyViewContentsTxt">
-                <div class="contentsTxtWrap" th:utext="${storyVO.getStoryContent()}">
-                </div>
-            </div>
-            <div class="contentsBtnReplyWrap">
-                <a class="contentsBtnReply active">댓글 열기</a>
-                <div class="replyBtnWrap">
-                    <a class="txtBtn modify" th:href="@{/story/storyModify(storyNum=${storyVO.getStoryNum()})}">
-                        <img class="txtBtnImg" src="/images/modify.png">
-                    </a>
-                    <div class="sell">｜</div>
-                    <p class="txtBtn remove">
-                    <img class="txtBtnImg" src="/images/remove.png">
+                <!-- 프로필 하단 -->
+                <div class="contentsProStatus">
+                    <p class="contentsProDiv" style="margin-right: 16px !important;">
+                        <img class="contentsStatusImg" src="/images/ico_like.png">
+                        <span class="contentsProTxt" th:text="${storyVO.getUserVO().getUsers().size()}"></span>
+                    </p>
+                    <p class="contentsProDiv" style="margin-right: 16px !important;">
+                        <img class="contentsStatusImg" src="/images/smile.png">
+                        <span class="contentsProTxt" th:text="|L${storyVO.getUserVO().getUserLevel()}|"></span>
                     </p>
                 </div>
             </div>
         </div>
-        <!-- 여기까지 콘텐츠 전체 -->
-        <!-- 콘텐츠 댓글 -->
-        <div class="rpyAtiveWrap">
-
-        </div>
-            <!-- s -->
-
-        <!-- 댓글부분 여기까지 -->
-        <!-- 본인 스토리 다른거  -->
-        <div class="myStoryWrap">
-            <div class="myStory">
-                <ul class="storyTimeUl">
-                    <li class="storyTimeLi" th:each="list:${myList}">
-                        <div class="storyTimeLineLeft">
-                            <a th:href="@{/story/storyDetail(storyNum=${list.getStoryNum()})}">
-                            <div class="storyTimeLineImg">
-                                <img th:src="@{/story/displayTh(storyImgPath=${list.getStoryImgPath()}, storyImgUuid=${list.getStoryImgUuid()}, storyImgName=${list.getStoryImgName()})}">
-                            </div>
-                            </a>
-                            <a th:href="@{/story/storyDetail(storyNum=${list.getStoryNum()})}">
-                            <div class="storyTimeLineContents">
-                                <div class="timeLineTitWrap">
-                                    <span class="timeLintCategory" th:text="${list.getUserVO().getUserNickName()}"></span>
-                                    <p class="timeLineTit" th:text="${list.getStoryTitle()}"></p>
-                                </div>
-                                <div class="timeLineTxt">[[${list.getStoryContent()}]]</div>
-                               <div class="timeLineTagWrap">
-                                <th:block th:each="tag:${list.getTags()}">
-                                    <span th:text="|#${tag.getTagName()}|"></span>
-                                </th:block>
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="storyTimeLineRight">
-                            <div class="TimeLineStatusWrap">
-                                <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                    <img class="storyTimeLineDivImg" src="/images/eye.png">
-                                    <span class="divFooterTxt" th:text="${list.getStoryReadCount()}"></span>
-                                </p>
-                                <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                    <img class="storyTimeLineDivImg" src="/images/msg.png">
-                                    <span class="divFooterTxt" th:text="${list.getReplies().size()}"></span>
-                                </p>
-                                <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
-                                    <img class="storyTimeLineDivImg" src="/images/likeup.png">
-                                    <span class="divFooterTxt" th:text="${list.getLikes().size()}"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+        <!-- 여기까지 콘텐츠 프로필 -->
+        <!-- 콘텐츠 내용 -->
+        <div class="storyViewContentsTxt">
+            <div class="contentsTxtWrap" th:utext="${storyVO.getStoryContent()}">
             </div>
         </div>
-        <!-- 다른 스토리 추천 무조건 4개고정 -->
-        <div class="funnyStory">
-            <h3>재미있는 다른 스토리도 추천해드려요</h3>
-            <div class="seriesScroll">
-                <ul class="seriesUl">
-                    <li class="seriesLi" th:each="recommend:${recommendList}">
-                        <a th:href="@{/story/storyDetail(storyNum=${recommend.getStoryNum()})}">
-                            <div class="seriesImg">
-                                <img th:src="@{/story/displayTh(storyImgPath=${recommend.getStoryImgPath()}, storyImgUuid=${recommend.getStoryImgUuid}, storyImgName=${recommend.getStoryImgName})}">
-                            </div>
-                            <span class="storySubTit" th:text="${recommend.getStoryTitle()}"></span>
-                        </a>
-                    </li>
-                </ul>
+        <div class="contentsBtnReplyWrap">
+            <a class="contentsBtnReply active">댓글 열기</a>
+            <div class="replyBtnWrap" th:if="${storyVO.getUserVO().getUserNum() == session.userNum}">
+                <a class="txtBtn modify" th:href="@{/story/storyModify(storyNum=${storyVO.getStoryNum()})}">
+                    <img class="txtBtnImg" src="/images/modify.png">
+                </a>
+                <div class="sell">｜</div>
+                <p class="txtBtn remove">
+                    <img class="txtBtnImg" src="/images/remove.png">
+                </p>
             </div>
         </div>
     </div>
-    </section>
-    <th:block th:insert="/fix/chat.html :: sideFragment"/>
-    <th:block th:insert="/fix/footer.html :: footerFragment"/>
+    <!-- 여기까지 콘텐츠 전체 -->
+    <!-- 콘텐츠 댓글 -->
+    <div class="rpyAtiveWrap">
+
+    </div>
+    <!-- s -->
+
+    <!-- 댓글부분 여기까지 -->
+    <!-- 본인 스토리 다른거  -->
+    <div class="myStoryWrap">
+        <div class="myStory">
+            <ul class="storyTimeUl">
+                <li class="storyTimeLi" th:each="list:${myList}">
+                    <div class="storyTimeLineLeft">
+                        <a th:href="@{/story/storyDetail(storyNum=${list.getStoryNum()})}">
+                            <div class="storyTimeLineImg">
+                                <img th:src="@{/story/displayTh(storyImgPath=${list.getStoryImgPath()}, storyImgUuid=${list.getStoryImgUuid()}, storyImgName=${list.getStoryImgName()})}">
+                            </div>
+                        </a>
+                        <a th:href="@{/story/storyDetail(storyNum=${list.getStoryNum()})}">
+                            <div class="storyTimeLineContents">
+                                <div class="timeLineTitWrap">
+                                    <span class="timeLintCategory"
+                                          th:text="${list.getUserVO().getUserNickName()}"></span>
+                                    <p class="timeLineTit" th:text="${list.getStoryTitle()}"></p>
+                                </div>
+                                <div class="timeLineTxt">[[${list.getStoryContent()}]]</div>
+                                <div class="timeLineTagWrap">
+                                    <th:block th:each="tag:${list.getTags()}">
+                                        <span th:text="|#${tag.getTagName()}|"></span>
+                                    </th:block>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="storyTimeLineRight">
+                        <div class="TimeLineStatusWrap">
+                            <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                <img class="storyTimeLineDivImg" src="/images/eye.png">
+                                <span class="divFooterTxt" th:text="${list.getStoryReadCount()}"></span>
+                            </p>
+                            <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                <img class="storyTimeLineDivImg" src="/images/msg.png">
+                                <span class="divFooterTxt" th:text="${list.getReplies().size()}"></span>
+                            </p>
+                            <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">
+                                <img class="storyTimeLineDivImg" src="/images/likeup.png">
+                                <span class="divFooterTxt" th:text="${list.getLikes().size()}"></span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 다른 스토리 추천 무조건 4개고정 -->
+    <div class="funnyStory">
+        <h3>재미있는 다른 스토리도 추천해드려요</h3>
+        <div class="seriesScroll">
+            <ul class="seriesUl">
+                <li class="seriesLi" th:each="recommend:${recommendList}">
+                    <a th:href="@{/story/storyDetail(storyNum=${recommend.getStoryNum()})}">
+                        <div class="seriesImg">
+                            <img th:src="@{/story/displayTh(storyImgPath=${recommend.getStoryImgPath()}, storyImgUuid=${recommend.getStoryImgUuid}, storyImgName=${recommend.getStoryImgName})}">
+                        </div>
+                        <span class="storySubTit" th:text="${recommend.getStoryTitle()}"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+<th:block th:if="${session?.userNum}" th:insert="/fix/story.html :: sideFragment"/>
+<th:block th:insert="/fix/chat.html :: sideFragment"/>
+<th:block th:insert="/fix/footer.html :: footerFragment"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/js/header.js"></script>
+<script th:inline="javascript">
+    let userNum =[[${session.userNum}]]
+</script>
 <script src="/js/chat.js"></script>
 <script src="/js/storyListModule.js"></script>
 <script src="/js/storyview.js"></script>
