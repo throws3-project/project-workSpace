@@ -8,5 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface StoryLikeRepository extends JpaRepository<StoryLikeVO,Long> {
-    StoryLikeVO findByUserVOAndStoryVO(UserVO userNum, StoryVO storyVO);
+    StoryLikeVO findByUserVO_UserNumAndStoryVO_StoryNum(Long userNum, Long storyNum);
+    void deleteByUserVO_UserNumAndStoryVO_StoryNum(Long userNum, Long storyNum);
 }

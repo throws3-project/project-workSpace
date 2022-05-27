@@ -27,14 +27,14 @@ a{
     left: 0;
     width: 100%;
     position: relative;
-    top: 5%;
+    top: 10%;
     transform: translateY(-50%);
 }
 .storyBannerTxtWrap{
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    height: 360px;
+    height: 266px;
     box-sizing: border-box;
     padding-bottom: 70px;
     position: relative;
@@ -132,7 +132,7 @@ a{
 .storyViewWrap{
     box-sizing: border-box;
     max-width: 100%;
-    margin-top: 436px;
+    margin-top: 340px;
     position: relative;
     z-index: 5;
     background-color: #fff;
@@ -175,17 +175,17 @@ a{
     right: 0;
 }
 .heart{
-    width: 22px;
-    height: 21px;
+    width: 26px;
+    height: 26px;
     cursor: pointer;
     background-image: url('/images/grayheart.png');
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
 }
-.heart:hover{
-    width: 20px;
-    height: 20px;
+.contentsProHeart:hover div.heart{
+    width: 26px;
+    height: 26px;
     cursor: pointer;
     background-image: url('/images/redheart.png');
     background-repeat: no-repeat;
@@ -271,6 +271,7 @@ a{
     color: #222;
     line-height: 12px;
     cursor: pointer;
+    width: 60px;
 }
 
 /* 콘텐츠 댓글 */
@@ -634,6 +635,103 @@ button.mdBtnRemoves{
 
 }
 
+div.modalWrapOpen{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    display: none;
+}
+
+div.commonModal{
+    padding: 60px 20px 40px;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    max-width: 410px;
+    min-width: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all .2s;
+    z-index: 999999;
+}
+
+p.modalTit {
+    font-size: 1.125rem;
+    color: #42495b;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+}
+
+button.closeBtn {
+    width: 25px;
+    height: 25px;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 21px;
+    cursor: pointer;
+}
+
+button.closeBtn img{
+    width:100%;
+}
+
+div.commonModalContent p {
+    font-size: .75rem;
+    color: #8e8ea2;
+    text-align: center;
+    line-height: 1rem;
+}
+
+div.btnWrap {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.btnWrap button.whiteBtn {
+    border: 1px solid #00704a;
+    color: #00704a;
+    background-color: #fff;
+    height: 44px;
+    width: 49%;
+    box-sizing: border-box;
+    font-size: .75rem;
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div.btnWrap button.redBtn {
+    background-color: #00704a;
+    color: #fff;
+    height: 44px;
+    width: 49%;
+    border: none;
+    box-sizing: border-box;
+    font-size: .75rem;
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* 재미있는 스토리 추천 */
 
 .seriesUl::-webkit-scrollbar { width: 3.2px; height: 15px;} /* 스크롤 바 */
@@ -681,6 +779,7 @@ button.mdBtnRemoves{
     background-color: #000;
     overflow: hidden;
 }
+
 .seriesImg{
     width: 100%;
     height: 100%;
@@ -688,6 +787,7 @@ button.mdBtnRemoves{
     background-color: #222;
     opacity: .6;
 }
+
 .seriesImg img{
     width: 100%;
     height: 100%;
@@ -739,9 +839,6 @@ button.mdBtnRemoves{
     align-items: center;
     padding-right: 5px;
     box-sizing: border-box;
-}
-.contentsBtnReply{
-    width: 100%;
 }
 .remove {
     cursor: pointer;

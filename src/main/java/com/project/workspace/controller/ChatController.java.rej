@@ -1,0 +1,10 @@
+diff a/src/main/java/com/project/workspace/controller/ChatController.java b/src/main/java/com/project/workspace/controller/ChatController.java	(rejected hunks)
+@@ -44,7 +44,7 @@
+         model.addAttribute("room", room);
+         log.info("++++++++++++++++++++++++++++++48++++++++++++++++");
+         log.info(id);
+-        return "test";
++        return "chatRoom";
+     }
+ 
+     @GetMapping("/new")

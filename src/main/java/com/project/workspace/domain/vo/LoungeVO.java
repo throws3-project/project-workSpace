@@ -2,11 +2,13 @@ package com.project.workspace.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.*;
 import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.GenerationTime;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class LoungeVO {
     private String loungeContent;
     @Generated(GenerationTime.INSERT)
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "lounge_date")
+    @Column(name = "lounge_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private Date loungeDate;
 
     @JsonIgnore
@@ -56,6 +58,7 @@ public class LoungeVO {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        System.out.println(loungeDate);
         this.userVO = userVO;
     }
     public LoungeVO(){;}

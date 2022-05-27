@@ -44,6 +44,7 @@ public class ChatController {
         model.addAttribute("room", room);
         log.info("++++++++++++++++++++++++++++++48++++++++++++++++");
         log.info(id);
+        return "test";
         return "chatRoom";
     }
 
