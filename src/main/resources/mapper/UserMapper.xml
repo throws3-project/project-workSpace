@@ -80,4 +80,21 @@
         VALUES(#{userId},#{userNickName},#{userMainSkill},#{userMainDetail},#{userMainLevel},#{userCode},#{userImgName})
     </insert>
 
+
+    <select id="getUserList" resultType="userVO">
+        select * from tbl_user
+        <trim prefix="where(" suffix=")" prefixOverrides="and">
+        <trim prefix="and">
+        <if test="locationFilter!='' and locationFilter!='지역 미지정'">
+            user_location = #{locationFilter}
+        </if>
+        <if test="skillFilter!='' and skillFilter!='직무'">
+            user_main_detail = #{skillFilter}
+        </if>
+        </trim>
+        </trim>
+        order by user_num desc
+        limit 0,${limit}
+    </select>
+
 </mapper>

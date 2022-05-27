@@ -83,14 +83,6 @@ public class ProjectController {
     public Object[] projectFilter(ProjectFilter projectFilter) throws JSONException {
         List<ProjectVO> projectList = projectService.getProjectList(projectFilter);
 
-//        HashMap<String,Object> hashMap = new HashMap<>();
-//        JSONArray jsonArray = new JSONArray();
-//        JSONObject json = new JSONObject(hashMap);
-//        for(ProjectVO project : projectList){
-//            json.put("project",project);
-//            json.put("persons",projectPersonRepository.getAllByProjectVO(project));
-//            jsonArray.put(json);
-//        }
         Object[] list = new Object[projectList.size()];
         for (int i=0; i< projectList.size();i++) {
             Object[] projectArray = {projectList.get(i), projectPersonRepository.getAllByProjectVO(projectList.get(i))};
