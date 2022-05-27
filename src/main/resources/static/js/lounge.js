@@ -29,7 +29,7 @@ function lounge(){
         str += '</li>';
         str += '</ul>';
         str += '</p>';
-        str += '<span class="time">' + loungeVOs[i].loungeDate + '</span>';
+        str += '<span class="time">' + moment(loungeVOs[i].loungeDate).format('YYYY MM DD HH:mm:ss') + '</span>';
         str += '</div>';
         str += '</div>';
         str += '<div class="replyMiddle">';
@@ -184,6 +184,7 @@ function getList(html, loungeNum){
                 return;
             }
             for (let i = 0; i < replies.length; i++) {
+                console.log(replies[i].loungeReplyDate);
                 str += "<div class='replyActive'>";
                 str += "<div class='activeWrap'>";
                 str += "<div class='activeTop'>";
@@ -209,7 +210,7 @@ function getList(html, loungeNum){
                 str += "</li>";
                 str += "</ul>";
                 str += "</p>";
-                str += "<span class='activeDate'>" + replies[i].loungeReplyDate + "</span>";
+                str += "<span class='activeDate'>" + moment(replies[i].loungeReplyDate).format('YYYY MM DD HH:mm:ss') + "</span>";
                 str += "</div>";
                 str += "<div class='activeTxt'>";
                 str += "<textarea class='activeTextArea' maxlength='500' placeholder='댓글을 작성해주세요' rows='2' readonly>" + replies[i].loungeReplyContent + "</textarea>";
@@ -363,19 +364,19 @@ $("p.modify").on("click", function(){
 
 // 임시 수정 버튼
 
-// $("div.replyBottom").on("mouseover", function(){
-//     let loungeContent = $(this).prev().find("textarea").val();
-//     let loungeNum = $(this).parents("div.replySection").data("reply");
-//     console.log(loungeContent);
-//     console.log(loungeNum);
-//     loungeService.updateLounge({
-//         loungeNum:loungeNum,loungeContent:loungeContent
-//     }, function (result) {
-//         alert(result);
-//         location.reload();
-//     })
-//
-// })
+$("span.time").on("click", function(){
+    let loungeContent = $(this).parents("div.replyTop").next().find("textarea").val();
+    let loungeNum = $(this).parents("div.replySection").data("reply");
+    console.log(loungeContent);
+    console.log(loungeNum);
+    loungeService.updateLounge({
+        loungeNum:loungeNum,loungeContent:loungeContent
+    }, function (result) {
+        alert(result);
+        location.reload();
+    })
+
+})
 
 
 

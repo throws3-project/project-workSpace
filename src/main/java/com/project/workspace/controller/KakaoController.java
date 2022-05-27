@@ -23,6 +23,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +48,7 @@ public class KakaoController {
     private final UserPortfolioRepository userPortfolioRepository;
 
     @GetMapping("/login")
-    public String kakaoLogin(String code, Model model, HttpServletRequest req){ //Data를 리턴해주는 컨트롤러
+    public RedirectView kakaoLogin(String code, Model model, HttpServletRequest req, RedirectAttributes rttr){ //Data를 리턴해주는 컨트롤러
 
         //POST방식으로 key = value 데이터를 요청 (카카오쪽으로)
         //RestTemplate란 Rest API 호출이후 응답을 받을 때까지 기다리는 동기 방식
@@ -126,65 +127,40 @@ public class KakaoController {
             e.printStackTrace();
         }
 
-        //User 오브젝트 :
-        System.out.println("카카오 아이디(번호) : " + kakaoProfile.getId());
-        System.out.println("카카오 이메일 : " + kakaoProfile.getKakao_account().getEmail());
-        System.out.println("카카오 닉네임 : " + kakaoProfile.getKakao_account().getProfile().getNickname());
-        System.out.println("카카오 프로필사진 : " + kakaoProfile.getProperties().getProfile_image());
 
-        System.out.println("워크스페이스 유저네임 : " + kakaoProfile.getKakao_account().getEmail()+"_"+kakaoProfile.getId());
-        System.out.println("워크스페이스 이메일 : " + kakaoProfile.getKakao_account().getEmail());
         UUID uuid = UUID.randomUUID();
         String userCode= uuid.toString().split("-")[0];
-        System.out.println("워크스페이스 패스워드 : "+userCode);
-//        UserVO userVO = new UserVO();
-//        userVO.setUserId(kakaoProfile.getKakao_account().getEmail());
-//        userVO.setUserNick_name(kakaoProfile.getKakao_account().getProfile().getNickname());
-//        userVO.setUserImgName(kakaoProfile.getProperties().getProfile_image());
-
-//        userRepository.save(UserVO.builder().userId(kakaoProfile.getKakao_account().getEmail()));
-//        List<UserVO> users = userRepository.findAll();
-//        ArrayList<String> userCodes = new ArrayList<>();
-//        for (int i=0;i<users.size();i++){
-//            userCodes.add(users.get(i).getUserCode());
-//        }
-
-//        HashSet<String> set = new HashSet<String>(Arrays.asList(userCodes))
 
 
-//        userVO.setUserCode(userCode);
-
-//       userRepository.save(userVO);
-
-        model.addAttribute("userId", kakaoProfile.getKakao_account().getEmail());
-        model.addAttribute("userNickName", kakaoProfile.getKakao_account().getProfile().getNickname());
-        model.addAttribute("userCode", userCode);
-        model.addAttribute("userProfileURL", kakaoProfile.getProperties().getProfile_image());
+        rttr.addFlashAttribute("userId", kakaoProfile.getKakao_account().getEmail());
+        rttr.addFlashAttribute("userNickName", kakaoProfile.getKakao_account().getProfile().getNickname());
+        rttr.addFlashAttribute("userCode", userCode);
+        rttr.addFlashAttribute("userProfileURL", kakaoProfile.getProperties().getProfile_image());
 
 //       유저 넘버를 가져올 방법이 닉네임으로 db에서 셀렉트하는 방법밖에 없다.
         String userId = kakaoProfile.getKakao_account().getEmail();
 
-        log.info("들어오기 전 입니다." + userId);
 
         UserVO userVO = userRepository.findByUserId(userId);
 
-        log.info("들어온 후 입니다." + userVO);
-
         if(userVO == null){
 
-            url = "user/joinForm";
+            url = "joinForm";
 
         }else{
 
             HttpSession session = req.getSession();
 
             session.setAttribute("userNum", userVO.getUserNum());
-            session.setAttribute("userNickName", userVO.getUserNickName());
+            session.setAttribute("profile", userVO);
+            String userNickName = userVO.getUserNickName();
+            model.addAttribute("userNickName", userNickName);
+
 
             url = "main/index";
         }
 
-        return url;
+        return new RedirectView(url);
     }
 
     @PostMapping("/joinForm")
@@ -202,7 +178,7 @@ public class KakaoController {
         HttpSession session = req.getSession();
 
         session.setAttribute("userNum", userNum);
-        session.setAttribute("userNickName", userVO.getUserNickName());
+
         return "user/joinSuccess";
     }
 
@@ -263,10 +239,9 @@ public class KakaoController {
     }
 
     @GetMapping("/joinLater")
-    public RedirectView joinLater(Long userNum, HttpServletRequest req, String userNickName){
+    public RedirectView joinLater(Long userNum, HttpServletRequest req){
         HttpSession session = req.getSession();
         session.setAttribute("userNum",userNum);
-        session.setAttribute("userNickName", userNickName);
         return new RedirectView("main/index");
     }
 
@@ -277,8 +252,8 @@ public class KakaoController {
         session.invalidate();
         return new RedirectView("main/index");
     }
-    
-//    아임포트 사용시 포인트 올라가는 컨트롤러
+
+    //    아임포트 사용시 포인트 올라가는 컨트롤러
     @GetMapping("/charge")
     public RedirectView charge(HttpServletRequest req, Long price, Long workPoint){
         HttpSession session = req.getSession();

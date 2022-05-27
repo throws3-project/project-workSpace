@@ -3,7 +3,7 @@
 <th:block th:fragment="headFragment">
     <header id="headerWrap">
         <div id="header">
-            <nav class="header"><img src="/images/headerLogo.png">
+            <nav class="header"><a href="/main/index"><img src="/images/headerLogo.png"></a>
                 <ul class="bar web">
                     <li><a href="/main/userList">팀원찾기</a></li>
                     <li><a href="/project/projectList">프로젝트/스터디</a></li>
@@ -14,7 +14,7 @@
                 <div class="profileWrap" th:if="${session.userNum} and ${session.profile}">
                     <div class="boxBigWrap">
                         <div class="boxWrap">
-                            <div class="grayBoxr"><span th:text="${session.profile.userPoint}"></span><span>P</span></div>
+                            <div class="grayBox"><span th:text="${session.profile.userPoint}"></span><span>P</span></div>
                             <a href="/user/payment" class="chargeButton web">충전하기</a>
                         </div>
                         <a href="/project/projectRegister" class="buildProject">프로젝트 생성</a>

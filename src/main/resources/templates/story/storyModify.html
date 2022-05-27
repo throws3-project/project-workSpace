@@ -198,6 +198,7 @@
     </section>
 
 
+    <th:block th:if="${session?.userNum}" th:insert="/fix/story.html :: sideFragment"/>
     <th:block th:insert="/fix/chat.html :: sideFragment"/>
     <th:block th:insert="/fix/footer.html :: footerFragment"/>
 </body>
