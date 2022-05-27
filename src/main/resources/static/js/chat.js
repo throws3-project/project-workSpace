@@ -10,7 +10,7 @@ $("div.foldChatButton").on("click", function () {
     $("div.chattingOpen").addClass("open");
 })
 
-<<<<<<< HEAD
+
 
 //userNickName 세션 담기
 let myName = document.getElementById("userNickName").value;
@@ -115,10 +115,10 @@ ulclass.addEventListener('click', function (e) {
         const other = e.target.lastChild.value;
 
         //세션주기
-        // sessionStorage.setItem("other", other);
-        // startChat(other)
-        //
-        // document.getElementsByClassName('userId')[0].innerText = other;
+        sessionStorage.setItem("other", other);
+        startChat(other)
+
+        document.getElementsByClassName('userId')[0].innerText = other;
     }
 })
 
@@ -173,8 +173,4 @@ const makeRoom = (roomNames) => {
         }
     })
 }
-=======
-$("div.writeButton").on("click",function () {
-    location.href = "/story/storyRegister";
-})
->>>>>>> 8de2c7f10d0ab23453b50876f0cca6b061b66f9f
+

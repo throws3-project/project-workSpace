@@ -3,7 +3,6 @@
 <th:block th:fragment="sideFragment" th:if="${session.userNum} and ${session.profile}">
     <side id="side">
         <div class="chattingWrap">
-
             <div class="chattingOpen open"></div>
             <div class="chatting">
                 <div class="chattingContentWrap">
@@ -12,31 +11,6 @@
                             <div class="foldChatButton"></div>
                             <p>대화 목록</p>
                             <input type="hidden" th:value="${session.profile.userNickName}" id="userNickName">
-
-    <div class="chattingOpen open"></div>
-    <div class="chatting">
-        <div class="chattingContentWrap">
-            <div class="chattingHeader">
-                <div class="left">
-                    <div class="foldChatButton"></div>
-                    <p>대화 목록</p>
-                </div>
-                <div class="right">
-                    <div class="chatterImg">
-                        <img src="https://letspl.me/assets/images/prof-no-img.png">
-                    </div>
-                    <div class="user">
-                        <p class="userId">
-                            에붸붸
-                            <span>[미접속]</span>
-                        </p>
-                        <div class="idMenu">
-                            <ul>
-                                <li>
-                                    <a href="#/people">프로필 상세</a>
-                                </li>
-                            </ul>
-
                         </div>
                         <div class="right">
                             <div class="chatterImg">
@@ -45,7 +19,7 @@
                             <div class="user">
                                 <p class="userId">
                                     상대방 이름
-<!--                                    <span>[미접속]</span>-->
+                                    <!--                                    <span>[미접속]</span>-->
                                 </p>
                                 <div class="idMenu">
                                     <ul>
@@ -58,7 +32,7 @@
                         <span class="questionMore">
                             <span class="questionHoverView">대화 없이 종료시, 지불 포인트의 100%가 환불됩니다!</span>
                         </span>
-<!--                                    1일 18시 36분 남았습니다-->
+                                    <!--                                    1일 18시 36분 남았습니다-->
                                 </p>
                                 <div class="moreAndFold">
                                     <div class="alarm"></div>
