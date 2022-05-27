@@ -95,12 +95,14 @@
         </p>
         <div class="normalPayment paymentMethod">
             <p>일반 결제</p>
+            <form method="get" name="charge" action="/charge">
             <div>
                 <button id="check_module">신용카드</button>
                 <button>휴대폰결제</button>
                 <button>가상계좌</button>
                 <button>계좌이체</button>
             </div>
+            </form>
         </div>
         <div class="easyPayment paymentMethod">
             <p>간편 결제</p>
@@ -121,7 +123,8 @@
 <script src="/js/chat.js"></script>
 <script src="/js/payment.js"></script>
 <script>
-    $("#check_module").click(function(){
+    $("#check_module").on("click",function (e) {
+        e.preventDefault();
         var IMP = window.IMP;
         IMP.init('imp07124966');
         IMP.request_pay({
@@ -148,6 +151,7 @@
                 var msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
             }
+            document.charge.submit();
             alert(msg);
         });
     });

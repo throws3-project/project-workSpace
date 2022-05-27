@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -33,6 +35,7 @@ public class StoryController {
     private final JPAQueryFactory queryFactory;
     private final StoryQueryRepository storyQueryRepository;
     private final StoryLikeRepository storyLikeRepository;
+    private final UserRepository userRepository;
 
     @GetMapping("/storyDetail")
     public void storyDetail(@RequestParam("storyNum") Long storyNum, Model model){
@@ -124,10 +127,9 @@ public class StoryController {
 
     @PostMapping("/storyRegister")
     @Transactional(rollbackFor = {Exception.class})
-    public RedirectView storyRegister(StoryVO storyVO, StoryTagVO storyTagVO, RedirectAttributes rttr){
-        UserVO userVO = new UserVO();
-//        HttpSession session = ;
-        userVO.setUserNum(1L);
+    public RedirectView storyRegister(HttpServletRequest req, StoryVO storyVO, StoryTagVO storyTagVO, RedirectAttributes rttr){
+        HttpSession session = req.getSession();
+        UserVO userVO = userRepository.getById((Long)session.getAttribute("userNum"));
         storyVO.setUserVO(userVO);
         Long storyNum = storyRepository.save(storyVO).getStoryNum();
         if(storyTagVO.getTagName() != null){
@@ -199,7 +201,7 @@ public class StoryController {
     @ResponseBody
     @GetMapping("/storyInsert/{storyReply}/{userNum}/{storyNum}")
     public String insertReply(@PathVariable("storyReply") String storyReply, @PathVariable("userNum") UserVO userNum, @PathVariable("storyNum") StoryVO storyNum){
-         storyReplyRepository.save(StoryReplyVO.builder().storyVO(storyNum).userVO(userNum).storyReply(storyReply).build());
+        storyReplyRepository.save(StoryReplyVO.builder().storyVO(storyNum).userVO(userNum).storyReply(storyReply).build());
         return "success";
     }
 

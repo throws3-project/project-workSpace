@@ -179,7 +179,7 @@ public class KakaoController {
             HttpSession session = req.getSession();
 
             session.setAttribute("userNum", userVO.getUserNum());
-            session.setAttribute("userNickName", userVO.getUserNickname());
+            session.setAttribute("userNickName", userVO.getUserNickName());
 
             url = "main/index";
         }
@@ -202,7 +202,7 @@ public class KakaoController {
         HttpSession session = req.getSession();
 
         session.setAttribute("userNum", userNum);
-        session.setAttribute("userNickName", userVO.getUserNickname());
+        session.setAttribute("userNickName", userVO.getUserNickName());
         return "user/joinSuccess";
     }
 
@@ -276,6 +276,22 @@ public class KakaoController {
         HttpSession session = req.getSession();
         session.invalidate();
         return new RedirectView("main/index");
+    }
+    
+//    아임포트 사용시 포인트 올라가는 컨트롤러
+    @GetMapping("/charge")
+    public RedirectView charge(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        Long userNum = (Long)session.getAttribute("userNum");
+
+        UserVO userVO = userRepository.findByUserNum(userNum);
+        Long userPoint = userVO.getUserPoint() + 200l;
+
+        userVO.setUserPoint(userPoint);
+
+        userRepository.save(userVO);
+
+        return new RedirectView("user/payment");
     }
 
 //    카카오페이
