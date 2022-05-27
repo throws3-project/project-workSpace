@@ -27,7 +27,6 @@ public class UserRepositoryTests {
     private UserTagRepository userTagRepository;
 
     // 유저 생성
-<<<<<<< HEAD
     @Test
     public void userVOTests(){
         String id = "hsk123";
@@ -52,7 +51,6 @@ public class UserRepositoryTests {
         String userImgPath="2";
         userRepository.save(UserVO.builder().userId(id).userLocation(location).userNickName(nickname).userPhone(phone).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
     }
-=======
 //    @Test
 //    public void userVOTests(){
 //        String id = "hsk123";
@@ -77,7 +75,6 @@ public class UserRepositoryTests {
 //        String userImgPath="2";
 //        userRepository.save(UserVO.builder().userId(id).userLocation(location).userNickName(nickname).userPhone(phone).userMainSkill(mainSkill).userMainDetail(mainDetail).userMainLevel(userMainLevel).userSubSkill(userSubSkill).userSubDetail(userSubDetail).userSubLevel(userSubLevel).userOnOff(userOnOff).userTime(userTime).userCode(userCode).userPrice(userPrice).socialType(socialType).userStatus(userStatus).userImgUuid(userImgUuid).userImgName(userImgName).userImgPath(userImgPath).build());
 //    }
->>>>>>> 8de2c7f10d0ab23453b50876f0cca6b061b66f9f
 
     // 유저 아이디로 검색
 //    @Test
