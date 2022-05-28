@@ -37,14 +37,14 @@
                     </div>
                 </div>
                     <!-- p -->
-                    <p class="userProName" th:text="${user.userNickName}">
+                    <p class="userProName" id="userProName" th:text="${user.userNickName}">
                         <img src="/images/level_6.png">
                     </p>
                     <p class="userLogin">
                         마지막 로그인 : 오늘
                     </p>
                     <div class="userProChatBtnWrap">
-                        <button class="userProPinkBtn">1대1대화</button>
+                        <button class="userProPinkBtn" id="userProPinkBtn">1대1대화</button>
                         <button class="userProBlueBtn">모임초대</button>
                     </div>
                 
@@ -591,5 +591,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/header.js"></script>
 <script src="/js/chat.js"></script>
+
 <script src="/js/userview.js"></script>
 </html>
