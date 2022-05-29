@@ -19,7 +19,7 @@ sessionStorage.setItem("myName", myName);
 
 
 //세션가져오기
-let v = sessionStorage.getItem("myName");
+
 
 
 //전체 회원 목록 ※필요없슴※
@@ -36,6 +36,7 @@ $.ajax({
     error: function () {
         alert("회원 목록 가져오기 실패");
     }
+
 });
 
 
@@ -95,7 +96,7 @@ function removesession() {
     for (i = 0; i < nametd.length; i++) {
 
         let receiverName = nametd[i].innerText
-        let matchname = receiverName.match(v)
+        let matchname = receiverName.match(myName)
         let finl = receiverName.replace(matchname, '');
 
         nametd[i].innerText = finl
@@ -112,11 +113,12 @@ let thischat = document.querySelectorAll(".thischat");
 ulclass.addEventListener('click', function (e) {
     if (e.target.tagName === "SPAN") {
 
-        const other = e.target.lastChild.value;
+        let other = e.target.lastChild.value;
+        console.log(other)
 
         //세션주기
-        sessionStorage.setItem("other", other);
-        startChat(other)
+
+        startChat(myName,other)
 
         document.getElementsByClassName('userId')[0].innerText = other;
     }
@@ -124,21 +126,28 @@ ulclass.addEventListener('click', function (e) {
 
 //대화 시작하기
 //채팅방 존재 검사 후  succ => 기존이름생성 err=> 새로운 이름 생성
-function startChat(other) {
+function startChat(myName,other) {
+
+    sessionStorage.setItem("other",other)
+
+
+    console.log(other)
     $.ajax({
         type: "POST",
-        url: `/chatHistory/${v}/${other}`,
+        url: `/chatHistory/${myName}/${other}`,
         contentType: "application/json",
 
         success: function () {
 
             let result = "";
             $.ajax({
-                url: `/connectRoom/${v}/${other}`,
+                url: `/connectRoom/${myName}/${other}`,
                 dataType: "json",
                 type: "get",
                 async: false,
                 success: function (data) {
+
+                    console.log(other)
                     result = data
                     let roomNames = result[0].roomName;
 
@@ -148,29 +157,32 @@ function startChat(other) {
             });
         },
         error: function () {
-            let roomNames = v + other
+            let roomNames = myName + other
+            console.log(roomNames+"에러타입")
             makeRoom(roomNames);
         }
     });
+    //방생성 하기!
+    const makeRoom = (roomNames) => {
+        $.ajax({
+            type: "POST",
+            url: `/room/new `,
+            data: roomNames,
+            contentType: "application/json",
+            success: function () {
+                sessionStorage.setItem("roomNames", roomNames);
+                console.log(roomNames)
+                $("#chatWrapSecond").load(`/rooms/${roomNames}`);
+                //window.open(`/rooms/${roomNames}`, "_blank", "채팅", "width:300px  height: 400px, top=10, left=10");
+            },
+            error: function () {
+                console.log(roomNames)
+                alert("방 생성 실패");
+            }
+        })
+    }
+
 }
 
 
-//방생성 하기!
-const makeRoom = (roomNames) => {
-    $.ajax({
-        type: "POST",
-        url: `/room/new `,
-        data: roomNames,
-        contentType: "application/json",
-        success: function () {
-            sessionStorage.setItem("roomNames", roomNames);
-            $("#chatWrapSecond").load(`/rooms/${roomNames}`);
-            // window.open(`/rooms/${roomNames}`, "_blank", "채팅", "width:300px  height: 400px, top=10, left=10");
-        },
-        error: function () {
-            console.log(roomNames)
-            alert("방 생성 실패");
-        }
-    })
-}
 
