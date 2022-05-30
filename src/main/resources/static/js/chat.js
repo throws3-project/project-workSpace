@@ -23,38 +23,38 @@ $(document).ready(function () {
 })
 
 
-//전체 회원 목록
-
-let users = "";
-$.ajax({
-    url: "/list",
-    dataType: "json",
-    type: "get",
-    async: false,
-    success: function (data) {
-        users = data
-    },
-    error: function () {
-        alert("회원 목록 가져오기 실패");
-    }
-});
-
-
-//회원목록 맵핑
-let ulclass = document.getElementById('ulclass')
-// ?는 준비됐니?
-users?.map((v) => {
-    ulclass.innerHTML += `
-            <li  class="username" style="margin-top: 10px; ">${v}</li> 
-        `
-})
-let username = document.querySelectorAll('.username')
-for (let i = 0; i < username.length; i++) {
-
-    username[i].innerText.split(" ")[0] === mysession ? username[i].style.display = "none" : ""
-
-
-}
+// //전체 회원 목록
+//
+// let users = "";
+// $.ajax({
+//     url: "/list",
+//     dataType: "json",
+//     type: "get",
+//     async: false,
+//     success: function (data) {
+//         users = data
+//     },
+//     error: function () {
+//         alert("회원 목록 가져오기 실패");
+//     }
+// });
+//
+//
+// //회원목록 맵핑
+// let ulclass = document.getElementById('ulclass')
+// // ?는 준비됐니?
+// users?.map((v) => {
+//     ulclass.innerHTML += `
+//             <li  class="username" style="margin-top: 10px; ">${v}</li>
+//         `
+// })
+// let username = document.querySelectorAll('.username')
+// for (let i = 0; i < username.length; i++) {
+//
+//     username[i].innerText.split(" ")[0] === mysession ? username[i].style.display = "none" : ""
+//
+//
+// }
 
 
 //채팅내역있으면 보여주기
@@ -86,25 +86,53 @@ if (chatList.length === 0) {
     })
 }
 
-//처음 대화 시작
-ulclass.addEventListener('click', function (e) {
-    if (e.target.tagName === "LI") {
-        other = e.target.innerText
-        처음대화(mysession, other)
-        document.getElementsByClassName('userId')[0].innerText = other;
-    }
-})
+//채팅 나가기(삭제하기)
+
+
+// //처음 대화 시작
+// ulclass.addEventListener('click', function (e) {
+//     if (e.target.tagName === "LI") {
+//         other = e.target.innerText
+//         처음대화(mysession, other)
+//
+//         document.getElementsByClassName('userId')[0].innerText = other;
+//
+//     }
+// })
 
 const 채팅방연결 = (mysession) => {
-
 
     chatLists.addEventListener('click', function (e) {
         if (e.target.tagName === "LI") {
             roomNames = e.target.dataset.room
             roomNames.split("&")[0] === mysession ? 방만들기(roomNames) : 기존방연결(roomNames)
+
+            document.querySelector('#chatDelete').setAttribute('data-room',roomNames)
+
+
+            other = roomNames.split('&')[0]
+            others = roomNames.split('&')[1]
+            console.log(other)
+            console.log(others)
+            other=== mysession?
+            document.getElementById('chatId').innerText=others
+                :
+            document.getElementById('chatId').innerText=other
+
+
+            // if (other !== mysession) {
+            //     document.getElementsByClassName('userId')[0].innerText = other;
+            // }else if(other === mysession){
+            //     //방이름이 내이름&상대방 일때
+            //     console.log(document.getElementsByClassName('userId')[0].innerText);
+            //
+            //         // = roomNames.split("&")[1];
         }
-    })
+
 }
+)
+}
+
 
 //채팅방에서 내이름 빼기
 const 채팅방내이름지우기 = (mysession) => {
@@ -185,4 +213,39 @@ const 처음대화 = (mysession, other) => {
         }
     })
 };
+
+document.querySelector('#chatDelete').addEventListener('click',function () {
+
+
+    if (!confirm("채팅방을 나가시겠습니까?\n(대화내용을 복구할 수 없습니다)")) {
+        // 취소(아니오) 버튼 클릭 시 이벤트
+    } else {
+        roomName = this.dataset.room
+        $.ajax({
+            type: "POST",
+            url: ` /deleteChat/${roomName}`,
+            contentType: "application/json",
+            success: function () {
+                alert("삭제완료");
+                location.reload();
+            },
+            error: function () {
+                alert("삭제완료");
+                location.reload();
+            }
+        })
+
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
 

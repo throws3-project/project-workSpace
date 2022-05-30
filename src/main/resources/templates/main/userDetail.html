@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8" name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>userview</title>
-    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css"/>
     <link rel="stylesheet" href="/css/header.css" type="text/css">
     <link rel="stylesheet" href="/css/footer.css" type="text/css">
     <link rel="stylesheet" href="/css/chat.css" type="text/css">
-    <link rel="stylesheet" href="/css/userview.css" type="text/css" />
+    <link rel="stylesheet" href="/css/userview.css" type="text/css"/>
 </head>
 <!--헤더-->
 <th:block th:insert="/fix/header.html :: headFragment"/>
@@ -36,20 +36,6 @@
                         <span>번호 미인증</span>
                     </div>
                 </div>
-<<<<<<< HEAD
-                    <!-- p -->
-                    <p class="userProName" id="userProName" th:text="${user.userNickName}">
-                        <img src="/images/level_6.png">
-                    </p>
-                    <p class="userLogin">
-                        마지막 로그인 : 오늘
-                    </p>
-                    <div class="userProChatBtnWrap">
-                        <button class="userProPinkBtn" id="userProPinkBtn">1대1대화</button>
-                        <button class="userProBlueBtn">모임초대</button>
-                    </div>
-                
-=======
                 <!-- p -->
                 <p class="userProName" id="userProName" th:text="${user.userNickName}">
                     <img src="/images/level_6.png">
@@ -62,7 +48,7 @@
                     <button class="userProBlueBtn">모임초대</button>
                 </div>
 
->>>>>>> main/chat
+
             </div>
             <!-- 정보, 스토리 선택 -->
             <div class="userPageTab">
@@ -188,7 +174,8 @@
                                 </div>
                                 <div class="projectMiddleInfo">
                                     <p class="category" th:text="${project.projectPart}"></p>
-                                    <p class="categoryText" th:text="'['+${project.projectLocation}+'] '+${project.projectName}"></p>
+                                    <p class="categoryText"
+                                       th:text="'['+${project.projectLocation}+'] '+${project.projectName}"></p>
                                 </div>
                                 <div class="projectBottomInfo">
                                     <div class="middleWrap">
@@ -398,7 +385,7 @@
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
-                                            <img  class="lvIcon" src="/images/level_6.png">
+                                            <img class="lvIcon" src="/images/level_6.png">
                                         </div>
                                         <div class="userGridName">
                                             <p class="ugname">박상아</p>
@@ -432,7 +419,7 @@
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
-                                            <img  class="lvIcon" src="/images/level_6.png">
+                                            <img class="lvIcon" src="/images/level_6.png">
                                         </div>
                                         <div class="userGridName">
                                             <p class="ugname">박상아</p>
@@ -466,7 +453,7 @@
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
-                                            <img  class="lvIcon" src="/images/level_6.png">
+                                            <img class="lvIcon" src="/images/level_6.png">
                                         </div>
                                         <div class="userGridName">
                                             <p class="ugname">박상아</p>
@@ -500,7 +487,7 @@
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
-                                            <img  class="lvIcon" src="/images/level_6.png">
+                                            <img class="lvIcon" src="/images/level_6.png">
                                         </div>
                                         <div class="userGridName">
                                             <p class="ugname">박상아</p>
@@ -534,7 +521,7 @@
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
-                                            <img  class="lvIcon" src="/images/level_6.png">
+                                            <img class="lvIcon" src="/images/level_6.png">
                                         </div>
                                         <div class="userGridName">
                                             <p class="ugname">박상아</p>
@@ -568,7 +555,7 @@
                                 <div class="usertool">
                                     <div class="user1">
                                         <div class="userLvIcon">
-                                            <img  class="lvIcon" src="/images/level_6.png">
+                                            <img class="lvIcon" src="/images/level_6.png">
                                         </div>
                                         <div class="userGridName">
                                             <p class="ugname">박상아</p>
@@ -591,7 +578,6 @@
                             </div>
                         </div>
                         <!-- 여기까지 한개 -->
-
 
 
                     </div>

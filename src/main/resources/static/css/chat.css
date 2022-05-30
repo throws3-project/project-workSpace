@@ -261,6 +261,8 @@ div.chatList {
 
 div.chatList ul {
     width: 100%;
+    margin-top: 10px;
+    text-align: left;
 }
 
 div.chatList ul li {
@@ -268,7 +270,7 @@ div.chatList ul li {
     flex-direction: row;
     align-items: flex-start;
     border-top: 1px solid #f0f0f0;
-    padding: 8px 0;
+    padding: 8px 0 8px 20px;
     cursor: pointer;
     width: 100%;
     max-width: 225px;

@@ -33,6 +33,6 @@ document.getElementById('userProPinkBtn').addEventListener('click', function () 
         document.querySelector('.chatting').classList.add("open");
 
         처음대화(mysession, other);
-        document.getElementsByClassName('userId')[0].innerText = other;
+        document.getElementById('chatId').innerText = other;
     }
 )
