@@ -70,6 +70,26 @@ function lounge(){
     $("div.inputText").html(str);
 }
 
+<!--   **댓글 수정 삭제**             -->
+// <div class="replyBtnWraps">
+//         <p class="txtBtns modifys">수정</p>
+//         <button class="activeInputBtns">수정완료</button>
+//         <div class="sell">｜</div>
+//     <p class="txtBtns removes">삭제</p>
+//         </div>
+<!--                **여기까지-->
+
+//글수정완료버튼
+str += "<button class='activeInputBtnss'>수정완료</button>";
+
+str += "<div class='replyBtnWraps'>";
+str += "<p class='txtBtns modifys'>수정</p>";
+str += '<div class="sell">｜</div>';
+str += "<p class='txtBtns removes'>삭제</p>";
+str += "<button class='activeInputBtns'>수정완료</button>";
+str += "</div>";
+
+
 
 lounge();
 
@@ -327,7 +347,7 @@ $(".loungeBtn1").on("click", function (e) {
         alert("글을 입력하세요");
     }else{
         loungeService.insertLounge({
-            loungeContent:loungeContent, userNum:1
+            loungeContent:loungeContent, userNum:userNum
         }, function (result) {
             alert(result);
            location.reload();
