@@ -6,7 +6,7 @@ let loungeService = (function () {
             url:"/lounge/reply/" + loungeNum,
             success: function (loungeReplyDTO) {
                 if (callback) {
-                    callback(loungeReplyDTO.userNickNames, loungeReplyDTO.replies);
+                    callback(loungeReplyDTO.userVO, loungeReplyDTO.replies);
                 }
             },
             error: function (xhr, status, error) {

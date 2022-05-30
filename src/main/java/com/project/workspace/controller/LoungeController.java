@@ -8,6 +8,7 @@ import com.project.workspace.service.LoungeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.Store;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -67,16 +68,9 @@ public class LoungeController {
         Collections.reverse(loungeLikesNum);
         Collections.reverse(loungeRepliesNum);
 
-        log.info("-------------------------------");
-        log.info(loungeVOs.toString());
-        log.info(userLikeNickNames.toString());
-        log.info(userReplyNickNames.toString());
-        log.info(loungeLikesNum.toString());
-        log.info(loungeRepliesNum.toString());
-        log.info(loungeUserNickNames.toString());
-        log.info("-------------------------------");
-
+        List<UserVO> userVOs = loungeVOs.stream().map(UserVO -> UserVO.getUserVO()).collect(Collectors.toList());
         model.addAttribute("loungeVOs", loungeVOs);
+        model.addAttribute("userVOs", userVOs);
         model.addAttribute("loungeLikesNum", loungeLikesNum);
         model.addAttribute("loungeRepliesNum", loungeRepliesNum);
         model.addAttribute("loungeUserNickNames", loungeUserNickNames);
@@ -98,12 +92,11 @@ public class LoungeController {
     public LoungeReplyDTO likeAndReply(@PathVariable("loungeNum") Long loungeNum) {
         LoungeVO loungeVO = loungeService.findId(loungeNum);
         List<LoungeReplyVO> replies = loungeVO.getReplies();
-        List<String> userNickNames = replies.stream().map(UserVO -> UserVO.getUserVO().getUserNickName()).collect(Collectors.toList());
-        Collections.reverse(userNickNames);
+        List<UserVO> userVO = replies.stream().map(UserVO -> UserVO.getUserVO()).collect(Collectors.toList());
+        Collections.reverse(userVO);
         Collections.reverse(replies);
-        //service 집에서 하기
 
-        return new LoungeReplyDTO(userNickNames,replies);
+        return new LoungeReplyDTO(userVO,replies);
     }
 
     // 라운지 글작성
@@ -154,11 +147,9 @@ public class LoungeController {
     public String likeStory(@PathVariable("userNum") Long userNum, @PathVariable("loungeNum") Long loungeNum){
         LoungeLikeVO byUserVOAndLoungeVO = loungeLikeRepository.findByUserVO_UserNumAndLoungeVO_LoungeNum(userNum, loungeNum);
         if(byUserVOAndLoungeVO != null){
-            log.info("삭제 들어옴");
             loungeLikeRepository.deleteByUserVO_UserNumAndLoungeVO_LoungeNum(userNum, loungeNum);
             return "fail";
         }
-        log.info("저장 들어옴");
         UserVO userVO = new UserVO();
         userVO.setUserNum(userNum);
         LoungeVO loungeVO = new LoungeVO();

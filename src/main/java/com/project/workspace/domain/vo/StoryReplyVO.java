@@ -44,10 +44,10 @@ public class StoryReplyVO {
     private StoryVO storyVO;
 
     @Builder
-    public StoryReplyVO(String storyReply, String status, UserVO userVO, StoryVO storyVO, String replyTime) {
+    public StoryReplyVO(Long storyReplyNum, String storyReply, UserVO userVO, StoryVO storyVO, String replyTime) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        this.storyReplyNum = storyReplyNum;
         this.storyReply = storyReply;
-        this.status = status;
         this.userVO = userVO;
         this.storyVO = storyVO;
         try {
