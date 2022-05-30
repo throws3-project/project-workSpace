@@ -2,8 +2,8 @@
 
 //작성된 스토리가 없으면 기본적으로 .storyNone 보여주기
 
-$(".nav").each(function (i,nav) {
-    $(nav).on("click",function () {
+$(".nav").each(function (i, nav) {
+    $(nav).on("click", function () {
         $(".activePage").hide();
         $($(".activePage").get(i)).show();
         $(".nav").removeClass("active");
@@ -11,11 +11,11 @@ $(".nav").each(function (i,nav) {
     })
 })
 
-$(".userFollowerImgs").each(function (i,img) {
-    $(img).on("mouseover",function () {
+$(".userFollowerImgs").each(function (i, img) {
+    $(img).on("mouseover", function () {
         $($(".hoverName").get(i)).show();
     })
-    $(img).on("mouseout",function () {
+    $(img).on("mouseout", function () {
         $($(".hoverName").get(i)).hide();
     })
 })

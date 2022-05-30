@@ -79,7 +79,7 @@ if (chatList.length === 0) {
     document.getElementById('chatWrapSecond').innerHTML = "<div style='position: absolute;top: 40%;left: 40%;'>채팅을 시작해보세요</div>"
 } else {
     chatList?.map((v) => {
-        chatLists.innerHTML += `<li data-room=${v.roomName} class="nametd" style="font-weight: 500;font-size: 15px;color: #333;" >
+        chatLists.innerHTML += `<li data-room=${v.roomName} class="nametd" style="font-weight: 500;font-size: 15px;color: #333; padding-left: 23px;" >
                 <a>${v.roomName}</a><span class="thischat"> 채팅하기<input type="hidden" id="valuehidden" value="${v.roomName}"></span></li>`
         document.getElementById('chatWrapSecond').innerHTML = "<div style='position: absolute;top: 40%;left: 70px;'>채팅을시작하려면 상대방을 선택해주세요</div>"
 
@@ -91,6 +91,7 @@ ulclass.addEventListener('click', function (e) {
     if (e.target.tagName === "LI") {
         other = e.target.innerText
         처음대화(mysession, other)
+        document.getElementsByClassName('userId')[0].innerText = other;
     }
 })
 
@@ -127,6 +128,7 @@ const 기존방연결 = (roomNames) => {
     sessionStorage.setItem("roomNames", roomNames)
     console.log(roomNames)
     $("#chatWrapSecond").load(`/rooms/${roomNames}`);
+    document.getElementsByClassName('userId')[0].innerText = other;
 }
 
 

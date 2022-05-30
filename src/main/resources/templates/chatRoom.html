@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>채팅 서비스</title>
     <!-- Bootstrap core CSS -->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
 
     <!-- 부가적인 테마 -->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">-->
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">-->
 
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -94,7 +94,7 @@
     #message {
         height: 40px;
         width: 280px;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     #send {
@@ -147,14 +147,14 @@
             mysession === senderId ? chatings.innerHTML += `
          <div style="width:99%">
             <div style="text-align: right;    margin-top: 20px;">
-        <span style="line-height: 40px;    display: inline-block; width: 55%;   padding: 0px 5px;    height: 45px;     font-size: 17px;"  id="sender"><span style="font-size: 10px;">${c.chatTime}</span> &nbsp;&nbsp;&nbsp; ${message}</span> <br/>
+        <span style="line-height: 40px;    display: inline-block; width: 80%;   padding: 0px 5px;    height: 45px;     font-size: 17px;"  id="sender"><span style="font-size: 10px;">${c.chatTime}</span> &nbsp;&nbsp;&nbsp; ${message}</span> <br/>
         </div></div>` :
                 chatings.innerHTML += `
             <div style="text-align:left; margin-top: 10px;
-           width: 55%;padding: 5px;
+           width: 80%;padding: 5px;
              ">
             <span style="font-size: 17px;font-weight: bold ">${senderId}</span> <br/>
-            <span style="font-size: 17px;">${message}</span>&nbsp;&nbsp;<br><span style="font-size:10px;">${c.chatTime}</span>
+            <span style="font-size: 17px;">${message}</span>&nbsp;&nbsp;<span style="font-size:10px;">${c.chatTime}</span>
 
             </div>`
 
@@ -176,8 +176,8 @@
         document.getElementById('chating').scrollTop = document.getElementById('chating').scrollHeight;
         document.getElementById('message').focus()
 
-        document.getElementById('message').addEventListener('keyup',function (e) {
-            if(e.key ==='Enter'){
+        document.getElementById('message').addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
                 e.preventDefault();
                 send();
             }
@@ -207,7 +207,7 @@
     function send() {
         msg = document.getElementById("message").value;
 
-        if(!msg){
+        if (!msg) {
             alert("내용을 입력해주세요")
             return false;
 
@@ -279,13 +279,13 @@
                 padding: 5px; width: 100%;
                  ">
 
-                <span style="font-size: 15px;">${date} <span>${ttime}</span></span>
+                <span style="font-size: 15px;">${date} <span style="font-size: 10px;">${ttime}</span></span>
 
                 </div>` :
             chatings.innerHTML += `
              <div style="width:99%">
                 <div style="text-align: right;  width: 100%;   margin-top: 10px;">
-                <span>${ttime}</span>
+                <span style="font-size: 10px;">${ttime}</span>
             <span style="line-height: 40px;    display: inline-block;         padding: 0px 5px;    height: 45px;     font-size: 17px;"  id="senderText">${datas}</span> <br/>
             </div></div>`
 
