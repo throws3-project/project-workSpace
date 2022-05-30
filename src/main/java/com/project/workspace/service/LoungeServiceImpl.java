@@ -47,6 +47,7 @@ public class LoungeServiceImpl implements LoungeService{
 
     @Override
     public String deleteLounge(Long loungeNum) {
+
         loungeRepository.deleteById(loungeNum);
         return "success";
     }

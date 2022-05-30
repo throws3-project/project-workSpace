@@ -12,6 +12,25 @@
 </head>
 <body>
 <th:block th:insert="/fix/header.html :: headFragment"/>
+<div class="modalStory4 modals">
+    <div id="modalStory4Page">
+        <a class="modalStoryCloseBtn4"><img src="/images/free-icon-font-cross-3917759.png" class="xIcons4 xBtns"></a>
+        <div class="storyLetter4">
+            <p class="completePStory4">작성되었습니다.</p>
+            <button class="mdBtnStoryBtn4 xBtns">확인</button>
+        </div>
+    </div>
+</div>
+<div class="modalWrapOpen">
+    <div class="commonModal"><p class="modalTit">로그인이 필요한 기능입니다</p>
+        <button class="closeBtn"><img src="/images/free-icon-font-cross-3917759.png" alt="close"></button>
+        <div class="commonModalContent"><p>로그인을 하시겠습니까?</p></div>
+        <div class="btnWrap doubleBtnWrap">
+            <button class="btn whiteBtn">아니오</button>
+            <button class="btn redBtn">예</button>
+        </div>
+    </div>
+</div>
 <div class="lounge">
     <section class="loungeSection">
         <div class="loungeTop">
@@ -27,73 +46,76 @@
                         <textarea placeholder="가볍게 이야기를 시작해보세요." maxlength="1000" rows="6" class="loungeTextArea"></textarea>
                     </div>
                         <div class="loungeBtn">
-                           <button class="loungeBtn1">등록</button>
+                           <button class="loungeBtn1" th:if="${session.userNum != null}">등록</button>
+                           <button class="loungeBtn2" th:unless="${session.userNum != null}">등록</button>
                          </div>
                 </div>
                 <div class="inputText">
 
                 </div>
                 <!--댓글 목록-->
-<!--                <div class="replySection">-->
-<!--                    <div class="replyWrap">-->
-<!--                        <div class="replyTool">-->
-<!--                            <div class="replyTop">-->
-<!--                                <div class="replyLeft">-->
-<!--                                    <a href="https://letspl.me/people/%EC%83%81%EC%95%84%EC%95%BC">-->
-<!--                                        <div class="proWrap">-->
-<!--                                            <img src="/images/여.png">-->
-<!--                                        </div>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                                <div class="replyRight">-->
-<!--                                    <p class="proNames">상아야-->
+                <div class="replySection">
+                    <div class="replyWrap">
+                        <div class="replyTool">
+                            <div class="replyTop">
+                                <div class="replyLeft">
+                                    <a href="https://letspl.me/people/%EC%83%81%EC%95%84%EC%95%BC">
+                                        <div class="proWrap">
+                                            <img src="/images/여.png">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="replyRight">
+                                    <p class="proNames">상아야
 
-<!--                                        <ul class="hoverUl">-->
-<!--                                            <li class="hoverLi">-->
-<!--                                                <a href="/people/%EC%83%81%EC%95%84%EC%95%BC">프로필 상세</a>-->
-<!--                                            </li>-->
-<!--                                            <li class="hoverLi">-->
-<!--                                                <a>1 : 1 대화</a>-->
-<!--                                            </li>-->
-<!--                                            <li class="hoverLi">-->
-<!--                                                <a>모임초대</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
+                                        <ul class="hoverUl">
+                                            <li class="hoverLi">
+                                                <a href="/people/%EC%83%81%EC%95%84%EC%95%BC">프로필 상세</a>
+                                            </li>
+                                            <li class="hoverLi">
+                                                <a>1 : 1 대화</a>
+                                            </li>
+                                            <li class="hoverLi">
+                                                <a>모임초대</a>
+                                            </li>
+                                        </ul>
 
-<!--                                    </p>-->
-<!--                                    <span class="time">22.05.01 21:09</span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="replyMiddle">-->
-<!--                                <div class="replyLeft"></div>-->
-<!--                                <div class="replyContents">-->
-<!--                                    <textarea class="txtarea" rows="1" maxlength="1000" readonly>안녕하세용</textarea>-->
-<!--                                    <div class="replyBtnWrap">-->
-<!--                                        <p class="txtBtn modify">-->
-<!--                                            <img class="txtBtnImg"src="/images/modify.png">-->
-<!--                                        </p>-->
-<!--                                        <div class="sell">｜</div>-->
-<!--                                        <p class="txtBtn remove">-->
-<!--                                        <img class="txtBtnImg" src="/images/remove.png">-->
-<!--                                        </p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="replyBottom">-->
-<!--                                    <a class="replyOpen"data-reply="1">댓글 열기</a>-->
-<!--                                    <div class="replyBtmRight">-->
-<!--                                        <div class="rpyCountDiv">-->
-<!--                                        <img class="rpyImg" src="/images/msg.png">-->
-<!--                                        <span class="replyCount">0</span>-->
-<!--                                        </div>-->
-<!--                                        <div class="rpyLikeDiv">-->
-<!--                                        <img class="rpyImg" src="/images/likeup.png">-->
-<!--                                        <span class="replyLike">0</span>-->
-<!--                                         </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                    </p>
+                                    <span class="time">22.05.01 21:09</span>
+                                </div>
+                            </div>
+                            <div class="replyMiddle">
+                                <div class="replyLeft"></div>
+                                <div class="replyContents">
+                                    <textarea class="txtarea" rows="1" maxlength="1000" readonly>안녕하세용</textarea>
+                                    <div class="replyBtnWrap">
+                                        <button type="button">취소</button>
+                                        <button type="button">수정</button>
+                                        <p class="txtBtn modify">
+                                            <img class="txtBtnImg"src="/images/modify.png">
+                                        </p>
+                                        <div class="sell">｜</div>
+                                        <p class="txtBtn remove">
+                                        <img class="txtBtnImg" src="/images/remove.png">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="replyBottom">
+                                    <a class="replyOpen"data-reply="1">댓글 열기</a>
+                                    <div class="replyBtmRight">
+                                        <div class="rpyCountDiv">
+                                        <img class="rpyImg" src="/images/msg.png">
+                                        <span class="replyCount">0</span>
+                                        </div>
+                                        <div class="rpyLikeDiv">
+                                        <img class="rpyImg" src="/images/likeup.png">
+                                        <span class="replyLike">0</span>
+                                         </div>
+                                    </div>
+                                </div>
 
-<!--                            </div>-->
-<!--                    </div>-->
+                            </div>
+                    </div>
 <!--                  <div class="rpyAtiveWrap">-->
 <!--                    <div class="replyActive">-->
 <!--                         <div class="activeWrap">-->
@@ -393,36 +415,6 @@
                                 </a>
                             </li>
                         </th:block>
-<!--                        <li class="likeListLi">-->
-<!--                            <span class="number">1</span>-->
-<!--                            <span class="upDown up"></span>-->
-<!--                            <div class="profileWraps">-->
-<!--                                <img class="profileImg" src="/images/여.png">-->
-<!--                            </div>-->
-<!--                            <a>-->
-<!--                                <p class="proName">상아바보</p>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class="likeListLi">-->
-<!--                            <span class="number">2</span>-->
-<!--                            <span class="upDown up"></span>-->
-<!--                            <div class="profileWraps">-->
-<!--                                <img class="profileImg" src="/images/여.png">-->
-<!--                            </div>-->
-<!--                            <a>-->
-<!--                                <p class="proName">상아개굴</p>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class="likeListLi">-->
-<!--                            <span class="number">3</span>-->
-<!--                            <span class="upDown up"></span>-->
-<!--                            <div class="profileWraps">-->
-<!--                                <img class="profileImg" src="/images/여.png">-->
-<!--                            </div>-->
-<!--                            <a>-->
-<!--                                <p class="proName">상아에요</p>-->
-<!--                            </a>-->
-<!--                        </li>-->
                     </ul>
                 </div>
                 <!--라운지 댓글 랭킹-->

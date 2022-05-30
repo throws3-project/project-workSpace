@@ -3,15 +3,13 @@ package com.project.workspace.controller;
 import com.project.workspace.domain.repository.LoungeLikeRepository;
 import com.project.workspace.domain.repository.LoungeReplyRepository;
 import com.project.workspace.domain.repository.LoungeRepository;
-import com.project.workspace.domain.vo.LoungeReplyDTO;
-import com.project.workspace.domain.vo.LoungeReplyVO;
-import com.project.workspace.domain.vo.LoungeVO;
-import com.project.workspace.domain.vo.UserVO;
+import com.project.workspace.domain.vo.*;
 import com.project.workspace.service.LoungeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.Store;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -127,6 +125,8 @@ public class LoungeController {
     @ResponseBody
     @GetMapping("/lounge/loungeDelete/{loungeNum}")
     public String deleteLounge(@PathVariable("loungeNum") Long loungeNum){
+        log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        log.info("들어옴");
         return loungeService.deleteLounge(loungeNum);
     }
 
@@ -135,5 +135,25 @@ public class LoungeController {
     @GetMapping("/lounge/loungeUpdate/{loungeNum}/{loungeContent}")
     public String updateLounge(@PathVariable("loungeNum") Long loungeNum, @PathVariable("loungeContent") String loungeContent){
         return loungeService.updateLounge(loungeNum, loungeContent);
+    }
+
+    @ResponseBody
+    @Transactional
+    @GetMapping("/lounge/likeLounge/{loungeNum}/{userNum}")
+    public String likeStory(@PathVariable("userNum") Long userNum, @PathVariable("loungeNum") Long loungeNum){
+        LoungeLikeVO byUserVOAndLoungeVO = loungeLikeRepository.findByUserVO_UserNumAndLoungeVO_LoungeNum(userNum, loungeNum);
+        if(byUserVOAndLoungeVO != null){
+            log.info("삭제 들어옴");
+            loungeLikeRepository.deleteByUserVO_UserNumAndLoungeVO_LoungeNum(userNum, loungeNum);
+            return "fail";
+        }
+        log.info("저장 들어옴");
+        UserVO userVO = new UserVO();
+        userVO.setUserNum(userNum);
+        LoungeVO loungeVO = new LoungeVO();
+        loungeVO.setLoungeNum(loungeNum);
+        loungeLikeRepository.save(LoungeLikeVO.builder().loungeVO(loungeVO).userVO(userVO).build());
+        int likeSize = loungeLikeRepository.findAllByLoungeVO_LoungeNum(loungeNum).size();
+        return "success "+likeSize;
     }
 }

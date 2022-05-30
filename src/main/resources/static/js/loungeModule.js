@@ -59,6 +59,7 @@ let loungeService = (function () {
             },
             error: function (xhr, status, error) {
                 if (error) {
+                    alert("실패");
                 }
             }
         })

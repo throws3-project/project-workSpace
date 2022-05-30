@@ -174,7 +174,7 @@
                                           th:text="${list.getUserVO().getUserNickName()}"></span>
                                     <p class="timeLineTit" th:text="${list.getStoryTitle()}"></p>
                                 </div>
-                                <div class="timeLineTxt">[[${list.getStoryContent()}]]</div>
+                                <div class="timeLineTxt" th:utext="${list.getStoryContent()}"></div>
                                 <div class="timeLineTagWrap">
                                     <th:block th:each="tag:${list.getTags()}">
                                         <span th:text="|#${tag.getTagName()}|"></span>

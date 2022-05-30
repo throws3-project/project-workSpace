@@ -244,81 +244,6 @@ function getList(html, loungeNum){
         })
 }
 
-
-// $(".replyOpen").each(function (i,open) {
-//     let loungeNum = 0;
-//     $(open).on("click", function () {
-//         if ($($(".rpyAtiveWrap").get(i)).css("display") == "block") {
-//             $($(".rpyAtiveWrap").get(i)).hide();
-//             $(open).html("댓글 열기");
-//         } else {
-//             loungeNum = $(this).data("reply")
-//             loungeService.getList(
-//                 loungeNum
-//             , function (userNickNames, replies) {
-//                 let str = "";
-//                 if (replies == null || replies.length == 0) {
-//                     console.log("들어옴");
-//                     return;
-//                 }
-//                 str += "<div class='rpyAtiveWrap'>"
-//
-//                 for(let j =0;j<replies.size;j++) {
-//                     str += "<div class='replyActive'>";
-//                     str += "<div class='activeWrap'>";
-//                     str += "<div class='activeTop'>";
-//                     str += "<div class='activeLeft'>";
-//                     str += "<a href='#'>";
-//                     str += "<div class='activeLeftPro'>";
-//                     str += "<img src='/images/여.png'>";
-//                     str += "</div>";
-//                     str += "</a>";
-//                     str += "</div>";
-//                     str += "<div class='activeRight'>";
-//                     str += "<div class='activeProfile'>";
-//                     str += "<p class='activeProName'>userNickNames";
-//                     str += "<ul class='hoverUl'>";
-//                     str += "<li class='hoverLi'>";
-//                     str += "<a href='/people/%EC%83%81%EC%95%84%EC%95%BC'>프로필 상세</a>";
-//                     str += "</li>";
-//                     str += "<li class='hoverLi'>";
-//                     str += "<a>1 : 1 대화</a>";
-//                     str += "</li>";
-//                     str += "<li class='hoverLi'>";
-//                     str += "<a>모임초대</a>";
-//                     str += "</li>";
-//                     str += "</ul>";
-//                     str += "</p>";
-//                     str += "<span class='activeDate'>22.05.02 08:43</span>";
-//                     str += "</div>";
-//                     str += "<div class='activeTxt'>";
-//                     str += "<textarea class='activeTextArea' maxlength='500' placeholder='댓글을 작성해주세요' rows='2' readonly>반갑습니다.</textarea>";
-//                     str += "</div>";
-//                     str += "</div>";
-//                     str += "</div>";
-//                     str += "</div>";
-//                     str += "</div>";
-//                 }
-//
-//                 str += "<div class='activeInput'>"
-//                 str += "<div class='activInputPro'>"
-//                 str += "<img  class='activInputImg' src='/images/여.png'>"
-//                 str += "</div>"
-//                 str += "<div class='activeInputTxt'>"
-//                 str += "<textarea maxlength='500' rows='2' placeholder='댓글을 작성해주세요' class='activeInputTextArea'></textarea>"
-//                 str += "<button class='activeInputBtn'>등록</button>"
-//                 str += "</div>"
-//                 str += "</div>"
-//                 str += "</div>"
-//
-//                 $($(".rpyAtiveWrap").get(i)).html(str);
-//                 $($(".rpyAtiveWrap").get(i)).show();
-//                 $(open).html("댓글 닫기");
-//             })
-//         }
-//     });
-// })
-
 //라운지 글작성
 $(".loungeBtn1").on("click", function (e) {
     e.preventDefault();
@@ -327,10 +252,66 @@ $(".loungeBtn1").on("click", function (e) {
         alert("글을 입력하세요");
     }else{
         loungeService.insertLounge({
-            loungeContent:loungeContent, userNum:1
+            loungeContent:loungeContent, userNum:userNum
         }, function (result) {
-            alert(result);
-           location.reload();
+            $(".modalStory4").css("display","block");
+        })
+    }
+})
+
+$(".xBtns").on("click", function(){
+    location.reload();
+})
+
+$(".loungeBtn2").on("click",function () {
+    $(".modalWrapOpen").css("display","block");
+})
+
+$(".closeBtn").on("click", function () {
+    $(".modalWrapOpen").hide();
+})
+
+$(".whiteBtn").on("click", function () {
+    $(".modalWrapOpen").hide();
+})
+$(".redBtn").on("click", function () {
+    $(".modalWrapOpen").hide();
+    $(".modalWindow:first").show();
+})
+
+// 라운지 좋아요
+$(".inputText").on("click",".rpyLikeDiv",function () {
+    let likeTable = $(this);
+    if (userNum == null) {
+        $(".modalWrapOpen").show();
+        return;
+    } else {
+        let loungeNum = $(this).parents(".replySection").data("reply");
+
+        $.ajax({
+            type: "GET",
+            url: "/lounge/likeLounge/" + loungeNum + "/" + userNum,
+            success: function (result) {
+                let split = result.split(" ");
+                console.log(split[1]);
+                console.log(likeTable.next());
+                console.log($(likeTable).next());
+                if (split[0] === "success") {
+                    likeTable.find(".rpyImg").css("filter","invert(62%) sepia(79%) saturate(2914%) hue-rotate(323deg) brightness(100%) contrast(84%)");
+                    likeTable.find(".replyLike").text(split[1]);
+                } else {
+                    likeTable.find(".rpyImg").css("filter","unset");
+                    if(!split[1]) {
+                        likeTable.find(".replyLike").text("0");
+                    }else{
+                        likeTable.find(".replyLike").text(split[1]);
+                    }
+                }
+            },
+            error: function (xhr, status, error) {
+                // if (error) {
+                // }
+            }
         })
     }
 })
@@ -384,11 +365,6 @@ $("span.time").on("click", function(){
         location.reload();
     })
 
-})
-
-// 좋아요
-$(".rpyLikeDiv").on("click", function () {
-    $(this).find(".rpyImg").css("filter","invert(62%) sepia(79%) saturate(2914%) hue-rotate(323deg) brightness(100%) contrast(84%)");
 })
 
 //프로필 상세보기(댓글의댓글)
