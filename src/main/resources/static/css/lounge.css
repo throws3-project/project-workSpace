@@ -168,7 +168,7 @@ textarea {
 }
 
 .up{
-    background-image: url(../../static/images/up.png);
+    background-image: url('/static/images/up.png');
 }
 .profileWraps{
     width: 28px;

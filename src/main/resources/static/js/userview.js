@@ -30,7 +30,7 @@ document.getElementById('userProPinkBtn').addEventListener('click', function () 
         document.querySelector('.chattingOpen').classList.remove("open");
         document.querySelector('.chatting').classList.add("open");
 
-        startChat(myName, other);
+        처음대화(mysession, other);
         document.getElementsByClassName('userId')[0].innerText = other;
     }
 )

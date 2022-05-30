@@ -45,7 +45,7 @@ let ulclass = document.getElementById('ulclass')
 // ?는 준비됐니?
 users?.map((v) => {
     ulclass.innerHTML += `
-            <li  class="username" style="margin-top: 10px; ">${v}</li> 
+            <li  class="username" >${v}</li> 
         `
 })
 let username = document.querySelectorAll('.username')

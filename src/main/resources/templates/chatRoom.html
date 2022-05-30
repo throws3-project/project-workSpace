@@ -147,14 +147,14 @@
             mysession === senderId ? chatings.innerHTML += `
          <div style="width:99%">
             <div style="text-align: right;    margin-top: 20px;">
-        <span style="line-height: 40px;    display: inline-block; width: 55%;   padding: 0px 5px;    height: 45px;     font-size: 17px;"  id="sender"><span style="font-size: 10px;">${time}</span> &nbsp;&nbsp;&nbsp; ${message}</span> <br/>
+        <span style="line-height: 40px;    display: inline-block; width: 55%;   padding: 0px 5px;    height: 45px;     font-size: 17px;"  id="sender"><span style="font-size: 10px;">${c.chatTime}</span> &nbsp;&nbsp;&nbsp; ${message}</span> <br/>
         </div></div>` :
                 chatings.innerHTML += `
             <div style="text-align:left; margin-top: 10px;
            width: 55%;padding: 5px;
              ">
             <span style="font-size: 17px;font-weight: bold ">${senderId}</span> <br/>
-            <span style="font-size: 17px;">${message}</span>&nbsp;&nbsp;<br><span style="font-size:10px;">${time}</span>
+            <span style="font-size: 17px;">${message}</span>&nbsp;&nbsp;<br><span style="font-size:10px;">${c.chatTime}</span>
 
             </div>`
 
@@ -174,6 +174,14 @@
         connect();
 
         document.getElementById('chating').scrollTop = document.getElementById('chating').scrollHeight;
+        document.getElementById('message').focus()
+
+        document.getElementById('message').addEventListener('keyup',function (e) {
+            if(e.key ==='Enter'){
+                e.preventDefault();
+                send();
+            }
+        })
 
     })
 
@@ -198,6 +206,13 @@
 
     function send() {
         msg = document.getElementById("message").value;
+
+        if(!msg){
+            alert("내용을 입력해주세요")
+            return false;
+
+        }
+
         webSocket.send(JSON.stringify({
             chatRoomId: roomId,
             type: 'CHAT',
