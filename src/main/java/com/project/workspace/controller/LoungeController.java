@@ -76,7 +76,6 @@ public class LoungeController {
         log.info(loungeUserNickNames.toString());
         log.info("-------------------------------");
 
-
         model.addAttribute("loungeVOs", loungeVOs);
         model.addAttribute("loungeLikesNum", loungeLikesNum);
         model.addAttribute("loungeRepliesNum", loungeRepliesNum);
@@ -125,9 +124,14 @@ public class LoungeController {
     @ResponseBody
     @GetMapping("/lounge/loungeDelete/{loungeNum}")
     public String deleteLounge(@PathVariable("loungeNum") Long loungeNum){
-        log.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        log.info("들어옴");
         return loungeService.deleteLounge(loungeNum);
+    }
+
+    //라운지 댓글 삭제
+    @ResponseBody
+    @GetMapping("/lounge/loungeDeleteReply/{loungeReplyNum}")
+    public String deleteReply(@PathVariable("loungeReplyNum") Long loungeReplyNum){
+        return loungeService.deleteReply(loungeReplyNum);
     }
 
     //라운지 수정
@@ -135,6 +139,13 @@ public class LoungeController {
     @GetMapping("/lounge/loungeUpdate/{loungeNum}/{loungeContent}")
     public String updateLounge(@PathVariable("loungeNum") Long loungeNum, @PathVariable("loungeContent") String loungeContent){
         return loungeService.updateLounge(loungeNum, loungeContent);
+    }
+
+    // 댓글 수정
+    @ResponseBody
+    @GetMapping("/lounge/loungeUpdateReply/{loungeReplyNum}/{loungeReplyContent}")
+    public String updateReply(@PathVariable("loungeReplyNum") Long loungeReplyNum, @PathVariable("loungeReplyContent") String loungeReplyContent){
+        return loungeService.updateReply(loungeReplyNum, loungeReplyContent);
     }
 
     @ResponseBody

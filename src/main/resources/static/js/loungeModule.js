@@ -65,6 +65,23 @@ let loungeService = (function () {
         })
     }
 
+    function deleteReply(loungeReplyNum, callback) {
+        $.ajax({
+            type:"GET",
+            url:"/lounge/loungeDeleteReply/"+ loungeReplyNum,
+            success: function (result) {
+                if (callback) {
+                    callback(result);
+                }
+            },
+            error: function (xhr, status, error) {
+                if (error) {
+                    alert("실패");
+                }
+            }
+        })
+    }
+
     function updateLounge(param, callback) {
         $.ajax({
             type:"GET",
@@ -81,5 +98,21 @@ let loungeService = (function () {
         })
     }
 
-    return {getList: getList, insertLounge:insertLounge, insertReply:insertReply, deleteLounge:deleteLounge, updateLounge:updateLounge}
+    function updateReply(param, callback) {
+        $.ajax({
+            type:"GET",
+            url:"/lounge/loungeUpdateReply/"+ param.loungeReplyNum +"/" + param.loungeReplyContent,
+            success: function (result) {
+                if (callback) {
+                    callback(result);
+                }
+            },
+            error: function (xhr, status, error) {
+                if (error) {
+                }
+            }
+        })
+    }
+
+    return {getList: getList, insertLounge:insertLounge, insertReply:insertReply, deleteLounge:deleteLounge, updateLounge:updateLounge,updateReply:updateReply,deleteReply:deleteReply}
 })();

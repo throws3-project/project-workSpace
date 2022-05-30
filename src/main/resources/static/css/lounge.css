@@ -590,7 +590,7 @@ textarea.modify{
     cursor: auto;
 }
 
-#modalStory4Page{
+#modalStory4Page, #modalStory5Page, #modalStory6Page{
     position: absolute;
     text-align: center;
     width: 387px;
@@ -603,20 +603,20 @@ textarea.modify{
     left: 41%;
 }
 
-#modalStory4Page .modalStoryCloseBtn4{
+#modalStory4Page .modalStoryCloseBtn4, #modalStory5Page .modalStoryCloseBtn5, #modalStory6Page .modalStoryCloseBtn6{
     bottom: 25px;
     right: 165px;
 }
 
 
-img.xIcons4{
+img.xIcons4, img.xIcons5, img.xIcons6{
     position: relative;
     width: 25px;
     right: -170px;
     top: -13px;
 }
 
-div.modalStory4{
+div.modalStory4, div.modalStory5, div.modalStory6{
     position: fixed;
     top: 0;
     left: 0;
@@ -628,14 +628,14 @@ div.modalStory4{
 }
 
 
-a.modalStoryCloseBtn4{
+a.modalStoryCloseBtn4, a.modalStoryCloseBtn5, a.modalStoryCloseBtn6{
     text-decoration: none;
     color: #8e8ea2;
     cursor: pointer;
 }
 
 
-p.completePStory4{
+p.completePStory4, p.completePStory5, p.completePStory6{
     font-size: 1.125rem;
     color: #42495b;
     font-weight: 700;
@@ -644,7 +644,7 @@ p.completePStory4{
 }
 
 
-button.mdBtnStoryBtn4{
+button.mdBtnStoryBtn4, button.mdBtnStoryBtn5, button.mdBtnStoryBtn6{
     width: 260px;
     height: 44px;
     border: none;

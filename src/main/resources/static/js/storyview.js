@@ -194,7 +194,7 @@ $(".mdBtnRemoves").on("click", function () {
     })
 });
 
-$(".xBtns").on("click", function () {
+$(".mdBtnStoryBtn2").on("click", function () {
     location.href = "/story/storyList";
 });
 $(".xIcons3").on("click", function () {
