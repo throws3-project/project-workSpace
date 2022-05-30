@@ -14,5 +14,25 @@
         <typeAlias type="com.project.workspace.domain.vo.UserInterestVO" alias="userInterestVO"/>
         <typeAlias type="com.project.workspace.domain.vo.UserFollowVO" alias="userFollowVO"/>
         <typeAlias type="com.project.workspace.domain.vo.UserAlertVO" alias="userAlertVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StudyVO" alias="studyVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StudyKeywordVO" alias="studyKeywordVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StudyMemberVO" alias="studyMemberVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.ProjectVO" alias="projectVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.ProjectLikeVO" alias="projectLikeVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.ProjectMemberVO" alias="projectMemberVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.ProjectPersonVO" alias="projectPersonVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.ProjectReferenceVO" alias="projectReferenceVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.ProjectSkillVO" alias="projectSkillVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StoryVO" alias="storyVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StoryLikeVO" alias="storyLikeVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StoryReplyVO" alias="storyReplyVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StorySeriesVO" alias="storySeriesVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.StoryTagVO" alias="storyTagVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.LoungeVO" alias="loungeVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.LoungeReplyVO" alias="loungeReplyVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.LoungeLikeVO" alias="loungeLikeVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.NoticeVO" alias="noticeVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.UserExpVO" alias="userExpVO"/>
+        <typeAlias type="com.project.workspace.domain.vo.UserPointVO" alias="userPointVO"/>
     </typeAliases>
 </configuration>

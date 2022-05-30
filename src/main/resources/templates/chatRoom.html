@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>채팅 서비스</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
 
     <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">-->
 
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@
 
 
     </div>
-    <hr>
+    <hr style="border: 0;  height: 0.5px;  width: 92%;  background-color: #ddd;">
 
     <div class="chatinput" id="chatinput">
         <script>
@@ -38,6 +38,12 @@
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <style>
+    /*body{*/
+    /*    font-size: 100%;*/
+    /*    font: inherit;*/
+    /*    vertical-align: baseline;*/
+    /*    font-family: 'GmarketSansLight', sans-serif;*/
+    /*}*/
     .chatinput {
         position: absolute;
         left: 0;
@@ -50,12 +56,12 @@
         background-color: #fff;
     }
 
-    .chatinput input{
+    .chatinput input {
         border-color: #ddd;
         background-color: #fff;
     }
 
-    .chatinput input::placeholder{
+    .chatinput input::placeholder {
         font-size: 15px;
     }
 
@@ -84,22 +90,32 @@
         width: 100%;
         display: block;
     }
-    #message{
+
+    #message {
         height: 40px;
-        width: 300px;
-        font-size: 20px;
+        width: 280px;
+        font-size: 16px;
     }
-    #send{    height: 40px; width: 55px;}
+
+    #send {
+        height: 40px;
+        width: 55px;
+    }
 </style>
 
 <script>
 
-     chatings = document.querySelector('.chating');
-     other = sessionStorage.getItem("other")
-     myName = sessionStorage.getItem("myName")
-     roomid = sessionStorage.getItem("roomNames")
+    let chatings = document.querySelector('.chating');
+    let other = sessionStorage.getItem("other");
+    let mysession = sessionStorage.getItem("mysession");
+    let roomid = sessionStorage.getItem("roomNames");
 
-     console.log(other)
+    chatings = document.querySelector('.chating');
+    other = sessionStorage.getItem("other")
+    myName = sessionStorage.getItem("myName")
+    roomid = sessionStorage.getItem("roomNames")
+
+    console.log(other)
 
     let today = new Date();
     let year = today.getFullYear(); // 년도
@@ -110,62 +126,75 @@
     let minutes = today.getMinutes();  // 분
     let time = `${month}월${date}일 ${hours}:${minutes}`
 
+    let ttime = ` ${hours}:${minutes}`
 
     //채팅가져오기
-    let chatdata = "";
-    $.ajax({
-        url: `/messageList/${myName}/${other}`,
-        dataType: "json",
-        type: "get",
-        async: false,
-        success: function (data) {
-            chatdata = data
-            console.log(chatdata)
+    function letdata() {
+        let chatdata = "";
+        $.ajax({
+            url: `/messageList/${mysession}/${other}`,
+            dataType: "json",
+            type: "get",
+            async: false,
+            success: function (data) {
+                chatdata = data
 
-        },
-        error: function () {
-            alert("실패");
-        }
-    });
 
-    //채팅출력
-    chatdata?.map((c) => {
+            },
+            error: function () {
+                alert("실패");
+            }
+        });
+        //채팅출력
+        chatdata?.map((c) => {
 
-        let message = c.message;
-        let senderId = c.senderId;
+            let message = c.message;
+            let senderId = c.senderId;
 
-        myName === senderId ? chatings.innerHTML += `
+            mysession === senderId ? chatings.innerHTML += `
          <div style="width:99%">
-            <div style="text-align: right;    margin-top: 10px;">
-        <span style="line-height: 40px;    display: inline-block;    padding: 0px 5px;    height: 45px;     font-size: 17px;" ><span style="font-size: 10px;">${time}</span> &nbsp;&nbsp;&nbsp; ${message}</span> <br/>
+            <div style="text-align: right;    margin-top: 20px;">
+        <span style="line-height: 40px;    display: inline-block; width: 80%;   padding: 0px 5px;    height: 45px;     font-size: 17px;"  id="sender"><span style="font-size: 10px;">${c.chatTime}</span> &nbsp;&nbsp;&nbsp; ${message}</span> <br/>
         </div></div>` :
-            chatings.innerHTML += `
+                chatings.innerHTML += `
             <div style="text-align:left; margin-top: 10px;
-            width: 70%;padding: 5px;    ">
+           width: 80%;padding: 5px;
+             ">
             <span style="font-size: 17px;font-weight: bold ">${senderId}</span> <br/>
-            <span style="font-size: 17px;">${message}</span>&nbsp;&nbsp;&nbsp;<span style="font-size:10px;">${time}</span>
+            <span style="font-size: 17px;">${message}</span>&nbsp;&nbsp;<span style="font-size:10px;">${c.chatTime}</span>
 
             </div>`
 
 
-    })
+        })
+    }
+
+    letdata()
+
     //여기까지 완벽
     let webSocket;
-    let nickname = myName
+    let nickname = mysession
     let roomId = roomid;
-
 
 
     $(document).ready(function () {
         connect();
 
         document.getElementById('chating').scrollTop = document.getElementById('chating').scrollHeight;
+        document.getElementById('message').focus()
+
+        document.getElementById('message').addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                send();
+            }
+        })
 
     })
 
 
     document.getElementById("send").addEventListener("click", function () {
-        send(myName, other);
+        send(mysession, other);
     })
 
     function connect() {
@@ -186,6 +215,13 @@
 
     function send() {
         msg = document.getElementById("message").value;
+
+        if (!msg) {
+            alert("내용을 입력해주세요")
+            return false;
+
+        }
+
         webSocket.send(JSON.stringify({
             chatRoomId: roomId,
             type: 'CHAT',
@@ -196,29 +232,24 @@
         }));
 
 
-
-
-
-//여기 수정하니까 들어간다 !!! ㅠㅠ
         let data = {
             message: msg,
             roomName: roomId,
             chatTime: time,
-            senderId: nickname,
+            senderId: mysession,
             receiverId: other
         }
-
 
 
         let JSONData = JSON.stringify(data)
         $.ajax({
             type: "POST",
-            url: `/chatSave/${myName}/${other}`,
+            url: `/chatSave/${mysession}/${other}`,
             data: JSONData,
 
             contentType: "application/json",
             success: function () {
-                document.getElementById('message').value=""
+                document.getElementById('message').value = ""
 
             },
             error: function (err) {
@@ -233,33 +264,39 @@
     }
 
     function onOpen() {
-       webSocket.send(JSON.stringify({chatRoomId: roomId, type: 'ENTER', writer: nickname}));
+
+        webSocket.send(JSON.stringify({chatRoomId: roomId, type: 'ENTER', writer: nickname}));
 
 
     }
 
 
-
     function onMessage(e) {
-        console.log(e)
+
         let data = e.data;
 
-        let dates = JSON.parse(data)
+
+        let date = JSON.parse(data)
+        console.log(date.split("&")[1])
+
+        datas = date.split(":")[1]
 
         chatroom = document.getElementById("chatroom");
-        dates?.search(nickname)?
-            chatings.innerHTML +=`
-            <div style="text-align:left; margin-top: 10px;
-             width: 70%;padding: 5px; ">
-
-            <span style="font-size: 17px;">${dates}</span>
-
-            </div>`:
+        date?.search(nickname) ?
             chatings.innerHTML += `
-         <div style="width:99%">
-            <div style="text-align: right;    margin-top: 20px;">
-        <span style="line-height: 40px;    display: inline-block;   padding: 0px 5px;    height: 45px;     font-size: 17px;" > ${dates}</span> <br/>
-        </div></div>`
+                <div style="text-align:left; margin-top: 10px;
+                padding: 5px; width: 100%;
+                 ">
+
+                <span style="font-size: 15px;">${date} <span style="font-size: 10px;">${ttime}</span></span>
+
+                </div>` :
+            chatings.innerHTML += `
+             <div style="width:99%">
+                <div style="text-align: right;  width: 100%;   margin-top: 10px;">
+                <span style="font-size: 10px;">${ttime}</span>
+            <span style="line-height: 40px;    display: inline-block;         padding: 0px 5px;    height: 45px;     font-size: 17px;"  id="senderText">${datas}</span> <br/>
+            </div></div>`
 
         document.getElementById('chating').scrollTop = document.getElementById('chating').scrollHeight;
 

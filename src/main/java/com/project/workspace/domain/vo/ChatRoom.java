@@ -18,7 +18,6 @@ public class ChatRoom {
     private String roomId;
     private String name;
     private Set<WebSocketSession> sessions = new HashSet<>();
-//    private static List<WebSocketSession> list = new ArrayList<WebSocketSession>();
 
     public static ChatRoom create(String name){
         ChatRoom chatRoom = new ChatRoom();

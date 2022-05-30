@@ -23,17 +23,16 @@ $(".userFollowerImgs").each(function (i, img) {
 // 스토리 선택시 진행중인 프로젝트/스터디, 나를 구독중인 사람 안나오게하기
 
 
-//채팅연결
 
 
+//채팅 연결
 document.getElementById('userProPinkBtn').addEventListener('click', function () {
         other = document.getElementById('userProName').innerText;
 
         document.querySelector('.chattingOpen').classList.remove("open");
         document.querySelector('.chatting').classList.add("open");
 
-        startChat(myName, other);
+        처음대화(mysession, other);
         document.getElementsByClassName('userId')[0].innerText = other;
     }
 )
-

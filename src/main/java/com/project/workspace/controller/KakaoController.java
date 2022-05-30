@@ -145,7 +145,7 @@ public class KakaoController {
 
         if(userVO == null){
 
-            url = "joinForm";
+            url = "user/joinForm";
 
         }else{
 
@@ -178,6 +178,7 @@ public class KakaoController {
         HttpSession session = req.getSession();
 
         session.setAttribute("userNum", userNum);
+        session.setAttribute("profile", userVO);
 
         return "user/joinSuccess";
     }
@@ -262,7 +263,13 @@ public class KakaoController {
         UserVO userVO = userRepository.findByUserNum(userNum);
         Long userPoint = userVO.getUserPoint() + price;
 
+
         userVO.setUserPoint(userPoint);
+
+        Long userExp = userVO.getUserExp() + workPoint;
+
+        userVO.setUserPoint(userPoint);
+        userVO.setUserExp(userExp);
 
         userRepository.save(userVO);
 

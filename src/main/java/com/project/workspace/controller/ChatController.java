@@ -32,7 +32,6 @@ public class ChatController {
     }
 
     @GetMapping("/rooms")
-
     public String rooms(Model model) {
         model.addAttribute("rooms", chatRoomRepository.findAllRoom());
         return "fix/chat";

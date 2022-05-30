@@ -59,7 +59,7 @@ div.chatting {
     position: fixed;
     left: 90%;
     width: 100%;
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
     z-index: 6999;
     bottom: 0;
@@ -90,7 +90,7 @@ div.chattingHeader {
 }
 
 div.chattingHeader div.left {
-    max-width: 300px;
+    max-width: 240px;
     width: 100%;
     border-right: 1px solid #f0f0f0;
     padding: 0 12px;
@@ -139,7 +139,7 @@ div.user {
 }
 
 div.user p.userId {
-    font-size: 13px;
+    font-size: 17px;
     line-height: 26px;
     color: #424251;
     cursor: pointer;
@@ -254,7 +254,7 @@ div.chatList {
     padding: 0 12px;
     overflow: auto;
     position: relative;
-    max-width: 300px;
+    max-width: 240px;
     width: 100%;
     border-right: 1px solid #f0f0f0;
 }
@@ -275,6 +275,7 @@ div.chatList ul li {
     position: relative;
     margin: 0 auto;
     justify-content: space-between;
+    font-size: 16px;
 }
 
 div.chatList ul li.active:before {
