@@ -11,18 +11,19 @@ $("div.foldChatButton").on("click", function () {
 })
 
 
-
 //userNickName 세션 담기
-let myName = document.getElementById("userNickName").value;
+let mysession = document.getElementById("userNickName").value;
 
-sessionStorage.setItem("myName", myName);
+sessionStorage.setItem("mysession", mysession);
+
+$(document).ready(function () {
+    채팅방연결(mysession)
+    채팅방내이름지우기(mysession)
+
+})
 
 
-//세션가져오기
-
-
-
-//전체 회원 목록 ※필요없슴※
+//전체 회원 목록
 
 let users = "";
 $.ajax({
@@ -36,33 +37,30 @@ $.ajax({
     error: function () {
         alert("회원 목록 가져오기 실패");
     }
-
 });
 
 
 //회원목록 맵핑
-
 let ulclass = document.getElementById('ulclass')
 // ?는 준비됐니?
 users?.map((v) => {
     ulclass.innerHTML += `
-            <li class="username" style="margin-top: 10px; ">${v}<span class="thischat"> 채팅하기<input type="hidden" id="valuehidden" value="${v}"></span></li> 
+            <li  class="username" style="margin-top: 10px; ">${v}</li> 
         `
 })
 let username = document.querySelectorAll('.username')
 for (let i = 0; i < username.length; i++) {
 
-    username[i].innerText.split(" ")[0] === myName ? username[i].style.display = "none" : ""
+    username[i].innerText.split(" ")[0] === mysession ? username[i].style.display = "none" : ""
 
 
 }
 
 
-
 //채팅내역있으면 보여주기
 let chatList = [];
 $.ajax({
-    url: `/chatList/${myName}/${myName}`,
+    url: `/chatList/${mysession}/${mysession}`,
     dataType: "json",
     type: "get",
     async: false,
@@ -75,114 +73,115 @@ $.ajax({
 
 
 //채팅내역 렝스가 0 이면  존재하지않음 출력  => 0이상 방이름 생성
-chatLists = document.getElementById('chatLists')
+let chatLists = document.getElementById('chatLists')
 if (chatList.length === 0) {
     chatLists.innerHTML += '<li class="nametd">채팅내역이 존재하지 않음</li>'
     document.getElementById('chatWrapSecond').innerHTML = "<div style='position: absolute;top: 40%;left: 40%;'>채팅을 시작해보세요</div>"
 } else {
     chatList?.map((v) => {
-        chatLists.innerHTML += `<li class="nametd"  >${v.roomName}</li>`
+        chatLists.innerHTML += `<li data-room=${v.roomName} class="nametd" style="font-weight: 500;font-size: 15px;color: #333;" >
+                <a>${v.roomName}</a><span class="thischat"> 채팅하기<input type="hidden" id="valuehidden" value="${v.roomName}"></span></li>`
         document.getElementById('chatWrapSecond').innerHTML = "<div style='position: absolute;top: 40%;left: 70px;'>채팅을시작하려면 상대방을 선택해주세요</div>"
 
     })
 }
-removesession();
 
-//채팅방에서 내이름 빼기
-function removesession() {
-    //얘는 변수 바꿔도댐
-    let nametd = document.querySelectorAll('.nametd');
-
-    for (i = 0; i < nametd.length; i++) {
-
-        let receiverName = nametd[i].innerText
-        let matchname = receiverName.match(myName)
-        let finl = receiverName.replace(matchname, '');
-
-        nametd[i].innerText = finl
-
-    }
-
-}
-
-
-
-let thischat = document.querySelectorAll(".thischat");
-
-
+//처음 대화 시작
 ulclass.addEventListener('click', function (e) {
-    if (e.target.tagName === "SPAN") {
-
-        let other = e.target.lastChild.value;
-        console.log(other)
-
-        //세션주기
-
-        startChat(myName,other)
-
-        document.getElementsByClassName('userId')[0].innerText = other;
+    if (e.target.tagName === "LI") {
+        other = e.target.innerText
+        처음대화(mysession, other)
     }
 })
 
-//대화 시작하기
-//채팅방 존재 검사 후  succ => 기존이름생성 err=> 새로운 이름 생성
-function startChat(myName,other) {
-
-    sessionStorage.setItem("other",other)
+const 채팅방연결 = (mysession) => {
 
 
-    console.log(other)
+    chatLists.addEventListener('click', function (e) {
+        if (e.target.tagName === "LI") {
+            roomNames = e.target.dataset.room
+            roomNames.split("&")[0] === mysession ? 방만들기(roomNames) : 기존방연결(roomNames)
+        }
+    })
+}
+
+//채팅방에서 내이름 빼기
+const 채팅방내이름지우기 = (mysession) => {
+    let nametd = document.querySelectorAll('.nametd');
+    //얘는 변수 바꿔도댐
+    for (let i = 0; i < nametd.length; i++) {
+        let receiverName = nametd[i].innerText
+        let matchname = receiverName.match(mysession)
+        let finl = receiverName.replace(matchname, '');
+        let endremove = finl.match("&")
+        let endfinal = finl.replace(endremove, '');
+        let final = finl.split(' ')[0];
+        final === mysession ? nametd[i].innerText = "나와의 채팅" : nametd[i].innerText = endfinal
+    }
+}
+
+
+const 기존방연결 = (roomNames) => {
+    other = roomNames.split("&")[0]
+    sessionStorage.setItem("other", other)
+    sessionStorage.setItem("roomNames", roomNames)
+    console.log(roomNames)
+    $("#chatWrapSecond").load(`/rooms/${roomNames}`);
+}
+
+
+const 방만들기 = (roomNames) => {
     $.ajax({
         type: "POST",
-        url: `/chatHistory/${myName}/${other}`,
+        url: ` /room/new `,
+        data: roomNames,
+        contentType: "application/json",
+        success: function () {
+            let endremove = roomNames.match("&")
+            let endfinal = roomNames.replace(endremove, '');
+            let others = endfinal.match(mysession)
+            let other = endfinal.replace(mysession, '');
+            console.log(other + "방만들기에서 나온 other")
+            sessionStorage.setItem("other", other)
+            sessionStorage.setItem("roomNames", roomNames)
+            $("#chatWrapSecond").load(`/rooms/${roomNames}`);
+        },
+        error: function () {
+            alert("방생성 실패 ");
+        }
+    })
+}
+
+
+const 처음대화 = (mysession, other) => {
+
+    $.ajax({
+        type: "POST",
+        url: `/chatHistory/${mysession}/${other}`,
         contentType: "application/json",
 
         success: function () {
 
             let result = "";
             $.ajax({
-                url: `/connectRoom/${myName}/${other}`,
+                url: `/connectRoom/${mysession}/${other}`,
                 dataType: "json",
                 type: "get",
                 async: false,
                 success: function (data) {
-
-                    console.log(other)
                     result = data
                     let roomNames = result[0].roomName;
+                    console.log(roomNames)
 
-                    makeRoom(roomNames);
+                    방만들기(roomNames);
                 },
-
             });
         },
         error: function () {
-            let roomNames = myName + other
-            console.log(roomNames+"에러타입")
-            makeRoom(roomNames);
+            let roomNames = mysession + "&" + other
+            console.log(roomNames + "에러타입")
+            방만들기(roomNames);
         }
-    });
-    //방생성 하기!
-    const makeRoom = (roomNames) => {
-        $.ajax({
-            type: "POST",
-            url: `/room/new `,
-            data: roomNames,
-            contentType: "application/json",
-            success: function () {
-                sessionStorage.setItem("roomNames", roomNames);
-                console.log(roomNames)
-                $("#chatWrapSecond").load(`/rooms/${roomNames}`);
-                //window.open(`/rooms/${roomNames}`, "_blank", "채팅", "width:300px  height: 400px, top=10, left=10");
-            },
-            error: function () {
-                console.log(roomNames)
-                alert("방 생성 실패");
-            }
-        })
-    }
-
-}
-
-
+    })
+};
 

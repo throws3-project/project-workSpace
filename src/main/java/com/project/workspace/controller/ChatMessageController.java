@@ -69,4 +69,12 @@ public class ChatMessageController {
     }
 
 
+    //룸네임으로 채팅 삭제
+    @ResponseBody
+    @GetMapping("/deleteChat/{roomName}")
+    public void deleteChat(@PathVariable("roomName") String roomName){
+        chatMessageService.deleteChat(roomName);
+    }
+
+
 }

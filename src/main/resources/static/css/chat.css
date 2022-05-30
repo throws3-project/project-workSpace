@@ -275,6 +275,7 @@ div.chatList ul li {
     position: relative;
     margin: 0 auto;
     justify-content: space-between;
+    font-size: 16px;
 }
 
 div.chatList ul li.active:before {
