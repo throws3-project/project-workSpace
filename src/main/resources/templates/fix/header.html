@@ -24,49 +24,49 @@
                     </div>
                 </div>
                 <th:block th:if="${session.userNum} and ${session.profile}">
-                <div class="hoverMenu">
-                    <div class="profileSummary">
-                        <div class="profileImgWrap">
-                            <a th:href="'/main/userDetail/'+${session.userNum}" class="session.profileImgWrapA">
-                                <img src="https://letspl.me/assets/images/prof-no-img.png" class="myPageInfo">
-                            </a>
-                            <div class="profileImgWholeWrap">
-                                <div class="profileImgWrapFirstLine">
-                                    <span class="lvColor">Lv.</span><span class="lvColor2" th:text="${session.profile.userLevel}"></span>
-                                    <a class="logOut">로그아웃</a>
-                                </div>
-                                <div class="profileImgWrapSecondLine">
-                                    <a th:href="'/main/userDetail/'+${session.userNum}">
-                                        <p class="profileUserId" th:text="${session.profile.userNickName}"></p>
-                                    </a>
-                                </div>
-                                <div class="profileImgWrapThirdLine">
-                                    <a th:href="'/main/userDetail/'+${session.userNum}">
-                                        <p class="positionTxt" th:if="${session.profile.userMainLevel==1}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 초보'"></p>
-                                        <p class="positionTxt" th:if="${session.profile.userMainLevel==2}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 중수'"></p>
-                                        <p class="positionTxt" th:if="${session.profile.userMainLevel==3}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 고수'"></p>
-                                        <p class="positionTxt" th:if="${session.profile.userMainLevel==4}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 해커'"></p>
-                                    </a>
+                    <div class="hoverMenu">
+                        <div class="profileSummary">
+                            <div class="profileImgWrap">
+                                <a th:href="'/main/userDetail/'+${session.userNum}" class="session.profileImgWrapA">
+                                    <img src="https://letspl.me/assets/images/prof-no-img.png" class="myPageInfo">
+                                </a>
+                                <div class="profileImgWholeWrap">
+                                    <div class="profileImgWrapFirstLine">
+                                        <span class="lvColor">Lv.</span><span class="lvColor2" th:text="${session.profile.userLevel}"></span>
+                                        <a class="logOut">로그아웃</a>
+                                    </div>
+                                    <div class="profileImgWrapSecondLine">
+                                        <a th:href="'/main/userDetail/'+${session.userNum}">
+                                            <p class="profileUserId" th:text="${session.profile.userNickName}"></p>
+                                        </a>
+                                    </div>
+                                    <div class="profileImgWrapThirdLine">
+                                        <a th:href="'/main/userDetail/'+${session.userNum}">
+                                            <p class="positionTxt" th:if="${session.profile.userMainLevel==1}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 초보'"></p>
+                                            <p class="positionTxt" th:if="${session.profile.userMainLevel==2}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 중수'"></p>
+                                            <p class="positionTxt" th:if="${session.profile.userMainLevel==3}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 고수'"></p>
+                                            <p class="positionTxt" th:if="${session.profile.userMainLevel==4}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 해커'"></p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="navList">
+                            <div class="navListFirstDiv"><a th:href="'/main/userDetail/'+${session.userNum}" class="navListFirstA">내 프로필</a></div>
+                            <div class="navListSecondDiv"><a href="/myPage" class="navListSecondA">정보 수정</a></div>
+                            <div class="navListThirdDiv"><a href="/myPage" class="navListThirdA">프로젝트 현황</a></div>
+                        </div>
+                        <div class="alarmList">
+                            <ul>
+                                <li class="firstAlarm">내 프로젝트/스터디(<span>0</span>)</li>
+                                <li class="firstAlarmContent"><p class="firstAlarmContentP">프로젝트/스터디가 없습니다.</p><a href="#"><p class="firstAlarmContentP2">프로젝트/스터디 만들기 ></p></a></li>
+                            </ul>
+                            <ul>
+                                <li class="secondAlarm">신규 알림(<span>0</span>)</li>
+                                <li class="secondAlarmContent"><p class="secondAlarmContentP">알림메시지가 없습니다.</p></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="navList">
-                        <div class="navListFirstDiv"><a th:href="'/main/userDetail/'+${session.userNum}" class="navListFirstA">내 프로필</a></div>
-                        <div class="navListSecondDiv"><a href="/myPage" class="navListSecondA">정보 수정</a></div>
-                        <div class="navListThirdDiv"><a href="/myPage" class="navListThirdA">프로젝트 현황</a></div>
-                    </div>
-                    <div class="alarmList">
-                        <ul>
-                            <li class="firstAlarm">내 프로젝트/스터디(<span>0</span>)</li>
-                            <li class="firstAlarmContent"><p class="firstAlarmContentP">프로젝트/스터디가 없습니다.</p><a href="#"><p class="firstAlarmContentP2">프로젝트/스터디 만들기 ></p></a></li>
-                        </ul>
-                        <ul>
-                            <li class="secondAlarm">신규 알림(<span>0</span>)</li>
-                            <li class="secondAlarmContent"><p class="secondAlarmContentP">알림메시지가 없습니다.</p></li>
-                        </ul>
-                    </div>
-                </div>
                 </th:block>
             </nav>
             <ul class="mobileBar">
@@ -117,12 +117,11 @@
                 <div class="letter">
                     <p class="completeP">로그아웃이 완료되었습니다.</p>
                     <form action="/logOut">
-                    <button class="complete">확인</button>
+                        <button class="complete">확인</button>
                     </form>
                 </div>
             </div>
         </div>
-</header>
+    </header>
 </th:block>
 </html>
-
