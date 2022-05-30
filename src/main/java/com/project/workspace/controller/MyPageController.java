@@ -68,8 +68,7 @@ public class MyPageController {
 
         List<UserFollowVO> userFollowVO = userFollowRepository.findByFollowingUser(userNum);
 
-        List<StoryVO> topStoryList = storyRepository.findTop4ByOrderByStoryReadCountDesc();
-        List<StoryVO> allStoryList = storyRepository.findAll();
+        List<StoryVO> allStoryList = storyRepository.findByUserVO(userVO);
 
         List<ProjectVO> projectList = projectRepository.findByUserVO(userVO);
         List<ProjectLikeVO> projectLikeList = projectLikeRepository.findByUserVO(userVO);
@@ -84,7 +83,6 @@ public class MyPageController {
         model.addAttribute("userPointVO", userPointVO);
         model.addAttribute("userFollowVO", userFollowVO);
         model.addAttribute("userAlertVO", userAlertVO);
-        model.addAttribute("topStoryList", topStoryList);
         model.addAttribute("allStoryList", allStoryList);
         model.addAttribute("projectList", projectList);
         model.addAttribute("projectLikeList", projectLikeList);
@@ -98,7 +96,6 @@ public class MyPageController {
         log.info(userAlertVO.toString());
         log.info(userFollowVO.toString());
         log.info("===================스토리================================");
-        topStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
         allStoryList.stream().forEach(storyVO -> log.info(storyVO.toString()));
         log.info("===================프로젝트================================");
         log.info(projectList.toString());

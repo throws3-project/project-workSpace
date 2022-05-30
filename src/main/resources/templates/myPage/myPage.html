@@ -83,38 +83,60 @@
                         <label>닉네임
                             <input type="text"  name="userNickName" class="able" placeholder="3~10자리 이내로 적어주세요!" th:value="${userVO.getUserNickName()}">
                         </label>
-                        <p class="alert">사용 가능합니다.</p>
+<!--                        <p class="alert">사용 가능합니다.</p>-->
                     </div>
                     <div id="phoneWrap" class="marginBottom">
                         <label>휴대폰번호
                             <input type="text" name="userPhone" th:value="${userVO.getUserPhone()}">
                         </label>
-                        <p class="alert">인증완료</p>
+<!--                        <p class="alert">인증완료</p>-->
                     </div>
                     <div id="mainSkill" class="marginBottom">
                         <p>메인 직무/ 상세 직무 / 능력치</p>
                         <div class="flex">
-                            <select class="able first" id="mainSkill2" onchange="personChange(this)">
-                                <option th:selected="${userVO.getUserMainSkill()=='기획'}">기획</option>
-                                <option th:selected="${userVO.getUserMainSkill()=='디자인'}" >디자인</option>
-                                <option th:selected="${userVO.getUserMainSkill()=='프론트엔드개발'}">프론트엔드개발</option>
-                                <option th:selected="${userVO.getUserMainSkill()=='백엔드개발'}">백엔드개발</option>
-                                <option th:selected="${userVO.getUserMainSkill()=='사업'}">사업</option>
-                                <option th:selected="${userVO.getUserMainSkill()=='기타'}">기타</option>
+                            <select id="mainSkill2" onchange="personChange(this);">
+                           <option th:selected="${userVO.getUserMainSkill()=='기획'}">기획</option>
+                            <option th:selected="${userVO.getUserMainSkill()=='디자인'}" >디자인</option>
+                           <option th:selected="${userVO.getUserMainSkill()=='프론트엔드개발'}">프론트엔드개발</option>
+                          <option th:selected="${userVO.getUserMainSkill()=='백엔드개발'}">백엔드개발</option>
+                           <option th:selected="${userVO.getUserMainSkill()=='사업'}">사업</option>
+                          <option th:selected="${userVO.getUserMainSkill()=='기타'}">기타</option>
                             </select>
-                            <select class="able second" id="mainDetail2">
-                                <option th:selected="${userVO.getUserMainDetail()=='UI/UX 기획'}">UI/UX 기획</option>
-                                <option th:selected="${userVO.getUserMainDetail()=='게임 기획'}">게임 기획</option>
-                                <option th:selected="${userVO.getUserMainDetail()=='프로젝트 매니저'}">프로젝트 매니저</option>
-                                <option th:selected="${userVO.getUserMainDetail()=='하드웨어(제품) 기획'}">하드웨어(제품) 기획</option>
+                            <select id="mainDetail2">
+                                <option th:selected="${userVO.getUserMainDetail()=='UI/UX기획'}">UI/UX기획</option>
+                                <option th:selected="${userVO.getUserMainDetail()=='UI/UX기획'}">UI/UX기획</option>
+                                <option th:selected="${userVO.getUserMainDetail()=='게임기획'}">게임기획</option>
+                                <option th:selected="${userVO.getUserMainDetail()=='프로젝트매니저'}">프로젝트매니저</option>
+                                <option th:selected="${userVO.getUserMainDetail()=='하드웨어(제품)기획'}">하드웨어(제품)기획</option>
                             </select>
-                            <select class="able third" id="skillLevel2">
+                            <select id="skillLevel2">
                                 <option th:selected="${userVO.getUserMainLevel()=='초심자'}">초심자</option>
                                 <option th:selected="${userVO.getUserMainLevel()=='초보'}">초보</option>
                                 <option th:selected="${userVO.getUserMainLevel()=='중수'}">중수</option>
                                 <option th:selected="${userVO.getUserMainLevel()=='고수'}">고수</option>
-                                <option th:selected="${userVO.getUserMainLevel()=='해커'}">해커</option>
+                                <option th:selected="${userVO.getUserMainLevel()=='구루'}">구루</option>
                             </select>
+<!--                            <select class="able first" id="mainSkill2" onchange="personChange(this)">-->
+<!--&lt;!&ndash;                                <option th:selected="${userVO.getUserMainSkill()=='기획'}">기획</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <option th:selected="${userVO.getUserMainSkill()=='디자인'}" >디자인</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <option th:selected="${userVO.getUserMainSkill()=='프론트엔드개발'}">프론트엔드개발</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <option th:selected="${userVO.getUserMainSkill()=='백엔드개발'}">백엔드개발</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <option th:selected="${userVO.getUserMainSkill()=='사업'}">사업</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <option th:selected="${userVO.getUserMainSkill()=='기타'}">기타</option>&ndash;&gt;-->
+<!--                            </select>-->
+<!--                            <select class="able second" id="mainDetail2">-->
+<!--                                <option th:selected="${userVO.getUserMainDetail()=='UI/UX 기획'}">UI/UX 기획</option>-->
+<!--                                <option th:selected="${userVO.getUserMainDetail()=='게임 기획'}">게임 기획</option>-->
+<!--                                <option th:selected="${userVO.getUserMainDetail()=='프로젝트 매니저'}">프로젝트 매니저</option>-->
+<!--                                <option th:selected="${userVO.getUserMainDetail()=='하드웨어(제품) 기획'}">하드웨어(제품) 기획</option>-->
+<!--                            </select>-->
+<!--                            <select class="able third" id="skillLevel2">-->
+<!--                                <option th:selected="${userVO.getUserMainLevel()=='초심자'}">초심자</option>-->
+<!--                                <option th:selected="${userVO.getUserMainLevel()=='초보'}">초보</option>-->
+<!--                                <option th:selected="${userVO.getUserMainLevel()=='중수'}">중수</option>-->
+<!--                                <option th:selected="${userVO.getUserMainLevel()=='고수'}">고수</option>-->
+<!--                                <option th:selected="${userVO.getUserMainLevel()=='해커'}">해커</option>-->
+<!--                            </select>-->
                         </div>
                     </div>
 
@@ -169,9 +191,9 @@
                         <p>지역 설정</p>
                         <div class="flex">
                             <select class="able first" id="onOff" onchange="onOffChange(this)" th:value="${userVO.getUserOnOff()}">
-                                <option value="a">온라인/오프라인 모두 가능</option>
-                                <option value="b">온라인만 가능</option>
-                                <option value="c">오프라인만 가능</option>
+                                <option th:value="a">온라인/오프라인 모두 가능</option>
+                                <option th:value="b">온라인만 가능</option>
+                                <option th:value="c">오프라인만 가능</option>
                             </select>
                             <select class="able second" id="sido">
                                 <option th:selected="${userVO.getUserLocation()=='상관없음'}">상관없음</option>
@@ -603,50 +625,6 @@
                                 </div>
                             </div>
                         </li>
-<!--                            <li class="storyTimeLi">-->
-<!--                                <div class="storyTimeLineLeft">-->
-<!--                                    <div class="storyTimeLineImg">-->
-<!--                                        <img src="/images/썸네일6.png">-->
-<!--                                    </div>-->
-<!--                                    <div class="storyTimeLineContents">-->
-<!--                                        <div class="timeLineTitWrap">-->
-<!--                                            <span class="timeLintCategory">workspace-공식채널</span>-->
-<!--                                            <p class="timeLineTit">[출시/업데이트] 워크스페이스 업데이트 완료</p>-->
-<!--                                        </div>-->
-<!--                                        <div class="timeLineTxt">안녕하세요 워크스페이스입니다. 오늘은 2022년 5월 3일 입니다.-->
-<!--                                            여러분 가입해주셔서 너무 감사하고 반가워요 :) Throws3팀 화이팅입니다 Throws3팀의 멤버로는-->
-<!--                                            팀장 배상혁 부팀장 한서현 팀원 박상아 홍승근 송준형으로 구성되어있는 팀 입니다.-->
-<!--                                            각자 맡은 파트 열심히해서 좋은 프로젝트 완성해봅시다 :D-->
-<!--                                        </div>-->
-<!--                                        <div class="timeLineTagWrap">-->
-<!--                                            <span>#상아에요</span>-->
-<!--                                            <span># 상아태그</span>-->
-<!--                                            <span>#상혁준형</span>-->
-<!--                                            <span>#서현승근</span>-->
-<!--                                            <span>#화이팅</span>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="storyTimeLineRight">-->
-<!--                                    &lt;!&ndash; <div class="heartWrap">-->
-<!--                                        <div class="favorite"></div>-->
-<!--                                    </div> &ndash;&gt;-->
-<!--                                    <div class="TimeLineStatusWrap">-->
-<!--                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">-->
-<!--                                            <img class="storyTimeLineDivImg" src="/images/eye.png">-->
-<!--                                            <span class="divFooterTxt">122</span>-->
-<!--                                        </p>-->
-<!--                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">-->
-<!--                                            <img class="storyTimeLineDivImg" src="/images/msg.png">-->
-<!--                                            <span class="divFooterTxt">0</span>-->
-<!--                                        </p>-->
-<!--                                        <p class="storyTimeLineStatusDiv" style="margin-right: 16px !important;">-->
-<!--                                            <img class="storyTimeLineDivImg" src="/images/likeup.png">-->
-<!--                                            <span class="divFooterTxt">4</span>-->
-<!--                                        </p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </li>-->
                         </ul>
                     </div>
                 </div>
