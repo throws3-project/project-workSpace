@@ -23,7 +23,7 @@ $(".storyViewWrap").on("click", ".activeInputBtn", function (e) {
             return;
         } else {
             storyService.insertReply({
-                storyReply: storyReply, userNum: 1, storyNum: storyNum
+                storyReply: storyReply, userNum: userNum, storyNum: storyNum
             }, function (result) {
                 alert(result);
                 getList(storyNum);
@@ -157,11 +157,17 @@ function getList(storyNum) {
             str += "<button class='activeInputBtn'>등록</button>";
             str += "</div>";
             str += "</div>";
-
-
             $(".rpyAtiveWrap").html(str);
         })
 }
+
+//댓글 수정,삭제
+// str += "<div class='replyBtnWraps'>";
+// str += "<p class='txtBtns modifys'>수정</p>";
+// str += '<div class="sell">｜</div>';
+// str += "<p class='txtBtns removes'>삭제</p>";
+// str += "<button class='activeInputBtns'>수정완료</button>";
+// str += "</div>";
 
 $(".rpyAtiveWrap").on("click", ".noSessionId", function () {
     $(".modalWrapOpen").show();
