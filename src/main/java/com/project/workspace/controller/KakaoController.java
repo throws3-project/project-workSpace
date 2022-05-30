@@ -154,8 +154,8 @@ public class KakaoController {
             session.setAttribute("userNum", userVO.getUserNum());
             session.setAttribute("profile", userVO);
             String userNickName = userVO.getUserNickName();
-
             model.addAttribute("userNickName", userNickName);
+
 
             url = "main/index";
         }
@@ -251,6 +251,24 @@ public class KakaoController {
         HttpSession session = req.getSession();
         session.invalidate();
         return new RedirectView("main/index");
+    }
+
+    //    아임포트 사용시 포인트 올라가는 컨트롤러
+    @GetMapping("/charge")
+    public RedirectView charge(HttpServletRequest req, Long price, Long workPoint){
+        HttpSession session = req.getSession();
+        Long userNum = (Long)session.getAttribute("userNum");
+
+        UserVO userVO = userRepository.findByUserNum(userNum);
+        Long userPoint = userVO.getUserPoint() + price;
+        Long userExp = userVO.getUserExp() + workPoint;
+
+        userVO.setUserPoint(userPoint);
+        userVO.setUserExp(userExp);
+
+        userRepository.save(userVO);
+
+        return new RedirectView("user/payment");
     }
 
 //    카카오페이
