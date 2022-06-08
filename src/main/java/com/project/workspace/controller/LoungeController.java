@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.security.cert.CollectionCertStoreParameters;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.*;
 
@@ -36,8 +38,28 @@ public class LoungeController {
     private final LoungeLikeRepository loungeLikeRepository;
 
     @GetMapping("/lounge")
-    public String lounge(Model model) {
+    public String lounge(Model model, HttpServletRequest req) {
         List<LoungeVO> loungeVOs = loungeService.findLoungeAll();
+        HttpSession session = req.getSession();
+        Long userNum = (Long)session.getAttribute("userNum");
+        List<Integer> likeUser = new ArrayList<>();
+
+
+        for(LoungeVO loungeVO : loungeVOs){
+            boolean flag = false;
+            List<Long> collect = loungeVO.getLikes().stream().map(loungeLikeVO -> loungeLikeVO.getUserVO().getUserNum()).collect(Collectors.toList());
+            log.info(collect.toString());
+            for (Long likeUserNum : collect){
+                if(userNum == likeUserNum){
+                    flag = true;
+                }
+            }
+            if(flag == true){
+                likeUser.add(1);
+            }else{
+                likeUser.add(0);
+            }
+        }
 
         List<String> loungeUserNickNames = loungeVOs.stream()
                 .map(loungeVO -> loungeVO.getUserVO().getUserNickName())
@@ -64,12 +86,14 @@ public class LoungeController {
                 .collect(Collectors.toList());
 
         Collections.reverse(loungeVOs);
+        Collections.reverse(likeUser);
         Collections.reverse(loungeUserNickNames);
         Collections.reverse(loungeLikesNum);
         Collections.reverse(loungeRepliesNum);
 
         List<UserVO> userVOs = loungeVOs.stream().map(UserVO -> UserVO.getUserVO()).collect(Collectors.toList());
         model.addAttribute("loungeVOs", loungeVOs);
+        model.addAttribute("likeUser", likeUser);
         model.addAttribute("userVOs", userVOs);
         model.addAttribute("loungeLikesNum", loungeLikesNum);
         model.addAttribute("loungeRepliesNum", loungeRepliesNum);

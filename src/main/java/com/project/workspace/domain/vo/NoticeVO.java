@@ -33,21 +33,12 @@ public class NoticeVO {
     private Date noticeDate;
     @Column(name = "notice_read_count")
     private Long noticeReadCount;
-    @Column(name = "notice_img")
-    private String noticeImg;
-    @Column(name = "notice_img_uuid")
-    private String noticeImgUuid;
-    @Column(name = "notice_img_path")
-    private String noticeImgPath;
 
     @Builder
-    public NoticeVO(String noticeTitle, String noticeContent, String noticeImg, String noticeImgUuid, String noticeImgPath, String noticeDate) {
+    public NoticeVO(String noticeTitle, String noticeContent, String noticeDate) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
-        this.noticeImg = noticeImg;
-        this.noticeImgUuid = noticeImgUuid;
-        this.noticeImgPath = noticeImgPath;
         try {
             if(noticeDate!=null){this.noticeDate = sdf.parse(noticeDate);}
         } catch (ParseException e) {

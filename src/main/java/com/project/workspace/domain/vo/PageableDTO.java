@@ -35,15 +35,9 @@ public class PageableDTO {
         this.total = total;
         this.pageCount = pageCount;
         this.endPage =   (int)(Math.ceil(pageNumber / 10.0)) * pageCount;
-        log.info("page-------------------------------");
-        log.info("endPage"+endPage);
         this.startPage = endPage - pageCount + 1;
-        log.info("startPage-------------------------------");
-        log.info("startPage"+startPage);
         /* realEnd 구하기 */
         this.realEnd = (int)Math.ceil(total /(double) amount);
-        log.info("realEnd-------------------------------");
-        log.info("realEnd"+realEnd);
         /* endPage와 비교 */
         //        endPage = endPage > realEnd ? realEnd : endPage;
 
