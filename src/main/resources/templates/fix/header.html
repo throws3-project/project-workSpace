@@ -27,7 +27,7 @@
                     <div class="hoverMenu">
                         <div class="profileSummary">
                             <div class="profileImgWrap">
-                                <a th:href="'/main/userDetail/'+${session.userNum}" class="session.profileImgWrapA">
+                                <a th:href="@{/main/userDetail(userNum=${session.userNum})}" class="session.profileImgWrapA">
                                     <img src="https://letspl.me/assets/images/prof-no-img.png" class="myPageInfo">
                                 </a>
                                 <div class="profileImgWholeWrap">
@@ -36,12 +36,12 @@
                                         <a class="logOut">로그아웃</a>
                                     </div>
                                     <div class="profileImgWrapSecondLine">
-                                        <a th:href="'/main/userDetail/'+${session.userNum}">
+                                        <a th:href="@{/main/userDetail(userNum=${session.userNum})}">
                                             <p class="profileUserId" th:text="${session.profile.userNickName}"></p>
                                         </a>
                                     </div>
                                     <div class="profileImgWrapThirdLine">
-                                        <a th:href="'/main/userDetail/'+${session.userNum}">
+                                        <a th:href="@{/main/userDetail(userNum=${session.userNum})}">
                                             <p class="positionTxt" th:if="${session.profile.userMainLevel==1}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 초보'"></p>
                                             <p class="positionTxt" th:if="${session.profile.userMainLevel==2}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 중수'"></p>
                                             <p class="positionTxt" th:if="${session.profile.userMainLevel==3}" th:text="'본캐 : '+${session.profile.userMainDetail}+' / 고수'"></p>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="navList">
-                            <div class="navListFirstDiv"><a th:href="'/main/userDetail/'+${session.userNum}" class="navListFirstA">내 프로필</a></div>
+                            <div class="navListFirstDiv"><a th:href="@{/main/userDetail(userNum=${session.userNum})}" class="navListFirstA">내 프로필</a></div>
                             <div class="navListSecondDiv"><a href="/myPage" class="navListSecondA">정보 수정</a></div>
                             <div class="navListThirdDiv"><a href="/myPage" class="navListThirdA">프로젝트 현황</a></div>
                         </div>

@@ -44,6 +44,7 @@ public class NoticeController {
     @GetMapping("/noticeDetail")
     public void noticeDetail(@RequestParam("noticeNum") Long noticeNum, Model model){
         NoticeVO noticeVO = noticeRepository.findById(noticeNum).get();
+        noticeVO.setNoticeReadCount(noticeVO.getNoticeReadCount() + 1);
 
         model.addAttribute("noticeVO", noticeVO);
     }

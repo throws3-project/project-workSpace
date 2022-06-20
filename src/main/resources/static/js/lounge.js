@@ -9,7 +9,7 @@ function lounge() {
         str += '<div class="replyTool">';
         str += '<div class="replyTop">';
         str += '<div class="replyLeft">';
-        str += '<a href="https://letspl.me/people/%EC%83%81%EC%95%84%EC%95%BC">';
+        str += '<a href="/main/userDetail?userNum='+ userVOs[i].userNum +'">';
         str += '<div class="proWrap">';
         str += '<img src="/images/여.png">';
         str += '</div>';
@@ -56,7 +56,11 @@ function lounge() {
         str += '<span class="replyCount">' + loungeRepliesNum[i] + '</span>';
         str += '</div>';
         str += '<div class="rpyLikeDiv">';
-        str += '<img class="rpyImg" src="/images/likeup.png">';
+        if(likeUser[i] === 1){
+            str += '<img class="rpyImg filter" src="/images/likeup.png">';
+        }else{
+            str += '<img class="rpyImg" src="/images/likeup.png">';
+        }
         str += '<span class="replyLike">' + loungeLikesNum[i] + '</span>';
         str += '</div>';
         str += '</div>';
@@ -249,10 +253,10 @@ $(".inputText").on("click", ".rpyLikeDiv", function () {
                 console.log(likeTable.next());
                 console.log($(likeTable).next());
                 if (split[0] === "success") {
-                    likeTable.find(".rpyImg").css("filter", "invert(62%) sepia(79%) saturate(2914%) hue-rotate(323deg) brightness(100%) contrast(84%)");
+                    likeTable.find(".rpyImg").addClass("filter");
                     likeTable.find(".replyLike").text(split[1]);
                 } else {
-                    likeTable.find(".rpyImg").css("filter", "unset");
+                    likeTable.find(".rpyImg").removeClass("filter");
                     if (!split[1]) {
                         likeTable.find(".replyLike").text("0");
                     } else {
